@@ -1,0 +1,1 @@
+var baseUrl = 'http://localhost:8082/OphthaCare_Manager';
