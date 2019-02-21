@@ -5,15 +5,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthenticationService } from './services/authenticationService';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { AuthGuard } from './guard/auth.guard';
 
 const appRoutes: Routes = [
   {
     path: 'login', component: LoginComponent
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home', component: HomeComponent, canActivate: [AuthGuard]
   }
 ];
 
@@ -26,11 +28,14 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [
     AuthenticationService,
-    MessageService
+    MessageService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

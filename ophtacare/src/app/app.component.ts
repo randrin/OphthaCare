@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
   public constructor (private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
-    this.authenticationService.router.navigate(['home']);
+    this.authenticationService.router.navigate(['login']);
   }
 }

@@ -11,7 +11,7 @@ import { Admin } from '../../models/administrateur/admin';
 })
 export class LoginComponent implements OnInit {
 
-  public admin = new Admin(0, true, '', '', '', '', '');
+  public admin = new Admin(0, true, '', '', '', '', '', '');
   private result;
 
   constructor(
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
         data => { this.result = data; },
         error => { this.result = 'error'; },
         () => {
-          if (this.result.json().code != null) {
+          console.log("Response code: " + this.result.json());
+          if (this.result.statusText !== 'OK') {
             this.messageService.add({
               sticky: false,
               severity: 'warn',

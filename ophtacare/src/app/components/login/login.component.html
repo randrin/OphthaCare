@@ -1,30 +1,31 @@
-<div class="ui-g">
-  <div class="ui-g-12 ui-md-2">Menu</div>
-  <div class="ui-g-12 ui-md-10 ui-g-nopad">
-      <div class="ui-g-12">
-          Bar
-      </div>
-      <div class="ui-g-12 ui-g-nopad">
-          <div class="ui-g">
-              <div class="ui-g-12 ui-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh. In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante</div>
-              <div class="ui-g-12 ui-md-4">Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique nulla nec, rutrum sapien.</div>
-              <div class="ui-g-12 ui-md-4">Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis. Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis, condimentum eget hendrerit sit amet.</div>
+<div class="container">
+  <div class="row">
+    <div class="vertical-line col-md-6">
+      <h2 style="color: blue"><b>OphthaCare</b></h2>
+      <br>
+      <p>Plateforme de prise en charge des patients souffrant des diffèrentes pathélogiques du mal des yeux à la clinique du Dr. Nimpa Vanessa.</p>
+    </div>
+    <div class="col-md-6 loginBox">
+      <form #adminForm="ngForm" (ngSubmit)="login()">
+        <div class="form-group clearfix">
+          <label for="pseudo" class="col-md-3 col-sm-5 col-xs-12"><b>Pseudo</b></label>
+          <div class="col-md-9 col-sm-7 col-xs-12">
+            <input id="pseudo" type="text" class="form-control" name="pseudo" [(ngModel)]="admin.username" required />
           </div>
-          
-          <div class="ui-g">
-              <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div>  
-              <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div> 
-              <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div>    
-              <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div>      
+        </div>
+        <div class="form-group clearfix">
+          <label for="password" class="col-md-3 col-sm-5 col-xs-12"><b>Password</b></label>
+          <div class="col-md-9 col-sm-7 col-xs-12">
+            <input id="password" type="password" class="form-control" name="password" [(ngModel)]="admin.password" required />
           </div>
-          
-          <div class="ui-g">
-              <div class="ui-g-12 ui-md-6">Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.</div>
-              <div class="ui-g-12 ui-md-6">Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam pretium leo et egestas luctus. Nunc facilisis gravida tellus.</div>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="col-md-9 col-sm-7 col-xs-12">
+            <button class="btn btn-success" type="submit" [disabled]="!adminForm.form.valid"><i class="fa fa-paper-plane"></i> Login</button>
           </div>
-      </div>
-  </div>
-  <div class="ui-g-12">
-      Footer
+        </div>
+      </form>
+    </div>
   </div>
 </div>
