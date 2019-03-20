@@ -6,7 +6,7 @@ import { Admin } from '../models/administrateur/admin';
 @Injectable()
 export class AuthenticationService {
 
-    private _admin = new Admin(0, true, '', '', '', '', '', '');
+    public admin = new Admin(0, true, '', '', '', '', '', '');
     private loginUrl = window['baseUrl'] + '/admin/login';
 
     constructor(
@@ -27,6 +27,6 @@ export class AuthenticationService {
     }
 
     public setAdmin(value) {
-        this._admin = value;
+        this.admin = value;
     }
 }

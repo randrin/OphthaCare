@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authenticationService';
 import { MessageService } from 'primeng/api';
 import { Admin } from '../../models/administrateur/admin';
+import { AuthenticationService } from '../../services/authenticationService';
 
 @Component({
   selector: 'app-login',
-  providers: [AuthenticationService],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -22,26 +21,31 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(admin) {
+  login() {
     this.authenticationService.login(this.admin)
       .subscribe(
-        data => { this.result = data; },
-        error => { this.result = 'error'; },
-        () => {
-          console.log("Response code: " + this.result.json());
-          if (this.result.statusText !== 'OK') {
+        data => {
+          console.log('Data code: ' + data.json().code);
+          if (data.json().code != null) {
             this.messageService.add({
               sticky: false,
               severity: 'warn',
-              summary: this.result.json().code,
-              detail: this.result.json().message
+              summary: data.json().code,
+              detail: data.json().message
             });
           } else {
-            localStorage.setItem('admin', JSON.stringify(this.result.json()));
-            this.authenticationService.setAdmin(this.result.json());
+            localStorage.setItem('user', JSON.stringify(data.json()));
+            this.authenticationService.admin = data.json();
             this.authenticationService.router.navigate(['home']);
           }
-        }
-      );
+        },
+        err => {
+          this.messageService.add({
+            sticky: false,
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Connection Refused'
+          });
+        });
   }
 }
