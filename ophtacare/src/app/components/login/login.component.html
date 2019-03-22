@@ -1,31 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="vertical-line col-md-6">
-      <h2 style="color: blue"><b>OphthaCare</b></h2>
-      <br>
-      <p>Plateforme de prise en charge des patients souffrant des diffèrentes pathélogiques du mal des yeux à la clinique du Dr. Nimpa Vanessa.</p>
-    </div>
-    <div class="col-md-6 loginBox">
-      <form #adminForm="ngForm" (ngSubmit)="login()">
-        <div class="form-group clearfix">
-          <label for="pseudo" class="col-md-3 col-sm-5 col-xs-12"><b>Pseudo</b></label>
-          <div class="col-md-9 col-sm-7 col-xs-12">
-            <input id="pseudo" type="text" class="form-control" name="pseudo" [(ngModel)]="admin.username" required />
-          </div>
-        </div>
-        <div class="form-group clearfix">
-          <label for="password" class="col-md-3 col-sm-5 col-xs-12"><b>Password</b></label>
-          <div class="col-md-9 col-sm-7 col-xs-12">
-            <input id="password" type="password" class="form-control" name="password" [(ngModel)]="admin.password" required />
-          </div>
-        </div>
-        <br>
-        <div class="form-group">
-          <div class="col-md-9 col-sm-7 col-xs-12">
-            <button class="btn btn-success" type="submit" [disabled]="!adminForm.form.valid"><i class="fa fa-paper-plane"></i> Login</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+<mat-toolbar color="primary">
+    <span><img src="./assets/images/neuro-banner-1024x415.jpg" width="60" height="60"></span>
+    <b style="font-size: 2em; margin-left: 5px; color: white;"><em>OphthaCare</em></b>
+    <span class="demo-toolbar"></span>
+</mat-toolbar>
+<mat-card>
+    <mat-card-title style="margin: 15px;">
+        LogIn OphthaCare
+    </mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
+                        <mat-form-field class="demo-full-width">
+                            <mat-icon matPrefix style="margin-right: 10px;">account_circle</mat-icon>
+                            <input matInput placeholder="Username" name="username" [(ngModel)]="admin.username" type="text">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
+                        <mat-form-field class="demo-full-width">
+                            <mat-icon matPrefix style="margin-right: 10px;">vpn_key</mat-icon>
+                            <input matInput placeholder="Password" name="password" [(ngModel)]="admin.password" [type]="hide ? 'password' : 'text'">
+                            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="panel-footer">
+                <button mat-raised-button [disabled]="!loginForm.form.valid" color="primary" type="submit">
+                    <mat-icon>done_all</mat-icon> 
+                    <span> Entrer</span>
+                </button>
+            </div>
+            <br>
+        </form>
+    </mat-card-content>
+</mat-card>

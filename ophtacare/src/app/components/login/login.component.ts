@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../services/authenticationService';
 export class LoginComponent implements OnInit {
 
   public admin = new Admin(0, true, '', '', '', '', '', '');
-  private result;
+  public hide = false;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.hide = true;
   }
 
   login() {
