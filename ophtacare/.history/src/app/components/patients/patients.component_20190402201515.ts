@@ -28,13 +28,13 @@ export class PatientsComponent implements OnInit {
         { field: 'prenomPatient', header: 'Prènom' },
         { field: 'sexePatient', header: 'Sexe' },
         { field: 'dateNaisPatient', header: 'Date Naissance' },
-        // { field: 'agePatient', header: 'Age' },
-        // { field: 'emailPatient', header: 'Email' },
+        { field: 'agePatient', header: 'Age' },
+        { field: 'emailPatient', header: 'Email' },
         { field: 'numTelPatient', header: 'N° Cellulaire' },
-        // { field: 'numFixePatient', header: 'N° Fixe' },
-        // { field: 'addressePatient', header: 'Domicile' },
+        { field: 'numFixePatient', header: 'N° Fixe' },
+        { field: 'addressePatient', header: 'Domicile' },
         { field: 'domicilePatient', header: 'Code Postale' },
-        // { field: 'infoSupplPatient', header: 'Infos Supplémentaires' },
+        { field: 'infoSupplPatient', header: 'Infos Supplémentaires' },
         { field: 'detail', header: 'Modifier' },
         { field: 'detail', header: 'Effacer' },
       ];
@@ -54,9 +54,6 @@ export class PatientsComponent implements OnInit {
     });
   }
 
-  isAdmin() {
-
-  }
   exportExcelFile() {
     console.log('Export excel file called: -> Patients');
     this.patientsService.exportPatients(this.authenticationService.getUsername()).subscribe(

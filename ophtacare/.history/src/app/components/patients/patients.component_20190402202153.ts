@@ -29,7 +29,7 @@ export class PatientsComponent implements OnInit {
         { field: 'sexePatient', header: 'Sexe' },
         { field: 'dateNaisPatient', header: 'Date Naissance' },
         // { field: 'agePatient', header: 'Age' },
-        // { field: 'emailPatient', header: 'Email' },
+        { field: 'emailPatient', header: 'Email' },
         { field: 'numTelPatient', header: 'N° Cellulaire' },
         // { field: 'numFixePatient', header: 'N° Fixe' },
         // { field: 'addressePatient', header: 'Domicile' },

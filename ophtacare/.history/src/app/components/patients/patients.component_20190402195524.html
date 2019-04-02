@@ -1,5 +1,7 @@
 <app-home></app-home>
 <div class="main-container">
+  <p-button type="button" label="Download File Utenze" (onClick)="exportExcelFile()" icon="pi pi-download"
+    class="ui-button-success"></p-button>
     <div style="background: #3385a9">
         <div class="title">
           Patients
@@ -18,10 +20,11 @@
                 <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
                 <input class="filter" type="text" pInputText size="50" placeholder="Filtro" (input)="dt.filterGlobal($event.target.value, 'contains')"
                   style="width:auto">
-                <p-button label="Reset Filtri" icon="pi pi-times" iconPos="left" style="margin-left: 20px;"></p-button>
+                <p-button label="Reset Filtri" (click)="clearFilter(dt)" icon="pi pi-times" iconPos="left" style="margin-left: 20px;"></p-button>
               </div>
             </p-toolbar>
           </ng-template>
+    
           <ng-template pTemplate="header" let-columns>
             <tr>
               <th *ngFor="let col of columns">
@@ -35,16 +38,20 @@
               </th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-patient>
+          <ng-template pTemplate="body" let-user>
             <tr>
-              <td>{{ patient.nomPatient }}</td>
-              <td>{{ patient.prenomPatient }}</td>
-              <td>{{ patient.sexePatient }}</td>
-              <td>{{ patient.dateNaisPatient }}</td>
-              <td>{{ patient.numTelPatient }}</td>
-              <td>{{ patient.domicilePatient }}</td>
-              <td><p-button type="button" style="margin-left:33%" [disabled]="isAdmin()" icon="pi pi-cog"></p-button></td>
-              <td><p-button type="button" icon="pi pi-trash" style="margin-left:33%" [disabled]="isAdmin()"></p-button></td>
+              <td>{{user.name}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.company}}</td>
+              <td>{{user.role}}</td>
+              <td>{{user.enabled}}</td>
+              <td>
+                <p-button type="button" style="margin-left:33%" [disabled]="isAdmin()" (onClick)="modificaUtente(user)" icon="pi pi-cog"></p-button>
+              </td>
+              <td>
+                <p-button type="button" icon="pi pi-trash" style="margin-left:33%" [disabled]="isAdmin()" (onClick)="confirmDelete(user)"></p-button>
+              </td>
             </tr>
           </ng-template>
         </p-table>

@@ -1,5 +1,7 @@
 <app-home></app-home>
 <div class="main-container">
+  <p-button type="button" label="Download File Utenze" (onClick)="exportExcelFile()" icon="pi pi-download"
+    class="ui-button-success"></p-button>
     <div style="background: #3385a9">
         <div class="title">
           Patients
@@ -41,10 +43,15 @@
               <td>{{ patient.prenomPatient }}</td>
               <td>{{ patient.sexePatient }}</td>
               <td>{{ patient.dateNaisPatient }}</td>
+              <td>{{ patient.emailPatient }}</td>
               <td>{{ patient.numTelPatient }}</td>
               <td>{{ patient.domicilePatient }}</td>
-              <td><p-button type="button" style="margin-left:33%" [disabled]="isAdmin()" icon="pi pi-cog"></p-button></td>
-              <td><p-button type="button" icon="pi pi-trash" style="margin-left:33%" [disabled]="isAdmin()"></p-button></td>
+              <td>
+                <p-button type="button" style="margin-left:33%" [disabled]="isAdmin()" icon="pi pi-cog"></p-button>
+              </td>
+              <td>
+                <p-button type="button" icon="pi pi-trash" style="margin-left:33%" [disabled]="isAdmin()"></p-button>
+              </td>
             </tr>
           </ng-template>
         </p-table>

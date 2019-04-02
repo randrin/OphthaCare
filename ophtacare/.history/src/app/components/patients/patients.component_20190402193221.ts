@@ -4,7 +4,7 @@ import { ConfirmationService } from 'primeng/primeng';
 import { MessageService } from 'primeng/api';
 import { AuthenticationService } from '../../services/authenticationService';
 import saveAs from 'save-as';
-import { Patients } from '../../models/patients/patients';
+import { Patients } from 'src/app/models/patients/patients';
 
 @Component({
   selector: 'app-patients',
@@ -14,7 +14,7 @@ import { Patients } from '../../models/patients/patients';
 })
 export class PatientsComponent implements OnInit {
 
-  public cols: any[];
+  public col: any[];
   public patients: Patients = { list: [] };
   public response = {
     code: 0,
@@ -22,19 +22,19 @@ export class PatientsComponent implements OnInit {
   };
 
   constructor(private patientsService: PatientsServiceService, private messageService: MessageService, 
-    private authenticationService: AuthenticationService) {
-      this.cols = [
+    private authenticationService: AuthenticationService) { 
+      this.col = [
         { field: 'nomPatient', header: 'Nom' },
         { field: 'prenomPatient', header: 'Prènom' },
         { field: 'sexePatient', header: 'Sexe' },
         { field: 'dateNaisPatient', header: 'Date Naissance' },
-        // { field: 'agePatient', header: 'Age' },
-        // { field: 'emailPatient', header: 'Email' },
+        { field: 'agePatient', header: 'Age' },
+        { field: 'emailPatient', header: 'Email' },
         { field: 'numTelPatient', header: 'N° Cellulaire' },
-        // { field: 'numFixePatient', header: 'N° Fixe' },
-        // { field: 'addressePatient', header: 'Domicile' },
+        { field: 'numFixePatient', header: 'N° Fixe' },
+        { field: 'addressePatient', header: 'Domicile' },
         { field: 'domicilePatient', header: 'Code Postale' },
-        // { field: 'infoSupplPatient', header: 'Infos Supplémentaires' },
+        { field: 'infoSupplPatient', header: 'Infos Supplémentaires' },
         { field: 'detail', header: 'Modifier' },
         { field: 'detail', header: 'Effacer' },
       ];
@@ -54,9 +54,6 @@ export class PatientsComponent implements OnInit {
     });
   }
 
-  isAdmin() {
-
-  }
   exportExcelFile() {
     console.log('Export excel file called: -> Patients');
     this.patientsService.exportPatients(this.authenticationService.getUsername()).subscribe(
@@ -92,6 +89,4 @@ export class PatientsComponent implements OnInit {
     const blob = new Blob([data.blob()], { type: 'application/octet-stream' });
     saveAs(blob, 'Patients_OphthaCare.xlsx');
   }
-
-  
 }

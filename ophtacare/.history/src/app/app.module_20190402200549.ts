@@ -17,7 +17,6 @@ import { ButtonModule, ConfirmationService, ConfirmDialogModule, DataTableModule
   Message, Growl, GrowlModule, CalendarModule, BlockUIModule, OverlayPanelModule, DialogModule, InputTextModule,
   TabViewModule, DropdownModule, TabMenuModule, InputTextareaModule, CardModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
-import { ToolbarModule } from 'primeng/toolbar';
 import {
   MatButtonModule,
   MatDatepickerModule,
@@ -91,7 +90,6 @@ const appRoutes: Routes = [
     ButtonModule,
     TableModule,
     DataTableModule,
-    ToolbarModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
