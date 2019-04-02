@@ -171,9 +171,3 @@ mat-toolbar-row {
       left: 0px;
   }
 }
-
-@media screen and (max-width: 992px) {
-  .push-right {
-          left: 0 !important;
-      }
-}

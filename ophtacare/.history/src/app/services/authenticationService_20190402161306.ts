@@ -30,7 +30,7 @@ export class AuthenticationService {
         this.admin = value;
     }
 
-    public getUsername() {
+    public getUsername(){
         if (this.admin == null) {
           return '';
         }

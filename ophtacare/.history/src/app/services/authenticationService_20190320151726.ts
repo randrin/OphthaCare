@@ -29,11 +29,4 @@ export class AuthenticationService {
     public setAdmin(value) {
         this.admin = value;
     }
-
-    public getUsername() {
-        if (this.admin == null) {
-          return '';
-        }
-       return this.admin.username;
-    }
 }

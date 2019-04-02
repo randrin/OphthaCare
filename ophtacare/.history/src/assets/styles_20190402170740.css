@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+.main-container {
+    position: absolute;
+    top: 64px;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.container{
+	width:600px;
+	height:350px;
+	margin:100px auto;
+	box-shadow: 2px 3px 15px -8px;
+}
+
+.content{
+	height:250px;
+	text-align: center;
+	padding: 70px;
+}
+
+.content span{
+	margin-bottom: 30px;
+}
+
+.title{
+	font-size: 28px;
+	color: white;
+	padding: 20px;
+	background: #00c1e2;
+}
+
+.panel-body{
+	padding: 15px;
+}
+
+.errorMsg{
+	color:red;
+}
+.successMsg{
+	color:green;
+}
+.panel-body button{
+	float:right;
+}
+
