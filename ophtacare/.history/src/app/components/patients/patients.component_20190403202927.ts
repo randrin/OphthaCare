@@ -62,21 +62,8 @@ export class PatientsComponent implements OnInit {
 
   }
 
-  openDetails (patient: Patient) {
+  openDetails () {
     this.displayDetailsDialog = true;
-    this.patient = {
-      idPatient: patient.idPatient,
-      nomPatient: patient.nomPatient,
-      prenomPatient: patient.prenomPatient,
-      agePatient: patient.agePatient,
-      codePostPatient: patient.codePostPatient,
-      dateNaisPatient: patient.dateNaisPatient,
-      domicilePatient: patient.domicilePatient,
-      infoSupplPatient: patient.infoSupplPatient,
-      numFixePatient: patient.numFixePatient,
-      numTelPatient: patient.numTelPatient,
-      sexePatient: patient.sexePatient
-    };
   }
   exportExcelFile() {
     console.log('Export excel file called: -> Patients');

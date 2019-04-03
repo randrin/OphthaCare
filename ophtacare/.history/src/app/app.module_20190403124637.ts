@@ -13,9 +13,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { AuthGuard } from './guard/auth.guard';
-import * as $ from 'jquery';
 import { ButtonModule, ConfirmationService, ConfirmDialogModule, DataTableModule, SharedModule,
-  GrowlModule, CalendarModule, BlockUIModule, OverlayPanelModule, DialogModule, InputTextModule,
+  Message, Growl, GrowlModule, CalendarModule, BlockUIModule, OverlayPanelModule, DialogModule, InputTextModule,
   TabViewModule, DropdownModule, TabMenuModule, InputTextareaModule, CardModule, MessageModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -92,19 +91,7 @@ const appRoutes: Routes = [
     ButtonModule,
     TableModule,
     DataTableModule,
-    ConfirmDialogModule,
-    SharedModule,
-    GrowlModule,
-    CalendarModule,
-    BlockUIModule,
-    OverlayPanelModule,
-    DialogModule,
-    InputTextModule,
-    TabViewModule,
-    DropdownModule,
-    TabMenuModule,
-    InputTextareaModule,
-    CardModule,
+    ConfirmationService,
     MessageModule,
     ToolbarModule,
     BrowserAnimationsModule,
@@ -152,7 +139,6 @@ const appRoutes: Routes = [
     AuthenticationService,
     PatientsServiceService,
     MessageService,
-    ConfirmationService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

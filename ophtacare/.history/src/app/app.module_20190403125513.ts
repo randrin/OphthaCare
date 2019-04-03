@@ -13,7 +13,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { AuthGuard } from './guard/auth.guard';
-import * as $ from 'jquery';
 import { ButtonModule, ConfirmationService, ConfirmDialogModule, DataTableModule, SharedModule,
   GrowlModule, CalendarModule, BlockUIModule, OverlayPanelModule, DialogModule, InputTextModule,
   TabViewModule, DropdownModule, TabMenuModule, InputTextareaModule, CardModule, MessageModule } from 'primeng/primeng';

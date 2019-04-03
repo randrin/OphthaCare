@@ -3,9 +3,9 @@ import { PatientsServiceService } from '../../services/patientsservice.service';
 import { ConfirmationService } from 'primeng/primeng';
 import { MessageService } from 'primeng/api';
 import { AuthenticationService } from '../../services/authenticationService';
+import * as $ from 'jquery';
 import saveAs from 'save-as';
 import { Patients } from '../../models/patients/patients';
-import { Patient } from '../../models/patients/patient';
 
 @Component({
   selector: 'app-patients',
@@ -21,26 +21,23 @@ export class PatientsComponent implements OnInit {
     code: 0,
     message: ''
   };
-  public displayDetailsDialog;
-  public patient = new Patient(0, '', '', '', '', 0, '', 0, 0, '', 0);
 
   constructor(private patientsService: PatientsServiceService, private messageService: MessageService, 
     private authenticationService: AuthenticationService) {
       this.cols = [
-        { field: 'detail', header: 'detail' },
-        { field: 'nomPatient', header: 'firstName' },
-        { field: 'prenomPatient', header: 'lastName' },
-        { field: 'sexePatient', header: 'sex' },
-        { field: 'dateNaisPatient', header: 'dateOfBorn' },
-        // { field: 'agePatient', header: 'year' },
-        // { field: 'emailPatient', header: 'email' },
-        { field: 'numTelPatient', header: 'cellularePhone' },
-        // { field: 'numFixePatient', header: 'fixePhone' },
-        // { field: 'addressePatient', header: 'city' },
-        { field: 'codePostPatient', header: 'postalCode' },
-        // { field: 'infoSupplPatient', header: 'supplInfos' },
-        { field: 'detail', header: 'modify' },
-        { field: 'detail', header: 'cancel' },
+        { field: 'nomPatient', header: 'Nom' },
+        { field: 'prenomPatient', header: 'Prènom' },
+        { field: 'sexePatient', header: 'Sexe' },
+        { field: 'dateNaisPatient', header: 'Date Naissance' },
+        // { field: 'agePatient', header: 'Age' },
+        // { field: 'emailPatient', header: 'Email' },
+        { field: 'numTelPatient', header: 'N° Cellulaire' },
+        // { field: 'numFixePatient', header: 'N° Fixe' },
+        // { field: 'addressePatient', header: 'Domicile' },
+        { field: 'codePostPatient', header: 'Code Postale' },
+        // { field: 'infoSupplPatient', header: 'Infos Supplémentaires' },
+        { field: 'detail', header: 'Modifier' },
+        { field: 'detail', header: 'Effacer' },
       ];
     }
 
@@ -60,23 +57,6 @@ export class PatientsComponent implements OnInit {
 
   isAdmin() {
 
-  }
-
-  openDetails (patient: Patient) {
-    this.displayDetailsDialog = true;
-    this.patient = {
-      idPatient: patient.idPatient,
-      nomPatient: patient.nomPatient,
-      prenomPatient: patient.prenomPatient,
-      agePatient: patient.agePatient,
-      codePostPatient: patient.codePostPatient,
-      dateNaisPatient: patient.dateNaisPatient,
-      domicilePatient: patient.domicilePatient,
-      infoSupplPatient: patient.infoSupplPatient,
-      numFixePatient: patient.numFixePatient,
-      numTelPatient: patient.numTelPatient,
-      sexePatient: patient.sexePatient
-    };
   }
   exportExcelFile() {
     console.log('Export excel file called: -> Patients');
