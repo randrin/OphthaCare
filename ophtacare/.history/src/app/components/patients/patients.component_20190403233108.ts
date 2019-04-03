@@ -57,9 +57,7 @@ export class PatientsComponent implements OnInit {
           this.patients.list = this.patients.list.concat(response.json().filter(n => n));
         }
     });
-    setTimeout(() => {
-      this.blocked = false;
-    }, 3000);
+    this.blocked = false;
   }
 
   isAdmin() {

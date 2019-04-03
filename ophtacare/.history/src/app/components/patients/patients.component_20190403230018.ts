@@ -6,7 +6,7 @@ import { AuthenticationService } from '../../services/authenticationService';
 import saveAs from 'save-as';
 import { Patients } from '../../models/patients/patients';
 import { Patient } from '../../models/patients/patient';
-import {ProgressBarModule} from 'primeng/progressbar';
+
 @Component({
   selector: 'app-patients',
   providers: [ConfirmationService],
@@ -59,7 +59,7 @@ export class PatientsComponent implements OnInit {
     });
     setTimeout(() => {
       this.blocked = false;
-    }, 3000);
+    }, 5000);
   }
 
   isAdmin() {

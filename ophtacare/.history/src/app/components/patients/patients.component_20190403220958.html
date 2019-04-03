@@ -1,10 +1,6 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
-<div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
-    <img src="/assets/images/giphy.gif" title="Leopard" style="-webkit-transform: scaleX(-1);
-      transform: scaleX(-1); width:40%" />
-  </div>
-
+<p-progressBar *ngIf="blocked == true" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
 <app-home></app-home>
 <div class="main-container">
   <div style="background: #3385a9">
@@ -69,7 +65,7 @@
 </div>
 
 <!-- Dialog Details Patients -->
-<p-dialog header="{{ patient.nomPatient }} {{ patient.prenomPatient }} {{ 'Download Patients' | translate }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ patient.nomPatient }} {{ patient.prenomPatient }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
   <div class="container-fluid" style="margin-top: 35px;">
     <div style="margin-top: 15px;">

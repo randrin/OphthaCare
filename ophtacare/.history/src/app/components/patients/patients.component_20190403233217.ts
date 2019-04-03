@@ -59,7 +59,7 @@ export class PatientsComponent implements OnInit {
     });
     setTimeout(() => {
       this.blocked = false;
-    }, 3000);
+    }, 1000);
   }
 
   isAdmin() {
