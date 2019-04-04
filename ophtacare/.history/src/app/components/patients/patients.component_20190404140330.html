@@ -1,0 +1,146 @@
+<p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
+
+<div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
+  <img src="/assets/images/giphy.gif" title="Leopard" style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
+</div>
+
+<app-home></app-home>
+<div class="main-container">
+  <div style="background: #3385a9">
+    <div class="title">
+      {{ 'Patients Clinique' | translate }}
+    </div>
+  </div>
+  <div>
+    <p-table #dt [columns]="cols" [value]="patients.list" [paginator]="true" [rows]="10" selectionMode="single">
+      <ng-template pTemplate="caption">
+        <p-toolbar>
+          <div class="ui-toolbar-group-left">
+            <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelFile()"
+              icon="pi pi-download" class="ui-button-success"></p-button>
+            <p-button label="{{ 'New Patient' | translate }}" [disabled]="isAdmin()" (onClick)="openDialogCreateUser()"
+              icon="pi pi-pencil" iconPos="left" style="margin-left: 20px;"></p-button>
+          </div>
+          <div class="ui-toolbar-group-right">
+            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+              (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+              iconPos="left" style="margin-left: 20px;"></p-button>
+          </div>
+        </p-toolbar>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header | translate }}
+          </th>
+        </tr>
+        <tr>
+          <th *ngFor="let col of columns">
+            <input class="filter" *ngIf="col.field != 'detail'"
+              style="max-width: -webkit-fill-available; max-width: -moz-available;" pInputText type="text"
+              (input)="dt.filter($event.target.value, col.field, 'contains')">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-patient>
+        <tr>
+          <td>
+            <p-button type="button" style="margin-left:33%" (click)="detailsPatient(patient)" [disabled]="isAdmin()" icon="pi pi-search"></p-button>
+          </td>
+          <td>{{ patient.nomPatient }}</td>
+          <td>{{ patient.prenomPatient }}</td>
+          <td>{{ patient.sexePatient }}</td>
+          <td>{{ patient.dateNaisPatient }}</td>
+          <td>{{ patient.numTelPatient }}</td>
+          <td>{{ patient.codePostPatient }}</td>
+          <td>
+            <p-button type="button" style="margin-left:33%" (click)="updatePatient(patient)" [disabled]="isAdmin()" icon="pi pi-cog"></p-button>
+          </td>
+          <td>
+            <p-button type="button" icon="pi pi-trash" style="margin-left:33%" (click)="deletePatient(patient)" [disabled]="isAdmin()"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <!-- Dialog Confirmation Delete -->
+  <p-confirmDialog [style]="{width: '500px'}"></p-confirmDialog>
+</div>
+
+<!-- Dialog Details Patients -->
+<p-dialog header="{{ patient.nomPatient }} {{ patient.prenomPatient }} {{ 'Download Patients' | translate }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{ patient.nomPatient }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <mat-card-subtitle>{{ patient.nomPatient }}</mat-card-subtitle>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-4">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{ patient.nomPatient }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <mat-card-subtitle>{{ patient.nomPatient }}</mat-card-subtitle>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-4">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{ patient.nomPatient }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <mat-card-subtitle>{{ patient.nomPatient }}</mat-card-subtitle>
+                </mat-card-content>
+            </mat-card>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{ patient.nomPatient }}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-card-subtitle>{{ patient.nomPatient }}</mat-card-subtitle>
+                  </mat-card-content>
+              </mat-card>
+          </div>
+          <div class="col-md-4">
+              <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{ patient.nomPatient }}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-card-subtitle>{{ patient.nomPatient }}</mat-card-subtitle>
+                  </mat-card-content>
+              </mat-card>
+          </div>
+          <div class="col-md-4">
+              <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{ patient.nomPatient }}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-card-subtitle>{{ patient.nomPatient }}</mat-card-subtitle>
+                  </mat-card-content>
+              </mat-card>
+          </div>
+        </div>
+  </div>
+  <p-footer>
+    <button pButton type="button" icon="pi pi-times" (click)="displayDetailsDialog=false" label="Chiudi"
+      class="ui-button-danger"></button>
+  </p-footer>
+</p-dialog>
