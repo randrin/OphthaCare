@@ -123,12 +123,12 @@ export class PatientsComponent implements OnInit {
       });
   }
 
-  submitUpdatePatient (updatePatient: Patient) {
-    console.log('Patient to update: ' + updatePatient.nomPatient + ' ' + updatePatient.prenomPatient);
-    updatePatient.dateNaisPatient = moment(updatePatient.dateNaisPatient).format('DD/MM/YYYY'),
-    this.patientUpdate = updatePatient;
+  submitUpdatePatient (patientUpdate: Patient) {
+    console.log('Patient to update: ' + patientUpdate.nomPatient + ' ' + patientUpdate.prenomPatient);
+    patientUpdate.dateNaisPatient = moment(patientUpdate.dateNaisPatient).format('DD/MM/YYYY'),
+    this.patientUpdate = patientUpdate;
     this.blocked = true;
-    this.patientsService.updatePatient(this.patientUpdate, 'this.authenticationService.getUsername()').subscribe(
+    this.patientsService.insertPatient(this.patientUpdate, 'this.authenticationService.getUsername()').subscribe(
       response => {
         this.blocked = false;
         if (response.json().code !== 'OK') {

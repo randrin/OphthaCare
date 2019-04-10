@@ -93,7 +93,7 @@
           <p-calendar [(ngModel)]="newPatient.dateNaisPatient" [ngModelOptions]="{standalone: true}" [(ngModel)]="value" showTime="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"></p-calendar>
           <span>{{ newPatient.dateNaisPatient }}</span> -->
           <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
-          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="dd/MM/yyyy" [(ngModel)]="newPatient.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+          <ejs-datepicker id='datepicker' name='datepicker' placeholder="{{ 'Select a date' | translate }}" [(ngModel)]="newPatient.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
         </div>
       </div>
       <div class="row" style="margin: 15px;">
@@ -103,7 +103,7 @@
         </div>
         <div class="col-md-4">
           <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
-          <input type="number" id="cellularePhone" name="cellularePhone" [(ngModel)]="newPatient.numTelPatient" pInputText class="form-control" required />
+          <input type="number" id="cellularePhone" name="firstname" [(ngModel)]="newPatient.numTelPatient" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
           <label for="fixePhone"><b>{{ 'fixePhone' | translate }}</b></label>
@@ -145,61 +145,63 @@
 </p-dialog>
 
 <!-- Dialog Update Patient -->
-<p-dialog header="{{ 'Update Patient' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ 'New Patient' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
-  <form (ngSubmit)="submitUpdatePatient(patientUpdate)" #updateForm="ngForm">
+  <form (ngSubmit)="submitUpdatePatient(newPatient)" #newForm="ngForm">
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-3">
           <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
-          <input type="text" id="firstname" name="firstname" [(ngModel)]="patientUpdate.nomPatient" pInputText class="form-control" required />
+          <input type="text" id="firstname" name="firstname" [(ngModel)]="patient.nomPatient" pInputText class="form-control" required />
         </div>
         <div class="col-md-3">
           <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
-          <input type="text" id="lastname" name="lastname" [(ngModel)]="patientUpdate.prenomPatient" pInputText class="form-control" required />
+          <input type="text" id="lastname" name="lastname" [(ngModel)]="newPatient.prenomPatient" pInputText class="form-control" required />
         </div>
         <div class="col-md-3">
           <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
-          <p-selectButton id="sex" name="sex" [(ngModel)]="patientUpdate.sexePatient" [options]="gender" required></p-selectButton>
+          <p-selectButton id="sex" name="sex" [(ngModel)]="newPatient.sexePatient" [options]="gender" required></p-selectButton>
         </div>
         <div class="col-md-3">
+          <!-- <label for="born"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
+          <p-calendar [(ngModel)]="newPatient.dateNaisPatient" [ngModelOptions]="{standalone: true}" [(ngModel)]="value" showTime="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"></p-calendar>
+          <span>{{ newPatient.dateNaisPatient }}</span> -->
           <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
-          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="DD/MM/YYYY" [(ngModel)]="patientUpdate.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
-          {{ patientUpdate.dateNaisPatient }}
+          <ejs-datepicker id='datepicker' name='datepicker' placeholder="{{ 'Select a date' | translate }}" [(ngModel)]="newPatient.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
         </div>
       </div>
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
           <label for="email"><b>{{ 'email' | translate }}</b></label>
-          <input type="text" id="email" name="email" [(ngModel)]="patientUpdate.emailPatient" pInputText class="form-control" required />
+          <input type="text" id="email" name="email" [(ngModel)]="newPatient.emailPatient" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
           <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
-          <input type="number" id="cellularePhone" name="cellularePhone" [(ngModel)]="patientUpdate.numTelPatient" pInputText class="form-control" required />
+          <input type="number" id="cellularePhone" name="firstname" [(ngModel)]="newPatient.numTelPatient" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
           <label for="fixePhone"><b>{{ 'fixePhone' | translate }}</b></label>
-          <input type="number" id="fixePhone" name="fixePhone" [(ngModel)]="patientUpdate.numFixePatient" pInputText class="form-control" required />
+          <input type="number" id="fixePhone" name="fixePhone" [(ngModel)]="newPatient.numFixePatient" pInputText class="form-control" required />
         </div>
       </div>
       <div class="row" style="margin: 15px;">
           <div class="col-md-5">
             <label for="address"><b>{{ 'address' | translate }}</b></label>
-            <input type="text" id="address" name="address" [(ngModel)]="patientUpdate.addressePatient" pInputText class="form-control" required />
+            <input type="text" id="address" name="address" [(ngModel)]="newPatient.addressePatient" pInputText class="form-control" required />
           </div>
           <div class="col-md-5">
             <label for="city"><b>{{ 'city' | translate }}</b></label>
-            <input type="text" id="city" name="city" [(ngModel)]="patientUpdate.domicilePatient" pInputText class="form-control" required />
+            <input type="text" id="city" name="city" [(ngModel)]="newPatient.domicilePatient" pInputText class="form-control" required />
           </div>
           <div class="col-md-2">
             <label for="postalCode"><b>{{ 'postalCode' | translate }}</b></label>
-            <input type="number" id="postalCode" name="postalCode" [(ngModel)]="patientUpdate.codePostPatient" pInputText class="form-control" required />
+            <input type="number" id="postalCode" name="postalCode" [(ngModel)]="newPatient.codePostPatient" pInputText class="form-control" required />
           </div>
         </div>
         <div class="row" style="margin: 15px;">
           <div class="col-md-12">
             <label for="supplInfos"><b>{{ 'supplInfos' | translate }}</b></label><br>
-            <textarea style="width: 100%;" id="supplInfos" name="supplInfos" [(ngModel)]="patientUpdate.infoSupplPatient" pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert others informations ...' | translate }}"></textarea>
+            <textarea style="width: 100%;" id="supplInfos" name="supplInfos" [(ngModel)]="newPatient.infoSupplPatient" pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert others informations ...' | translate }}"></textarea>
           </div>
         </div>
     </div>
@@ -208,8 +210,8 @@
     <p-footer>
         <div class="pull-right" style="margin: 15px;">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
-          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!updateForm.form.valid"
-          label="{{ 'Update' | translate }}"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          label="{{ 'Create' | translate }}"></button>
         </div>
       </p-footer>
     </div>

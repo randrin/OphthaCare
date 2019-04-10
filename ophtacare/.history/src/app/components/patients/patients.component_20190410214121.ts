@@ -86,7 +86,7 @@ export class PatientsComponent implements OnInit {
   }
 
   submitPatient(patient: Patient) {
-    console.log('Patient to register: ' + patient.nomPatient + ' ' + patient.prenomPatient);
+    console.log('Patient to register: ' + this.newPatient.nomPatient + ' ' + this.newPatient.prenomPatient);
     patient.dateNaisPatient = moment(patient.dateNaisPatient).format('DD/MM/YYYY'),
     this.newPatient = patient;
     this.blocked = true;
@@ -123,42 +123,8 @@ export class PatientsComponent implements OnInit {
       });
   }
 
-  submitUpdatePatient (updatePatient: Patient) {
-    console.log('Patient to update: ' + updatePatient.nomPatient + ' ' + updatePatient.prenomPatient);
-    updatePatient.dateNaisPatient = moment(updatePatient.dateNaisPatient).format('DD/MM/YYYY'),
-    this.patientUpdate = updatePatient;
-    this.blocked = true;
-    this.patientsService.updatePatient(this.patientUpdate, 'this.authenticationService.getUsername()').subscribe(
-      response => {
-        this.blocked = false;
-        if (response.json().code !== 'OK') {
-          this.messageService.add({
-            sticky: true,
-            severity: 'error',
-            summary: response.json().code,
-            detail: response.json().message
-          });
-        } else {
-          this.messageService.add({
-            sticky: false,
-            severity: 'success',
-            summary: 'Succès',
-            detail: 'Patient ajourné.'
-          });
-          this.getPatients();
-          this.patientUpdate = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-          this.displayUpdateDialog = false;
-        }
-      },
-      error => {
-        this.blocked = false;
-        this.messageService.add({
-          sticky: true,
-          severity: 'error',
-          summary: 'Erreur',
-          detail: 'Erreur Technique'
-        });
-      });
+  submitUpdatePatient (patient: Patient) {
+
   }
 
   isAdmin() {

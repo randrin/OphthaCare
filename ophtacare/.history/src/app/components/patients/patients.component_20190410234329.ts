@@ -223,6 +223,8 @@ export class PatientsComponent implements OnInit {
       this.displayUpdateDialog = true;
     }, 500);
     // patient.dateNaisPatient = moment(patient.dateNaisPatient).format('DD/MM/YYYY');
+    console.log('Patient to update: ' + patient.nomPatient);
+    
     this.patientUpdate = patient;
   }
 

@@ -41,7 +41,7 @@ export class PatientsServiceService {
           'caller': caller
         }),
       };
-      return this.http.post(this.patientUrlUpdate, patient, options);
+      return this.http.post(this.patientUrlUpdate, patient);
     }
 
     deletePatient (patient, caller) {

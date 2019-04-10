@@ -93,7 +93,7 @@
           <p-calendar [(ngModel)]="newPatient.dateNaisPatient" [ngModelOptions]="{standalone: true}" [(ngModel)]="value" showTime="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"></p-calendar>
           <span>{{ newPatient.dateNaisPatient }}</span> -->
           <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
-          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="dd/MM/yyyy" [(ngModel)]="newPatient.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+          <ejs-datepicker id='datepicker' name='datepicker' placeholder="{{ 'Select a date' | translate }}" [(ngModel)]="newPatient.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
         </div>
       </div>
       <div class="row" style="margin: 15px;">
@@ -103,7 +103,7 @@
         </div>
         <div class="col-md-4">
           <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
-          <input type="number" id="cellularePhone" name="cellularePhone" [(ngModel)]="newPatient.numTelPatient" pInputText class="form-control" required />
+          <input type="number" id="cellularePhone" name="firstname" [(ngModel)]="newPatient.numTelPatient" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
           <label for="fixePhone"><b>{{ 'fixePhone' | translate }}</b></label>
@@ -145,7 +145,7 @@
 </p-dialog>
 
 <!-- Dialog Update Patient -->
-<p-dialog header="{{ 'Update Patient' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ 'New Patient' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
   <form (ngSubmit)="submitUpdatePatient(patientUpdate)" #updateForm="ngForm">
     <div class="container-fluid">
@@ -164,8 +164,8 @@
         </div>
         <div class="col-md-3">
           <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
-          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="DD/MM/YYYY" [(ngModel)]="patientUpdate.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
-          {{ patientUpdate.dateNaisPatient }}
+          <ejs-datepicker id='datepicker' name='datepicker' placeholder="{{ 'Select a date' | translate }}" [(ngModel)]="patientUpdate.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+          {{ moment(patient.dateNaisPatient).format('DD/MM/YYYY') }}
         </div>
       </div>
       <div class="row" style="margin: 15px;">
@@ -175,7 +175,7 @@
         </div>
         <div class="col-md-4">
           <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
-          <input type="number" id="cellularePhone" name="cellularePhone" [(ngModel)]="patientUpdate.numTelPatient" pInputText class="form-control" required />
+          <input type="number" id="cellularePhone" name="firstname" [(ngModel)]="patientUpdate.numTelPatient" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
           <label for="fixePhone"><b>{{ 'fixePhone' | translate }}</b></label>

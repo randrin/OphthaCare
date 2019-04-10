@@ -28,7 +28,7 @@ export class PatientsComponent implements OnInit {
   public displayUpdateDialog;
   public patient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
   public newPatient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-  public patientUpdate = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
+  public updatePatient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
   public blocked;
   public minDate: Date = new Date ('01/01/1927');
   public maxDate: Date = new Date ('01/01/2030');
@@ -86,9 +86,23 @@ export class PatientsComponent implements OnInit {
   }
 
   submitPatient(patient: Patient) {
-    console.log('Patient to register: ' + patient.nomPatient + ' ' + patient.prenomPatient);
-    patient.dateNaisPatient = moment(patient.dateNaisPatient).format('DD/MM/YYYY'),
-    this.newPatient = patient;
+    this.newPatient = {
+      nomPatient: patient.nomPatient,
+      prenomPatient: patient.prenomPatient,
+      idPatient: patient.idPatient,
+      codePatient: patient.codePatient,
+      agePatient: patient.agePatient,
+      addressePatient: patient.addressePatient,
+      codePostPatient: patient.codePostPatient,
+      sexePatient: patient.sexePatient,
+      numFixePatient: patient.numFixePatient,
+      numTelPatient: patient.numTelPatient,
+      emailPatient: patient.emailPatient,
+      dateNaisPatient:  moment(patient.dateNaisPatient).format('DD/MM/YYYY'),
+      domicilePatient: patient.domicilePatient,
+      infoSupplPatient: patient.infoSupplPatient,
+    };
+    console.log('Patient to register: ' + this.newPatient.nomPatient + ' ' + this.newPatient.prenomPatient);
     this.blocked = true;
     this.patientsService.insertPatient(this.newPatient, 'this.authenticationService.getUsername()').subscribe(
       response => {
@@ -123,42 +137,8 @@ export class PatientsComponent implements OnInit {
       });
   }
 
-  submitUpdatePatient (updatePatient: Patient) {
-    console.log('Patient to update: ' + updatePatient.nomPatient + ' ' + updatePatient.prenomPatient);
-    updatePatient.dateNaisPatient = moment(updatePatient.dateNaisPatient).format('DD/MM/YYYY'),
-    this.patientUpdate = updatePatient;
-    this.blocked = true;
-    this.patientsService.updatePatient(this.patientUpdate, 'this.authenticationService.getUsername()').subscribe(
-      response => {
-        this.blocked = false;
-        if (response.json().code !== 'OK') {
-          this.messageService.add({
-            sticky: true,
-            severity: 'error',
-            summary: response.json().code,
-            detail: response.json().message
-          });
-        } else {
-          this.messageService.add({
-            sticky: false,
-            severity: 'success',
-            summary: 'Succès',
-            detail: 'Patient ajourné.'
-          });
-          this.getPatients();
-          this.patientUpdate = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-          this.displayUpdateDialog = false;
-        }
-      },
-      error => {
-        this.blocked = false;
-        this.messageService.add({
-          sticky: true,
-          severity: 'error',
-          summary: 'Erreur',
-          detail: 'Erreur Technique'
-        });
-      });
+  submitUpdatePatient (patient: Patient) {
+
   }
 
   isAdmin() {
@@ -220,10 +200,9 @@ export class PatientsComponent implements OnInit {
     this.blocked = true;
     setTimeout(() => {
       this.blocked = false;
-      this.displayUpdateDialog = true;
     }, 500);
-    // patient.dateNaisPatient = moment(patient.dateNaisPatient).format('DD/MM/YYYY');
-    this.patientUpdate = patient;
+    this.displayUpdateDialog = true;
+    this.patient = patient;
   }
 
   exportExcelFile() {
@@ -269,8 +248,6 @@ export class PatientsComponent implements OnInit {
 
   closeDialog () {
     this.displayNewDialog = false;
-    this.displayUpdateDialog = false;
     this.newPatient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-    this.patientUpdate = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
   }
 }
