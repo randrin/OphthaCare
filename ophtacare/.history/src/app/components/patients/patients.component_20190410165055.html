@@ -79,14 +79,17 @@
         <div class="col-md-3">
           <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
           <input type="text" id="firstname" name="firstname" [(ngModel)]="newPatient.nomPatient" pInputText class="form-control" required />
+          <span>{{ newPatient.nomPatient }}</span>
         </div>
         <div class="col-md-3">
           <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
           <input type="text" id="lastname" name="lastname" [(ngModel)]="newPatient.prenomPatient" pInputText class="form-control" required />
+          <span>{{ newPatient.prenomPatient }}</span>
         </div>
         <div class="col-md-3">
           <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
           <p-selectButton id="sex" name="sex" [(ngModel)]="newPatient.sexePatient" [options]="gender" required></p-selectButton>
+          <span>{{ newPatient.sexePatient }}</span>
         </div>
         <div class="col-md-3">
           <!-- <label for="born"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
@@ -94,40 +97,48 @@
           <span>{{ newPatient.dateNaisPatient }}</span> -->
           <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
           <ejs-datepicker id='datepicker' name='datepicker' placeholder="{{ 'Select a date' | translate }}" [(ngModel)]="newPatient.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+          <span>{{ newPatient.dateNaisPatient }}</span>
         </div>
       </div>
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
           <label for="email"><b>{{ 'email' | translate }}</b></label>
           <input type="text" id="email" name="email" [(ngModel)]="newPatient.emailPatient" pInputText class="form-control" required />
+          <span>{{ newPatient.emailPatient }}</span>
         </div>
         <div class="col-md-4">
           <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
           <input type="number" id="cellularePhone" name="firstname" [(ngModel)]="newPatient.numTelPatient" pInputText class="form-control" required />
+          <span>{{ newPatient.numTelPatient }}</span>
         </div>
         <div class="col-md-4">
           <label for="fixePhone"><b>{{ 'fixePhone' | translate }}</b></label>
           <input type="number" id="fixePhone" name="fixePhone" [(ngModel)]="newPatient.numFixePatient" pInputText class="form-control" required />
+          <span>{{ newPatient.numFixePatient }}</span>
         </div>
       </div>
       <div class="row" style="margin: 15px;">
           <div class="col-md-5">
             <label for="address"><b>{{ 'address' | translate }}</b></label>
             <input type="text" id="address" name="address" [(ngModel)]="newPatient.addressePatient" pInputText class="form-control" required />
+            <span>{{ newPatient.addressePatient }}</span>
           </div>
           <div class="col-md-5">
             <label for="city"><b>{{ 'city' | translate }}</b></label>
             <input type="text" id="city" name="city" [(ngModel)]="newPatient.domicilePatient" pInputText class="form-control" required />
+            <span>{{ newPatient.domicilePatient }}</span>
           </div>
           <div class="col-md-2">
             <label for="postalCode"><b>{{ 'postalCode' | translate }}</b></label>
             <input type="number" id="postalCode" name="postalCode" [(ngModel)]="newPatient.codePostPatient" pInputText class="form-control" required />
+            <span>{{ newPatient.codePostPatient }}</span>
           </div>
         </div>
         <div class="row" style="margin: 15px;">
           <div class="col-md-12">
             <label for="supplInfos"><b>{{ 'supplInfos' | translate }}</b></label><br>
             <textarea style="width: 100%;" id="supplInfos" name="supplInfos" [(ngModel)]="newPatient.infoSupplPatient" pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert others informations ...' | translate }}"></textarea>
+            <span>{{ newPatient.infoSupplPatient }}</span>
           </div>
         </div>
     </div>
@@ -178,7 +189,7 @@
         </div>
         <div class="col-md-3">
             <p-card header="{{ 'year' | translate }}" [style]="{width: '200px'}">
-                <div><span *ngIf='patient.agePatient === 1'> {{ yearOld }} </span>{{ patient.agePatient }}</div>
+                <div>{{ patient.agePatient }}</div>
             </p-card>
         </div>
         <div class="col-md-3">
@@ -215,11 +226,16 @@
         </div>
     </div>
     <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <p-card header="{{ 'supplInfos' | translate }}" [style]="{width: '500px'}">
                 <div>{{ patient.infoSupplPatient }}</div>
             </p-card>
         </div>
+        <div class="col-md-6">
+          <p-card header="{{ 'supplInfos' | translate }}" [style]="{width: '500px'}">
+              <div>{{ patient.infoSupplPatient }}</div>
+          </p-card>
+      </div>
     </div>
   </div>
   <p-footer>

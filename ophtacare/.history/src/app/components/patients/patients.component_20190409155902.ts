@@ -15,7 +15,6 @@ import { Patient } from '../../models/patients/patient';
 })
 export class PatientsComponent implements OnInit {
 
-  public yearOld = '<';
   public cols: any[];
   public gender: SelectItem[];
   public patients: Patients = { list: [] };
@@ -36,7 +35,6 @@ export class PatientsComponent implements OnInit {
     private authenticationService: AuthenticationService, private confirmationService: ConfirmationService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
-        { field: 'codePatient', header: 'codePatient' },
         { field: 'nomPatient', header: 'firstName' },
         { field: 'prenomPatient', header: 'lastName' },
         { field: 'sexePatient', header: 'sex' },
@@ -46,7 +44,7 @@ export class PatientsComponent implements OnInit {
         { field: 'numTelPatient', header: 'cellularePhone' },
         // { field: 'numFixePatient', header: 'fixePhone' },
         // { field: 'addressePatient', header: 'city' },
-        // { field: 'codePostPatient', header: 'postalCode' },
+        { field: 'codePostPatient', header: 'postalCode' },
         // { field: 'infoSupplPatient', header: 'supplInfos' },
         { field: 'detail', header: 'modify' },
         { field: 'detail', header: 'cancel' },
@@ -72,7 +70,7 @@ export class PatientsComponent implements OnInit {
     });
     setTimeout(() => {
       this.blocked = false;
-    }, 1000);
+    }, 3000);
   }
 
   createPatient() {
@@ -120,8 +118,6 @@ export class PatientsComponent implements OnInit {
             detail: 'Patient enregistré.'
           });
           this.getPatients();
-          this.newPatient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-          this.displayNewDialog = false;
         }
       },
       error => {
@@ -151,7 +147,7 @@ export class PatientsComponent implements OnInit {
   deletePatient(patient: Patient) {
     console.log('Patient to cancel: ' + patient.idPatient);
     this.confirmationService.confirm({
-      message: 'Etes-vous sure de vouloir supprimer ' + patient.nomPatient + ' ?',
+      message: '{{ Etes-vous sure de vouloir supprimer : | translate }} ' + patient.nomPatient + ' ?',
       header: 'Conferma Eliminazione',
       icon: 'pi pi-trash',
       accept: () => {
@@ -207,7 +203,7 @@ export class PatientsComponent implements OnInit {
           this.messageService.add({
             sticky: true,
             severity: 'error',
-            summary: 'Erreur code ' + this.response.code,
+            summary: 'Error code ' + this.response.code,
             detail: 'Message ' + this.response.message
           });
         } else {
@@ -218,8 +214,8 @@ export class PatientsComponent implements OnInit {
         this.messageService.add({
           sticky: true,
           severity: 'error',
-          summary: 'Erreur',
-          detail: 'Erreur Technique'
+          summary: 'Error',
+          detail: 'Internal Error'
         });
       }
     );

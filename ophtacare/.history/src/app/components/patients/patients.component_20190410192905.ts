@@ -15,7 +15,8 @@ import { Patient } from '../../models/patients/patient';
 })
 export class PatientsComponent implements OnInit {
 
-  public yearOld = '<';
+  public char = '<';
+  
   public cols: any[];
   public gender: SelectItem[];
   public patients: Patients = { list: [] };

@@ -18,11 +18,6 @@ body, html {
   color: #ffffff !important;
 }
 
-div > p-card {
-  background-color: #ff3737 !important;
-  color: #ffffff !important;
-}
-
 .demo-form {    
   min-width: 150px;    
   max-width: 500px;    

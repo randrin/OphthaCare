@@ -15,7 +15,6 @@ import { Patient } from '../../models/patients/patient';
 })
 export class PatientsComponent implements OnInit {
 
-  public yearOld = '<';
   public cols: any[];
   public gender: SelectItem[];
   public patients: Patients = { list: [] };
@@ -46,7 +45,7 @@ export class PatientsComponent implements OnInit {
         { field: 'numTelPatient', header: 'cellularePhone' },
         // { field: 'numFixePatient', header: 'fixePhone' },
         // { field: 'addressePatient', header: 'city' },
-        // { field: 'codePostPatient', header: 'postalCode' },
+        { field: 'codePostPatient', header: 'postalCode' },
         // { field: 'infoSupplPatient', header: 'supplInfos' },
         { field: 'detail', header: 'modify' },
         { field: 'detail', header: 'cancel' },
