@@ -3,10 +3,25 @@
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
             <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
         </a>
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/patients']">
-            <mat-icon class="sidenav-icon">accessible</mat-icon> {{ 'Ill' | translate }}
-        </a>
+        <div class="nested-menu">
+            <a mat-list-item (click)="addExpandClass('malades')">
+                <mat-icon class="sidenav-icon">accessible</mat-icon> {{ 'Ill' | translate }}
+            </a>
+            <ul class="nested submenu" *ngIf="showMenu === 'malades'">
+                <li>
+                    <a href="javascript:void(0)">
+                        <mat-icon class="sidenav-icon-sub">accessible</mat-icon> {{ 'Ill' | translate }}
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>
+                </li>
+            </ul>
+        </div>
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/charts']">
+            <mat-icon class="sidenav-icon">bar_chart</mat-icon> {{ 'Ill' | translate }}
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/chartss']">
             <mat-icon class="sidenav-icon">bar_chart</mat-icon> {{ 'Charts' | translate }}
         </a>
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tables']">

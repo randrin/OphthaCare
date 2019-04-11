@@ -82,7 +82,7 @@ const appRoutes: Routes = [
     path: 'patients', component: PatientsComponent
   },
   {
-    path: 'dashboard', component: DashboardComponent
+    path: 'charts', component: DashboardComponent
   }
 ];
 

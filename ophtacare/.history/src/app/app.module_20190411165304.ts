@@ -79,10 +79,10 @@ const appRoutes: Routes = [
     path: 'home', component: HomeComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'patients', component: PatientsComponent
+    path: 'dashboard', component: PatientsComponent
   },
   {
-    path: 'dashboard', component: DashboardComponent
+    path: 'charts', component: DashboardComponent
   }
 ];
 

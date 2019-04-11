@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
               summary: 'Welcome',
               detail: this.admin.nomAdmin
             });
-            this.authenticationService.router.navigate(['dashboard']);
+            this.authenticationService.router.navigate(['home']);
           }
         },
         err => {

@@ -58,7 +58,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PatientsComponent } from './components/patients/patients.component';
 import { PatientsServiceService } from './services/patientsservice.service';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -79,10 +78,7 @@ const appRoutes: Routes = [
     path: 'home', component: HomeComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'patients', component: PatientsComponent
-  },
-  {
-    path: 'dashboard', component: DashboardComponent
+    path: 'dashboard', component: PatientsComponent
   }
 ];
 
@@ -93,8 +89,7 @@ const appRoutes: Routes = [
     LoginComponent,
     NavTopComponent,
     NavLeftComponent,
-    PatientsComponent,
-    DashboardComponent
+    PatientsComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +104,6 @@ const appRoutes: Routes = [
     CalendarModule,
     BlockUIModule,
     ToastModule,
-    ChartModule,
     SelectButtonModule,
     OverlayPanelModule,
     DialogModule,
