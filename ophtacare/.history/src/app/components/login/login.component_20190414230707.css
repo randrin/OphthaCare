@@ -6,8 +6,8 @@ img {
   height: 100px;
 }
 
-#ophthacare {    
+mat-card {    
   max-width: 50%;    
-  margin: 5em auto;    
+  margin: 10em auto;    
   text-align: center;    
 }

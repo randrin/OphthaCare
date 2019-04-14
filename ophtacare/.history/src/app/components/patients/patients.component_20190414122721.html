@@ -250,7 +250,7 @@
         </div>
         <div class="col-md-3">
             <p-card header="{{ 'year' | translate }}" [style]="{width: '200px'}">
-                <div><span *ngIf='patient.agePatient === 1'> {{ yearOld }} </span>{{ patient.agePatient }}</div>
+                <div><span *ngIf='patient.agePatient === 0'> {{ yearOld }} </span>{{ patient.agePatient }}</div>
             </p-card>
         </div>
         <div class="col-md-3">

@@ -38,11 +38,7 @@ body {
   font-family: Roboto, sans-serif;    
 }    
   
-mat-card {    
-  max-width: 50%;    
-  margin: 10em auto;    
-  text-align: center;    
-}    
+    
   
 mat-toolbar-row {    
   justify-content: space-between;    

@@ -164,7 +164,7 @@
         </div>
         <div class="col-md-3">
           <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
-          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" [(ngModel)]="patientUpdate.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="DD/MM/YYYY" [(ngModel)]="patientUpdate.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
           {{ patientUpdate.dateNaisPatient }}
         </div>
       </div>

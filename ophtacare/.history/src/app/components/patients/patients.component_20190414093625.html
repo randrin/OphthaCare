@@ -19,7 +19,7 @@
             <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelFile()"
               icon="pi pi-download" class="ui-button-success"></p-button>
             <p-button label="{{ 'New Patient' | translate }}" [disabled]="isAdmin()" (onClick)="createPatient()"
-              icon="pi pi-user-plus" iconPos="left" style="margin-left: 20px;"></p-button>
+              icon="pi-user-plus" iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
@@ -164,7 +164,7 @@
         </div>
         <div class="col-md-3">
           <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
-          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" [(ngModel)]="patientUpdate.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="DD/MM/YYYY" [(ngModel)]="patientUpdate.dateNaisPatient" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
           {{ patientUpdate.dateNaisPatient }}
         </div>
       </div>
