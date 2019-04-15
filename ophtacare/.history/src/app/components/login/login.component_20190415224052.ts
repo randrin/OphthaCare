@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
               sticky: false,
               severity: 'success',
               summary: 'Welcome',
-              detail: this.admin.prenomAdmin
+              detail: this.admin.nomAdmin
             });
             this.authenticationService.router.navigate(['dashboard']);
           }

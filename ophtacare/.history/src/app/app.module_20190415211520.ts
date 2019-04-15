@@ -57,10 +57,9 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PatientsComponent } from './components/patients/patients.component';
-import { PatientsService } from './services/patientsService';
+import { PatientsServiceService } from './services/patientsservice.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdministrateursComponent } from './components/administrateurs/administrateurs.component';
-import { AdministrateursService } from './services/administrateursService';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -171,8 +170,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthenticationService,
-    PatientsService,
-    AdministrateursService,
+    PatientsServiceService,
     MessageService,
     ConfirmationService,
     AuthGuard

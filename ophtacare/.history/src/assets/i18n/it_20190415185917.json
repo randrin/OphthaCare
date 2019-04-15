@@ -1,7 +1,6 @@
 {
     "Dashboard": "Cruscotto",
     "Patients Clinique": "Pazienti Clinica",
-    "Admins Clinique": "Amministratori Clinica",
     "Download Patients": "Scarica Excel Pazienti",
     "New Patient": "Crea Paziente",
     "Update Patient": "Aggiornamento Paziente",
@@ -20,9 +19,6 @@
     "address": "Indirizzo",
     "postalCode": "Codice Postale",
     "supplInfos": "Altre Informazioni",
-    "pseudoAdmin": "Pseudo",
-    "roleAdmin": "Ruolo",
-    "activeAdmin": "Abilitazione",
     "modify": "Modificare",
     "cancel": "Cancellare",
     "detail": "Dettaglio",

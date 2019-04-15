@@ -5,7 +5,7 @@ import { Http, ResponseContentType, Headers } from '@angular/http';
 @Injectable({
   providedIn: 'root'
 })
-export class PatientsServiceService {
+export class PatientsService {
 
   private patientExportUrl = window['baseUrl'] + '/excel/downloadExcelPatients';
   private patientsUrl = window['baseUrl'] + '/patient/getAllPatients';
