@@ -1,0 +1,33 @@
+<p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
+
+<div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
+  <img src="/assets/images/giphy.gif" title="Leopard" style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
+</div>
+
+<app-home></app-home>
+<div>
+        <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+                <div fxFlex>
+                    <app-stat [bgClass]="'danger'" [icon]="'dashboard'" [count]="13" [label]="'New Tickets!'"></app-stat>
+                </div>
+                <div fxFlex>
+                    <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]="12" [label]="'New task!'"></app-stat>
+                </div>
+                <div fxFlex>
+                    <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]="124" [label]="'New Orders!'"></app-stat>
+                </div>
+                <div fxFlex>
+                    <app-stat [bgClass]="'info'" [icon]="'contact_support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+                </div>
+            </div>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                 <p-chart type="bar" [data]="dataBar"></p-chart>
+            </div>
+            <div class="col-md-6">
+                <p-chart type="pie" [data]="dataPie"></p-chart>
+            </div>
+        </div>
+    </div> -->
+</div>
