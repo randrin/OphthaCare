@@ -29,16 +29,7 @@ export class DashboardComponent implements OnInit {
   public doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   public doughnutChartData: number[] = [350, 450, 100];
   public doughnutChartType: string;
-
-  // events
-  public chartClicked(e: any): void {
-    // console.log(e);
-  }
-
-  public chartHovered(e: any): void {
-    // console.log(e);
-  }
-
+  
   constructor() {
     this.dataBar = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

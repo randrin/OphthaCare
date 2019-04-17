@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { ChartsModule as Ng2Charts } from 'ng2-charts';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { MessageService } from 'primeng/api';
