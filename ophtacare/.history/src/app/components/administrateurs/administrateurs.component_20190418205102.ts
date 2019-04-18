@@ -23,7 +23,7 @@ export class AdministrateursComponent implements OnInit {
   public displayDetailsDialog;
 
   constructor(private administrateurService: AdministrateursService, private authenticationService: AuthenticationService,
-    private confirmationService: ConfirmationService, private messageService: MessageService) {
+    private confirmationService: ConfirmationService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'pseudoAdmin', header: 'pseudoAdmin' },
@@ -99,7 +99,7 @@ export class AdministrateursComponent implements OnInit {
                 summary: 'Confermato',
                 detail: 'utente eliminato'
               });
-              this.getAdminsitrateurs();
+              this.getPatients();
             }
           },
           error => {

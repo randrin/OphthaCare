@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http, ResponseContentType, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
