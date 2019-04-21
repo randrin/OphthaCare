@@ -13,6 +13,22 @@
         </mat-form-field>
     </form>
     <span class="nav-spacer"></span>
+    <!-- Current Time -->
+    <button class="hidden-sm" mat-icon-button style="margin-right: 150px;" disabled>
+      <mat-icon>access_time</mat-icon>
+      <div class="clock">
+        <ul>
+          <li id="Date">{{ Date }}</li>
+        </ul>
+        <ul>
+          <li>{{ Hours }}</li>
+          <li id="point">:</li>
+          <li>{{ Minutes }}</li>
+          <li id="point">:</li>
+          <li>{{ Seconds }}</li>
+        </ul>
+      </div>
+    </button>
     <!-- Button Langues -->
     <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
       <mat-icon>language</mat-icon>
