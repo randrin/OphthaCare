@@ -1,12 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../../services/dashboardService';
+import { PatientsService } from '../../services/patientsService';
+import { AuthenticationService } from '../../services/authenticationService';
+import { Patients } from '../../models/patients/patients';
+import { AdministrateursService } from '../../services/administrateursService';
+import { Admins } from '../../models/administrateur/admins';
+import { ConfirmationService } from 'primeng/primeng';
 
 @Component({
   selector: 'app-dashboard',
+  providers: [ConfirmationService],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
+  public totalPatients: Patients = { list: [] };
+  public totalAdmins: Admins = { list: [] };
   public dataBar: any;
   public dataPie: any;
   public blocked;
@@ -39,7 +49,8 @@ export class DashboardComponent implements OnInit {
     // console.log(e);
   }
 
-  constructor() {
+  constructor(private dashboardService: DashboardService, private patientsService: PatientsService,
+    private authenticationService: AuthenticationService, private administrateursService: AdministrateursService) {
     this.dataBar = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
@@ -78,13 +89,34 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.blocked = true;
     setTimeout(() => {
+      this.getAllPatients();
+      this.getAllAdministrateurs();
       this.blocked = false;
-    }, 500);
+    }, 1000);
 
     this.barChartType = 'bar';
     this.barChartLegend = true;
     this.doughnutChartType = 'doughnut';
   }
+
+  getAllPatients() {
+      this.patientsService.getAllPatients(this.authenticationService.getUsername()).subscribe(
+        response => {
+          if (response.json() != null) {
+            this.totalPatients.list = this.totalPatients.list.concat(response.json().filter(n => n));
+          }
+      });
+  }
+
+  getAllAdministrateurs() {
+    this.administrateursService.getAllAdmins(this.authenticationService.getUsername()).subscribe(
+      response => {
+        if (response.json() != null) {
+          this.totalAdmins.list = this.totalAdmins.list.concat(response.json().filter(n => n));
+        }
+    });
+}
 
 }

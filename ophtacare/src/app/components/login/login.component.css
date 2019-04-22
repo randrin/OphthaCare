@@ -7,7 +7,14 @@ img {
 }
 
 #ophthacare {    
-  max-width: 50%;    
+  max-width: 35%;    
   margin: 5em auto;    
   text-align: center;    
+}
+
+.header {
+  display: inline-block;
+  line-height: 32px;
+  padding-top: -10px;
+  text-align: center;
 }

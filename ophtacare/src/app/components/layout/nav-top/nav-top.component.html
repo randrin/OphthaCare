@@ -1,69 +1,89 @@
 <mat-toolbar color="primary" class="fix-nav">
-    <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span><img src="./assets/images/giphy.gif" width="120" height="120"></span>
+  <div class="header">
+    <span><b style="font-size: 2.3em; color: white; top: 5px;"><em>Ophtha</em><em style="color:blue;">Care</em></b></span><br>
+    <span><em style="font-size: 0.9em;">{{ 'your eyes, our priority' | translate }}</em></span>
+  </div>
+
+  <div class="nav-brand"></div>
+  <!-- Form Recherche -->
+  <form class="hidden-sm" style="margin-left: 20px;">
+    <mat-icon matPrefix style="margin-right: 5px; margin-top: 15px;">search</mat-icon>
+    <mat-form-field style="padding-top: 20px;">
+      <input matInput [placeholder]="'Search' | translate">
+    </mat-form-field>
+  </form>
+  <span class="nav-spacer"></span>
+  <!-- Button Informations -->
+  <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="information" style="margin-right: 150px;">
+    <mat-icon class="sizeIcon" style="color:green">info</mat-icon> <span
+      style="font-size: 16px; padding-left: 15px;">{{ 'Informations' | translate }}</span>
+  </button>
+  <mat-menu #information="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>{{ 'Profile' | translate }}</span>
     </button>
-    <span><img src="./assets/images/neuro-banner-1024x415.jpg" width="100" height="100"></span>
-    <b style="font-size: 2.5em; margin-left: 5px; color: white;"><em>OphthaCare</em></b>
-    <div class="nav-brand"></div>
-    <!-- Form Recherche -->
-    <form class="hidden-sm" style="margin-left: 20px;">
-        <mat-icon matPrefix style="margin-right: 5px; margin-top: 15px;">search</mat-icon>
-        <mat-form-field style="padding-top: 20px;">
-            <input matInput [placeholder]="'Search' | translate">
-        </mat-form-field>
-    </form>
-    <span class="nav-spacer"></span>
-    <!-- Current Time -->
-    <button class="hidden-sm" mat-icon-button style="margin-right: 150px;" disabled>
-      <mat-icon>access_time</mat-icon>
-      <div class="clock">
-        <ul>
-          <li id="Date">{{ Date }}</li>
-        </ul>
-        <ul>
-          <li>{{ Hours }}</li>
-          <li id="point">:</li>
-          <li>{{ Minutes }}</li>
-          <li id="point">:</li>
-          <li>{{ Seconds }}</li>
-        </ul>
+    <button mat-menu-item>
+      <mat-icon>inbox</mat-icon>
+      <span>{{ 'Inbox' | translate }}</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>{{ 'Settings' | translate }}</span>
+    </button>
+  </mat-menu>
+  <!-- Current Time -->
+  <button id="icon-button" class="hidden-sm" mat-icon-button style="margin-right: 150px; top:-10px;" disabled>
+    <div class="wapper">
+      <div class="icon">
+        <mat-icon class="sizeIcon" style="color: blue;">access_time</mat-icon>
       </div>
+      <div class="text">
+        <span style="color:white;">{{ CurrentDate }}</span><br>
+        <span style="color: black;"><b>{{ CurrentTime }}</b></span>
+      </div>
+    </div>
+  </button>
+  <!-- Button Langues -->
+  <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
+    <mat-icon class="sizeIcon">language</mat-icon>
+  </button>
+  <mat-menu #language="matMenu">
+    <button mat-menu-item (click)="changeLang('en')">
+      <span><img src="./assets/flags/GB.png"> {{ 'English' | translate }}</span>
     </button>
-    <!-- Button Langues -->
-    <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
-      <mat-icon>language</mat-icon>
+    <button mat-menu-item (click)="changeLang('fr')">
+      <span><img src="./assets/flags/FR.png"> {{ 'French' | translate }}</span>
     </button>
-    <mat-menu #language="matMenu">
-      <button mat-menu-item (click)="changeLang('en')">
-        <span><img src="./assets/flags/GB.png"> {{ 'English' | translate }}</span>
-      </button>
-      <button mat-menu-item (click)="changeLang('fr')">
-        <span><img src="./assets/flags/FR.png"> {{ 'French' | translate }}</span>
-      </button>
-      <button mat-menu-item (click)="changeLang('it')">
-        <span><img src="./assets/flags/IT.png"> {{ 'Italian' | translate }}</span>
-      </button>
-    </mat-menu>
-    <!-- Button Account -->
-    <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="profile">
-      <mat-icon>account_circle</mat-icon>
+    <button mat-menu-item (click)="changeLang('it')">
+      <span><img src="./assets/flags/IT.png"> {{ 'Italian' | translate }}</span>
     </button>
-    <mat-menu #profile="matMenu">
-      <button mat-menu-item>
-        <mat-icon>person</mat-icon>
-        <span>{{ 'Profile' | translate }}</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>inbox</mat-icon>
-        <span>{{ 'Inbox' | translate }}</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>settings</mat-icon>
-        <span>{{ 'Settings' | translate }}</span>
-      </button>
-    </mat-menu>
-    <!-- Button Déconnexion -->
-    <button mat-icon-button (click)="onLoggedout()">
-      <mat-icon>exit_to_app</mat-icon>
+  </mat-menu>
+  <!-- Button Account -->
+  <button mat-icon-button [matMenuTriggerFor]="profile">
+    <mat-icon class="sizeIcon">account_circle</mat-icon>
+  </button>
+  <mat-menu #profile="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>{{ 'Profile' | translate }}</span>
     </button>
+    <button mat-menu-item>
+      <mat-icon>inbox</mat-icon>
+      <span>{{ 'Inbox' | translate }}</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>{{ 'Settings' | translate }}</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="onLoggedout()" style="color: green;">
+      <mat-icon style="color:red;">power_settings_new</mat-icon>
+      <span><b>{{ 'Logout' | translate }}</b></span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

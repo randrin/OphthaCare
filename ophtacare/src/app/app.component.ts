@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authenticationService.router.navigate(['home']);
+    this.authenticationService.router.navigate(['dashboard']);
   }
 }

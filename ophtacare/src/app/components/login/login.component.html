@@ -1,6 +1,9 @@
 <mat-toolbar color="primary">
-    <span><img src="./assets/images/neuro-banner-1024x415.jpg" width="100" height="100"></span>
-    <b style="font-size: 2em; margin-left: 5px; color: white;"><em>OphthaCare</em></b>
+        <span><img src="./assets/images/giphy.gif" width="120" height="120"></span>
+        <div class="header">
+          <span><b style="font-size: 2.3em; color: white; top: 5px;"><em>Ophtha</em><em style="color:blue;">Care</em></b></span><br>
+          <span><em style="font-size: 0.9em;">{{ 'your eyes, our priority' | translate }}</em></span>
+        </div>
     <span class="demo-toolbar"></span>
 </mat-toolbar>
 <mat-card id="ophthacare">
@@ -14,7 +17,8 @@
                     <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
                         <mat-form-field class="demo-full-width">
                             <mat-icon matPrefix style="margin-right: 10px;">account_circle</mat-icon>
-                            <input matInput placeholder="Username" name="username" [(ngModel)]="admin.nomAdmin" type="text">
+                            <input matInput placeholder="Username" name="username" [(ngModel)]="admin.nomAdmin"
+                                type="text">
                         </mat-form-field>
                     </div>
                 </div>
@@ -23,8 +27,10 @@
                     <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
                         <mat-form-field class="demo-full-width">
                             <mat-icon matPrefix style="margin-right: 10px;">vpn_key</mat-icon>
-                            <input matInput placeholder="Password" name="password" [(ngModel)]="admin.password" [type]="hide ? 'password' : 'text'">
-                            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <input matInput placeholder="Password" name="password" [(ngModel)]="admin.password"
+                                [type]="hide ? 'password' : 'text'">
+                            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">
+                                {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </mat-form-field>
                     </div>
                 </div>
@@ -32,7 +38,7 @@
             <br>
             <div class="panel-footer">
                 <button mat-raised-button [disabled]="!loginForm.form.valid" color="primary" type="submit">
-                    <mat-icon>done_all</mat-icon> 
+                    <mat-icon>done_all</mat-icon>
                     <span> Entrer</span>
                 </button>
             </div>

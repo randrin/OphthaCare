@@ -11,11 +11,8 @@ export class NavTopComponent implements OnInit {
   public pushRightClass: string;
   public monthNames;
   public dayNames;
-  public newDate;
-  public Date;
-  public Seconds;
-  public Hours;
-  public Minutes;
+  public CurrentDate;
+  public CurrentTime;
 
   constructor(private translate: TranslateService, private router: Router) {
     this.router.events.subscribe(val => {
@@ -35,39 +32,14 @@ export class NavTopComponent implements OnInit {
   }
 
   getCurrentTime() {
-    // Make single object
-    this.newDate = new Date();
-      
-		// Make current time
-    this.newDate.setDate(this.newDate.getDate());
-    
-    // Setting date and time
-    this.Date = this.dayNames[this.newDate.getDay()] + ', ' + this.newDate.getDate() + ' '
-    + this.monthNames[this.newDate.getMonth()] + ' ' + this.newDate.getFullYear();
-
-    setInterval( function() {
-      // Create a newDate() object and extract the seconds of the current time on the visitor's
-      const seconds = new Date().getSeconds();
-
-      // Add a leading zero to seconds value
-      this.Seconds = (seconds < 10 ? '0' : '' ) + seconds;
-    }, 1000);
-
-    setInterval( function() {
-      // Create a newDate() object and extract the minutes of the current time on the visitor's
-      const minutes = new Date().getMinutes();
-
-      // Add a leading zero to minutes value
-      this.Minutes = (minutes < 10 ? '0' : '' ) + minutes;
-    }, 1000);
-
-    setInterval( function() {
-      // Create a newDate() object and extract the hours of the current time on the visitor's
-      const hours = new Date().getHours();
-
-      // Add a leading zero to hours value
-      this.Hours = (hours < 10 ? '0' : '' ) + hours;
-    }, 1000);
+    // Setting current date
+    this.CurrentDate = this.dayNames[new Date().getDay()] + ', ' + new Date().getDate() + ' '
+    + this.monthNames[new Date().getMonth()] + ' ' + new Date().getFullYear();
+    // Setting current time
+    setInterval(() => {
+      this.CurrentTime = [(new Date().getHours() < 10 ? '0' : '') + new Date().getHours()] + ' : ' +
+                         [(new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes()] + ' : ' +
+                         [(new Date().getSeconds() < 10 ? '0' : '') + new Date().getSeconds()]}, 1);
   }
 
   isToggled(): boolean {

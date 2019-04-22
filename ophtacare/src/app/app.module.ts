@@ -64,6 +64,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdministrateursComponent } from './components/administrateurs/administrateurs.component';
 import { AdministrateursService } from './services/administrateursService';
 import { StatModule } from './shared/modules/stat/stat.module';
+import { SpecialistesComponent } from './components/specialistes/specialistes.component';
+import { SpecialistesService } from './services/specialistesService';
+import { DashboardService } from './services/dashboardService';
+import { MaladiesService } from './services/maladiesService';
+import { MaladiesComponent } from './components/maladies/maladies.component';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -91,6 +96,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'administrateurs', component: AdministrateursComponent
+  },
+  {
+    path: 'specialistes', component: SpecialistesComponent
+  },
+  {
+    path: 'maladies', component: MaladiesComponent
   }
 ];
 
@@ -103,7 +114,9 @@ const appRoutes: Routes = [
     NavLeftComponent,
     PatientsComponent,
     DashboardComponent,
-    AdministrateursComponent
+    AdministrateursComponent,
+    SpecialistesComponent,
+    MaladiesComponent
   ],
   imports: [
     BrowserModule,
@@ -177,8 +190,11 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthenticationService,
+    DashboardService,
     PatientsService,
     AdministrateursService,
+    SpecialistesService,
+    MaladiesService,
     MessageService,
     ConfirmationService,
     AuthGuard

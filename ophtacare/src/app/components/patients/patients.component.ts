@@ -7,6 +7,7 @@ import saveAs from 'save-as';
 import * as moment from 'moment';
 import { Patients } from '../../models/patients/patients';
 import { Patient } from '../../models/patients/patient';
+import { DashboardService } from '../../services/dashboardService';
 @Component({
   selector: 'app-patients',
   providers: [ConfirmationService],
@@ -35,7 +36,8 @@ export class PatientsComponent implements OnInit {
   public value: Date = new Date ();
 
   constructor(private patientsService: PatientsService, private messageService: MessageService,
-    private authenticationService: AuthenticationService, private confirmationService: ConfirmationService) {
+    private authenticationService: AuthenticationService, private confirmationService: ConfirmationService,
+    private dashboardService: DashboardService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'codePatient', header: 'codePatient' },

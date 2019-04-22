@@ -60,39 +60,42 @@ img {
   }
 }
 
-.clock {
-  width: 300px;
-  margin: 0 auto;
-  padding: 5px;
-  color: red;
-  padding-right: 20px;
+.sizeIcon {
+  font-size:36px;
 }
 
-.clock ul {
-  margin: 0 auto;
-  list-style: none;
+.wrapper {
+  width: 324px;
+  background-color: red;
+  height: 130px;
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.clock ul li {
-  display: inline;
-  font-size: 1em;
-  font-family: "Arial", Helvetica, sans-serif;
+.icon {
+  height: 50px;
+  width: 49%;
+  display: inline-block;
+  margin-top: 20px;
+  vertical-align: bottom;
 }
 
+.icon mat-icon {
+  width: 50px;
+  float: right;
+}
 
-#Date { 
-  font-family: 'Arial', Helvetica, sans-serif;
-  font-size: 1em;
-  color: black;
+.text {
+  display: inline-block;
+  line-height: 25px;
+  top: -5px;
+  font-size: 16px;
+}
+
+.header {
+  display: inline-block;
+  line-height: 32px;
+  padding-top: -10px;
   text-align: center;
-}
-
-#point {
-  color: black;
-  position: relative;
-  -moz-animation: mymove 1s ease infinite;
-  -webkit-animation: mymove 1s ease infinite;
-  padding-left: 5px;
-  padding-right: 5px
 }

@@ -9,16 +9,16 @@
         <div class="row">
             <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
                 <div fxFlex>
-                    <app-stat [bgClass]="'danger'" [icon]="'dashboard'" [count]="13" [label]="'New Tickets!'"></app-stat>
+                    <app-stat [bgClass]="'danger'" [icon]="'contacts'" [direction]="['#/patients']" count="{{ totalPatients.list.length }}" label="{{ 'Ill' | translate }}"></app-stat>
                 </div>
                 <div fxFlex>
-                    <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]="12" [label]="'New task!'"></app-stat>
+                    <app-stat [bgClass]="'warn'" [icon]="'fa fa-user-md'" [direction]="['#/specialistes']" count="10" label="{{ 'Specialists' | translate }}"></app-stat>
                 </div>
                 <div fxFlex>
-                    <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]="124" [label]="'New Orders!'"></app-stat>
+                    <app-stat [bgClass]="'success'" [icon]="'visibility'" [count]="124" label="{{ 'Diseases' | translate }}"></app-stat>
                 </div>
                 <div fxFlex>
-                    <app-stat [bgClass]="'info'" [icon]="'contact_support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+                    <app-stat [bgClass]="'info'" [icon]="'supervisor_account'" [direction]="['#/administrateurs']" count="{{ totalAdmins.list.length }}" label="{{ 'Admins' | translate }}"></app-stat>
                 </div>
             </div>
         </div>

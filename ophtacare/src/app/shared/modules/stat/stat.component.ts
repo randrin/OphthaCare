@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-stat',
@@ -10,9 +11,12 @@ export class StatComponent implements OnInit {
     @Input() icon: string;
     @Input() count: number;
     @Input() label: string;
+    @Input() direction: string;
     @Input() data: number;
 
-    constructor() {}
+    constructor(private translate: TranslateService) {
+        translate.setDefaultLang('fr');
+    }
 
     ngOnInit() {}
 }
