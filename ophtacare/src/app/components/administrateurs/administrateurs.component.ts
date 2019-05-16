@@ -75,7 +75,7 @@ export class AdministrateursComponent implements OnInit {
   }
 
   deleteAdmin(admin: Admin) {
-    console.log('Administrator to cancel: ' + admin.id);
+    console.log('Administrator to cancel: ' + admin.idAdmin);
     this.confirmationService.confirm({
       message: 'Etes-vous sure de vouloir supprimer ' + admin.nomAdmin + ' ?',
       header: 'Conferma Eliminazione',

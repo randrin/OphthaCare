@@ -1,5 +1,5 @@
 export class Admin {
-    public id: number;
+    public idAdmin: number;
     public nomAdmin: boolean;
     public prenomAdmin: string;
     public pseudoAdmin: string;
@@ -9,7 +9,7 @@ export class Admin {
     public registrationAdmin: string;
 
     constructor(
-      id: number,
+      idAdmin: number,
       nomAdmin: string,
       prenomAdmin: string,
       pseudoAdmin: string,

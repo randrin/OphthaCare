@@ -29,6 +29,6 @@ export class AdministrateursService {
         'caller': caller
       })
     };
-    return this.http.delete(this.adminUrlDelete + '/' + admin.id, options);
+    return this.http.delete(this.adminUrlDelete + '/' + admin.idAdmin, options);
   }
 }

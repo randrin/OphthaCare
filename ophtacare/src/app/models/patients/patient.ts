@@ -15,7 +15,7 @@ export class Patient {
     public codePostPatient: number;
 
     constructor (
-        id: number,
+        idPatient: number,
         codePatient: string,
         nomPatient: string,
         prenomPatient: string,
