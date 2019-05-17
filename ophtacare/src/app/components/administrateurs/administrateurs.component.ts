@@ -6,6 +6,7 @@ import { AdministrateursService } from '../../services/administrateursService';
 import { Admins } from '../../models/administrateur/admins';
 import { Admin } from '../../models/administrateur/admin';
 import * as moment from 'moment';
+import saveAs from 'save-as';
 
 @Component({
   selector: 'app-administrateurs',
@@ -21,6 +22,10 @@ export class AdministrateursComponent implements OnInit {
   public admins: Admins = {list: [] };
   public admin = new Admin(0, '', '', '', '', '', '', '');
   public displayDetailsDialog;
+  public response = {
+    code: 0,
+    message: ''
+  };
 
   constructor(private administrateurService: AdministrateursService, private authenticationService: AuthenticationService,
     private confirmationService: ConfirmationService, private messageService: MessageService) {
@@ -114,6 +119,42 @@ export class AdministrateursComponent implements OnInit {
         );
       }
     });
+  }
+
+  exportExcelAdministrateurs() {
+    console.log('Export excel file called: -> Administrateurs');
+    this.administrateurService.exportAdministrateurs(this.authenticationService.getUsername()).subscribe(
+      data => {
+        console.log('Response: ' + JSON.stringify(data));
+        this.response = {
+          code: data.status,
+          message: data.statusText
+        };
+        if (this.response.message !== 'OK') {
+          this.messageService.add({
+            sticky: true,
+            severity: 'error',
+            summary: 'Erreur code ' + this.response.code,
+            detail: 'Message ' + this.response.message
+          });
+        } else {
+          this.downloadAdministrateursFile(data);
+        }
+      },
+      error => {
+        this.messageService.add({
+          sticky: true,
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'Erreur Technique'
+        });
+      }
+    );
+  }
+
+  downloadAdministrateursFile(data: any) {
+    const blob = new Blob([data.blob()], { type: 'application/octet-stream' });
+    saveAs(blob, 'Administrateurs_OphthaCare.xlsx');
   }
 
   clearFilter(dt) {

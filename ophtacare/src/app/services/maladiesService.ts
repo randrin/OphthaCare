@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http } from '@angular/http';
+import { Http, ResponseContentType, Headers } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +26,40 @@ export class MaladiesService {
   return this.http.get(this.maladiesUrl);
   }
 
+  insertMaladie (maladie, caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+  };
+  return this.http.put(this.maladieUrlInsert, maladie, options);
+  }
+
+  updateMaladie(maladie, caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+    };
+    return this.http.post(this.maladieUrlUpdate, maladie, options);
+  }
+
+  deleteMaladie (maladie, caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+  };
+  return this.http.delete(this.maladieUrlDelete + '/' + maladie.idMaladie, options);
+  }
+
+  exportMaladies(caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+      responseType: ResponseContentType.Blob
+  };
+  return this.http.get(this.maladieExportUrl, options);
+  }
 }

@@ -228,7 +228,7 @@ export class PatientsComponent implements OnInit {
     this.patientUpdate = patient;
   }
 
-  exportExcelFile() {
+  exportExcelPatients() {
     console.log('Export excel file called: -> Patients');
     this.patientsService.exportPatients(this.authenticationService.getUsername()).subscribe(
       data => {
@@ -245,7 +245,7 @@ export class PatientsComponent implements OnInit {
             detail: 'Message ' + this.response.message
           });
         } else {
-          this.downloadFile(data);
+          this.downloadPatientsFile(data);
         }
       },
       error => {
@@ -259,7 +259,7 @@ export class PatientsComponent implements OnInit {
     );
   }
 
-  downloadFile(data: any) {
+  downloadPatientsFile(data: any) {
     const blob = new Blob([data.blob()], { type: 'application/octet-stream' });
     saveAs(blob, 'Patients_OphthaCare.xlsx');
   }

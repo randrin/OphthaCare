@@ -23,6 +23,24 @@ export class AdministrateursService {
     return this.http.get(this.adminsUrl);
   }
 
+  insertAdministrateur (admin, caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+  };
+  return this.http.put(this.adminUrlInsert, admin, options);
+  }
+
+  updateAdministrateur (admin, caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+    };
+    return this.http.post(this.adminUrlUpdate, admin, options);
+  }
+
   deleteAdministrator(admin, caller) {
     const options = {
       headers: new Headers({
@@ -30,5 +48,15 @@ export class AdministrateursService {
       })
     };
     return this.http.delete(this.adminUrlDelete + '/' + admin.idAdmin, options);
+  }
+
+  exportAdministrateurs(caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+      responseType: ResponseContentType.Blob
+  };
+  return this.http.get(this.adminExportUrl, options);
   }
 }

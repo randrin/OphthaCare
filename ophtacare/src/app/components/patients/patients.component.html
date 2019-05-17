@@ -16,7 +16,7 @@
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelFile()"
+            <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelPatients()"
               icon="pi pi-download" class="ui-button-success"></p-button>
             <p-button label="{{ 'New Patient' | translate }}" [disabled]="isAdmin()" (onClick)="createPatient()"
               icon="pi pi-user-plus" iconPos="left" style="margin-left: 20px;"></p-button>
