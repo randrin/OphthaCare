@@ -19,9 +19,14 @@ export class AdministrateursComponent implements OnInit {
   public cols: any[];
   public blocked;
   public role: SelectItem[];
+  public activation: SelectItem[];
   public admins: Admins = {list: [] };
   public admin = new Admin(0, '', '', '', '', '', '', '');
+  public newAdmin = new Admin(0, '', '', '', '', '', '', '');
+  public adminUpdate = new Admin(0, '', '', '', '', '', '', '');
   public displayDetailsDialog;
+  public displayNewDialog;
+  public displayUpdateDialog;
   public response = {
     code: 0,
     message: ''
@@ -47,6 +52,10 @@ export class AdministrateursComponent implements OnInit {
       { label: 'User', value: 'USER' },
       { label: 'Supervisor', value: 'SUPERVISOR' }
     ];
+    this.activation = [
+      { label: 'Yes', value: 'true', icon: 'pi pi-check' },
+      { label: 'No', value: 'false', icon: 'pi pi-times' }
+    ];
     this.getAdminsitrateurs();
   }
 
@@ -68,6 +77,97 @@ export class AdministrateursComponent implements OnInit {
 
   }
 
+  createAdmin() {
+    this.blocked = true;
+    setTimeout(() => {
+      this.blocked = false;
+      this.displayNewDialog = true;
+    }, 500);
+  }
+
+  submitAdmin(admin: Admin) {
+    console.log('Admin to register: ' + admin.nomAdmin + ' ' + admin.prenomAdmin);
+    this.newAdmin = admin;
+    this.blocked = true;
+    this.administrateurService.insertAdministrateur(this.newAdmin, 'this.authenticationService.getUsername()').subscribe(
+      response => {
+        this.blocked = false;
+        if (response.json().code !== 'OK') {
+          this.messageService.add({
+            sticky: true,
+            severity: 'error',
+            summary: response.json().code,
+            detail: response.json().message
+          });
+        } else {
+          this.messageService.add({
+            sticky: false,
+            severity: 'success',
+            summary: 'Succès',
+            detail: 'Administrateur enregistré.'
+          });
+          this.getAdminsitrateurs();
+          this.newAdmin = new Admin(0, '', '', '', '', '', '', '');
+          this.displayNewDialog = false;
+        }
+      },
+      error => {
+        this.blocked = false;
+        this.messageService.add({
+          sticky: true,
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'Erreur Technique'
+        });
+      });
+  }
+
+  updateAdmin(admin: Admin) {
+    this.blocked = true;
+    setTimeout(() => {
+      this.blocked = false;
+      this.displayUpdateDialog = true;
+    }, 500);
+    this.adminUpdate = admin;
+  }
+
+  submitUpdateAdmin (updateAdmin: Admin) {
+    console.log('Admin to update: ' + updateAdmin.nomAdmin + ' ' + updateAdmin.prenomAdmin);
+    this.adminUpdate = updateAdmin;
+    this.blocked = true;
+    this.administrateurService.updateAdministrateur(this.adminUpdate, 'this.authenticationService.getUsername()').subscribe(
+      response => {
+        this.blocked = false;
+        if (response.json().code !== 'OK') {
+          this.messageService.add({
+            sticky: true,
+            severity: 'error',
+            summary: response.json().code,
+            detail: response.json().message
+          });
+        } else {
+          this.messageService.add({
+            sticky: false,
+            severity: 'success',
+            summary: 'Succès',
+            detail: 'Administrateur ajourné.'
+          });
+          this.getAdminsitrateurs();
+          this.adminUpdate = new Admin(0, '', '', '', '', '', '', '');
+          this.displayUpdateDialog = false;
+        }
+      },
+      error => {
+        this.blocked = false;
+        this.messageService.add({
+          sticky: true,
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'Erreur Technique'
+        });
+      });
+  }
+
   detailsAdmin (admin: Admin) {
     this.blocked = true;
     admin.lastLoginAdmin = moment(admin.lastLoginAdmin).format('DD/MM/YYYY');
@@ -82,7 +182,7 @@ export class AdministrateursComponent implements OnInit {
   deleteAdmin(admin: Admin) {
     console.log('Administrator to cancel: ' + admin.idAdmin);
     this.confirmationService.confirm({
-      message: 'Etes-vous sure de vouloir supprimer ' + admin.nomAdmin + ' ?',
+      message: 'Etes-vous sûre de vouloir supprimer ' + admin.nomAdmin + ' ' + admin.prenomAdmin + ' ?',
       header: 'Conferma Eliminazione',
       icon: 'pi pi-trash',
       accept: () => {
@@ -90,7 +190,7 @@ export class AdministrateursComponent implements OnInit {
         this.administrateurService.deleteAdministrator(admin, 'this.authenticationService.getUsername()').subscribe(
           res => {
             this.blocked = false;
-            if ( res.json().code !== 'OK') {
+            if (res.json().code !== 'OK') {
               this.messageService.add({
                 sticky: true,
                 severity: 'error',
@@ -102,7 +202,7 @@ export class AdministrateursComponent implements OnInit {
                 sticky: false,
                 severity: 'success',
                 summary: 'Confermato',
-                detail: 'utente eliminato'
+                detail: 'Administrateur eliminato'
               });
               this.getAdminsitrateurs();
             }
@@ -160,5 +260,12 @@ export class AdministrateursComponent implements OnInit {
   clearFilter(dt) {
     $('.filter').val('');
      dt.reset();
+  }
+
+  closeDialog () {
+    this.displayNewDialog = false;
+    this.displayUpdateDialog = false;
+    this.newAdmin = new Admin(0, '', '', '', '', '', '', '');
+    this.adminUpdate = new Admin(0, '', '', '', '', '', '', '');
   }
 }

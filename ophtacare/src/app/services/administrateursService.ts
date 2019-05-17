@@ -6,7 +6,7 @@ import { Http, ResponseContentType, Headers } from '@angular/http';
   providedIn: 'root'
 })
 export class AdministrateursService {
-  private adminExportUrl = window['baseUrl'] + '/excel/downloadExcelAdmins';
+  private adminExportUrl = window['baseUrl'] + '/excel/downloadExcelAdministrateurs';
   private adminsUrl = window['baseUrl'] + '/admin/getAllAdmins';
   private adminUrlInsert = window['baseUrl'] + '/admin/insert';
   private adminUrlUpdate = window['baseUrl'] + '/admin/update';

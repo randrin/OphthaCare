@@ -89,7 +89,7 @@ export class PatientsComponent implements OnInit {
 
   submitPatient(patient: Patient) {
     console.log('Patient to register: ' + patient.nomPatient + ' ' + patient.prenomPatient);
-    patient.dateNaisPatient = moment(patient.dateNaisPatient).format('DD/MM/YYYY'),
+    patient.dateNaisPatient = moment(patient.dateNaisPatient).format('DD/MM/YYYY');
     this.newPatient = patient;
     this.blocked = true;
     this.patientsService.insertPatient(this.newPatient, 'this.authenticationService.getUsername()').subscribe(
@@ -127,7 +127,7 @@ export class PatientsComponent implements OnInit {
 
   submitUpdatePatient (updatePatient: Patient) {
     console.log('Patient to update: ' + updatePatient.nomPatient + ' ' + updatePatient.prenomPatient);
-    updatePatient.dateNaisPatient = moment(updatePatient.dateNaisPatient).format('DD/MM/YYYY'),
+    updatePatient.dateNaisPatient = moment(updatePatient.dateNaisPatient).format('DD/MM/YYYY');
     this.patientUpdate = updatePatient;
     this.blocked = true;
     this.patientsService.updatePatient(this.patientUpdate, 'this.authenticationService.getUsername()').subscribe(
@@ -187,7 +187,7 @@ export class PatientsComponent implements OnInit {
         this.patientsService.deletePatient(patient, 'this.authenticationService.getUsername()').subscribe(
           res => {
             this.blocked = false;
-            if ( res.json().code !== 'OK') {
+            if (res.json().code !== 'OK') {
               this.messageService.add({
                 sticky: true,
                 severity: 'error',
@@ -199,7 +199,7 @@ export class PatientsComponent implements OnInit {
                 sticky: false,
                 severity: 'success',
                 summary: 'Confermato',
-                detail: 'utente eliminato'
+                detail: 'Patient eliminato'
               });
               this.getPatients();
             }

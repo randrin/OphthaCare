@@ -16,7 +16,7 @@
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Admins' | translate }}" (onClick)="exportExcelFile()"
+            <p-button type="button" label="{{ 'Download Admins' | translate }}" (onClick)="exportExcelAdministrateurs()"
               icon="pi pi-download" class="ui-button-success"></p-button>
             <p-button label="{{ 'New Admin' | translate }}" [disabled]="isAdmin()" (onClick)="createAdmin()"
               icon="pi pi-user-plus" iconPos="left" style="margin-left: 20px;"></p-button>
@@ -68,6 +68,92 @@
   <!-- Dialog Confirmation Delete -->
   <p-confirmDialog [style]="{width: '500px'}"></p-confirmDialog>
 </div>
+
+<!-- Dialog Add New Admin -->
+<p-dialog header="{{ 'New Admin' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+  <form (ngSubmit)="submitAdmin(newAdmin)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="nomAdmin"><b>{{ 'firstName' | translate }}</b></label>
+          <input type="text" id="nomAdmin" name="nomAdmin" [(ngModel)]="newAdmin.nomAdmin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="prenomAdmin"><b>{{ 'lastName' | translate }}</b></label>
+          <input type="text" id="prenomAdmin" name="prenomAdmin" [(ngModel)]="newAdmin.prenomAdmin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="pseudoAdmin"><b>{{ 'pseudoAdmin' | translate }}</b></label>
+          <input type="text" id="pseudoAdmin" name="pseudoAdmin" [(ngModel)]="newAdmin.pseudoAdmin" pInputText class="form-control" required />
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="activeAdmin"><b>{{ 'activeAdmin' | translate }}</b></label><br>
+          <p-selectButton id="activeAdmin" name="activeAdmin" [(ngModel)]="newAdmin.activeAdmin" [options]="activation" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="roleAdmin"><b>{{ 'roleAdmin' | translate }}</b></label><br>
+          <p-dropdown id="roleAdmin" name="roleAdmin" [options]="role" [(ngModel)]="newAdmin.roleAdmin" [filter]="true" required></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+    <p-footer>
+        <div class="pull-right" style="margin: 15px;">
+          <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          label="{{ 'Create' | translate }}"></button>
+        </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>
+
+<!-- Dialog Update Admin -->
+<p-dialog header="{{ 'Update Admin' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+  <form (ngSubmit)="submitUpdateAdmin(adminUpdate)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="nomAdmin"><b>{{ 'firstName' | translate }}</b></label>
+          <input type="text" id="nomAdmin" name="nomAdmin" [(ngModel)]="adminUpdate.nomAdmin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="prenomAdmin"><b>{{ 'lastName' | translate }}</b></label>
+          <input type="text" id="prenomAdmin" name="prenomAdmin" [(ngModel)]="adminUpdate.prenomAdmin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="pseudoAdmin"><b>{{ 'pseudoAdmin' | translate }}</b></label>
+          <input type="text" id="pseudoAdmin" name="pseudoAdmin" [(ngModel)]="adminUpdate.pseudoAdmin" pInputText class="form-control" required />
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="activeAdmin"><b>{{ 'activeAdmin' | translate }}</b></label><br>
+          <p-selectButton id="activeAdmin" name="activeAdmin" [(ngModel)]="adminUpdate.activeAdmin" [options]="activation" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="roleAdmin"><b>{{ 'roleAdmin' | translate }}</b></label><br>
+          <p-dropdown id="roleAdmin" name="roleAdmin" [options]="role" [(ngModel)]="adminUpdate.roleAdmin" [filter]="true" required></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+    <p-footer>
+        <div class="pull-right" style="margin: 15px;">
+          <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          label="{{ 'Update' | translate }}"></button>
+        </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>
 
 <!-- Dialog Details Admins -->
 <p-dialog header="{{ 'ID' | translate }} : {{ admin.pseudoAdmin }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
