@@ -11,4 +11,61 @@
       {{ 'Specialistes Clinique' | translate }}
     </div>
   </div>
+  <div>
+    <p-table #dt [columns]="cols" [value]="medecins.list" [paginator]="true" [rows]="10" selectionMode="single">
+      <ng-template pTemplate="caption">
+        <p-toolbar>
+          <div class="ui-toolbar-group-left">
+            <p-button type="button" label="{{ 'Download Medecins' | translate }}" (onClick)="exportExcelMedecins()"
+              icon="pi pi-download" class="ui-button-success"></p-button>
+            <p-button label="{{ 'New Medecin' | translate }}" [disabled]="isAdmin()" (onClick)="createMedecin()"
+              icon="pi pi-user-plus" iconPos="left" style="margin-left: 20px;"></p-button>
+          </div>
+          <div class="ui-toolbar-group-right">
+            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+              (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+              iconPos="left" style="margin-left: 20px;"></p-button>
+          </div>
+        </p-toolbar>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header | translate }}
+          </th>
+        </tr>
+        <tr>
+          <th *ngFor="let col of columns">
+            <input class="filter" *ngIf="col.field != 'detail'"
+              style="max-width: -webkit-fill-available; max-width: -moz-available;" pInputText type="text"
+              (input)="dt.filter($event.target.value, col.field, 'contains')">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-medecin>
+        <tr>
+          <td>
+            <p-button type="button" style="margin-left:33%" (click)="detailsMedecin(medecin)" [disabled]="isAdmin()" icon="pi pi-search"></p-button>
+          </td>
+          <td class="code"><b>{{ medecin.matriculeMedecin }}</b></td>
+          <td>{{ medecin.nomMedecin }}</td>
+          <td>{{ medecin.prenomMedecin }}</td>
+          <td>{{ medecin.sexeMedecin }}</td>
+          <td>{{ medecin.dateNaisMedecin }}</td>
+          <td>{{ medecin.numTelMedecin }}</td>
+          <td>
+            <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updateMedecin(medecin)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
+          </td>
+          <td>
+            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%" (click)="deleteMedeicn(medecin)" [disabled]="isAdmin()"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <!-- Dialog Confirmation Delete -->
+  <p-confirmDialog [style]="{width: '500px'}"></p-confirmDialog>
   </div>

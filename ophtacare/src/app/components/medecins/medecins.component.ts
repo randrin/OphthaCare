@@ -5,6 +5,7 @@ import { MedecinsService } from '../../services/medecinsService';
 import { Medecins } from '../../models/medecins/medecins';
 import { MessageService } from 'primeng/api';
 import saveAs from 'save-as';
+import { Medecin } from '../../models/medecins/medecin';
 
 @Component({
   selector: 'app-medecins',
@@ -15,24 +16,46 @@ import saveAs from 'save-as';
 export class MedecinsComponent implements OnInit {
 
   public blocked;
+  public cols: any[];
+  public displayDetailsDialog;
+  public displayNewDialog;
+  public displayUpdateDialog;
   public medecins: Medecins = { list: [] };
+  public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+  public newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+  public medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
   public response = {
     code: 0,
     message: ''
   };
 
   constructor(private authenticationService: AuthenticationService, private medecinsService: MedecinsService,
-    private messageService: MessageService) { }
+    private messageService: MessageService) {
+      this.cols = [
+        { field: 'detail', header: 'detail' },
+        { field: 'matriculeMedecin', header: 'matriculeMedecin' },
+        { field: 'nomMedecin', header: 'firstName' },
+        { field: 'prenomMedecin', header: 'lastName' },
+        { field: 'sexeMedecin', header: 'sex' },
+        { field: 'dateNaisMedecin', header: 'dateOfBorn' },
+        // { field: 'ageMedecin', header: 'year' },
+        // { field: 'emailMedecin', header: 'email' },
+        { field: 'numTelMedecin', header: 'cellularePhone' },
+        // { field: 'numFixeMedecin', header: 'fixePhone' },
+        { field: 'detail', header: 'modify' },
+        { field: 'detail', header: 'cancel' },
+      ];
+    }
 
   ngOnInit() {
     this.blocked = true;
     setTimeout(() => {
       this.blocked = false;
     }, 1000);
-    this.getmedecins();
+    this.getMedecins();
   }
 
-  getmedecins () {
+  getMedecins() {
     this.blocked = true;
     this.medecinsService.getAllMedecins(this.authenticationService.getUsername()).subscribe(
       response => {
@@ -46,8 +69,32 @@ export class MedecinsComponent implements OnInit {
     }, 1000);
   }
 
-  exportExcelmedecins() {
-    console.log('Export excel file called: -> medecins');
+  isAdmin() {
+
+  }
+
+  createMedecin() {
+    this.blocked = true;
+    setTimeout(() => {
+      this.blocked = false;
+      this.displayNewDialog = true;
+    }, 500);
+  }
+
+  detailsMedecin(medecin: Medecin) {
+
+  }
+
+  updateMedecin(medecin: Medecin) {
+
+  }
+
+  deleteMedeicn(medecin: Medecin) {
+
+  }
+
+  exportExcelMedecins() {
+    console.log('Export excel file called: -> Medecins');
     this.medecinsService.exportMedecins(this.authenticationService.getUsername()).subscribe(
       data => {
         console.log('Response: ' + JSON.stringify(data));
@@ -63,7 +110,7 @@ export class MedecinsComponent implements OnInit {
             detail: 'Message ' + this.response.message
           });
         } else {
-          this.downloadmedecinsFile(data);
+          this.downloadMedecinsFile(data);
         }
       },
       error => {
@@ -77,8 +124,13 @@ export class MedecinsComponent implements OnInit {
     );
   }
 
-  downloadmedecinsFile(data: any) {
+  downloadMedecinsFile(data: any) {
     const blob = new Blob([data.blob()], { type: 'application/octet-stream' });
-    saveAs(blob, 'medecins_OphthaCare.xlsx');
+    saveAs(blob, 'Medecins_OphthaCare.xlsx');
+  }
+
+  clearFilter(dt) {
+    $('.filter').val('');
+     dt.reset();
   }
 }

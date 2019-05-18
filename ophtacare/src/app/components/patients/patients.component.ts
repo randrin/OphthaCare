@@ -65,7 +65,7 @@ export class PatientsComponent implements OnInit {
     this.getPatients();
   }
 
-  getPatients () {
+  getPatients() {
     this.blocked = true;
     this.patientsService.getAllPatients(this.authenticationService.getUsername()).subscribe(
       response => {
