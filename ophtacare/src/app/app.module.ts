@@ -64,8 +64,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdministrateursComponent } from './components/administrateurs/administrateurs.component';
 import { AdministrateursService } from './services/administrateursService';
 import { StatModule } from './shared/modules/stat/stat.module';
-import { SpecialistesComponent } from './components/specialistes/specialistes.component';
-import { SpecialistesService } from './services/specialistesService';
+import { MedecinsComponent } from './components/medecins/medecins.component';
+import { MedecinsService } from './services/medecinsService';
 import { DashboardService } from './services/dashboardService';
 import { MaladiesService } from './services/maladiesService';
 import { MaladiesComponent } from './components/maladies/maladies.component';
@@ -98,7 +98,7 @@ const appRoutes: Routes = [
     path: 'administrateurs', component: AdministrateursComponent
   },
   {
-    path: 'specialistes', component: SpecialistesComponent
+    path: 'medecins', component: MedecinsComponent
   },
   {
     path: 'maladies', component: MaladiesComponent
@@ -115,7 +115,7 @@ const appRoutes: Routes = [
     PatientsComponent,
     DashboardComponent,
     AdministrateursComponent,
-    SpecialistesComponent,
+    MedecinsComponent,
     MaladiesComponent
   ],
   imports: [
@@ -193,7 +193,7 @@ const appRoutes: Routes = [
     DashboardService,
     PatientsService,
     AdministrateursService,
-    SpecialistesService,
+    MedecinsService,
     MaladiesService,
     MessageService,
     ConfirmationService,

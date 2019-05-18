@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/primeng';
 import { AuthenticationService } from '../../services/authenticationService';
-import { SpecialistesService } from '../../services/specialistesService';
-import { Specialistes } from '../../models/specialistes/specialistes';
+import { MedecinsService } from '../../services/medecinsService';
+import { Medecins } from '../../models/medecins/medecins';
 import { MessageService } from 'primeng/api';
 import saveAs from 'save-as';
 
 @Component({
-  selector: 'app-specialistes',
+  selector: 'app-medecins',
   providers: [ConfirmationService],
-  templateUrl: './specialistes.component.html',
-  styleUrls: ['./specialistes.component.css']
+  templateUrl: './medecins.component.html',
+  styleUrls: ['./medecins.component.css']
 })
-export class SpecialistesComponent implements OnInit {
+export class MedecinsComponent implements OnInit {
 
   public blocked;
-  public specialistes: Specialistes = { list: [] };
+  public medecins: Medecins = { list: [] };
   public response = {
     code: 0,
     message: ''
   };
 
-  constructor(private authenticationService: AuthenticationService, private specialistesService: SpecialistesService,
+  constructor(private authenticationService: AuthenticationService, private medecinsService: MedecinsService,
     private messageService: MessageService) { }
 
   ngOnInit() {
@@ -29,16 +29,16 @@ export class SpecialistesComponent implements OnInit {
     setTimeout(() => {
       this.blocked = false;
     }, 1000);
-    this.getSpecialistes();
+    this.getmedecins();
   }
 
-  getSpecialistes () {
+  getmedecins () {
     this.blocked = true;
-    this.specialistesService.getAllSpecialistes(this.authenticationService.getUsername()).subscribe(
+    this.medecinsService.getAllMedecins(this.authenticationService.getUsername()).subscribe(
       response => {
-        this.specialistes.list = [];
+        this.medecins.list = [];
         if (response.json() != null) {
-          this.specialistes.list = this.specialistes.list.concat(response.json().filter(n => n));
+          this.medecins.list = this.medecins.list.concat(response.json().filter(n => n));
         }
     });
     setTimeout(() => {
@@ -46,9 +46,9 @@ export class SpecialistesComponent implements OnInit {
     }, 1000);
   }
 
-  exportExcelSpecialistes() {
-    console.log('Export excel file called: -> Specialistes');
-    this.specialistesService.exportSpecialistes(this.authenticationService.getUsername()).subscribe(
+  exportExcelmedecins() {
+    console.log('Export excel file called: -> medecins');
+    this.medecinsService.exportMedecins(this.authenticationService.getUsername()).subscribe(
       data => {
         console.log('Response: ' + JSON.stringify(data));
         this.response = {
@@ -63,7 +63,7 @@ export class SpecialistesComponent implements OnInit {
             detail: 'Message ' + this.response.message
           });
         } else {
-          this.downloadSpecialistesFile(data);
+          this.downloadmedecinsFile(data);
         }
       },
       error => {
@@ -77,8 +77,8 @@ export class SpecialistesComponent implements OnInit {
     );
   }
 
-  downloadSpecialistesFile(data: any) {
+  downloadmedecinsFile(data: any) {
     const blob = new Blob([data.blob()], { type: 'application/octet-stream' });
-    saveAs(blob, 'Specialistes_OphthaCare.xlsx');
+    saveAs(blob, 'medecins_OphthaCare.xlsx');
   }
 }

@@ -1,4 +1,4 @@
-export class Specialiste {
+export class Medecin {
     public idMedecin: number;
     public nomMedecin: string;
     public prenomMedecin: string;
