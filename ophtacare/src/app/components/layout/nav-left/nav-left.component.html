@@ -9,9 +9,19 @@
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/administrateurs']">
             <mat-icon class="sidenav-icon">supervisor_account</mat-icon> {{ 'Admins' | translate }}
         </a>
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/medecins']">
-            <i class="fa fa-user-md sidenav-icon" style="font-size:24px;"></i> <span style="padding-left: 15px;">{{ 'Specialists' | translate }}</span>
-        </a>
+        <div class="nested-menu">
+            <a mat-list-item (click)="addExpandClass('professions-medecins')">
+                <i class="fa fa-user-md sidenav-icon" style="font-size:24px;"></i> <span style="padding-left: 15px;">{{ 'Corps Medical' | translate }}</span>
+            </a>
+            <ul class="nested submenu" *ngIf="showMenu === 'professions-medecins'">
+                <li>
+                    <a [routerLink]="['/medecins']"><span>{{ 'Specialists' | translate }}</span></a>
+                </li>
+                <li>
+                    <a [routerLink]="['/professions']"><span>{{ 'Professions' | translate }}</span></a>
+                </li>
+            </ul>
+        </div>
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/maladies']">
             <mat-icon class="sidenav-icon">visibility</mat-icon> {{ 'Diseases' | translate }}
         </a>

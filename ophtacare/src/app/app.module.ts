@@ -69,6 +69,8 @@ import { MedecinsService } from './services/medecinsService';
 import { DashboardService } from './services/dashboardService';
 import { MaladiesService } from './services/maladiesService';
 import { MaladiesComponent } from './components/maladies/maladies.component';
+import { ProfessionsMedecinsComponent } from './components/professionsMedecins/professionsMedecins.component';
+import { ProfessionsMedecinsService } from './services/professionsMedecinsService';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -102,6 +104,9 @@ const appRoutes: Routes = [
   },
   {
     path: 'maladies', component: MaladiesComponent
+  },
+  {
+    path: 'professions', component: ProfessionsMedecinsComponent
   }
 ];
 
@@ -116,7 +121,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     AdministrateursComponent,
     MedecinsComponent,
-    MaladiesComponent
+    MaladiesComponent,
+    ProfessionsMedecinsComponent
   ],
   imports: [
     BrowserModule,
@@ -194,6 +200,7 @@ const appRoutes: Routes = [
     PatientsService,
     AdministrateursService,
     MedecinsService,
+    ProfessionsMedecinsService,
     MaladiesService,
     MessageService,
     ConfirmationService,

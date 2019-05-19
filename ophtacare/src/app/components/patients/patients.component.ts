@@ -179,7 +179,7 @@ export class PatientsComponent implements OnInit {
   deletePatient(patient: Patient) {
     console.log('Patient to cancel: ' + patient.idPatient);
     this.confirmationService.confirm({
-      message: 'Etes-vous sure de vouloir supprimer ' + patient.nomPatient + ' ?',
+      message: 'Etes-vous sure de vouloir supprimer ' + patient.nomPatient + ' ' + patient.prenomPatient + ' ?',
       header: 'Conferma Eliminazione',
       icon: 'pi pi-trash',
       accept: () => {

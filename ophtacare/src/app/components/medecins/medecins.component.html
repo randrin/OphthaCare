@@ -68,4 +68,117 @@
 
   <!-- Dialog Confirmation Delete -->
   <p-confirmDialog [style]="{width: '500px'}"></p-confirmDialog>
+</div>
+
+<!-- Dialog Add New Medecin -->
+<p-dialog header="{{ 'New Medecin' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+  <form (ngSubmit)="submitMedecin(newMedecin)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-3">
+          <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
+          <input type="text" id="firstname" name="firstname" [(ngModel)]="newMedecin.nomMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-3">
+          <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
+          <input type="text" id="lastname" name="lastname" [(ngModel)]="newMedecin.prenomMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-3">
+          <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
+          <p-selectButton id="sex" name="sex" [(ngModel)]="newMedecin.sexeMedecin" [options]="gender" required></p-selectButton>
+        </div>
+        <div class="col-md-3">
+          <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
+          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="dd/MM/yyyy" [(ngModel)]="newMedecin.dateNaisMedecin" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="email"><b>{{ 'email' | translate }}</b></label>
+          <input type="text" id="email" name="email" [(ngModel)]="newMedecin.emailMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
+          <input type="number" id="cellularePhone" name="cellularePhone" [(ngModel)]="newMedecin.numTelMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="fixePhone"><b>{{ 'fixePhone' | translate }}</b></label>
+          <input type="number" id="fixePhone" name="fixePhone" [(ngModel)]="newMedecin.numFixeMedecin" pInputText class="form-control" required />
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+    <p-footer>
+        <div class="pull-right" style="margin: 15px;">
+          <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          label="{{ 'Create' | translate }}"></button>
+        </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>
+
+<!-- Dialog Details Medecins -->
+<p-dialog header="{{ 'matriculeMedecin' | translate }} : {{ medecin.matriculeMedecin }} - {{ medecin.nomMedecin }} {{ medecin.prenomMedecin }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
+[minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+<div>
+  <div class="row" style="margin: 10px;">
+      <div class="col-md-3">
+          <p-card header="{{ 'matriculeMedecin' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.matriculeMedecin }}</div>
+          </p-card>
+      </div>
+      <div class="col-md-3">
+          <p-card header="{{ 'firstName' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.nomMedecin }}</div>
+          </p-card>
+      </div>
+      <div class="col-md-3">
+          <p-card header="{{ 'lastName' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.prenomMedecin }}</div>
+          </p-card>
+      </div>
+      <div class="col-md-3">
+          <p-card header="{{ 'sex' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.sexeMedecin }}</div>
+          </p-card>
+      </div>
+    </div>
+    <div class="row" style="margin: 10px;">
+      <div class="col-md-3">
+          <p-card header="{{ 'email' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.emailMedecin }}</div>
+          </p-card>
+      </div>
+      <div class="col-md-3">
+          <p-card header="{{ 'year' | translate }}" [style]="{width: '200px'}">
+              <div><span *ngIf='medecin.ageMedecin === 1'> {{ yearOld }} </span>{{ medecin.ageMedecin }}</div>
+          </p-card>
+      </div>
+      <div class="col-md-3">
+          <p-card header="{{ 'dateOfBorn' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.dateNaisMedecin }}</div>
+          </p-card>
+      </div>
   </div>
+  <div class="row" style="margin: 10px;">
+      <div class="col-md-3">
+          <p-card header="{{ 'cellularePhone' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.numTelMedecin }}</div>
+          </p-card>
+      </div>
+      <div class="col-md-3">
+          <p-card header="{{ 'fixePhone' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.numFixeMedecin }}</div>
+          </p-card>
+      </div>
+  </div>
+</div>
+<p-footer>
+  <button pButton type="button" icon="pi pi-times" (click)="displayDetailsDialog=false" label="Chiudi"
+    class="ui-button-danger"></button>
+</p-footer>
+</p-dialog>
