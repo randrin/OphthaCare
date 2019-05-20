@@ -16,9 +16,9 @@
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelProfessionsMedecins()"
+            <p-button type="button" label="{{ 'Download Profession' | translate }}" (onClick)="exportExcelProfessionsMedecins()"
               icon="pi pi-download" class="ui-button-success"></p-button>
-            <p-button label="{{ 'New Patient' | translate }}" [disabled]="isAdmin()" (onClick)="createProfession()"
+            <p-button label="{{ 'New Profession' | translate }}" [disabled]="isAdmin()" (onClick)="createProfession()"
               icon="pi pi-user-plus" iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
@@ -75,13 +75,14 @@
       <div class="row" style="margin: 15px;">
         <div class="col-md-12">
           <label for="nomProfession"><b>{{ 'nomProfession' | translate }}</b></label>
-          <input type="text" id="nomProfession" name="nomProfession" [(ngModel)]="newProfession.nomProfession" pInputText class="form-control" required />
+          <input type="text" id="nomProfession" name="nomProfession" [(ngModel)]="newProfession.nomProfession" pInputText class="form-control" c />
         </div>
       </div>
       <div class="row" style="margin: 15px;">
         <div class="col-md-12">
           <label for="descProfession"><b>{{ 'descProfession' | translate }}</b></label><br>
-          <textarea style="width: 100%;" id="descProfession" name="descProfession" [(ngModel)]="newProfession.descProfession" pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert others informations ...' | translate }}"></textarea>
+          <textarea style="width: 100%;" id="descProfession" name="descProfession" [(ngModel)]="newProfession.descProfession" 
+          pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert description ...' | translate }}" required></textarea>
         </div>
       </div>
     </div>
