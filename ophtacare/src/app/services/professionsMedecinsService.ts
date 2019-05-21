@@ -50,7 +50,7 @@ export class ProfessionsMedecinsService {
         'caller': caller
       }),
   };
-  return this.http.delete(this.professionsMedecinUrlDelete + '/' + professionMedecin.idMedecin, options);
+  return this.http.delete(this.professionsMedecinUrlDelete + '/' + professionMedecin.idProfession, options);
   }
 
   exportProfessionsMedecins(caller) {

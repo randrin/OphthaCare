@@ -208,7 +208,7 @@ export class ProfessionsMedecinsComponent implements OnInit {
       icon: 'pi pi-trash',
       accept: () => {
         this.blocked = true;
-        this.professionsMedecinsService.deleteProfessionMedecin(Profession, 'this.authenticationService.getUsername()').subscribe(
+        this.professionsMedecinsService.deleteProfessionMedecin(profession, 'this.authenticationService.getUsername()').subscribe(
           res => {
             this.blocked = false;
             if (res.json().code !== 'OK') {

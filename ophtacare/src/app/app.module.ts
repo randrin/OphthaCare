@@ -23,6 +23,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { TableModule } from 'primeng/table';
+import { TruncateModule } from 'ng2-truncate';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ToastModule } from 'primeng/toast';
 import { ChartModule } from 'primeng/chart';
@@ -126,6 +127,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    TruncateModule,
     StatModule,
     Ng2Charts,
     CommonModule,

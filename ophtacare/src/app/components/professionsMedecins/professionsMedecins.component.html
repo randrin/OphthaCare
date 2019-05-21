@@ -51,7 +51,7 @@
           </td>
           <td class="code"><b>{{ profession.codeProfession }}</b></td>
           <td>{{ profession.nomProfession }}</td>
-          <td>{{ profession.descProfession }}</td>
+          <td>{{ profession.descProfession | truncate : 50 : " ..." }}</td>
           <td>
             <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updateProfession(profession)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
           </td>
@@ -68,31 +68,31 @@
 </div>
 
 <!-- Dialog Add New Profession -->
-<p-dialog header="{{ 'New Profession' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
-  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
-  <form (ngSubmit)="submitProfession(newProfession)" #newForm="ngForm">
+<p-dialog header="{{ 'New Profession' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="500"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
+  <form (ngSubmit)="submitProfession(newProfession)" #newProf="ngForm">
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-12">
           <label for="nomProfession"><b>{{ 'nomProfession' | translate }}</b></label>
-          <input type="text" id="nomProfession" name="nomProfession" [(ngModel)]="newProfession.nomProfession" pInputText class="form-control" />
+          <input type="text" id="nomProfession" name="nomProfession" [(ngModel)]="newProfession.nomProfession" pInputText class="form-control" required />
         </div>
       </div>
       <div class="row" style="margin: 15px;">
         <div class="col-md-12">
           <label for="descProfession"><b>{{ 'descProfession' | translate }}</b></label><br>
           <textarea style="width: 100%;" id="descProfession" name="descProfession" [(ngModel)]="newProfession.descProfession" 
-          pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert description ...' | translate }}" required></textarea>
+            pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert description ...' | translate }}" required></textarea>
         </div>
       </div>
     </div>
     <hr>
     <div class="container-fluid">
-    <p-footer>
+      <p-footer>
         <div class="pull-right" style="margin: 15px;">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
-          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
-          label="{{ 'Create' | translate }}"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newProf.form.valid"
+              label="{{ 'Create' | translate }}"></button>
         </div>
       </p-footer>
     </div>
@@ -100,8 +100,8 @@
 </p-dialog>
 
 <!-- Dialog Update Profession -->
-<p-dialog header="{{ 'Update Profession' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
-  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+<p-dialog header="{{ 'Update Profession' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="500"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
   <form (ngSubmit)="submitUpdateProfession(professionUpdate)" #newForm="ngForm">
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
@@ -114,7 +114,7 @@
         <div class="col-md-12">
           <label for="descProfession"><b>{{ 'descProfession' | translate }}</b></label><br>
           <textarea style="width: 100%;" id="descProfession" name="descProfession" [(ngModel)]="professionUpdate.descProfession" 
-          pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert description ...' | translate }}" required></textarea>
+            pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert description ...' | translate }}" required></textarea>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@
         <div class="pull-right" style="margin: 15px;">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
           <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
-          label="{{ 'Create' | translate }}"></button>
+          label="{{ 'Update' | translate }}"></button>
         </div>
       </p-footer>
     </div>
@@ -132,8 +132,8 @@
 </p-dialog>
 
 <!-- Dialog Details Professions -->
-<p-dialog header="{{ 'nomProfession' | translate }} - {{ profession.nomProfession }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
-  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+<p-dialog header="{{ 'nomProfession' | translate }} - {{ profession.nomProfession }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="500"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
     <div class="container-fluid">
       <div class="row" style="margin: 10px;">
         <div class="col-md-6">
@@ -149,11 +149,9 @@
       </div>
       <div class="row" style="margin: 10px;">
         <div class="col-md-12">
-            <div class="col-md-6">
-                <p-card header="{{ 'descProfession' | translate }}" [style]="{width: '200px'}">
-                    <div>{{ profession.descProfession }}</div>
-                </p-card>
-            </div>
+            <p-card header="{{ 'descProfession' | translate }}" [style]="{width: '500px'}">
+                <div>{{ profession.descProfession }}</div>
+            </p-card>
         </div>
       </div>
     </div>
@@ -161,5 +159,4 @@
         <button pButton type="button" icon="pi pi-times" (click)="displayDetailsDialog=false" label="{{ 'Close' | translate }}"
               class="ui-button-danger"></button>
       </p-footer>
-    </div>
 </p-dialog>
