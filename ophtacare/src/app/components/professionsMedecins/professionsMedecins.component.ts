@@ -100,6 +100,15 @@ export class ProfessionsMedecinsComponent implements OnInit {
     saveAs(blob, 'Professions_OphthaCare.xlsx');
   }
 
+  detailsProfession(profession: Profession) {
+    this.blocked = true;
+    setTimeout(() => {
+      this.blocked = false;
+      this.displayDetailsDialog = true;
+    }, 500);
+    this.profession = profession;
+  }
+
   createProfession() {
     this.blocked = true;
     setTimeout(() => {
@@ -143,6 +152,94 @@ export class ProfessionsMedecinsComponent implements OnInit {
           detail: 'Erreur Technique'
         });
       });
+  }
+
+  updateProfession(profession: Profession) {
+    this.blocked = true;
+    setTimeout(() => {
+      this.blocked = false;
+      this.displayUpdateDialog = true;
+    }, 500);
+    this.professionUpdate = profession;
+  }
+
+  submitUpdateProfession(profession: Profession) {
+    console.log('Profession to update: ' + profession.codeProfession + ' - ' + profession.nomProfession);
+    this.professionUpdate = profession;
+    this.blocked = true;
+    this.professionsMedecinsService.updateProfessionMedecin(this.professionUpdate, 'this.authenticationService.getUsername()').subscribe(
+      response => {
+        this.blocked = false;
+        if (response.json().code !== 'OK') {
+          this.messageService.add({
+            sticky: true,
+            severity: 'error',
+            summary: response.json().code,
+            detail: response.json().message
+          });
+        } else {
+          this.messageService.add({
+            sticky: false,
+            severity: 'success',
+            summary: 'Succès',
+            detail: 'Profession ajourné.'
+          });
+          this.getProfessions();
+          this.professionUpdate = new Profession(0, '', '', '');
+          this.displayUpdateDialog = false;
+        }
+      },
+      error => {
+        this.blocked = false;
+        this.messageService.add({
+          sticky: true,
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'Erreur Technique'
+        });
+      });
+  }
+
+  deleteProfession(profession: Profession) {
+    console.log('Profession to cancel: ' + profession.idProfession);
+    this.confirmationService.confirm({
+      message: 'Etes-vous sure de vouloir supprimer ' + profession.codeProfession + ' - ' + profession.nomProfession + ' ?',
+      header: 'Conferma Eliminazione',
+      icon: 'pi pi-trash',
+      accept: () => {
+        this.blocked = true;
+        this.professionsMedecinsService.deleteProfessionMedecin(Profession, 'this.authenticationService.getUsername()').subscribe(
+          res => {
+            this.blocked = false;
+            if (res.json().code !== 'OK') {
+              this.messageService.add({
+                sticky: true,
+                severity: 'error',
+                summary: res.json().code,
+                detail: res.json().message
+              });
+            } else {
+              this.messageService.add({
+                sticky: false,
+                severity: 'success',
+                summary: 'Confermato',
+                detail: 'Profession eliminato'
+              });
+              this.getProfessions();
+            }
+          },
+          error => {
+            this.blocked = false;
+            this.messageService.add({
+              sticky: true,
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Internal Error'
+            });
+          }
+        );
+      }
+    });
   }
 
   clearFilter(dt) {
