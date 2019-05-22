@@ -12,7 +12,7 @@
                     <app-stat [bgClass]="'danger'" [icon]="'contacts'" [direction]="['#/patients']" count="{{ totalPatients.list.length }}" label="{{ 'Ill' | translate }}"></app-stat>
                 </div>
                 <div fxFlex>
-                    <app-stat [bgClass]="'warn'" [icon]="'fa fa-user-md'" [direction]="['#/specialistes']" count="10" label="{{ 'Specialists' | translate }}"></app-stat>
+                    <app-stat [bgClass]="'warn'" [icon]="'fa fa-user-md'" [direction]="['#/medecins']" count="{{ totalMedecins.list.length }}" label="{{ 'Specialists' | translate }}"></app-stat>
                 </div>
                 <div fxFlex>
                     <app-stat [bgClass]="'success'" [icon]="'visibility'" [count]="124" label="{{ 'Diseases' | translate }}"></app-stat>

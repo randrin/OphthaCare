@@ -53,8 +53,8 @@
           <td>{{ medecin.nomMedecin }}</td>
           <td>{{ medecin.prenomMedecin }}</td>
           <td>{{ medecin.sexeMedecin }}</td>
+          <td class="profession"><b>{{ medecin.professionMedecin }}</b></td>
           <td>{{ medecin.dateNaisMedecin }}</td>
-          <td>{{ medecin.numTelMedecin }}</td>
           <td>
             <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updateMedecin(medecin)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
           </td>
@@ -129,6 +129,65 @@
   </form>
 </p-dialog>
 
+<!-- Dialog Update Medecin -->
+<p-dialog header="{{ 'Update Medecin' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+  <form (ngSubmit)="submitUpdateMedecin(medecinUpdate)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-3">
+          <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
+          <input type="text" id="firstname" name="firstname" [(ngModel)]="medecinUpdate.nomMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-3">
+          <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
+          <input type="text" id="lastname" name="lastname" [(ngModel)]="medecinUpdate.prenomMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-3">
+          <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
+          <p-selectButton id="sex" name="sex" [(ngModel)]="medecinUpdate.sexeMedecin" [options]="gender" required></p-selectButton>
+        </div>
+        <div class="col-md-3">
+          <label for="datepicker"><b>{{ 'dateOfBorn' | translate }}</b></label><br>
+          <ejs-datepicker id="datepicker" name="datepicker" placeholder="{{ 'Select a date' | translate }}" format="dd/MM/yyyy" [(ngModel)]="medecinUpdate.dateNaisMedecin" [min]='minDate' [max]='maxDate' required></ejs-datepicker>
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="email"><b>{{ 'email' | translate }}</b></label>
+          <input type="text" id="email" name="email" [(ngModel)]="medecinUpdate.emailMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
+          <input type="number" id="cellularePhone" name="cellularePhone" [(ngModel)]="medecinUpdate.numTelMedecin" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="fixePhone"><b>{{ 'fixePhone' | translate }}</b></label>
+          <input type="number" id="fixePhone" name="fixePhone" [(ngModel)]="medecinUpdate.numFixeMedecin" pInputText class="form-control" required />
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-5">
+          <label for="professionMedecin"><b>{{ 'Professions Medecins' | translate }}</b></label>
+          <select id="professionMedecin" name="professionMedecin" [(ngModel)]="medecinUpdate.professionMedecin" class="form-control" required>
+            <option *ngFor="let profession of professions" [ngValue]="profession.nomProfession">{{ profession.codeProfession }} - {{ profession.nomProfession }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+    <p-footer>
+        <div class="pull-right" style="margin: 15px;">
+          <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          label="{{ 'Update' | translate }}"></button>
+        </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>
+
 <!-- Dialog Details Medecins -->
 <p-dialog header="{{ 'matriculeMedecin' | translate }} : {{ medecin.matriculeMedecin }} - {{ medecin.nomMedecin }} {{ medecin.prenomMedecin }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
 [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
@@ -150,12 +209,17 @@
           </p-card>
       </div>
       <div class="col-md-3">
-          <p-card header="{{ 'sex' | translate }}" [style]="{width: '200px'}">
-              <div>{{ medecin.sexeMedecin }}</div>
+          <p-card header="{{ 'nomProfession' | translate }}" [style]="{width: '200px'}">
+              <div>{{ medecin.professionMedecin }}</div>
           </p-card>
       </div>
     </div>
     <div class="row" style="margin: 10px;">
+      <div class="col-md-3">
+        <p-card header="{{ 'sex' | translate }}" [style]="{width: '200px'}">
+            <div>{{ medecin.sexeMedecin }}</div>
+        </p-card>
+    </div>
       <div class="col-md-3">
           <p-card header="{{ 'email' | translate }}" [style]="{width: '200px'}">
               <div>{{ medecin.emailMedecin }}</div>

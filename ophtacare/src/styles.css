@@ -18,6 +18,11 @@ body, html {
   color: #ffffff !important;
 }
 
+.profession {
+  background-color: blue !important;
+  color: #ffffff !important;
+}
+
 div > p-card {
   background-color: #ff3737 !important;
   color: #ffffff !important;

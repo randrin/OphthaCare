@@ -6,6 +6,8 @@ import { Patients } from '../../models/patients/patients';
 import { AdministrateursService } from '../../services/administrateursService';
 import { Admins } from '../../models/administrateur/admins';
 import { ConfirmationService } from 'primeng/primeng';
+import { MedecinsService } from '../../services/medecinsService';
+import { Medecins } from '../../models/medecins/medecins';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +19,7 @@ export class DashboardComponent implements OnInit {
 
   public totalPatients: Patients = { list: [] };
   public totalAdmins: Admins = { list: [] };
+  public totalMedecins: Medecins = { list: [] };
   public dataBar: any;
   public dataPie: any;
   public blocked;
@@ -50,7 +53,8 @@ export class DashboardComponent implements OnInit {
   }
 
   constructor(private dashboardService: DashboardService, private patientsService: PatientsService,
-    private authenticationService: AuthenticationService, private administrateursService: AdministrateursService) {
+    private authenticationService: AuthenticationService, private administrateursService: AdministrateursService,
+    private medecinService: MedecinsService) {
     this.dataBar = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
@@ -93,6 +97,7 @@ export class DashboardComponent implements OnInit {
     setTimeout(() => {
       this.getAllPatients();
       this.getAllAdministrateurs();
+      this.getAllMedecins();
       this.blocked = false;
     }, 1000);
 
@@ -119,4 +124,12 @@ export class DashboardComponent implements OnInit {
     });
 }
 
+getAllMedecins() {
+  this.medecinService.getAllMedecins(this.authenticationService.getUsername()).subscribe(
+    response => {
+      if (response.json() != null) {
+        this.totalMedecins.list = this.totalMedecins.list.concat(response.json().filter(n => n));
+      }
+  });
+}
 }

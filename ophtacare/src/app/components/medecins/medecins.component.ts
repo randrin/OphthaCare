@@ -46,10 +46,10 @@ export class MedecinsComponent implements OnInit {
         { field: 'nomMedecin', header: 'firstName' },
         { field: 'prenomMedecin', header: 'lastName' },
         { field: 'sexeMedecin', header: 'sex' },
+        { field: 'professionMedecin', header: 'nomProfession' },
         { field: 'dateNaisMedecin', header: 'dateOfBorn' },
         // { field: 'ageMedecin', header: 'year' },
         // { field: 'emailMedecin', header: 'email' },
-        { field: 'numTelMedecin', header: 'cellularePhone' },
         // { field: 'numFixeMedecin', header: 'fixePhone' },
         { field: 'detail', header: 'modify' },
         { field: 'detail', header: 'cancel' },
@@ -62,6 +62,7 @@ export class MedecinsComponent implements OnInit {
       { label: 'Female', value: 'Female', icon: 'pi pi-user' }
     ];
     this.getMedecins();
+    this.getProfessions();
   }
 
   getMedecins() {
@@ -95,7 +96,6 @@ export class MedecinsComponent implements OnInit {
     this.blocked = true;
     setTimeout(() => {
       this.blocked = false;
-      this.getProfessions();
       this.displayNewDialog = true;
     }, 500);
   }
@@ -147,8 +147,52 @@ export class MedecinsComponent implements OnInit {
       });
   }
 
-  updateMedecin(medecin: Medecin) {
+  submitUpdateMedecin (updateMedecin: Medecin) {
+    console.log('Medecin to update: ' + updateMedecin.nomMedecin + ' ' + updateMedecin.prenomMedecin);
+    updateMedecin.dateNaisMedecin = moment(updateMedecin.dateNaisMedecin).format('DD/MM/YYYY');
+    this.medecinUpdate = updateMedecin;
+    this.blocked = true;
+    this.medecinsService.updateMedecin(this.medecinUpdate, 'this.authenticationService.getUsername()').subscribe(
+      response => {
+        this.blocked = false;
+        if (response.json().code !== 'OK') {
+          this.messageService.add({
+            sticky: true,
+            severity: 'error',
+            summary: response.json().code,
+            detail: response.json().message
+          });
+        } else {
+          this.messageService.add({
+            sticky: false,
+            severity: 'success',
+            summary: 'Succès',
+            detail: 'Medecin ajourné.'
+          });
+          this.getMedecins();
+          this.medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+          this.displayUpdateDialog = false;
+        }
+      },
+      error => {
+        this.blocked = false;
+        this.messageService.add({
+          sticky: true,
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'Erreur Technique'
+        });
+      });
+  }
 
+  updateMedecin(medecin: Medecin) {
+    this.blocked = true;
+    setTimeout(() => {
+      this.blocked = false;
+      this.displayUpdateDialog = true;
+    }, 500);
+    medecin.dateNaisMedecin = moment(medecin.dateNaisMedecin).format('DD/MM/YYYY');
+    this.medecinUpdate = medecin;
   }
 
   deleteMedeicn(medecin: Medecin) {
