@@ -7,6 +7,8 @@ import { MessageService, SelectItem } from 'primeng/api';
 import saveAs from 'save-as';
 import * as moment from 'moment';
 import { Medecin } from '../../models/medecins/medecin';
+import { Professions } from '../../models/professions/professions';
+import { ProfessionsMedecinsService } from '../../services/professionsMedecinsService';
 
 @Component({
   selector: 'app-medecins',
@@ -26,6 +28,7 @@ export class MedecinsComponent implements OnInit {
   public displayNewDialog;
   public displayUpdateDialog;
   public medecins: Medecins = { list: [] };
+  public professions;
   public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
   public newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
   public medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
@@ -35,7 +38,8 @@ export class MedecinsComponent implements OnInit {
   };
 
   constructor(private authenticationService: AuthenticationService, private medecinsService: MedecinsService,
-    private messageService: MessageService, private confirmationService: ConfirmationService) {
+    private messageService: MessageService, private confirmationService: ConfirmationService,
+    private professionsMedecinsService: ProfessionsMedecinsService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'matriculeMedecin', header: 'matriculeMedecin' },
@@ -74,6 +78,15 @@ export class MedecinsComponent implements OnInit {
     }, 1000);
   }
 
+  getProfessions() {
+    this.professionsMedecinsService.getAllProfessionsMedecins(this.authenticationService.getUsername()).subscribe(
+      response => {
+        if (response.json() != null) {
+          this.professions = response.json();
+        }
+    });
+  }
+
   isAdmin() {
 
   }
@@ -82,6 +95,7 @@ export class MedecinsComponent implements OnInit {
     this.blocked = true;
     setTimeout(() => {
       this.blocked = false;
+      this.getProfessions();
       this.displayNewDialog = true;
     }, 500);
   }
