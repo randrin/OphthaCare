@@ -8,7 +8,7 @@ import { Http, ResponseContentType, Headers } from '@angular/http';
 export class MaladiesService {
 
   private maladieExportUrl = window['baseUrl'] + '/excel/downloadExcelMaladies';
-  private maladiesUrl = window['baseUrl'] + '/maladie/getAllSpecialistes';
+  private maladiesUrl = window['baseUrl'] + '/maladie/getAllMaladies';
   private maladieUrlInsert = window['baseUrl'] + '/maladie/insert';
   private maladieUrlUpdate = window['baseUrl'] + '/maladie/update';
   private maladieUrlDelete = window['baseUrl'] + '/maladie/delete';

@@ -11,4 +11,97 @@
       {{ 'Maladies Clinique' | translate }}
     </div>
   </div>
+  <div>
+    <p-table #dt [columns]="cols" [value]="maladies.list" [paginator]="true" [rows]="10" selectionMode="single">
+      <ng-template pTemplate="caption">
+        <p-toolbar>
+          <div class="ui-toolbar-group-left">
+            <p-button type="button" label="{{ 'Download Maladies' | translate }}" (onClick)="exportExcelMaladies()"
+              icon="pi pi-download" class="ui-button-success"></p-button>
+            <p-button label="{{ 'New Maladie' | translate }}" [disabled]="isAdmin()" (onClick)="createMaladie()"
+              icon="pi pi-eye" iconPos="left" style="margin-left: 20px;"></p-button>
+          </div>
+          <div class="ui-toolbar-group-right">
+            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+              (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+              iconPos="left" style="margin-left: 20px;"></p-button>
+          </div>
+        </p-toolbar>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header | translate }}
+          </th>
+        </tr>
+        <tr>
+          <th *ngFor="let col of columns">
+            <input class="filter" *ngIf="col.field != 'detail'"
+              style="max-width: -webkit-fill-available; max-width: -moz-available;" pInputText type="text"
+              (input)="dt.filter($event.target.value, col.field, 'contains')">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-maladie>
+        <tr>
+          <td>
+            <p-button type="button" style="margin-left:33%" (click)="detailsMaladie(maladie)" [disabled]="isAdmin()" icon="pi pi-search"></p-button>
+          </td>
+          <td class="code"><b>{{ maladie.codeMaladie }}</b></td>
+          <td>{{ maladie.nomMaladie }}</td>
+          <td>{{ maladie.descMaladie }}</td>
+          <td class="profession"><b>{{ maladie.medecinMaladie }}</b></td>
+          <td>
+            <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updateMaladie(maladie)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
+          </td>
+          <td>
+            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%" (click)="deleteMaladie(maladie)" [disabled]="isAdmin()"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
+
+  <!-- Dialog Confirmation Delete -->
+  <p-confirmDialog [style]="{width: '500px'}"></p-confirmDialog>
+</div>
+
+<!-- Dialog Add New Maladie -->
+<p-dialog header="{{ 'New Maladie' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
+  <form (ngSubmit)="submitMaladie(newMaladie)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-6">
+          <label for="nomMaladie"><b>{{ 'firstName' | translate }}</b></label>
+          <input type="text" id="nomMaladie" name="nomMaladie" [(ngModel)]="newMaladie.nomMaladie" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-6">
+          <label for="professionMedecin"><b>{{ 'Professions Medecins' | translate }}</b></label>
+          <select id="medecinMaladie" name="medecinMaladie" [(ngModel)]="newMaladie.medecinMaladie" class="form-control" required>
+            <option *ngFor="let profession of professions" [ngValue]="profession.nomProfession">{{ profession.codeProfession }} - {{ profession.nomProfession }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-12">
+          <label for="descMaladie"><b>{{ 'descProfession' | translate }}</b></label><br>
+          <textarea style="width: 100%;" id="descMaladie" name="descMaladie" [(ngModel)]="newMaladie.descMaladie" 
+            pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert description ...' | translate }}" required></textarea>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+    <p-footer>
+        <div class="pull-right" style="margin: 15px;">
+          <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          label="{{ 'Create' | translate }}"></button>
+        </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>
