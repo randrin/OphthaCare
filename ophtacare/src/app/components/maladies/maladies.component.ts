@@ -143,6 +143,43 @@ export class MaladiesComponent implements OnInit {
     this.maladieUpdate = maladie;
   }
 
+  submitUpdateMaladie (maladie: Maladie) {
+    console.log('Maladie to update: ' + maladie.nomMaladie);
+    this.maladieUpdate = maladie;
+    this.blocked = true;
+    this.maladiesService.updateMaladie(this.maladieUpdate, 'this.authenticationService.getUsername()').subscribe(
+      response => {
+        this.blocked = false;
+        if (response.json().code !== 'OK') {
+          this.messageService.add({
+            sticky: true,
+            severity: 'error',
+            summary: response.json().code,
+            detail: response.json().message
+          });
+        } else {
+          this.messageService.add({
+            sticky: false,
+            severity: 'success',
+            summary: 'Succès',
+            detail: 'Maladie ajourné.'
+          });
+          this.getMaladies();
+          this.maladieUpdate = new Maladie(0, '', '', '', '');
+          this.displayUpdateDialog = false;
+        }
+      },
+      error => {
+        this.blocked = false;
+        this.messageService.add({
+          sticky: true,
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'Erreur Technique'
+        });
+      });
+  }
+
   deleteMaladie(maladie: Maladie) {
     console.log('Maladie to cancel: ' + maladie.idMaladie);
     this.confirmationService.confirm({

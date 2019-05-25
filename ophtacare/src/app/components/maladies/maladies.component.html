@@ -95,7 +95,7 @@
     </div>
     <hr>
     <div class="container-fluid">
-    <p-footer>
+      <p-footer>
         <div class="pull-right" style="margin: 15px;">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
           <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
@@ -104,4 +104,77 @@
       </p-footer>
     </div>
   </form>
+</p-dialog>
+
+<!-- Dialog Update Maladie -->
+<p-dialog header="{{ 'Update Maladie' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
+  <form (ngSubmit)="submitUpdateMaladie(maladieUpdate)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-6">
+          <label for="nomMaladie"><b>{{ 'firstName' | translate }}</b></label>
+          <input type="text" id="nomMaladie" name="nomMaladie" [(ngModel)]="maladieUpdate.nomMaladie" pInputText class="form-control" required />
+        </div>
+        <div class="col-md-6">
+          <label for="professionMedecin"><b>{{ 'Professions Medecins' | translate }}</b></label>
+          <select id="medecinMaladie" name="medecinMaladie" [(ngModel)]="maladieUpdate.medecinMaladie" class="form-control" required>
+            <option *ngFor="let profession of professions" [ngValue]="profession.nomProfession">{{ profession.codeProfession }} - {{ profession.nomProfession }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-12">
+          <label for="descMaladie"><b>{{ 'descProfession' | translate }}</b></label><br>
+          <textarea style="width: 100%;" id="descMaladie" name="descMaladie" [(ngModel)]="maladieUpdate.descMaladie" 
+            pInputTextarea [rows]="5" [cols]="30" placeholder="{{ 'Insert description ...' | translate }}" required></textarea>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+      <p-footer>
+          <div class="pull-right" style="margin: 15px;">
+            <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
+            <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+            label="{{ 'Update' | translate }}"></button>
+          </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>
+
+<!-- Dialog Details Maladies -->
+<p-dialog header="{{ 'codeMaladie' | translate }} - {{ maladie.codeMaladie }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="500"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
+    <div class="container-fluid">
+      <div class="row" style="margin: 10px;">
+        <div class="col-md-4">
+            <p-card header="{{ 'codeMaladie' | translate }}" [style]="{width: '200px'}">
+                <div>{{ maladie.codeMaladie }}</div>
+            </p-card>
+        </div>
+        <div class="col-md-4">
+          <p-card header="{{ 'firstName' | translate }}" [style]="{width: '200px'}">
+              <div>{{ maladie.nomMaladie }}</div>
+          </p-card>
+      </div>
+        <div class="col-md-4">
+          <p-card header="{{ 'personProfession' | translate }}" [style]="{width: '200px'}">
+              <div>{{ maladie.medecinMaladie }}</div>
+          </p-card>
+        </div>
+      </div>
+      <div class="row" style="margin: 10px;">
+        <div class="col-md-12">
+            <p-card header="{{ 'descProfession' | translate }}" [style]="{width: '600px'}">
+                <div>{{ maladie.descMaladie }}</div>
+            </p-card>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="button" icon="pi pi-times" (click)="displayDetailsDialog=false" label="{{ 'Close' | translate }}"
+            class="ui-button-danger"></button>
+    </p-footer>
 </p-dialog>

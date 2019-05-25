@@ -15,7 +15,7 @@
                     <app-stat [bgClass]="'warn'" [icon]="'fa fa-user-md'" [direction]="['#/medecins']" count="{{ totalMedecins.list.length }}" label="{{ 'Specialists' | translate }}"></app-stat>
                 </div>
                 <div fxFlex>
-                    <app-stat [bgClass]="'success'" [icon]="'visibility'" [count]="124" label="{{ 'Diseases' | translate }}"></app-stat>
+                    <app-stat [bgClass]="'success'" [icon]="'visibility'" [direction]="['#/maladies']"  count="{{ totalMaladies.list.length }}" label="{{ 'Diseases' | translate }}"></app-stat>
                 </div>
                 <div fxFlex>
                     <app-stat [bgClass]="'info'" [icon]="'supervisor_account'" [direction]="['#/administrateurs']" count="{{ totalAdmins.list.length }}" label="{{ 'Admins' | translate }}"></app-stat>

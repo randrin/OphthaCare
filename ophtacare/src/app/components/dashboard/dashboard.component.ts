@@ -8,6 +8,8 @@ import { Admins } from '../../models/administrateur/admins';
 import { ConfirmationService } from 'primeng/primeng';
 import { MedecinsService } from '../../services/medecinsService';
 import { Medecins } from '../../models/medecins/medecins';
+import { Maladies } from '../../models/maladies/maladies';
+import { MaladiesService } from 'src/app/services/maladiesService';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +22,7 @@ export class DashboardComponent implements OnInit {
   public totalPatients: Patients = { list: [] };
   public totalAdmins: Admins = { list: [] };
   public totalMedecins: Medecins = { list: [] };
+  public totalMaladies: Maladies = { list: [] };
   public dataBar: any;
   public dataPie: any;
   public blocked;
@@ -54,7 +57,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private dashboardService: DashboardService, private patientsService: PatientsService,
     private authenticationService: AuthenticationService, private administrateursService: AdministrateursService,
-    private medecinService: MedecinsService) {
+    private medecinService: MedecinsService, private maladieService: MaladiesService) {
     this.dataBar = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
@@ -98,6 +101,7 @@ export class DashboardComponent implements OnInit {
       this.getAllPatients();
       this.getAllAdministrateurs();
       this.getAllMedecins();
+      this.getAllMaladies();
       this.blocked = false;
     }, 1000);
 
@@ -129,6 +133,15 @@ getAllMedecins() {
     response => {
       if (response.json() != null) {
         this.totalMedecins.list = this.totalMedecins.list.concat(response.json().filter(n => n));
+      }
+  });
+}
+
+getAllMaladies() {
+  this.maladieService.getAllMaladies(this.authenticationService.getUsername()).subscribe(
+    response => {
+      if (response.json() != null) {
+        this.totalMaladies.list = this.totalMaladies.list.concat(response.json().filter(n => n));
       }
   });
 }
