@@ -115,7 +115,7 @@
 <!-- Dialog Update Admin -->
 <p-dialog header="{{ 'Update Admin' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
-  <form (ngSubmit)="submitUpdateAdmin(adminUpdate)" #newForm="ngForm">
+  <form (ngSubmit)="submitUpdateAdmin(adminUpdate)" #updateForm="ngForm">
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
@@ -147,7 +147,7 @@
     <p-footer>
         <div class="pull-right" style="margin: 15px;">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
-          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!updateForm.form.valid"
           label="{{ 'Update' | translate }}"></button>
         </div>
       </p-footer>

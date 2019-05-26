@@ -3,8 +3,8 @@ import { ConfirmationService, SelectItem } from 'primeng/primeng';
 import { MessageService } from 'primeng/api';
 import { AuthenticationService } from '../../services/authenticationService';
 import { AdministrateursService } from '../../services/administrateursService';
-import { Admins } from '../../models/administrateur/admins';
-import { Admin } from '../../models/administrateur/admin';
+import { Admins } from '../../models/administrateurs/admins';
+import { Admin } from '../../models/administrateurs/admin';
 import * as moment from 'moment';
 import saveAs from 'save-as';
 

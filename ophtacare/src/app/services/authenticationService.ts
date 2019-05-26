@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Response, URLSearchParams, Headers, RequestOptions } from '@angular/http';
-import { Admin } from '../models/administrateur/admin';
+import { Admin } from '../models/administrateurs/admin';
 
 @Injectable()
 export class AuthenticationService {

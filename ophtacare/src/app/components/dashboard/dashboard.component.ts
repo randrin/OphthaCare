@@ -4,12 +4,12 @@ import { PatientsService } from '../../services/patientsService';
 import { AuthenticationService } from '../../services/authenticationService';
 import { Patients } from '../../models/patients/patients';
 import { AdministrateursService } from '../../services/administrateursService';
-import { Admins } from '../../models/administrateur/admins';
+import { Admins } from '../../models/administrateurs/admins';
 import { ConfirmationService } from 'primeng/primeng';
 import { MedecinsService } from '../../services/medecinsService';
 import { Medecins } from '../../models/medecins/medecins';
 import { Maladies } from '../../models/maladies/maladies';
-import { MaladiesService } from 'src/app/services/maladiesService';
+import { MaladiesService } from '../../services/maladiesService';
 
 @Component({
   selector: 'app-dashboard',

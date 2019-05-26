@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { Admin } from '../../models/administrateur/admin';
+import { Admin } from '../../models/administrateurs/admin';
 import { AuthenticationService } from '../../services/authenticationService';
 
 @Component({
