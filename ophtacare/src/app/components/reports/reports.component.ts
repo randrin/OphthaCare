@@ -50,6 +50,10 @@ export class ReportsComponent implements OnInit {
     }, 1000);
   }
 
+  isAdmin() {
+
+  }
+
   exportExcelReports() {
     console.log('Export excel file called: -> Reports');
     this.reportService.exportReports(this.authenticationService.getUsername()).subscribe(
@@ -94,7 +98,7 @@ export class ReportsComponent implements OnInit {
       icon: 'pi pi-trash',
       accept: () => {
         this.blocked = true;
-        this.reportService.deleteReport(report, 'this.authenticationService.getUsername()').subscribe(
+        this.reportService.deleteReport(report, this.authenticationService.getUsername()).subscribe(
           res => {
             this.blocked = false;
             if (res.json().code !== 'OK') {

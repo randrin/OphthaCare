@@ -8,7 +8,7 @@ import { Http, ResponseContentType, Headers } from '@angular/http';
 export class ReportsService {
 
   private reportExportUrl = window['baseUrl'] + '/excel/downloadExcelReports';
-  private reportsUrl = window['baseUrl'] + '/report/getReports';
+  private reportsUrl = window['baseUrl'] + '/report/getAllReports';
   private reportUrlDelete = window['baseUrl'] + '/report/delete';
 
   constructor(public router: Router, private http: Http) {}

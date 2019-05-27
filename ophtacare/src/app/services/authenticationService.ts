@@ -31,10 +31,10 @@ export class AuthenticationService {
     }
 
     public getUsername() {
-        console.log('Administrateur: ' + this.admin.nomAdmin);
+        console.log('Administrateur Logged: ' + this.admin.pseudoAdmin);
         if (this.admin == null) {
           return '';
         }
-       return this.admin.nomAdmin;
+       return this.admin.nomAdmin + ' ' + this.admin.prenomAdmin;
     }
 }
