@@ -16,7 +16,7 @@
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelReports()"
+            <p-button type="button" label="{{ 'Download Reports' | translate }}" (onClick)="exportExcelReports()"
               icon="pi pi-download" class="ui-button-success"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
@@ -42,16 +42,14 @@
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-patient>
+      <ng-template pTemplate="body" let-report>
         <tr>
-          <td class="code"><b>{{ patient.codePatient }}</b></td>
-          <td>{{ patient.nomPatient }}</td>
-          <td>{{ patient.prenomPatient }}</td>
-          <td>{{ patient.sexePatient }}</td>
-          <td>{{ patient.dateNaisPatient }}</td>
-          <td>{{ patient.numTelPatient }}</td>
+          <td>{{ report.userReport }}</td>
+          <td>{{ report.actionReport }}</td>
+          <td>{{ report.resultReport }}</td>
+          <td>{{ report.dateReport }}</td>
           <td>
-            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%" (click)="deletePatient(patient)" [disabled]="isAdmin()"></p-button>
+            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%" (click)="deleteReport(report)" [disabled]="isAdmin()"></p-button>
           </td>
         </tr>
       </ng-template>

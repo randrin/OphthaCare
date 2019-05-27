@@ -8,6 +8,8 @@ import { Http, ResponseContentType, Headers } from '@angular/http';
 export class ReportsService {
 
   private reportExportUrl = window['baseUrl'] + '/excel/downloadExcelReports';
+  private reportsUrl = window['baseUrl'] + '/report/getReports';
+  private reportUrlDelete = window['baseUrl'] + '/report/delete';
 
   constructor(public router: Router, private http: Http) {}
 
@@ -17,6 +19,25 @@ export class ReportsService {
         'caller': caller
       })
     };
-    return this.http.get(this.reportExportUrl);
+    return this.http.get(this.reportsUrl);
+  }
+
+  exportReports(caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+      responseType: ResponseContentType.Blob
+  };
+  return this.http.get(this.reportExportUrl, options);
+  }
+
+  deleteReport (report, caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      }),
+  };
+  return this.http.delete(this.reportUrlDelete + '/' + report.idReport, options);
   }
 }
