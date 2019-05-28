@@ -89,7 +89,7 @@ export class AdministrateursComponent implements OnInit {
     console.log('Admin to register: ' + admin.nomAdmin + ' ' + admin.prenomAdmin);
     this.newAdmin = admin;
     this.blocked = true;
-    this.administrateurService.insertAdministrateur(this.newAdmin, 'this.authenticationService.getUsername()').subscribe(
+    this.administrateurService.insertAdministrateur(this.newAdmin, this.authenticationService.getUsername()).subscribe(
       response => {
         this.blocked = false;
         if (response.json().code !== 'OK') {
@@ -187,7 +187,7 @@ export class AdministrateursComponent implements OnInit {
       icon: 'pi pi-trash',
       accept: () => {
         this.blocked = true;
-        this.administrateurService.deleteAdministrator(admin, 'this.authenticationService.getUsername()').subscribe(
+        this.administrateurService.deleteAdministrator(admin, this.authenticationService.getUsername()).subscribe(
           res => {
             this.blocked = false;
             if (res.json().code !== 'OK') {

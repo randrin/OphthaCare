@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authenticationService.login(this.admin).subscribe(
         data => {
-          this.responseData = JSON.stringify(data.json());
+          this.responseData = data.json();
           console.log('Data code: ' + this.responseData);
           if (data.json().code != null) {
             this.messageService.add({
