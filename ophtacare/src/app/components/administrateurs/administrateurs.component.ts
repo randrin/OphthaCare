@@ -135,7 +135,7 @@ export class AdministrateursComponent implements OnInit {
     console.log('Admin to update: ' + updateAdmin.nomAdmin + ' ' + updateAdmin.prenomAdmin);
     this.adminUpdate = updateAdmin;
     this.blocked = true;
-    this.administrateurService.updateAdministrateur(this.adminUpdate, 'this.authenticationService.getUsername()').subscribe(
+    this.administrateurService.updateAdministrateur(this.adminUpdate, this.authenticationService.getUsername()).subscribe(
       response => {
         this.blocked = false;
         if (response.json().code !== 'OK') {
