@@ -20,7 +20,7 @@ export class AdministrateursService {
         'caller': caller
       })
     };
-    return this.http.get(this.adminsUrl);
+    return this.http.get(this.adminsUrl, options);
   }
 
   insertAdministrateur (admin, caller) {
