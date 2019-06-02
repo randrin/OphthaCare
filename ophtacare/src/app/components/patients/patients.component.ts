@@ -92,7 +92,7 @@ export class PatientsComponent implements OnInit {
     patient.dateNaisPatient = moment(patient.dateNaisPatient).format('DD/MM/YYYY');
     this.newPatient = patient;
     this.blocked = true;
-    this.patientsService.insertPatient(this.newPatient, 'this.authenticationService.getUsername()').subscribe(
+    this.patientsService.insertPatient(this.newPatient, this.authenticationService.getUsername()).subscribe(
       response => {
         this.blocked = false;
         if (response.json().code !== 'OK') {
@@ -130,7 +130,7 @@ export class PatientsComponent implements OnInit {
     updatePatient.dateNaisPatient = moment(updatePatient.dateNaisPatient).format('DD/MM/YYYY');
     this.patientUpdate = updatePatient;
     this.blocked = true;
-    this.patientsService.updatePatient(this.patientUpdate, 'this.authenticationService.getUsername()').subscribe(
+    this.patientsService.updatePatient(this.patientUpdate, this.authenticationService.getUsername()).subscribe(
       response => {
         this.blocked = false;
         if (response.json().code !== 'OK') {
@@ -184,7 +184,7 @@ export class PatientsComponent implements OnInit {
       icon: 'pi pi-trash',
       accept: () => {
         this.blocked = true;
-        this.patientsService.deletePatient(patient, 'this.authenticationService.getUsername()').subscribe(
+        this.patientsService.deletePatient(patient, this.authenticationService.getUsername()).subscribe(
           res => {
             this.blocked = false;
             if (res.json().code !== 'OK') {
