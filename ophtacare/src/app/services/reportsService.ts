@@ -19,7 +19,7 @@ export class ReportsService {
         'caller': caller
       })
     };
-    return this.http.get(this.reportsUrl);
+    return this.http.get(this.reportsUrl, options);
   }
 
   exportReports(caller) {

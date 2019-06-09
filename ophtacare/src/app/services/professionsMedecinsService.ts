@@ -23,7 +23,7 @@ export class ProfessionsMedecinsService {
         'caller': caller
       }),
   };
-  return this.http.get(this.professionsMedecinsUrl);
+  return this.http.get(this.professionsMedecinsUrl, options);
   }
 
   insertProfessionMedecin (professionMedecin, caller) {

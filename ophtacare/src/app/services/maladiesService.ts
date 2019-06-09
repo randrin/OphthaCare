@@ -23,7 +23,7 @@ export class MaladiesService {
         'caller': caller
       }),
   };
-  return this.http.get(this.maladiesUrl);
+  return this.http.get(this.maladiesUrl, options);
   }
 
   insertMaladie (maladie, caller) {
