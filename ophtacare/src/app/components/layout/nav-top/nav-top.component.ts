@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthenticationService } from '../../../services/authenticationService';
+
 
 @Component({
   selector: 'app-nav-top',
@@ -14,7 +16,7 @@ export class NavTopComponent implements OnInit {
   public CurrentDate;
   public CurrentTime;
 
-  constructor(private translate: TranslateService, private router: Router) {
+  constructor(private translate: TranslateService, private router: Router, private authenticationService: AuthenticationService) {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
         this.toggleSidebar();
@@ -53,7 +55,8 @@ export class NavTopComponent implements OnInit {
   }
 
   onLoggedout() {
-    localStorage.removeItem('isLoggedin');
+    this.authenticationService.logout();
+    localStorage.removeItem('admin');
     this.router.navigate(['/login']);
   }
 

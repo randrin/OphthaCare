@@ -8,6 +8,7 @@ export class AuthenticationService {
 
     public admin = new Admin(0, '', '', '', '', '', '', '');
     private loginUrl = window['baseUrl'] + '/admin/login';
+    private logoutUrl = window['baseUrl'] + '/admin/logout';
 
     constructor(
         public router: Router, private http: Http) {
@@ -15,6 +16,11 @@ export class AuthenticationService {
 
     login(admin) {
         return this.getAdmin(admin);
+    }
+
+    logout() {
+        const options = new RequestOptions({});
+        this.http.post(this.logoutUrl, options);
     }
 
     public getAdmin(admin) {

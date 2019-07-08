@@ -67,6 +67,7 @@ import { AdministrateursService } from './services/administrateursService';
 import { StatModule } from './shared/modules/stat/stat.module';
 import { MedecinsComponent } from './components/medecins/medecins.component';
 import { MedecinsService } from './services/medecinsService';
+import { ProfilService } from './services/profilService';
 import { DashboardService } from './services/dashboardService';
 import { MaladiesService } from './services/maladiesService';
 import { MaladiesComponent } from './components/maladies/maladies.component';
@@ -74,6 +75,7 @@ import { ProfessionsMedecinsComponent } from './components/professionsMedecins/p
 import { ProfessionsMedecinsService } from './services/professionsMedecinsService';
 import { ReportsComponent } from './components/reports/reports.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -87,33 +89,16 @@ export const createTranslateLoader = (http: HttpClient) => {
 };
 
 const appRoutes: Routes = [
-  {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'home', component: HomeComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'patients', component: PatientsComponent
-  },
-  {
-    path: 'dashboard', component: DashboardComponent
-  },
-  {
-    path: 'administrateurs', component: AdministrateursComponent
-  },
-  {
-    path: 'medecins', component: MedecinsComponent
-  },
-  {
-    path: 'maladies', component: MaladiesComponent
-  },
-  {
-    path: 'professions', component: ProfessionsMedecinsComponent
-  },
-  {
-    path: 'reports', component: ReportsComponent
-  }
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'patients', component: PatientsComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'administrateurs', component: AdministrateursComponent },
+  { path: 'medecins', component: MedecinsComponent },
+  { path: 'maladies', component: MaladiesComponent },
+  { path: 'professions', component: ProfessionsMedecinsComponent },
+  { path: 'reports', component: ReportsComponent },
+  { path: 'profil', component: ProfilComponent }
 ];
 
 @NgModule({
@@ -130,7 +115,8 @@ const appRoutes: Routes = [
     MaladiesComponent,
     ProfessionsMedecinsComponent,
     ReportsComponent,
-    FooterComponent
+    FooterComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -209,6 +195,7 @@ const appRoutes: Routes = [
     PatientsService,
     AdministrateursService,
     MedecinsService,
+    ProfilService,
     ProfessionsMedecinsService,
     MaladiesService,
     MessageService,

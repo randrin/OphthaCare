@@ -58,6 +58,9 @@ img {
   .hidden-sm {
     display: none;
   }
+  .hidden-sm:hover {
+    text-decoration: none;
+  }
 }
 
 .sizeIcon {
@@ -98,4 +101,14 @@ img {
   line-height: 32px;
   padding-top: -10px;
   text-align: center;
+}
+
+.item-profil:hover {
+  text-decoration: none;
+  color: #c2185b;
+  font-weight: 800;
+}
+
+.hidden-sm:hover {
+  text-decoration: none;
 }
