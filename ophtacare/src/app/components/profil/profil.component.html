@@ -6,5 +6,33 @@
 
 <app-home></app-home>
 <div class="main-container">
-  <p>{{ profilAdmin.nomAdmin }}</p>
+    <div class="coantainer ml-auto mr-auto profile-top">
+      <div class="row">
+        <div class="col-md-6 text-right">
+          <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
+        </div>
+        <div class="col-md-6 text-left">
+          <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
+          <button mat-raised-button color="primary" >
+              <mat-icon>edit</mat-icon>
+              <span> Modifier</span>
+          </button>
+        </div>
+      </div>
+      <div class="row profile-top">
+          <div class="col-md-12 ml-auto mr-auto">
+            <mat-tab-group>
+                <mat-tab label="First"> 
+                  Content 1 
+                </mat-tab>
+                <mat-tab label="Second">
+                   Content 2 
+                  </mat-tab>
+                <mat-tab label="Third">
+                   Content 3 
+                  </mat-tab>
+            </mat-tab-group>
+        </div>
+      </div>
+    </div>
 </div>
