@@ -20,21 +20,17 @@
   <!-- Button Informations -->
   <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="information" style="margin-right: 150px;">
     <mat-icon class="sizeIcon" style="color:green">info</mat-icon> <span
-      style="font-size: 16px; padding-left: 15px;">{{ 'Informations' | translate }}</span>
+      style="padding-left: 15px;">{{ 'Informations' | translate }}</span>
   </a>
   <mat-menu #information="matMenu">
-    <button mat-menu-item>
-      <mat-icon>person</mat-icon>
-      <span>{{ 'Profile' | translate }}</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>inbox</mat-icon>
-      <span>{{ 'Inbox' | translate }}</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>settings</mat-icon>
-      <span>{{ 'Settings' | translate }}</span>
-    </button>
+    <a mat-menu-item href="#" class="item-profil">
+      <mat-icon>vpn_lock</mat-icon>
+      <span><em>www.ophthacare.com</em></span>
+    </a>
+    <a mat-menu-item disabled class="item-profil">
+      <mat-icon>phone</mat-icon>
+      <span>823 456 5859</span>
+    </a>
   </mat-menu>
   <!-- Current Time -->
   <button id="icon-button" class="hidden-sm" mat-icon-button style="margin-right: 150px; top:-10px;" disabled>
@@ -53,15 +49,15 @@
     <mat-icon class="sizeIcon">language</mat-icon>
   </a>
   <mat-menu #language="matMenu">
-    <button mat-menu-item (click)="changeLang('en')">
+    <a mat-menu-item (click)="changeLang('en')" class="item-profil">
       <span><img src="./assets/flags/GB.png"> {{ 'English' | translate }}</span>
-    </button>
-    <button mat-menu-item (click)="changeLang('fr')">
+    </a>
+    <a mat-menu-item (click)="changeLang('fr')" class="item-profil">
       <span><img src="./assets/flags/FR.png"> {{ 'French' | translate }}</span>
-    </button>
-    <button mat-menu-item (click)="changeLang('it')">
+    </a>
+    <a mat-menu-item (click)="changeLang('it')" class="item-profil">
       <span><img src="./assets/flags/IT.png"> {{ 'Italian' | translate }}</span>
-    </button>
+    </a>
   </mat-menu>
   <!-- Button Account -->
   <a mat-icon-button [matMenuTriggerFor]="profile">
