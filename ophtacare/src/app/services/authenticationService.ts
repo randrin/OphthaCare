@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Response, URLSearchParams, Headers, RequestOptions } from '@angular/http';
 import { Admin } from '../models/administrateurs/admin';
+import { Medecin } from '../models/medecins/medecin';
 
 @Injectable()
 export class AuthenticationService {
 
     public admin = new Admin(0, '', '', '', '', '', '', '');
-    private loginUrl = window['baseUrl'] + '/admin/login';
+    public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+
+    private loginUrlAdmin = window['baseUrl'] + '/admin/login';
+    private loginUrlPersonnel = window['baseUrl'] + '/medecin/login';
     private logoutUrl = window['baseUrl'] + '/admin/logout';
     public result;
 
@@ -15,8 +19,12 @@ export class AuthenticationService {
         public router: Router, private http: Http) {
     }
 
-    login(admin) {
+    loginAdmin(admin) {
         return this.getAdmin(admin);
+    }
+
+    loginPersonnel(medecin) {
+        return this.getMedecin(medecin);
     }
 
     logout() {
@@ -33,7 +41,16 @@ export class AuthenticationService {
         params.set('password', admin.password);
         const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         const options = new RequestOptions({ headers: headers });
-        return this.http.post(this.loginUrl, params, options);
+        return this.http.post(this.loginUrlAdmin, params, options);
+    }
+
+    public getMedecin(medecin) {
+        const params: URLSearchParams = new URLSearchParams();
+        params.set('matricule', medecin.matriculeMedecin);
+        params.set('password', medecin.password);
+        const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post(this.loginUrlPersonnel, params, options);
     }
 
     public setAdmin(value) {

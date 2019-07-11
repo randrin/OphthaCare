@@ -38,4 +38,10 @@
 .panel-body button{
 	float:right;
 }
-
+.mat-tab-header {
+	margin: 0 auto;
+}
+.mat-tab-label {
+	color: black !important;
+	font-size: 20px !important;
+}
