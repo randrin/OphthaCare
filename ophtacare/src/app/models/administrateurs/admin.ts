@@ -7,6 +7,7 @@ export class Admin {
     public activeAdmin: string;
     public lastLoginAdmin: string;
     public registrationAdmin: string;
+    public password: string;
 
     constructor(
       idAdmin: number,
@@ -16,6 +17,7 @@ export class Admin {
       roleAdmin: string,
       activeAdmin: string,
       lastLoginAdmin: string,
-      registrationAdmin: string
+      registrationAdmin: string,
+      password: string
       ) { }
   }

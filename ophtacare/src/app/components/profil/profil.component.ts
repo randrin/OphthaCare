@@ -13,7 +13,7 @@ import { Admin } from '../../models/administrateurs/admin';
 export class ProfilComponent implements OnInit {
 
   public blocked;
-  public profilAdmin = new Admin(0, '', '', '', '', '', '', '');
+  public profilAdmin = new Admin(0, '', '', '', '', '', '', '', '');
 
   constructor(private profilService: ProfilService, private authenticationService: AuthenticationService) { }
 

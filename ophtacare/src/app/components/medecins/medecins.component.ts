@@ -29,9 +29,9 @@ export class MedecinsComponent implements OnInit {
   public displayUpdateDialog;
   public medecins: Medecins = { list: [] };
   public professions;
-  public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
-  public newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
-  public medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+  public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
+  public newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
+  public medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
   public response = {
     code: 0,
     message: ''
@@ -132,7 +132,7 @@ export class MedecinsComponent implements OnInit {
             detail: 'Médecin enregistré.'
           });
           this.getMedecins();
-          this.newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+          this.newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
           this.displayNewDialog = false;
         }
       },
@@ -170,7 +170,7 @@ export class MedecinsComponent implements OnInit {
             detail: 'Medecin ajourné.'
           });
           this.getMedecins();
-          this.medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+          this.medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
           this.displayUpdateDialog = false;
         }
       },
@@ -281,7 +281,7 @@ export class MedecinsComponent implements OnInit {
   closeDialog () {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
-    this.medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+    this.newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
+    this.medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
   }
 }

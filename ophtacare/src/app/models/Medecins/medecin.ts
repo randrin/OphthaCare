@@ -10,6 +10,7 @@ export class Medecin {
     public emailMedecin: string;
     public numTelMedecin: number;
     public numFixeMedecin: number;
+    public password: string;
 
     constructor (
         idMedecin: number,
@@ -22,7 +23,8 @@ export class Medecin {
         professionMedecin: string,
         emailMedecin: string,
         numTelMedecin: number,
-        numFixeMedecin: number
+        numFixeMedecin: number,
+        password: string
     ) {
 
     }

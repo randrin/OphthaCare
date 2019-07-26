@@ -11,8 +11,8 @@ import { Medecin } from '../../models/medecins/medecin';
 })
 export class LoginComponent implements OnInit {
 
-  public admin = new Admin(0, '', '', '', '', '', '', '');
-  public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0);
+  public admin = new Admin(0, '', '', '', '', '', '', '', '');
+  public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
   public hide = false;
   public responseData;
   constructor(

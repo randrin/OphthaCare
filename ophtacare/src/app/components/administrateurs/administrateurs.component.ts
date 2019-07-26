@@ -21,9 +21,9 @@ export class AdministrateursComponent implements OnInit {
   public role: SelectItem[];
   public activation: SelectItem[];
   public admins: Admins = {list: [] };
-  public admin = new Admin(0, '', '', '', '', '', '', '');
-  public newAdmin = new Admin(0, '', '', '', '', '', '', '');
-  public adminUpdate = new Admin(0, '', '', '', '', '', '', '');
+  public admin = new Admin(0, '', '', '', '', '', '', '', '');
+  public newAdmin = new Admin(0, '', '', '', '', '', '', '', '');
+  public adminUpdate = new Admin(0, '', '', '', '', '', '', '', '');
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
@@ -107,7 +107,7 @@ export class AdministrateursComponent implements OnInit {
             detail: 'Administrateur enregistré.'
           });
           this.getAdminsitrateurs();
-          this.newAdmin = new Admin(0, '', '', '', '', '', '', '');
+          this.newAdmin = new Admin(0, '', '', '', '', '', '', '', '');
           this.displayNewDialog = false;
         }
       },
@@ -153,7 +153,7 @@ export class AdministrateursComponent implements OnInit {
             detail: 'Administrateur ajourné.'
           });
           this.getAdminsitrateurs();
-          this.adminUpdate = new Admin(0, '', '', '', '', '', '', '');
+          this.adminUpdate = new Admin(0, '', '', '', '', '', '', '', '');
           this.displayUpdateDialog = false;
         }
       },
@@ -265,7 +265,7 @@ export class AdministrateursComponent implements OnInit {
   closeDialog () {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newAdmin = new Admin(0, '', '', '', '', '', '', '');
-    this.adminUpdate = new Admin(0, '', '', '', '', '', '', '');
+    this.newAdmin = new Admin(0, '', '', '', '', '', '', '', '');
+    this.adminUpdate = new Admin(0, '', '', '', '', '', '', '', '');
   }
 }
