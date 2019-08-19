@@ -53,7 +53,7 @@
           <td>{{ admin.nomAdmin }}</td>
           <td>{{ admin.prenomAdmin }}</td>
           <td>{{ admin.roleAdmin }}</td>
-          <td>{{ admin.activeAdmin }}</td>
+          <td>{{ admin.emailAdmin }}</td>
           <td>
             <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updateAdmin(admin)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
           </td>
@@ -176,12 +176,22 @@
             </p-card>
         </div>
         <div class="col-md-3">
-            <p-card header="{{ 'roleAdmin' | translate }}" [style]="{width: '200px'}">
-                <div>{{ admin.roleAdmin }}</div>
+            <p-card header="{{ 'email' | translate }}" [style]="{width: '200px'}">
+                <div>{{ admin.emailAdmin }}</div>
             </p-card>
         </div>
       </div>
       <div class="row" style="margin: 10px;">
+          <div class="col-md-3">
+              <p-card header="{{ 'roleAdmin' | translate }}" [style]="{width: '200px'}">
+                  <div>{{ admin.roleAdmin }}</div>
+              </p-card>
+          </div>
+          <div class="col-md-3">
+              <p-card header="{{ 'activeAdmin' | translate }}" [style]="{width: '200px'}">
+                  <div>{{ admin.activeAdmin }}</div>
+              </p-card>
+          </div>
           <div class="col-md-3">
               <p-card header="{{ 'registrationAdmin' | translate }}" [style]="{width: '200px'}">
                   <div><b style="color: green;">{{ admin.registrationAdmin }}</b></div>

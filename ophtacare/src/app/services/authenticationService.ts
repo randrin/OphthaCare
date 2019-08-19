@@ -7,7 +7,7 @@ import { Medecin } from '../models/medecins/medecin';
 @Injectable()
 export class AuthenticationService {
 
-    public admin = new Admin(0, '', '', '', '', '', '', '', '');
+    public admin = new Admin(0, '', '', '', '', '', '', '', '', '');
     public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
 
     private loginUrlAdmin = window['baseUrl'] + '/admin/login';

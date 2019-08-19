@@ -4,6 +4,7 @@ export class Admin {
     public prenomAdmin: string;
     public pseudoAdmin: string;
     public roleAdmin: string;
+    public emailAdmin: string;
     public activeAdmin: string;
     public lastLoginAdmin: string;
     public registrationAdmin: string;
@@ -15,6 +16,7 @@ export class Admin {
       prenomAdmin: string,
       pseudoAdmin: string,
       roleAdmin: string,
+      emailAdmin: string,
       activeAdmin: string,
       lastLoginAdmin: string,
       registrationAdmin: string,
