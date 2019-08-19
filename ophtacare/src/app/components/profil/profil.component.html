@@ -23,7 +23,46 @@
           <div class="col-md-12 ml-auto mr-auto">
             <mat-tab-group>
                 <mat-tab label="{{ 'personalInfos' | translate }}"> 
-                  Content 1 
+                  <mat-card>
+                      <div class="row userProfile">
+                        <div class="col-md-4">
+                          <label><b>{{ 'firstName' | translate }}</b></label><br>
+                          <span>{{profilAdmin.nomAdmin}}</span>
+                        </div>
+                        <div class="col-md-4">
+                          <label><b>{{ 'lastName' | translate }}</b></label><br>
+                          <span>{{profilAdmin.prenomAdmin}}</span>
+                        </div>
+                        <div class="col-md-4">
+                          <label><b>{{ 'pseudoAdmin' | translate }}</b></label><br>
+                          <span>{{profilAdmin.pseudoAdmin}}</span>
+                        </div>
+                      </div>
+                      <div class="row userProfile">
+                        <div class="col-md-3">
+                          <label><b>{{ 'roleAdmin' | translate }}</b></label><br>
+                          <span>{{profilAdmin.roleAdmin}}</span>
+                        </div>
+                        <div class="col-md-3">
+                          <label><b>{{ 'activeAdmin' | translate }}</b></label><br>
+                          <span>{{profilAdmin.activeAdmin}}</span>
+                        </div>
+                        <div class="col-md-3">
+                          <label><b>{{ 'registrationAdmin' | translate }}</b></label><br>
+                          <span>{{profilAdmin.registrationAdmin}}</span>
+                        </div>
+                        <div class="col-md-3">
+                          <label><b>{{ 'lastLoginAdmin' | translate }}</b></label><br>
+                          <span>{{profilAdmin.lastLoginAdmin}}</span>
+                        </div>
+                      </div>
+                      <div class="row userProfile">
+                        <button mat-raised-button color="primary" >
+                            <mat-icon>edit</mat-icon>
+                            <span> {{ 'edit' | translate }}</span>
+                        </button>
+                      </div>
+                  </mat-card>
                 </mat-tab>
                 <mat-tab label="{{ 'expertise' | translate }}">
                    Content 2 

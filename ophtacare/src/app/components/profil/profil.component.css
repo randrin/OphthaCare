@@ -18,3 +18,12 @@
 .mat-tab {
     padding-top: 20px;
 }
+.userProfile {
+    padding: 20px;
+}
+.user-card-color {
+    background-color: #c2185b;
+}
+mat-card .row div {
+    text-align: left;
+}
