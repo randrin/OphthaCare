@@ -21,8 +21,8 @@
 .userProfile {
     padding: 20px;
 }
-.user-card-color {
-    background-color: #c2185b;
+.content-text-color {
+    color: #c2185b;
 }
 mat-card .row div {
     text-align: left;
