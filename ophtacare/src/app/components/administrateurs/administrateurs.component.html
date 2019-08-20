@@ -90,12 +90,16 @@
       </div>
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
-          <label for="activeAdmin"><b>{{ 'activeAdmin' | translate }}</b></label><br>
-          <p-selectButton id="activeAdmin" name="activeAdmin" [(ngModel)]="newAdmin.activeAdmin" [options]="activation" required></p-selectButton>
+          <label for="emailAdmin"><b>{{ 'email' | translate }}</b></label><br>
+          <input type="email" id="emailAdmin" name="emailAdmin" [(ngModel)]="newAdmin.emailAdmin" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
           <label for="roleAdmin"><b>{{ 'roleAdmin' | translate }}</b></label><br>
           <p-dropdown id="roleAdmin" name="roleAdmin" [options]="role" [(ngModel)]="newAdmin.roleAdmin" [filter]="true" required></p-dropdown>
+        </div>
+        <div class="col-md-4">
+          <label for="activeAdmin"><b>{{ 'activeAdmin' | translate }}</b></label><br>
+          <p-selectButton id="activeAdmin" name="activeAdmin" [(ngModel)]="newAdmin.activeAdmin" [options]="activation" required></p-selectButton>
         </div>
       </div>
     </div>
@@ -133,12 +137,16 @@
       </div>
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
-          <label for="activeAdmin"><b>{{ 'activeAdmin' | translate }}</b></label><br>
-          <p-selectButton id="activeAdmin" name="activeAdmin" [(ngModel)]="adminUpdate.activeAdmin" [options]="activation" required></p-selectButton>
+          <label for="emailAdmin"><b>{{ 'email' | translate }}</b></label>
+          <input type="email" id="emailAdmin" name="emailAdmin" [(ngModel)]="adminUpdate.emailAdmin" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
           <label for="roleAdmin"><b>{{ 'roleAdmin' | translate }}</b></label><br>
           <p-dropdown id="roleAdmin" name="roleAdmin" [options]="role" [(ngModel)]="adminUpdate.roleAdmin" [filter]="true" required></p-dropdown>
+        </div>
+        <div class="col-md-4">
+          <label for="activeAdmin"><b>{{ 'activeAdmin' | translate }}</b></label><br>
+          <p-selectButton id="activeAdmin" name="activeAdmin" [(ngModel)]="adminUpdate.activeAdmin" [options]="activation" required></p-selectButton>
         </div>
       </div>
     </div>
