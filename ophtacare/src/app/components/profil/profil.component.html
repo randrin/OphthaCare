@@ -6,17 +6,23 @@
 
 <app-home></app-home>
 <div class="main-container">
-    <div class="coantainer ml-auto mr-auto profile-top">
+    <div class="container-fluid ml-auto mr-auto profile-top">
       <div class="row">
-        <div class="col-md-6 text-right">
+        <div class="profile-content col-md-6">
           <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
+          <div class="profile-user">
+            <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
+            <button *ngIf="show" mat-raised-button color="primary">
+                <mat-icon>edit</mat-icon>
+                <span> {{ 'edit' | translate }}</span>
+            </button>
+          </div>
         </div>
-        <div class="col-md-6 text-left">
-          <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
-          <button mat-raised-button color="primary" >
-              <mat-icon>edit</mat-icon>
-              <span> {{ 'edit' | translate }}</span>
-          </button>
+        <div *ngIf="!show" class="col-md-6">
+            <div class="edit-profil pull-right">
+                <mat-icon>perm_identity</mat-icon>
+                <a (click)="modifierProfil()"><b>{{ 'edit-cta' | translate }}</b></a>
+            </div>
         </div>
       </div>
       <div class="row profile-top">
@@ -60,7 +66,7 @@
                           <span class="content-text-color">{{profilAdmin.lastLoginAdmin}}</span>
                         </div>
                       </div>
-                      <div class="row userProfile">
+                      <div *ngIf="show" class="row userProfile">
                         <button mat-raised-button color="primary" >
                             <mat-icon>edit</mat-icon>
                             <span> {{ 'edit' | translate }}</span>

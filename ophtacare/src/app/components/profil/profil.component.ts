@@ -13,6 +13,7 @@ import { Admin } from '../../models/administrateurs/admin';
 export class ProfilComponent implements OnInit {
 
   public blocked;
+  public show;
   public profilAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
 
   constructor(private profilService: ProfilService, private authenticationService: AuthenticationService) { }
@@ -27,5 +28,8 @@ export class ProfilComponent implements OnInit {
     setTimeout(() => {
       this.blocked = false;
     }, 1000);
+  }
+  modifierProfil() {
+    this.show = true;
   }
 }

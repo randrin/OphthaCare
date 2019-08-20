@@ -28,3 +28,16 @@
 mat-card .row div {
     text-align: left;
 }
+.profile-user {
+    padding-left: 25px;
+}
+.profile-top .row .profile-content {
+    display: flex;
+}
+.edit-profil {
+    cursor: pointer;
+}
+.edit-profil a {
+    top: -4px;
+    position: relative;
+}
