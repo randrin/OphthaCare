@@ -206,3 +206,10 @@ mat-toolbar-row {
 #toTop:hover {
   background-color: #555;
 }
+
+.header a {
+  text-decoration: none !important;
+}
+.header a em {
+  color: #fff;
+}

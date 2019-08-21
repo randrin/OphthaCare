@@ -5,17 +5,17 @@
 </div>
 
 <app-home></app-home>
-<div class="main-container">
+<div *ngIf="!show" class="main-container">
     <div class="container-fluid ml-auto mr-auto profile-top">
       <div class="row">
         <div class="profile-content col-md-6">
           <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
           <div class="profile-user">
             <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
-            <button *ngIf="show" mat-raised-button color="primary">
+            <!--<button *ngIf="show" mat-raised-button color="primary">
                 <mat-icon>edit</mat-icon>
                 <span> {{ 'edit' | translate }}</span>
-            </button>
+            </button>-->
           </div>
         </div>
         <div *ngIf="!show" class="col-md-6">
@@ -85,3 +85,23 @@
       </div>
     </div>
 </div>
+
+<!-- Section Modification Profil -->
+<div *ngIf="show" class="main-container">
+    <div class="container-fluid ml-auto mr-auto profile-top">
+      <div class="row">
+        <div class="profile-content col-md-12 col-md-offset-3">
+            <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="" title="" />
+        </div>
+        <label for="profil-upload"></label>
+        <input matInput id="profil-upload" name="profil-upload" type="file" />
+      </div>
+      <div class="row">
+        <div class="panel-profile">
+            <h1 class="profile-title">jjjhjhjhhjhjh</h1>
+            <span class="profile-section profile-section-divider">
+              </span>
+        </div>
+      </div>
+    </div>
+  </div>
