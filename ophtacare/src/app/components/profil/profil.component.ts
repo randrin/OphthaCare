@@ -30,6 +30,7 @@ export class ProfilComponent implements OnInit {
     }, 1000);
   }
   modifierProfil() {
+    this.profilAdmin = this.authenticationService.admin;
     this.show = true;
   }
 }

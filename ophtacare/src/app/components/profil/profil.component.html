@@ -120,7 +120,7 @@
             <mat-form-field appearance="outline">
               <mat-label>{{ 'lastName' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
-              <input matInput placeholder="Placeholder">
+              <input matInput placeholder="Placeholder" [(ngModel)]="profilAdmin.nomAdmin">
             </mat-form-field>
           </div>
           <div class="col-md-3">
@@ -157,14 +157,14 @@
             <mat-form-field appearance="outline">
               <mat-label>{{ 'registrationAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
-              <input matInput placeholder="Placeholder">
+              <input matInput placeholder="Placeholder" disabled>
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'lastLoginAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
-              <input matInput placeholder="Placeholder">
+              <input matInput placeholder="Placeholder" disabled>
             </mat-form-field>
           </div>
         </div>
