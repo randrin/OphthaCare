@@ -1,27 +1,28 @@
 <mat-toolbar color="primary">
-    <span><img src="./assets/images/giphy.gif" width="120" height="120"></span>
+    <span><img src="./assets/images/giphy.gif" class="ophthacare-logo-size"></span>
     <div class="header">
         <a href="#" target="_blank" title="OphthaCare {{ 'Clinic' | translate }}">
-            <span><b style="font-size: 2.3em; color: white; top: 5px;"><em>Ophtha</em><em
-                    style="color:blue;">Care</em></b></span><br>
-            <span><em style="font-size: 0.9em;">{{ 'your eyes, our priority' | translate }}</em></span>
+            <span><b class="ophthacare-Ophtha"><em>Ophtha</em><em class="ophthacare-care">Care</em></b></span><br>
+            <span><em class="ophthacare-logo-subtitle">{{ 'your eyes, our priority' | translate }}</em></span>
         </a>
     </div>
     <span class="demo-toolbar"></span>
 </mat-toolbar>
 <mat-tab-group>
-    <mat-tab label="Administrateurs">
+    <!-- Login Administrateurs -->
+    <mat-tab label="{{ 'Admins' | translate }}">
         <mat-card id="ophthacare">
-            <mat-card-title style="margin: 15px;">
+            <mat-card-title class="ophthacare-matCard-title">
                 LogIn Administrateurs
             </mat-card-title>
             <mat-card-content>
                 <form (ngSubmit)="loginAdmin()" #loginFormAdmin="ngForm">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
-                                <mat-form-field class="demo-full-width">
-                                    <mat-icon matPrefix style="margin-right: 10px;">account_circle</mat-icon>
+                            <div class="col-md-8 ophthacare-login">
+                                <mat-form-field appearance="outline" class="demo-full-width">
+                                    <mat-label>{{ 'pseudoAdmin' | translate }}</mat-label>
+                                    <mat-icon matPrefix class="ophthacare-matIcon-position">account_circle</mat-icon>
                                     <input matInput placeholder="Username" name="username" [(ngModel)]="admin.nomAdmin"
                                         type="text">
                                 </mat-form-field>
@@ -29,12 +30,13 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
-                                <mat-form-field class="demo-full-width">
-                                    <mat-icon matPrefix style="margin-right: 10px;">vpn_key</mat-icon>
+                            <div class="col-md-8 ophthacare-login">
+                                <mat-form-field appearance="outline" class="demo-full-width">
+                                    <mat-label>{{ 'password' | translate }}</mat-label>
+                                    <mat-icon matPrefix class="ophthacare-matIcon-position">vpn_key</mat-icon>
                                     <input matInput placeholder="Password" name="password" [(ngModel)]="admin.password"
                                         [type]="hide ? 'password' : 'text'">
-                                    <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">
+                                    <mat-icon matSuffix (click)="hide = !hide" class="hide-show-password">
                                         {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </mat-form-field>
                             </div>
@@ -52,31 +54,34 @@
             </mat-card-content>
         </mat-card>
     </mat-tab>
-    <mat-tab label="Personnels">
+    <!-- Login Personnels -->
+    <mat-tab label="{{ 'Specialists' | translate }}">
         <mat-card id="ophthacare" class="personnel-section">
-            <mat-card-title style="margin: 15px;">
+            <mat-card-title class="ophthacare-matCard-title">
                 LogIn OphthaCare
             </mat-card-title>
             <mat-card-content>
                 <form (ngSubmit)="loginPersonnel()" #loginForm="ngForm">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
-                                <mat-form-field class="demo-full-width">
-                                    <mat-icon matPrefix style="margin-right: 10px;">person_outline</mat-icon>
-                                    <input matInput placeholder="Matricule" name="matricule" [(ngModel)]="medecin.matriculeMedecin"
-                                        type="text">
+                            <div class="col-md-8 ophthacare-login">
+                                <mat-form-field appearance="outline" class="demo-full-width">
+                                    <mat-label>{{ 'matriculeMedecin' | translate }}</mat-label>
+                                    <mat-icon matPrefix class="ophthacare-matIcon-position">person_outline</mat-icon>
+                                    <input matInput placeholder="Matricule" name="matricule"
+                                        [(ngModel)]="medecin.matriculeMedecin" type="text">
                                 </mat-form-field>
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
-                                <mat-form-field class="demo-full-width">
-                                    <mat-icon matPrefix style="margin-right: 10px;">vpn_key</mat-icon>
-                                    <input matInput placeholder="Password" name="password" [(ngModel)]="medecin.password"
-                                        [type]="hide ? 'password' : 'text'">
-                                    <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">
+                            <div class="col-md-8 ophthacare-login">
+                                <mat-form-field appearance="outline" class="demo-full-width">
+                                    <mat-label>{{ 'password' | translate }}</mat-label>
+                                    <mat-icon matPrefix class="ophthacare-matIcon-position">vpn_key</mat-icon>
+                                    <input matInput placeholder="Password" name="password"
+                                        [(ngModel)]="medecin.password" [type]="hide ? 'password' : 'text'">
+                                    <mat-icon matSuffix (click)="hide = !hide" class="hide-show-password">
                                         {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </mat-form-field>
                             </div>

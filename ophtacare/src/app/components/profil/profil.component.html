@@ -1,107 +1,188 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
-  <img src="/assets/images/giphy.gif" title="Leopard" style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
+  <img src="/assets/images/giphy.gif" title="Leopard"
+    style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
 </div>
 
 <app-home></app-home>
 <div *ngIf="!show" class="main-container">
-    <div class="container-fluid ml-auto mr-auto profile-top">
-      <div class="row">
-        <div class="profile-content col-md-6">
-          <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
-          <div class="profile-user">
-            <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
-            <!--<button *ngIf="show" mat-raised-button color="primary">
+  <div class="container-fluid ml-auto mr-auto profile-top">
+    <div class="row">
+      <div class="profile-content col-md-6">
+        <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png"
+          alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}"
+          title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
+        <div class="profile-user">
+          <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
+          <!--<button *ngIf="show" mat-raised-button color="primary">
                 <mat-icon>edit</mat-icon>
                 <span> {{ 'edit' | translate }}</span>
             </button>-->
-          </div>
-        </div>
-        <div *ngIf="!show" class="col-md-6">
-            <div class="edit-profil pull-right">
-                <mat-icon>perm_identity</mat-icon>
-                <a (click)="modifierProfil()"><b>{{ 'edit-cta' | translate }}</b></a>
-            </div>
         </div>
       </div>
-      <div class="row profile-top">
-          <div class="col-md-12 ml-auto mr-auto">
-            <mat-tab-group>
-                <mat-tab label="{{ 'personalInfos' | translate }}"> 
-                  <mat-card>
-                      <div class="row userProfile">
-                        <div class="col-md-3">
-                          <label><b>{{ 'firstName' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.nomAdmin}}</span>
-                        </div>
-                        <div class="col-md-3">
-                          <label><b>{{ 'lastName' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.prenomAdmin}}</span>
-                        </div>
-                        <div class="col-md-3">
-                          <label><b>{{ 'pseudoAdmin' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.pseudoAdmin}}</span>
-                        </div>
-                        <div class="col-md-3">
-                          <label><b>{{ 'email' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.emailAdmin}}</span>
-                        </div>
-                      </div>
-                      <div class="row userProfile">
-                        <div class="col-md-3">
-                          <label><b>{{ 'roleAdmin' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.roleAdmin}}</span>
-                        </div>
-                        <div class="col-md-3">
-                          <label><b>{{ 'activeAdmin' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.activeAdmin}}</span>
-                        </div>
-                        <div class="col-md-3">
-                          <label><b>{{ 'registrationAdmin' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.registrationAdmin}}</span>
-                        </div>
-                        <div class="col-md-3">
-                          <label><b>{{ 'lastLoginAdmin' | translate }}</b></label><br>
-                          <span class="content-text-color">{{profilAdmin.lastLoginAdmin}}</span>
-                        </div>
-                      </div>
-                      <div *ngIf="show" class="row userProfile">
-                        <button mat-raised-button color="primary" >
-                            <mat-icon>edit</mat-icon>
-                            <span> {{ 'edit' | translate }}</span>
-                        </button>
-                      </div>
-                  </mat-card>
-                </mat-tab>
-                <mat-tab label="{{ 'expertise' | translate }}">
-                   Content 2 
-                </mat-tab>
-                <mat-tab label="{{ 'contacts' | translate }}">
-                   Content 3 
-                </mat-tab>
-            </mat-tab-group>
+      <div *ngIf="!show" class="col-md-6">
+        <div class="edit-profil pull-right">
+          <a class="ophthacare-button red-btn" (click)="modifierProfil()">
+            <mat-icon>edit</mat-icon>
+            <b class="edit-profil-text">{{ 'edit-cta' | translate }}</b>
+          </a>
         </div>
       </div>
     </div>
+    <div class="row profile-top">
+      <div class="col-md-12 ml-auto mr-auto">
+        <mat-tab-group>
+          <mat-tab label="{{ 'personalInfos' | translate }}">
+            <mat-card>
+              <div class="row userProfile">
+                <div class="col-md-3">
+                  <label><b>{{ 'firstName' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.nomAdmin}}</span>
+                </div>
+                <div class="col-md-3">
+                  <label><b>{{ 'lastName' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.prenomAdmin}}</span>
+                </div>
+                <div class="col-md-3">
+                  <label><b>{{ 'pseudoAdmin' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.pseudoAdmin}}</span>
+                </div>
+                <div class="col-md-3">
+                  <label><b>{{ 'email' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.emailAdmin}}</span>
+                </div>
+              </div>
+              <div class="row userProfile">
+                <div class="col-md-3">
+                  <label><b>{{ 'roleAdmin' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.roleAdmin}}</span>
+                </div>
+                <div class="col-md-3">
+                  <label><b>{{ 'activeAdmin' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.activeAdmin}}</span>
+                </div>
+                <div class="col-md-3">
+                  <label><b>{{ 'registrationAdmin' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.registrationAdmin}}</span>
+                </div>
+                <div class="col-md-3">
+                  <label><b>{{ 'lastLoginAdmin' | translate }}</b></label><br>
+                  <span class="content-text-color">{{profilAdmin.lastLoginAdmin}}</span>
+                </div>
+              </div>
+              <div *ngIf="show" class="row userProfile">
+                <button mat-raised-button color="primary">
+                  <mat-icon>edit</mat-icon>
+                  <span> {{ 'edit' | translate }}</span>
+                </button>
+              </div>
+            </mat-card>
+          </mat-tab>
+          <mat-tab label="{{ 'expertise' | translate }}">
+            Content 2
+          </mat-tab>
+          <mat-tab label="{{ 'contacts' | translate }}">
+            Content 3
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Section Modification Profil -->
 <div *ngIf="show" class="main-container">
-    <div class="container-fluid ml-auto mr-auto profile-top">
-      <div class="row">
+  <div class="container-fluid ml-auto mr-auto profile-top">
+    <mat-card>
+      <!--<div class="row">
         <div class="profile-content col-md-12 col-md-offset-3">
             <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="" title="" />
         </div>
         <label for="profil-upload"></label>
         <input matInput id="profil-upload" name="profil-upload" type="file" />
-      </div>
-      <div class="row">
+      </div>-->
+      <div>
         <div class="panel-profile">
-            <h1 class="profile-title">jjjhjhjhhjhjh</h1>
-            <span class="profile-section profile-section-divider">
-              </span>
+          <span class="profile-section-left profile-section-divider"></span>
+          <h1 class="profile-title">{{ 'personalInfos' | translate }}</h1>
+          <span class="profile-section-divider"></span>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'firstName' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'lastName' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'pseudoAdmin' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'email' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'roleAdmin' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'activeAdmin' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'registrationAdmin' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'lastLoginAdmin' | translate }}</mat-label>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </div>
         </div>
       </div>
-    </div>
+      <div>
+        <div class="panel-profile">
+          <span class="profile-section-left profile-section-divider"></span>
+          <h1 class="profile-title">{{ 'expertise' | translate }}</h1>
+          <span class="profile-section-divider"></span>
+        </div>
+      </div>
+      <div>
+        <div class="panel-profile">
+          <span class="profile-section-left profile-section-divider"></span>
+          <h1 class="profile-title">{{ 'contacts' | translate }}</h1>
+          <span class="profile-section-divider"></span>
+        </div>
+      </div>
+    </mat-card>
   </div>
+</div>

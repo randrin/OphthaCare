@@ -37,6 +37,11 @@ mat-card .row div {
 .edit-profil {
     cursor: pointer;
 }
+.edit-profil-text {
+    top: -4px;
+    position: relative;
+    left: 5px;
+}
 .edit-profil a {
     top: -4px;
     position: relative;
@@ -46,33 +51,34 @@ mat-card .row div {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-bottom: 30px;
+    display: flex;
 }
 .profile-title {
     flex-shrink: 0;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 10px 0 0px;
     text-transform: uppercase;
     text-align: center;
     max-width: 100%;
 }
-.profile-section {
-    width: 0;
+.profile-section-left {
+    width: 0 !important;
 }
 .profile-section-divider {
     line-height: 1em;
     outline: 0;
     border: 0;
     width: 100%;
+    position: relative;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
 }
 .profile-section-divider::before {
     content: "";
-    background: rgba(60,128,247,.3);
+    background: #fff;
     position: absolute;
     left: 0;
     top: 50%;
