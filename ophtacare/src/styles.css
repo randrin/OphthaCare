@@ -235,7 +235,20 @@ mat-toolbar-row {
 .ophthacare-care {
   color:blue !important;
 }
-/******* Ophthacare Button CTA Styles *******/
+/******* Ophthacare Color Buttons *******/
+.ophthacare-matIcon-red {
+  color: red;
+}
+.ophthacare-btn-green {
+  color: green;
+}
+.ophthacare-btn-black {
+  color: black;
+}
+.ophthacare-btn-white {
+  color: white;
+}
+/******* Ophthacare Buttons CTA Styles *******/
 .ophthacare-button {
   display: inline-block;
   min-width: 144px;

@@ -2,28 +2,28 @@
   <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
-  <span><img src="./assets/images/giphy.gif" width="120" height="120"></span>
+  <span><img src="./assets/images/giphy.gif" class="ophthacare-logo-size"></span>
   <div class="header">
       <a href="#" target="_blank" title="OphthaCare {{ 'Clinic' | translate }}">
-          <span><b style="font-size: 2.3em; color: white; top: 5px;"><em>Ophtha</em><em
-                      style="color:blue;">Care</em></b></span><br>
-          <span><em style="font-size: 0.9em;">{{ 'your eyes, our priority' | translate }}</em></span>
+          <span><b class="ophthacare-Ophtha"><em>Ophtha</em><em
+                      class="ophthacare-care">Care</em></b></span><br>
+          <span><em class="ophthacare-logo-subtitle">{{ 'your eyes, our priority' | translate }}</em></span>
       </a>
   </div>
 
   <div class="nav-brand"></div>
   <!-- Form Recherche -->
-  <form class="hidden-sm" style="margin-left: 20px;">
-    <mat-icon matPrefix style="margin-right: 5px; margin-top: 15px;">search</mat-icon>
-    <mat-form-field style="padding-top: 20px;">
+  <form class="hidden-sm" class="search-position">
+    <mat-icon matPrefix class="search-icon">search</mat-icon>
+    <mat-form-field class="search-input-position">
       <input matInput [placeholder]="'Search' | translate">
     </mat-form-field>
   </form>
   <span class="nav-spacer"></span>
   <!-- Button Informations -->
-  <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="information" style="margin-right: 150px;">
-    <mat-icon class="sizeIcon" style="color:green">info</mat-icon> <span
-      style="padding-left: 15px;">{{ 'Informations' | translate }}</span>
+  <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="information" class="informations-position">
+    <mat-icon class="sizeIcon" class="ophthacare-btn-green">info</mat-icon> <span
+      class="informations-icon">{{ 'Informations' | translate }}</span>
   </a>
   <mat-menu #information="matMenu">
     <a mat-menu-item href="#" class="item-profil" target="_blank">
@@ -36,14 +36,14 @@
     </a>
   </mat-menu>
   <!-- Current Time -->
-  <button id="icon-button" class="hidden-sm" mat-icon-button style="margin-right: 150px; top:-10px;" disabled>
+  <button id="icon-button" class="hidden-sm" mat-icon-button class="infos-button" disabled>
     <div class="wapper">
       <div class="icon">
-        <mat-icon class="sizeIcon" style="color: blue;">access_time</mat-icon>
+        <mat-icon class="sizeIcon" class="ophthacare-care">access_time</mat-icon>
       </div>
       <div class="text">
-        <span style="color:white;">{{ CurrentDate }}</span><br>
-        <span style="color: black;"><b>{{ CurrentTime }}</b></span>
+        <span class="ophthacare-btn-white">{{ CurrentDate }}</span><br>
+        <span class="ophthacare-btn-black"><b>{{ CurrentTime }}</b></span>
       </div>
     </div>
   </button>
@@ -80,8 +80,8 @@
       <span>{{ 'Settings' | translate }}</span>
     </button>
     <mat-divider></mat-divider>
-    <button mat-menu-item (click)="onLoggedout()" style="color: green;">
-      <mat-icon style="color:red;">power_settings_new</mat-icon>
+    <button mat-menu-item (click)="onLoggedout()" class="ophthacare-btn-green">
+      <mat-icon class="ophthacare-matIcon-red">power_settings_new</mat-icon>
       <span><b>{{ 'Logout' | translate }}</b></span>
     </button>
   </mat-menu>

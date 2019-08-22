@@ -111,3 +111,24 @@ img {
 .hidden-sm:hover {
   text-decoration: none;
 }
+.infos-button {
+  margin-right: 150px; 
+  top:-10px;
+}
+.informations-icon {
+  padding-left: 15px;
+}
+.search-position {
+  margin-left: 20px;
+}
+.search-icon {
+  margin-right: 5px; 
+  margin-top: 15px;
+}
+.search-input-position {
+  padding-top: 20px;
+}
+.informations-position {
+  margin-right: 150px;
+  text-decoration: none;
+}
