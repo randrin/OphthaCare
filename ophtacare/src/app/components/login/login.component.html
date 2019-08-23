@@ -1,19 +1,10 @@
-<mat-toolbar color="primary">
-    <span><img src="./assets/images/giphy.gif" class="ophthacare-logo-size"></span>
-    <div class="header">
-        <a href="#" target="_blank" title="OphthaCare {{ 'Clinic' | translate }}">
-            <span><b class="ophthacare-Ophtha"><em>Ophtha</em><em class="ophthacare-care">Care</em></b></span><br>
-            <span><em class="ophthacare-logo-subtitle">{{ 'your eyes, our priority' | translate }}</em></span>
-        </a>
-    </div>
-    <span class="demo-toolbar"></span>
-</mat-toolbar>
+<app-nav-top></app-nav-top>
 <mat-tab-group>
     <!-- Login Administrateurs -->
     <mat-tab label="{{ 'Admins' | translate }}">
         <mat-card id="ophthacare">
             <mat-card-title class="ophthacare-matCard-title">
-                LogIn Administrateurs
+                LogIn {{ 'Admins' | translate }}
             </mat-card-title>
             <mat-card-content>
                 <form (ngSubmit)="loginAdmin()" #loginFormAdmin="ngForm">
@@ -44,9 +35,9 @@
                     </div>
                     <br>
                     <div class="panel-footer">
-                        <button mat-raised-button [disabled]="!loginFormAdmin.form.valid" color="primary" type="submit">
+                        <button class="ophthacare-button white-outline-btn" [disabled]="!loginFormAdmin.form.valid" type="submit">
                             <mat-icon>done_all</mat-icon>
-                            <span> Entrer</span>
+                            <b class="ophthacare-button-text">{{ 'Login' | translate }}</b>
                         </button>
                     </div>
                     <br>
@@ -58,7 +49,7 @@
     <mat-tab label="{{ 'Specialists' | translate }}">
         <mat-card id="ophthacare" class="personnel-section">
             <mat-card-title class="ophthacare-matCard-title">
-                LogIn OphthaCare
+                LogIn {{ 'Specialists' | translate }}
             </mat-card-title>
             <mat-card-content>
                 <form (ngSubmit)="loginPersonnel()" #loginForm="ngForm">
@@ -89,9 +80,9 @@
                     </div>
                     <br>
                     <div class="panel-footer">
-                        <button mat-raised-button [disabled]="!loginForm.form.valid" color="primary" type="submit">
+                        <button class="ophthacare-button white-outline-btn" [disabled]="!loginForm.form.valid" type="submit">
                             <mat-icon>done_all</mat-icon>
-                            <span> Entrer</span>
+                            <b class="ophthacare-button-text">{{ 'Login' | translate }}</b>
                         </button>
                     </div>
                     <br>

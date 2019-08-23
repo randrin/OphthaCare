@@ -13,7 +13,7 @@
 
   <div class="nav-brand"></div>
   <!-- Form Recherche -->
-  <form class="hidden-sm" class="search-position">
+  <form class="hidden-sm" class="search-position" *ngIf="isConnected">
     <mat-icon matPrefix class="search-icon">search</mat-icon>
     <mat-form-field class="search-input-position">
       <input matInput [placeholder]="'Search' | translate">
@@ -22,7 +22,7 @@
   <span class="nav-spacer"></span>
   <!-- Button Informations -->
   <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="information" class="informations-position">
-    <mat-icon class="sizeIcon" class="ophthacare-btn-green">info</mat-icon> <span
+    <mat-icon class="sizeIcon ophthacare-btn-green">info</mat-icon> <span
       class="informations-icon">{{ 'Informations' | translate }}</span>
   </a>
   <mat-menu #information="matMenu">
@@ -39,7 +39,7 @@
   <button id="icon-button" class="hidden-sm" mat-icon-button class="infos-button" disabled>
     <div class="wapper">
       <div class="icon">
-        <mat-icon class="sizeIcon" class="ophthacare-care">access_time</mat-icon>
+        <mat-icon class="sizeIcon ophthacare-care">access_time</mat-icon>
       </div>
       <div class="text">
         <span class="ophthacare-btn-white">{{ CurrentDate }}</span><br>
@@ -50,6 +50,7 @@
   <!-- Button Langues -->
   <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
     <mat-icon class="sizeIcon">language</mat-icon>
+    <img class="selected-language" [src]="selectedLanguage == 'en' ? './assets/flags/GB.png' : (selectedLanguage == 'fr' ? './assets/flags/FR.png' : './assets/flags/IT.png')" />
   </a>
   <mat-menu #language="matMenu">
     <a mat-menu-item (click)="changeLang('en')" class="item-profil">
@@ -63,7 +64,7 @@
     </a>
   </mat-menu>
   <!-- Button Account -->
-  <a mat-icon-button [matMenuTriggerFor]="profile">
+  <a mat-icon-button [matMenuTriggerFor]="profile" *ngIf="isConnected">
     <mat-icon class="sizeIcon">account_circle</mat-icon>
   </a>
   <mat-menu #profile="matMenu">
