@@ -32,7 +32,7 @@ export class NavTopComponent implements OnInit {
     'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
     this.dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     this.isConnected = localStorage.getItem('isConnected');
-    this.selectedLanguage = localStorage.getItem('selectedLanguage');
+    this.selectedLanguage = localStorage.getItem('selectedLanguage') ? localStorage.getItem('selectedLanguage') : 'fr';
     this.getCurrentTime();
   }
 
