@@ -59,8 +59,8 @@ export class NavTopComponent implements OnInit {
 
   onLoggedout() {
     this.authenticationService.logout();
-    localStorage.removeItem('admin');
-    localStorage.removeItem('isConnected');
+    localStorage.removeItem('admin'); // Remove data admin/doctor in session
+    localStorage.removeItem('isConnected'); // Remove status connection admin/doctor  in session
     this.router.navigate(['/login']);
   }
 
