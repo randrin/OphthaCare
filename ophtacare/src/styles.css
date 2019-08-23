@@ -237,16 +237,16 @@ mat-toolbar-row {
 }
 /******* Ophthacare Color Buttons *******/
 .ophthacare-matIcon-red {
-  color: red;
+  color: red !important;
 }
 .ophthacare-btn-green {
-  color: green;
+  color: green !important;
 }
 .ophthacare-btn-black {
-  color: black;
+  color: black !important;
 }
 .ophthacare-btn-white {
-  color: white;
+  color: white !important;
 }
 /******* Ophthacare Buttons CTA Styles *******/
 .ophthacare-button {
@@ -266,11 +266,30 @@ mat-toolbar-row {
   overflow: hidden;
   text-overflow: clip;
 }
+.ophthacare-button-text {
+  top: -4px;
+  position: relative;
+  left: 5px;
+}
 /* Ophthacare Red */
 .ophthacare-button.red-btn {
   color: #fff !important;
   background-color: #d12420;
 }
-.ophthacare-button.red-btn:hover, .ophthacare-button.red-btn:focus {
+.ophthacare-button.red-btn:hover,
+.ophthacare-button.red-btn:focus {
   background-image: linear-gradient(to left, #910d18, #d12420);
+  border: none;
+}
+/* Ophthacare White-outline */
+.ophthacare-button.white-outline-btn {
+  border: solid 1px #ffffff;
+  color: #fff;
+}
+.ophthacare-button.white-outline-btn:hover,
+.ophthacare-button.white-outline-btn:focus {
+    background-image: linear-gradient(to right, #fff, #a1a3a5);
+    color: #63666a;
+    border: none;
+    outline: 0;
 }

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    localStorage.setItem('isConnected', 'true');
     this.blocked = true;
     setTimeout(() => {
       this.blocked = false;

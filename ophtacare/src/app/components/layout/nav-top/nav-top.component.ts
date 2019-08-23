@@ -15,6 +15,8 @@ export class NavTopComponent implements OnInit {
   public dayNames;
   public CurrentDate;
   public CurrentTime;
+  public selectedLanguage;
+  public isConnected;
 
   constructor(private translate: TranslateService, private router: Router, private authenticationService: AuthenticationService) {
     this.router.events.subscribe(val => {
@@ -29,7 +31,8 @@ export class NavTopComponent implements OnInit {
     this.monthNames = [ 'January', 'February', 'March', 'April', 'May',
     'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
     this.dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
+    this.isConnected = localStorage.getItem('isConnected');
+    this.selectedLanguage = localStorage.getItem('selectedLanguage');
     this.getCurrentTime();
   }
 
@@ -57,10 +60,13 @@ export class NavTopComponent implements OnInit {
   onLoggedout() {
     this.authenticationService.logout();
     localStorage.removeItem('admin');
+    localStorage.removeItem('isConnected');
     this.router.navigate(['/login']);
   }
 
   changeLang(language: string) {
+    this.selectedLanguage = language;
+    localStorage.setItem('selectedLanguage', language);
     this.translate.use(language);
   }
 }

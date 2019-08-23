@@ -37,11 +37,6 @@ mat-card .row div {
 .edit-profil {
     cursor: pointer;
 }
-.edit-profil-text {
-    top: -4px;
-    position: relative;
-    left: 5px;
-}
 .edit-profil a {
     top: -4px;
     position: relative;
