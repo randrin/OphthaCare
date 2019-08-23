@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
               summary: 'Welcome',
               detail: this.responseData.nomAdmin + ' ' + this.responseData.prenomAdmin
             });
+            localStorage.setItem('isConnected', 'true');
             this.authenticationService.router.navigate(['dashboard']);
           }
         },
