@@ -235,6 +235,7 @@ mat-toolbar-row {
 .ophthacare-care {
   color:#4f1dda !important;
 }
+
 /******* Ophthacare Color Buttons *******/
 .ophthacare-matIcon-red {
   color: red !important;
@@ -249,6 +250,31 @@ mat-toolbar-row {
   color: white !important;
 }
 
+/******* Ophthacare Page Titres Styles *******/
+.ophthacare-title {
+  font-family: OpenSans-Bold, sans-serif;
+  font-size: 42px;
+  line-height: 1.1;
+  text-align: center;
+  margin: 27px 0 22px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* Ophthacare Grey Title */
+.ophthacare-title.grey-page-title {
+  color: #63666a;
+}
+
+/* Ophthacare Red Title */
+.ophthacare-title.red-page-title {
+  color: #d12420;
+}
+
+/* Ophthacare Bue Title */
+.ophthacare-title.blue-page-title {
+  color: #4f1dda;
+}
 
 /******* Ophthacare Buttons CTA Styles *******/
 .ophthacare-button {
@@ -354,4 +380,18 @@ mat-toolbar-row {
 .ophthacare-button.white-btn:focus {
     background-image: linear-gradient(to right, #fff, #a1a3a5);
     color: #63666a;
+}
+
+/* Scroll Bar Browser Style */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #636660;
 }
