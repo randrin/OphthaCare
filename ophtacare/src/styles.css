@@ -19,7 +19,7 @@ body, html {
 }
 
 .profession {
-  background-color: blue !important;
+  background-color: #4f1dda !important;
   color: #ffffff !important;
 }
 
@@ -233,7 +233,7 @@ mat-toolbar-row {
   top: 5px;
 }
 .ophthacare-care {
-  color:blue !important;
+  color:#4f1dda !important;
 }
 /******* Ophthacare Color Buttons *******/
 .ophthacare-matIcon-red {
@@ -248,6 +248,8 @@ mat-toolbar-row {
 .ophthacare-btn-white {
   color: white !important;
 }
+
+
 /******* Ophthacare Buttons CTA Styles *******/
 .ophthacare-button {
   display: inline-block;
@@ -271,6 +273,31 @@ mat-toolbar-row {
   position: relative;
   left: 5px;
 }
+
+/* Ophthacare Blue */
+.ophthacare-button.blue-btn {
+  color: #4f1dda !important;
+  background-color: #fff;
+  border: solid 1px #4f1dda
+}
+.ophthacare-button.blue-btn:hover,
+.ophthacare-button.blue-btn:focus {
+  background-color: #4f1dda;
+  color: #fff !important;
+  border: none;
+}
+
+/* Ophthacare Blue Outline */
+.ophthacare-button.blue-outline-btn {
+  color: #4f1dda !important;
+  background-color: #fff;
+  border: solid 1px #4f1dda;
+}
+.ophthacare-button.blue-outline-btn:hover,
+.ophthacare-button.blue-outline-btn:focus {
+  background-image: linear-gradient(to right, #fff, #845fec);
+}
+
 /* Ophthacare Red */
 .ophthacare-button.red-btn {
   color: #fff !important;
@@ -281,7 +308,30 @@ mat-toolbar-row {
   background-image: linear-gradient(to left, #910d18, #d12420);
   border: none;
 }
-/* Ophthacare White-outline */
+
+/* Ophthacare Red Outline */
+.ophthacare-button.red-outline-btn {
+  color: #d12420 !important;
+  border: solid 1px #d12420;
+  background: #fff;
+}
+.ophthacare-button.red-outline-btn:hover,
+.ophthacare-button.red-outline-btn:focus {
+    background-image: linear-gradient(to right, #fff, #f6d3d2);
+}
+
+/* Ophthacare Grey Outline */
+.ophthacare-button.grey-outline-btn {
+  color: #63666a;
+  border: solid 1px #63666a;
+  background: #fff;
+}
+.ophthacare-button.grey-outline-btn:hover,
+.ophthacare-button.grey-outline-btn:focus {
+    background-image: linear-gradient(to right, #fff, #e0e0e1);
+}
+
+/* Ophthacare White Outline */
 .ophthacare-button.white-outline-btn {
   border: solid 1px #ffffff;
   color: #fff;
@@ -292,4 +342,16 @@ mat-toolbar-row {
     color: #63666a;
     border: none;
     outline: 0;
+}
+
+/* Ophthacare White */
+.ophthacare-button.white-btn {
+    color: #63666a;
+    background-color: #fff;
+    border: none;
+}
+.ophthacare-button.white-btn:hover,
+.ophthacare-button.white-btn:focus {
+    background-image: linear-gradient(to right, #fff, #a1a3a5);
+    color: #63666a;
 }
