@@ -34,56 +34,66 @@
       <div class="col-md-12 ml-auto mr-auto">
         <mat-tab-group>
           <mat-tab label="{{ 'personalInfos' | translate }}">
-            <mat-card>
-              <div class="row userProfile">
-                <div class="col-md-3">
-                  <label><b>{{ 'firstName' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.nomAdmin}}</span>
+            <mat-card id="ophthacare">
+              <mat-card-content>
+                <div class="row userProfile">
+                  <div class="col-md-3">
+                    <label><b>{{ 'firstName' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.nomAdmin}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <label><b>{{ 'lastName' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.prenomAdmin}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <label><b>{{ 'pseudoAdmin' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.pseudoAdmin}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <label><b>{{ 'email' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.emailAdmin}}</span>
+                  </div>
                 </div>
-                <div class="col-md-3">
-                  <label><b>{{ 'lastName' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.prenomAdmin}}</span>
+                <div class="row userProfile">
+                  <div class="col-md-3">
+                    <label><b>{{ 'roleAdmin' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.roleAdmin}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <label><b>{{ 'activeAdmin' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.activeAdmin}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <label><b>{{ 'registrationAdmin' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.registrationAdmin}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <label><b>{{ 'lastLoginAdmin' | translate }}</b></label><br>
+                    <span class="content-text-color">{{profilAdmin.lastLoginAdmin}}</span>
+                  </div>
                 </div>
-                <div class="col-md-3">
-                  <label><b>{{ 'pseudoAdmin' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.pseudoAdmin}}</span>
+                <div *ngIf="show" class="row userProfile">
+                  <button mat-raised-button color="primary">
+                    <mat-icon>edit</mat-icon>
+                    <span> {{ 'edit' | translate }}</span>
+                  </button>
                 </div>
-                <div class="col-md-3">
-                  <label><b>{{ 'email' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.emailAdmin}}</span>
-                </div>
-              </div>
-              <div class="row userProfile">
-                <div class="col-md-3">
-                  <label><b>{{ 'roleAdmin' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.roleAdmin}}</span>
-                </div>
-                <div class="col-md-3">
-                  <label><b>{{ 'activeAdmin' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.activeAdmin}}</span>
-                </div>
-                <div class="col-md-3">
-                  <label><b>{{ 'registrationAdmin' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.registrationAdmin}}</span>
-                </div>
-                <div class="col-md-3">
-                  <label><b>{{ 'lastLoginAdmin' | translate }}</b></label><br>
-                  <span class="content-text-color">{{profilAdmin.lastLoginAdmin}}</span>
-                </div>
-              </div>
-              <div *ngIf="show" class="row userProfile">
-                <button mat-raised-button color="primary">
-                  <mat-icon>edit</mat-icon>
-                  <span> {{ 'edit' | translate }}</span>
-                </button>
-              </div>
+              </mat-card-content>
             </mat-card>
           </mat-tab>
           <mat-tab label="{{ 'expertise' | translate }}">
-            Content 2
+            <mat-card id="ophthacare">
+              <mat-card-content>
+                Content 2
+              </mat-card-content>
+            </mat-card>
           </mat-tab>
           <mat-tab label="{{ 'contacts' | translate }}">
-            Content 3
+            <mat-card id="ophthacare">
+              <mat-card-content>
+                Content 3
+              </mat-card-content>
+            </mat-card>
           </mat-tab>
         </mat-tab-group>
       </div>
