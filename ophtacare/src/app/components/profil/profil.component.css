@@ -83,8 +83,5 @@ mat-card .row div {
 }
 .userProfile label mat-icon {
     top: 5px;
-    position: relative;
-#ophthacare {     
-    margin: 2em auto;    
-    text-align: center;    
+    position: relative;   
 }
