@@ -37,37 +37,37 @@
             <mat-card>
               <div class="row userProfile">
                 <div class="col-md-3">
-                  <label><b>{{ 'firstName' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon><b>{{ 'firstName' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.nomAdmin}}</span>
                 </div>
                 <div class="col-md-3">
-                  <label><b>{{ 'lastName' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon><b>{{ 'lastName' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.prenomAdmin}}</span>
                 </div>
                 <div class="col-md-3">
-                  <label><b>{{ 'pseudoAdmin' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">person</mat-icon><b>{{ 'pseudoAdmin' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.pseudoAdmin}}</span>
                 </div>
                 <div class="col-md-3">
-                  <label><b>{{ 'email' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">email</mat-icon><b>{{ 'email' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.emailAdmin}}</span>
                 </div>
               </div>
               <div class="row userProfile">
                 <div class="col-md-3">
-                  <label><b>{{ 'roleAdmin' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">supervised_user_circle</mat-icon><b>{{ 'roleAdmin' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.roleAdmin}}</span>
                 </div>
                 <div class="col-md-3">
-                  <label><b>{{ 'activeAdmin' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">how_to_reg</mat-icon><b>{{ 'activeAdmin' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.activeAdmin}}</span>
                 </div>
                 <div class="col-md-3">
-                  <label><b>{{ 'registrationAdmin' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">event_available</mat-icon><b>{{ 'registrationAdmin' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.registrationAdmin}}</span>
                 </div>
                 <div class="col-md-3">
-                  <label><b>{{ 'lastLoginAdmin' | translate }}</b></label><br>
+                  <label><mat-icon matPrefix class="ophthacare-matIcon-position">event_available</mat-icon><b>{{ 'lastLoginAdmin' | translate }}</b></label><br>
                   <span class="content-text-color">{{profilAdmin.lastLoginAdmin}}</span>
                 </div>
               </div>
@@ -112,28 +112,28 @@
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'firstName' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'lastName' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
               <input matInput placeholder="Placeholder" [(ngModel)]="profilAdmin.nomAdmin">
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'pseudoAdmin' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">person</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'email' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">email</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
@@ -142,28 +142,28 @@
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'roleAdmin' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">supervised_user_circle</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'activeAdmin' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">how_to_reg</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'registrationAdmin' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">event_available</mat-icon>
               <input matInput placeholder="Placeholder" disabled>
             </mat-form-field>
           </div>
           <div class="col-md-3">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'lastLoginAdmin' | translate }}</mat-label>
-              <mat-icon matPrefix class="ophthacare-matIcon-position">sentiment_very_satisfied</mat-icon>
+              <mat-icon matPrefix class="ophthacare-matIcon-position">event_available</mat-icon>
               <input matInput placeholder="Placeholder" disabled>
             </mat-form-field>
           </div>

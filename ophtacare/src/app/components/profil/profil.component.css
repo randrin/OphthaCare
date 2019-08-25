@@ -80,3 +80,7 @@ mat-card .row div {
     width: 100%;
     height: 2px;
 }
+.userProfile label mat-icon {
+    top: 5px;
+    position: relative;
+}
