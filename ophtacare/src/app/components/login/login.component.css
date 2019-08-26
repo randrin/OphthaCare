@@ -28,3 +28,11 @@ img {
 .hide-show-password {
   cursor: pointer;
 }
+.content-cta-login {
+  padding: 30px 0px 35px;
+}
+.content-text-login {
+  padding: 30px 0px 35px;
+  font-size: 18px;
+  line-height: 30px;
+}

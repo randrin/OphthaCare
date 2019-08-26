@@ -238,7 +238,7 @@ mat-toolbar-row {
 
 /******* Ophthacare Color Buttons *******/
 .ophthacare-matIcon-red {
-  color: red !important;
+  color: #d12420 !important;
 }
 .ophthacare-btn-green {
   color: green !important;
@@ -247,7 +247,7 @@ mat-toolbar-row {
   color: black !important;
 }
 .ophthacare-btn-white {
-  color: white !important;
+  color: #fff !important;
 }
 
 /******* Ophthacare Page Titres Styles *******/
@@ -299,7 +299,16 @@ mat-toolbar-row {
   position: relative;
   left: 5px;
 }
-
+.ophthacare-button.ophthacare-lg {
+  height: 60px;
+  width: 100%;
+  padding: 20px 20px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 14px;
+  text-decoration: none;
+}
 /* Ophthacare Blue */
 .ophthacare-button.blue-btn {
   color: #4f1dda !important;
