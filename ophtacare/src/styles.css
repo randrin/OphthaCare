@@ -40,7 +40,8 @@ div > p-card {
   
 body {    
   margin: 0;    
-  font-family: Roboto, sans-serif;    
+  font-family: Roboto, sans-serif;
+  background-color: #e0e0e1 !important;    
 }    
   
 /*mat-card {    
