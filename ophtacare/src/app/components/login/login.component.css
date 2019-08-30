@@ -29,10 +29,10 @@ img {
   cursor: pointer;
 }
 .content-cta-login {
-  padding: 30px 0px 35px;
+  padding: 50px 0px;
 }
 .content-text-login {
-  padding: 30px 0px 35px;
-  font-size: 18px;
+  padding: 50px 0px;
+  font-size: 22px;
   line-height: 30px;
 }

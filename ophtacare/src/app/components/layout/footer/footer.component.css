@@ -1,5 +1,36 @@
-.page-footer {
+.content-footer {
     display: block;
     bottom: 0;
-    position: fixed;
+    position: relative;
+    padding: 30px 30px 10px;
+    background-color: rgba(0,0,0,0.8);
+    color: #aaa;
+    font-size: 18px;
+    font-weight: 600;
+}
+ul.ophthacare-socials {
+    list-style-type: none;
+    display: flex;
+    left: -40px;
+    position: relative;
+}
+li.ophthacare-icon {
+    margin-right: 25px;
+}
+ul.ophthacare-socials li a {
+    font-size: 32px;
+}
+ul.ophthacare-socials li a.icon-facebook {
+    color: #3b5998;
+}
+ul.ophthacare-socials li a.icon-instagram {
+    color: #517fa4;
+}
+ul.ophthacare-socials li a.icon-linkedin {
+    color: #0077b5;
+}
+ul.ophthacare-socials li a .fa-facebook-square:hover,
+ul.ophthacare-socials li a .fa-instagram:hover,
+ul.ophthacare-socials li a .fa-linkedin-square:hover {
+    color: #fff;
 }
