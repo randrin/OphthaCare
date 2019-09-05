@@ -24,7 +24,7 @@
   <app-root></app-root>
   <script>
     $(document).ready(function(){
-      $('body').append('<a id="toTop" class="btn btn-outline-warning btn-sm" href="#" title="Go to Top Page"><i class="material-icons">arrow_upward</i></a>');
+      $('body').append('<a id="toTop" class="btn btn-default btn-md" href="#" title="Go to Top Page"><i class="material-icons">arrow_upward</i></a>');
       $(window).scroll(function () {
         if ($(this).scrollTop() != 0) {
           $('#toTop').fadeIn();
