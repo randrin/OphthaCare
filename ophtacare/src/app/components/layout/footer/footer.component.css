@@ -1,5 +1,69 @@
-.page-footer {
+.content-footer {
     display: block;
     bottom: 0;
-    position: fixed;
+    position: relative;
+    padding: 30px 30px 10px;
+    background-color: rgba(0,0,0,0.8);
+    color: #aaa;
+    font-size: 18px;
+    font-weight: 600;
+}
+ul.ophthacare-socials {
+    list-style-type: none;
+    display: flex;
+    left: -40px;
+    position: relative;
+}
+ul.ophthacare-links {
+    list-style-type: none;
+    top: 50px;
+    position: relative;
+    left: -35px;
+}
+ul.ophthacare-links li a {
+    text-decoration: none;
+    color: #fff;
+}
+ul.ophthacare-links li a:hover {
+    color: #4f1dda;
+    padding-left: 5px;
+}
+li.ophthacare-icon {
+    margin-right: 25px;
+}
+ul.ophthacare-socials li a {
+    font-size: 32px;
+}
+ul.ophthacare-socials li a.icon-facebook {
+    color: #3b5998;
+}
+ul.ophthacare-socials li a.icon-instagram {
+    color: #517fa4;
+}
+ul.ophthacare-socials li a.icon-linkedin {
+    color: #0077b5;
+}
+ul.ophthacare-socials li a .fa-facebook-square:hover,
+ul.ophthacare-socials li a .fa-instagram:hover,
+ul.ophthacare-socials li a .fa-linkedin-square:hover {
+    color: #fff;
+}
+.ophthacare-footer {
+    font-family: OpenSans-Bold, sans-serif;
+    font-size: 24px;
+    line-height: 1.1;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #4f1dda;
+    position: absolute;
+}
+.ophthacare-footer::after {
+    background: #fff;
+    content: "";
+    display: block;
+    height: 4px;
+    /*bottom: 0;*/
+    /*position: absolute;*/
+    width: 50px;
 }

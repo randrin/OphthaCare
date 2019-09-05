@@ -201,13 +201,23 @@ mat-toolbar-row {
   cursor: pointer;
   display: none;
   z-index: 99;
-  border-radius: 10%;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  background: #4f1dda;
 }
 
 #toTop:hover {
-  background-color: #555;
+  background: #fff;
+  color: #4f1dda;
 }
-
+#toTop:hover .material-icons {
+  margin: 10px 10px;
+}
+#toTop .material-icons {
+  margin: 15px 10px;
+}
 .header a {
   text-decoration: none !important;
 }
