@@ -6,7 +6,7 @@
 </div>
 
 <app-home></app-home>
-<div *ngIf="!show" class="main-container">
+<div *ngIf="!showEdit" class="main-container">
   <div class="container-fluid ml-auto mr-auto profile-top">
     <div class="row">
       <div class="profile-content col-md-6">
@@ -15,13 +15,13 @@
           title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
         <div class="profile-user">
           <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
-          <!--<button *ngIf="show" mat-raised-button color="primary">
+          <!--<button *ngIf="showEdit" mat-raised-button color="primary">
                 <mat-icon>edit</mat-icon>
                 <span> {{ 'edit' | translate }}</span>
             </button>-->
         </div>
       </div>
-      <div *ngIf="!show" class="col-md-6">
+      <div *ngIf="!showEdit" class="col-md-6">
         <div class="edit-profil pull-right">
           <a class="ophthacare-button red-btn" (click)="modifierProfil()">
             <mat-icon>edit</mat-icon>
@@ -71,7 +71,7 @@
                   <span class="content-text-color">{{profilAdmin.lastLoginAdmin}}</span>
                 </div>
               </div>
-              <div *ngIf="show" class="row userProfile">
+              <div *ngIf="showEdit" class="row userProfile">
                 <button mat-raised-button color="primary">
                   <mat-icon>edit</mat-icon>
                   <span> {{ 'edit' | translate }}</span>
@@ -100,16 +100,25 @@
 </div>
 
 <!-- Section Modification Profil -->
-<div *ngIf="show" class="main-container">
+<div *ngIf="showEdit" class="main-container">
   <div class="container-fluid ml-auto mr-auto profile-top">
     <mat-card>
-      <!--<div class="row">
-        <div class="profile-content col-md-12 col-md-offset-3">
-            <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="" title="" />
+      <div class="container-fluid">
+        <div class="row" class="profil-content">
+          <div class="profile-content col-md-12 col-md-offset-3">
+            <img *ngIf="!imgUrl" class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="" title="" />
+            <img class="profile-image" [src]="imgUrl" alt="" title="" />
         </div>
         <label for="profil-upload"></label>
-        <input matInput id="profil-upload" name="profil-upload" type="file" />
-      </div>-->
+        <input  id="profil-upload" name="profil-upload" type="file"  accept="image/*" (change)="onFileChanged($event)" />
+        <div class="upload-profil" *ngIf="showUpload">
+          <a class="ophthacare-button blue-btn" (click)="uploadImage()">
+            <mat-icon>cloud_upload</mat-icon>
+            <b class="ophthacare-button-text">{{ 'upload' | translate }}</b>
+          </a>
+        </div>
+        </div>
+      </div>
       <div>
         <div class="panel-profile">
           <span class="profile-section-left profile-section-divider"></span>
@@ -117,28 +126,28 @@
           <span class="profile-section-divider"></span>
         </div>
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'firstName' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'lastName' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
               <input matInput placeholder="Placeholder" [(ngModel)]="profilAdmin.nomAdmin">
             </mat-form-field>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'pseudoAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">person</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'email' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">email</mat-icon>
@@ -147,28 +156,28 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'roleAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">supervised_user_circle</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'activeAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">how_to_reg</mat-icon>
               <input matInput placeholder="Placeholder">
             </mat-form-field>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'registrationAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">event_available</mat-icon>
               <input matInput placeholder="Placeholder" disabled>
             </mat-form-field>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
               <mat-label>{{ 'lastLoginAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">event_available</mat-icon>
