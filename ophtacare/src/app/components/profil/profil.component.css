@@ -37,6 +37,10 @@ mat-card .row div {
 .edit-profil {
     cursor: pointer;
 }
+.upload-profil {
+    cursor: pointer;
+    top: 5px;
+}
 .edit-profil a {
     top: -4px;
     position: relative;
@@ -92,10 +96,15 @@ mat-card .row div {
 input[type="file"] {
     -webkit-appearance: initial;
     background-color: initial;
-    cursor: default;
-    align-items: baseline;
-    color: inherit;
-    text-align: start !important;
-    padding: initial;
-    border: initial;
+    cursor: pointer;
+    /* align-items: baseline; */
+    /* color: inherit; */
+    /* text-align: start !important; */
+    /* padding: initial; */
+    border: 1px solid #4f1dda;
+    padding: 5px;
+    margin: 10px;
+}
+.profil-content {
+    padding: 30px 0px;
 }
