@@ -2,7 +2,7 @@
     display: block;
     bottom: 0;
     position: relative;
-    padding: 30px 30px 10px;
+    padding: 50px 30px 10px;
     background-color: rgba(0,0,0,0.8);
     color: #aaa;
     font-size: 18px;
@@ -20,6 +20,18 @@ ul.ophthacare-links {
     position: relative;
     left: -35px;
 }
+ul.ophthacare-privacy {
+    list-style-type: none;
+    display: flex;
+    margin: auto;
+}
+ul.ophthacare-privacy li a {
+    padding: 0px 10px;
+    color: #4f1dda;
+}
+ul.ophthacare-privacy li a:hover {
+    color: #fff;
+}
 ul.ophthacare-links li a {
     text-decoration: none;
     color: #fff;
@@ -27,6 +39,7 @@ ul.ophthacare-links li a {
 ul.ophthacare-links li a:hover {
     color: #4f1dda;
     padding-left: 5px;
+    transition: 200ms;
 }
 li.ophthacare-icon {
     margin-right: 25px;
@@ -66,4 +79,9 @@ ul.ophthacare-socials li a .fa-linkedin-square:hover {
     /*bottom: 0;*/
     /*position: absolute;*/
     width: 50px;
+}
+.separator-footer {
+    border: 1px solid #fff;
+    width: 50%;
+    margin-top: 4rem;
 }
