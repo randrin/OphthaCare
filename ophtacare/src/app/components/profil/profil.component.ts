@@ -21,7 +21,8 @@ export class ProfilComponent implements OnInit {
   public getImage;
   public imgUrl;
 
-  constructor(private profilService: ProfilService, private authenticationService: AuthenticationService, private messageService: MessageService) { }
+  constructor(private profilService: ProfilService, private authenticationService: AuthenticationService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.getProfilAdministrateur();

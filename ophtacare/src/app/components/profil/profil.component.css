@@ -24,7 +24,7 @@
 .profile {
   padding: 5px 20px;
 }
-.content-text-color {
+.content-text-color::placeholder {
     color: #c2185b;
     font-weight: 600;
 }
@@ -110,4 +110,8 @@ input[type="file"] {
 }
 .profil-content {
     padding: 30px 0px;
+}
+label .ophthacare-matIcon-position {
+    position: relative;
+    top: 5px;
 }

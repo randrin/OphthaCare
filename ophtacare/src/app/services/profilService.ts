@@ -29,6 +29,6 @@ export class ProfilService {
         'caller': caller
       }),
     };
-    return this.http.put(this.uploadProfilelUrl, uploadData, options);
+    return this.http.post(this.uploadProfilelUrl, uploadData, options);
   }
 }
