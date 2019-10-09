@@ -18,9 +18,11 @@ export class ProfilComponent implements OnInit {
   public showUpload;
   public profilAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public selectedImage;
+  public getImage;
   public imgUrl;
 
-  constructor(private profilService: ProfilService, private authenticationService: AuthenticationService, private messageService: MessageService) { }
+  constructor(private profilService: ProfilService, private authenticationService: AuthenticationService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.getProfilAdministrateur();
@@ -29,6 +31,7 @@ export class ProfilComponent implements OnInit {
   getProfilAdministrateur() {
     this.blocked = true;
     this.profilAdmin = this.authenticationService.admin;
+    // this.downloadImage();
     setTimeout(() => {
       this.blocked = false;
     }, 1000);
@@ -48,6 +51,10 @@ export class ProfilComponent implements OnInit {
       this.imgUrl = reader.result;
       this.showUpload = true;
     }
+  }
+
+  public downloadImage() {
+    this.getImage = this.profilService.downloadProfil(this.authenticationService.getUsername());
   }
 
   public uploadImage() {
