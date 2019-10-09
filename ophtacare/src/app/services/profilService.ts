@@ -12,6 +12,15 @@ export class ProfilService {
 
   constructor(public router: Router, private http: Http) {}
 
+  downloadProfil (caller) {
+    const options = {
+      headers: new Headers({
+        'caller': caller
+      })
+    };
+    return this.http.get(this.downloadProfilelUrl, options);
+  }
+
   uploadProfil (file, caller) {
     const uploadData = new FormData();
     uploadData.append('profileImage', file, file.name);

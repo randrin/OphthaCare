@@ -10,9 +10,8 @@
   <div class="container-fluid ml-auto mr-auto profile-top">
     <div class="row">
       <div class="profile-content col-md-6">
-        <img class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png"
-          alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}"
-          title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
+          <img *ngIf="!getImage" class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
+          <!-- <img class="profile-image" [src]="imgUrl" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" /> -->
         <div class="profile-user">
           <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
           <!--<button *ngIf="showEdit" mat-raised-button color="primary">
@@ -35,7 +34,7 @@
         <mat-tab-group>
           <mat-tab label="{{ 'personalInfos' | translate }}">
             <mat-card id="ophthacare">
-              <div class="row userProfile">
+              <div class="row profile">
                 <div class="col-md-3 col-sm-6">
                   <label><mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon><b>{{ 'firstName' | translate }}</b></label><br>
                   <mat-form-field appearance="outline">
@@ -61,7 +60,7 @@
                   </mat-form-field>
                 </div>
               </div>
-              <div class="row userProfile">
+              <div class="row profile">
                 <div class="col-md-3 col-sm-6">
                   <label><mat-icon matPrefix class="ophthacare-matIcon-position">supervised_user_circle</mat-icon><b>{{ 'roleAdmin' | translate }}</b></label><br>
                   <mat-form-field appearance="outline">
@@ -126,7 +125,7 @@
             <img class="profile-image" [src]="imgUrl" alt="" title="" />
         </div>
         <label for="profil-upload"></label>
-        <input  id="profil-upload" name="profil-upload" type="file"  accept="image/*" (change)="onFileChanged($event)" />
+        <input  id="profil-upload" name="profil-upload" type="file" accept="image/*" (change)="onFileChanged($event)" />
         <div class="upload-profil" *ngIf="showUpload">
           <a class="ophthacare-button blue-btn" (click)="uploadImage()">
             <mat-icon>cloud_upload</mat-icon>

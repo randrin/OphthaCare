@@ -21,6 +21,9 @@
 .userProfile {
     padding: 20px;
 }
+.profile {
+  padding: 5px 20px;
+}
 .content-text-color {
     color: #c2185b;
     font-weight: 600;
