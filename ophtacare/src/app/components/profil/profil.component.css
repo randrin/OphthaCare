@@ -44,6 +44,14 @@ mat-card .row div {
     cursor: pointer;
     top: 5px;
 }
+.save-profil {
+  cursor: pointer;
+  padding: 20px 0px;
+}
+.save-profil a:first-child {
+  right: 10px;
+  position: relative;
+}
 .edit-profil a {
     top: -4px;
     position: relative;
@@ -54,6 +62,7 @@ mat-card .row div {
     -ms-flex-align: center;
     align-items: center;
     display: flex;
+    padding-bottom: 15px;
 }
 .profile-title {
     flex-shrink: 0;

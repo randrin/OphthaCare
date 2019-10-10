@@ -87,4 +87,9 @@ export class ProfilComponent implements OnInit {
         });
       });
   }
+
+  public profilBack() {
+    this.showEdit = false;
+    this.getProfilAdministrateur();
+  }
 }
