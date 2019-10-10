@@ -13,7 +13,7 @@
         <img *ngIf="!getImage" class="profile-image" src="https://www.kazoucoin.com/assets/img/default-avatar.png"
           alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}"
           title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
-        <!-- <img class="profile-image" [src]="imgUrl" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" /> -->
+        <img class="profile-image" [src]="getImage" alt="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" title="{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}" />
         <div class="profile-user">
           <h3 class="user-title">{{profilAdmin.nomAdmin}} {{profilAdmin.prenomAdmin}}</h3>
           <!--<button *ngIf="showEdit" mat-raised-button color="primary">
@@ -209,7 +209,7 @@
             <mat-form-field appearance="outline">
               <mat-label>{{ 'activeAdmin' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">how_to_reg</mat-icon>
-              <input matInput placeholder="{{ 'activeAdmin' | translate }}">
+              <input matInput placeholder="{{ 'activeAdmin' | translate }}" [(ngModel)]="profilAdmin.activeAdmin" disabled>
             </mat-form-field>
           </div>
           <div class="col-md-3 col-sm-6">

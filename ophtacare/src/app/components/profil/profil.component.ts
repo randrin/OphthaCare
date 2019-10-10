@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api';
 import { ProfilService } from '../../services/profilService';
 import { AuthenticationService } from '../../services/authenticationService';
 import { Admin } from '../../models/administrateurs/admin';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profil',
@@ -22,7 +23,7 @@ export class ProfilComponent implements OnInit {
   public imgUrl;
 
   constructor(private profilService: ProfilService, private authenticationService: AuthenticationService,
-    private messageService: MessageService) { }
+    private messageService: MessageService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.getProfilAdministrateur();
@@ -31,7 +32,7 @@ export class ProfilComponent implements OnInit {
   getProfilAdministrateur() {
     this.blocked = true;
     this.profilAdmin = this.authenticationService.admin;
-    // this.downloadImage();
+    this.downloadImage();
     setTimeout(() => {
       this.blocked = false;
     }, 1000);
@@ -43,18 +44,29 @@ export class ProfilComponent implements OnInit {
   }
 
   public onFileChanged(event) {
-    console.log("Event selected: " +event);
+    console.log('Event selected: ' + event);
     this.selectedImage = event.target.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(this.selectedImage);
     reader.onload = () => {
       this.imgUrl = reader.result;
       this.showUpload = true;
-    }
+    };
   }
 
   public downloadImage() {
-    this.getImage = this.profilService.downloadProfil(this.authenticationService.getUsername());
+    this.profilService.downloadProfil(this.authenticationService.getUsername()).subscribe(
+      response => {
+        console.log('getImage: ' + JSON.stringify(response));
+        let reader = new FileReader();
+        reader.readAsDataURL(response.json()._body);
+        reader.onload = () => {
+          this.getImage = reader.result;
+        };
+        //let objectURL = 'data:image/jpeg;base64,' + response.json()._body;
+        //this.getImage = window.URL.createObjectURL(response);
+      }
+    );
   }
 
   public uploadImage() {
