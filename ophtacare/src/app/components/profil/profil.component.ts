@@ -94,6 +94,7 @@ export class ProfilComponent implements OnInit {
         this.messageService.add({
           sticky: true,
           severity: 'error',
+          
           summary: 'Erreur',
           detail: 'Erreur Technique'
         });
