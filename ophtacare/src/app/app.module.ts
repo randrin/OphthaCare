@@ -76,6 +76,7 @@ import { ProfessionsMedecinsService } from './services/professionsMedecinsServic
 import { ReportsComponent } from './components/reports/reports.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { PermissionsService } from './services/PermissionsServices';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -196,6 +197,7 @@ const appRoutes: Routes = [
     AdministrateursService,
     MedecinsService,
     ProfilService,
+    PermissionsService,
     ProfessionsMedecinsService,
     MaladiesService,
     MessageService,
