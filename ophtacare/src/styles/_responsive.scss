@@ -1,13 +1,37 @@
-@media screen and (max-width: 992px) {
-    .main-container {
-        left: 0px;
-    }
+/*  Media Queries: use px (not em or rem)  */
+/*  -------------------------------------  */
+
+@mixin small() {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin medium() {
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin medium-large() {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin large {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
 }
 
+/* End ------------------------------------ */
+
+
 @media screen and (max-width: 992px) {
-    .push-right {
-        #sidebar {
-            left: 0 !important;
-        }
+  .main-container {
+    left: 0px;
+  }
+  .push-right {
+    #sidebar {
+      left: 0 !important;
     }
+  }
 }
