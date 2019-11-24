@@ -15,6 +15,7 @@
     "New Admin": "New Admin",
     "New Medecin": "New Doctor",
     "New Maladie": "New Disease",
+    "New Permission": "New Permission",
     "Update Patient": "Update Patient",
     "Update Medecin": "Update Doctor",
     "Update Maladie": "Update Disease",
@@ -50,11 +51,15 @@
     "Insert others informations ...": "Insert others informations ...",
     "Insert description ...": "Insert speciality description ...",
     "Create": "Create",
+    "Read": "Read",
     "Update": "Update",
+    "Delete": "Delete",
+    "Download": "Download",
     "Close": "Close",
     "Select a date": "Select a date",
     "ID": "ID",
     "Admins": "Administrators",
+    "Privileges": "Privileges",
     "matriculeMedecin": "Matricule",
     "Professions Medecins": "Medical Professions",
     "Corps Medical": "Medical Team",
@@ -114,5 +119,7 @@
     "text-help": "In case of missed access or non-functioning of the services, it is possible to contact the Call Center on the following number 803.160 (from Monday to Saturday from 8.00 am to 8.00 pm).",
     "copyright": "All rights reserved",
     "version": "Version",
-    "upload": "Upload"
+    "upload": "Upload",
+    "back": "Back",
+    "save": "Save"
 }

@@ -15,6 +15,7 @@
     "New Admin": "Crea Admin",
     "New Medecin": "Crea Medico",
     "New Maladie": "Crea Malattia",
+    "New Permission": "Crea Privilegio",
     "Update Patient": "Aggiornamento Paziente",
     "Update Medecin": "Aggiornamento Medico",
     "Update Profession" : "Aggiornamento Specialità",
@@ -50,11 +51,15 @@
     "detail": "Dettaglio",
     "Insert others informations ...": "Inserire più informazioni ...",
     "Insert description ...": "Inserire una descrizione della specialità ...",
-    "Create": "Crea",
+    "Create": "Creare",
+    "Read": "Leggere",
     "Update": "Aggiornare",
+    "Delete": "Cancellare",
+    "Download": "Scarica",
     "Close": "Chiudi",
     "Select a date": "Seleziona una data",
     "Admins": "Amministratori",
+    "Privileges": "Privilegi",
     "matriculeMedecin": "Matricola",
     "ID": "Codice",
     "Professions Medecins": "Professioni Medici",
@@ -114,5 +119,7 @@
     "text-help": "In caso di mancato accesso o mancato funzionamento dei servizi, è possibile contattare il Call Center al numero verde  seguente 803.160 (dal Lunedì al Sabato dalle 8.00 alle 20.00).",
     "copyright": "Tutti i diritti riservati",
     "version": "Versione",
-    "upload": "Carica"
+    "upload": "Carica",
+    "back": "Ritorno",
+    "save": "Salvare"
 }

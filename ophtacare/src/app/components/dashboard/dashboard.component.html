@@ -1,54 +1,60 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
-  <img src="/assets/images/giphy.gif" title="Leopard" style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
+  <img src="/assets/images/giphy.gif" title="Leopard"
+    style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
 </div>
 
 <app-home></app-home>
 <div class="main-container">
-        <div class="row">
-            <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
-                <div fxFlex>
-                    <app-stat [bgClass]="'danger'" [icon]="'contacts'" [direction]="['#/patients']" count="{{ totalPatients.list.length }}" label="{{ 'Ill' | translate }}"></app-stat>
-                </div>
-                <div fxFlex>
-                    <app-stat [bgClass]="'warn'" [icon]="'fa fa-user-md'" [direction]="['#/medecins']" count="{{ totalMedecins.list.length }}" label="{{ 'Specialists' | translate }}"></app-stat>
-                </div>
-                <div fxFlex>
-                    <app-stat [bgClass]="'success'" [icon]="'visibility'" [direction]="['#/maladies']"  count="{{ totalMaladies.list.length }}" label="{{ 'Diseases' | translate }}"></app-stat>
-                </div>
-                <div fxFlex>
-                    <app-stat [bgClass]="'info'" [icon]="'supervisor_account'" [direction]="['#/administrateurs']" count="{{ totalAdmins.list.length }}" label="{{ 'Admins' | translate }}"></app-stat>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
-                <div fxFlex>
-                    <mat-card>
-                        <mat-card-header>
-                            <mat-card-title>Bar Chart</mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-                                [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div fxFlex>
-                    <mat-card>
-                        <mat-card-header>
-                            <mat-card-title>Doughnut Chart</mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
-                                (chartClick)="chartClicked($event)"></canvas>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-            </div>
-        </div>
-    <!-- <div class="container">
+  <div class="row">
+    <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+      <div fxFlex>
+        <app-stat [bgClass]="'danger'" [icon]="'contacts'" [direction]="['#/patients']"
+          count="{{ totalPatients.list.length }}" label="{{ 'Ill' | translate }}"></app-stat>
+      </div>
+      <div fxFlex>
+        <app-stat [bgClass]="'warn'" [icon]="'local_hospital'" [direction]="['#/medecins']"
+          count="{{ totalMedecins.list.length }}" label="{{ 'Specialists' | translate }}"></app-stat>
+      </div>
+      <div fxFlex>
+        <app-stat [bgClass]="'success'" [icon]="'visibility'" [direction]="['#/maladies']"
+          count="{{ totalMaladies.list.length }}" label="{{ 'Diseases' | translate }}"></app-stat>
+      </div>
+      <div fxFlex>
+        <app-stat [bgClass]="'info'" [icon]="'supervisor_account'" [direction]="['#/administrateurs']"
+          count="{{ totalAdmins.list.length }}" label="{{ 'Admins' | translate }}"></app-stat>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+      <div fxFlex>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Bar Chart</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Doughnut Chart</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container">
         <div class="row">
             <div class="col-md-6">
                  <p-chart type="bar" [data]="dataBar"></p-chart>

@@ -16,6 +16,7 @@
     "New Maladie": "Nouvelle Maladie",
     "New Admin": "Nouveau Admin",
     "New Medecin": "Nouveau Médecin",
+    "New Permission": "Nouveau Privilège",
     "Update Patient": "Ajourner Patient",
     "Update Medecin": "Ajourner Médecin",
     "Update Maladie": "Ajourner Maladie",
@@ -52,10 +53,14 @@
     "Insert others informations ...": "Vous pouvez ajouter plus d'informations ici ...",
     "Insert description ...": "Ajoutez une description de la spécialité ...",
     "Create": "Créer",
+    "Read": "Lire",
     "Update": "Ajourner",
+    "Delete": "Effacer",
+    "Download": "Télecharger",
     "Close": "Fermer",
     "Select a date": "Selectioner une date",
     "Admins": "Administrateurs",
+    "Privileges": "Privilèges",
     "matriculeMedecin": "Matricule",
     "ID": "Identifiant",
     "Professions Medecins": "Professions Médecins",
@@ -114,5 +119,7 @@
     "text-help": "En cas d’absence d’accès ou de non-fonctionnement des services, il est possible de contacter le Call Center au numéro suivant 803.160 (de Lundi à Samedi de 8h00 à 20h00).",
     "copyright": "Tous droits réservés",
     "version": "Version",
-    "upload": "Télécharger"
+    "upload": "Télécharger",
+    "back": "Retour",
+    "save": "Enregistrer"
 }

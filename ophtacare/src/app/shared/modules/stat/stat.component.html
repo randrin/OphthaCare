@@ -1,17 +1,17 @@
 <mat-card [ngClass]="bgClass">
+  <a [href]="direction" class="ophthacare-blog">
     <mat-card-header>
-        <div mat-card-avatar>
-            <mat-icon class="icon-lg">{{icon}}</mat-icon>
-        </div>
-        <div mat-card-avatar *ngIf="icon.indexOf('fa') == 0">
-            <i class="icon-lg" [ngClass]="icon"></i>
-        </div>
-        <mat-card-title>{{count}}</mat-card-title>
-        <mat-card-subtitle>{{label}}</mat-card-subtitle>
+      <div mat-card-avatar>
+        <mat-icon class="icon-lg">{{icon}}</mat-icon>
+      </div>
+      <div mat-card-avatar *ngIf="icon.indexOf('fa') == 0">
+        <i class="icon-lg" [ngClass]="icon"></i>
+      </div>
+      <mat-card-title>{{count}}</mat-card-title>
+      <mat-card-subtitle>{{label}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-        <a [href]="direction" class="float-right card-inverse">
-            {{ 'View Details' | translate }}
-        </a>
+      <i class="material-icons">chevron_right</i> {{ 'View Details' | translate }}
     </mat-card-actions>
+  </a>
 </mat-card>

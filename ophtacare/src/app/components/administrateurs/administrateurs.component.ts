@@ -7,6 +7,8 @@ import { Admins } from '../../models/administrateurs/admins';
 import { Admin } from '../../models/administrateurs/admin';
 import * as moment from 'moment';
 import saveAs from 'save-as';
+import { PermissionsService } from '../../services/PermissionsServices';
+import { Permission } from '../../models/permissions/permission';
 
 @Component({
   selector: 'app-administrateurs',
@@ -24,6 +26,7 @@ export class AdministrateursComponent implements OnInit {
   public admin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public newAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public adminUpdate = new Admin(0, '', '', '', '', '', '', '', '', '');
+  public userPermission = new Permission('', false, false, false, false, false);
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
@@ -33,7 +36,8 @@ export class AdministrateursComponent implements OnInit {
   };
 
   constructor(private administrateurService: AdministrateursService, private authenticationService: AuthenticationService,
-    private confirmationService: ConfirmationService, private messageService: MessageService) {
+    private confirmationService: ConfirmationService, private messageService: MessageService,
+    private permissionsService: PermissionsService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'pseudoAdmin', header: 'pseudoAdmin' },
@@ -57,6 +61,7 @@ export class AdministrateursComponent implements OnInit {
       { label: 'No', value: 'false', icon: 'pi pi-times' }
     ];
     this.getAdminsitrateurs();
+    this.getPermissions();
   }
 
   getAdminsitrateurs() {
@@ -73,9 +78,13 @@ export class AdministrateursComponent implements OnInit {
     }, 1000);
   }
 
-  isAdmin() {
+  // getPermissions() {
+  //   this.permissionsService.getPermission(this.authenticationService.getRole());
+  //   this.userPermission = this.permissionsService.permission;
+  //   console.log('Permission: ' + this.userPermission.createItem);
+  // }
 
-  }
+  isAdmin() {}
 
   createAdmin() {
     this.blocked = true;
