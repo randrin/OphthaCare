@@ -26,7 +26,7 @@ export class AdministrateursComponent implements OnInit {
   public admin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public newAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public adminUpdate = new Admin(0, '', '', '', '', '', '', '', '', '');
-  public permission = new Permission(false, false, false, false, false);
+  public userPermission = new Permission('', false, false, false, false, false);
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
@@ -36,7 +36,8 @@ export class AdministrateursComponent implements OnInit {
   };
 
   constructor(private administrateurService: AdministrateursService, private authenticationService: AuthenticationService,
-    private confirmationService: ConfirmationService, private messageService: MessageService, private permissionsService: PermissionsService) {
+    private confirmationService: ConfirmationService, private messageService: MessageService,
+    private permissionsService: PermissionsService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'pseudoAdmin', header: 'pseudoAdmin' },
@@ -77,12 +78,11 @@ export class AdministrateursComponent implements OnInit {
     }, 1000);
   }
 
-  getPermissions() {
-    this.permissionsService.getAccess(this.authenticationService.getRole()).subscribe(
-      response => {
-        this.permission = response;
-      });
-  }
+  // getPermissions() {
+  //   this.permissionsService.getPermission(this.authenticationService.getRole());
+  //   this.userPermission = this.permissionsService.permission;
+  //   console.log('Permission: ' + this.userPermission.createItem);
+  // }
 
   isAdmin() {}
 

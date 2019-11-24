@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     this.authenticationService.loginAdmin(this.admin).subscribe(
         data => {
           this.responseData = data.json();
-          console.log('Data code: ' + this.responseData);
           if (data.json().code != null) {
             this.messageService.add({
               sticky: false,
@@ -63,7 +62,6 @@ export class LoginComponent implements OnInit {
     this.authenticationService.loginPersonnel(this.medecin).subscribe(
       data => {
         this.responseData = data.json();
-        console.log('Data code: ' + this.responseData);
         if (data.json().code != null) {
           this.messageService.add({
             sticky: false,
