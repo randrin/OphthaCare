@@ -1,19 +1,18 @@
 export class Permission {
-  subscribe(arg0: (response: any) => void) {
-    throw new Error("Method not implemented.");
-  }
-  public createItem: boolean;
-  public readItem: boolean;
-  public updateItem: boolean;
-  public deleteItem: boolean;
-  public downloadItem: boolean;
+  public nomPermission: string;
+  public createPermission: boolean;
+  public readPermission: boolean;
+  public updatePermission: boolean;
+  public deletePermission: boolean;
+  public downloadPermission: boolean;
 
   constructor(
-    createItem: boolean,
-    readItem: boolean,
-    updateItem: boolean,
-    deleteItem: boolean,
-    downloadItem: boolean,
+    nomPermission: string,
+    createPermission: boolean,
+    readPermission: boolean,
+    updatePermission: boolean,
+    deletePermission: boolean,
+    downloadPermission: boolean,
   ) {
 
   }

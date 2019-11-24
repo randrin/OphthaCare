@@ -53,8 +53,8 @@ export class AuthenticationService {
     return this.http.post(this.loginUrlPersonnel, params, options);
   }
 
-  public setAdmin(value) {
-    this.admin = value;
+  public setAdmin(admin) {
+    this.admin = admin;
   }
 
   public getUsername() {
