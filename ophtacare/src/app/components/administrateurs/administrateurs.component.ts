@@ -26,7 +26,7 @@ export class AdministrateursComponent implements OnInit {
   public admin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public newAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public adminUpdate = new Admin(0, '', '', '', '', '', '', '', '', '');
-  public userPermission = new Permission('', false, false, false, false, false);
+  public userPermission = new Permission(0, '', false, false, false, false, false);
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
@@ -61,7 +61,7 @@ export class AdministrateursComponent implements OnInit {
       { label: 'No', value: 'false', icon: 'pi pi-times' }
     ];
     this.getAdminsitrateurs();
-    this.getPermissions();
+    // this.getPermissions();
   }
 
   getAdminsitrateurs() {
