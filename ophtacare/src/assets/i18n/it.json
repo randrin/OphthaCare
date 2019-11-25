@@ -121,5 +121,7 @@
     "version": "Versione",
     "upload": "Carica",
     "back": "Ritorno",
-    "save": "Salvare"
+    "save": "Salvare",
+    "Male" : "Uomo",
+    "Female" : "Donna"
 }

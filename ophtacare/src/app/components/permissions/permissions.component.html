@@ -1,7 +1,8 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
-  <img src="/assets/images/giphy.gif" title="Leopard" style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
+  <img src="/assets/images/giphy.gif" title="Leopard"
+    style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
 </div>
 
 <app-home></app-home>
@@ -19,7 +20,7 @@
             <!-- <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelPatients()"
               icon="pi pi-download" class="ui-button-success"></p-button> -->
             <p-button label="{{ 'New Permission' | translate }}" [disabled]="isAdmin()" (onClick)="createPermission()"
-              icon="pi pi-user-plus" iconPos="left"></p-button>
+              icon="pi pi-cog" iconPos="left"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
@@ -47,7 +48,8 @@
       <ng-template pTemplate="body" let-permission>
         <tr>
           <td>
-            <p-button type="button" style="margin-left:33%" (click)="detailsPermission(permission)" [disabled]="isAdmin()" icon="pi pi-search"></p-button>
+            <p-button type="button" style="margin-left:33%" (click)="detailsPermission(permission)"
+              [disabled]="isAdmin()" icon="pi pi-search"></p-button>
           </td>
           <td class="code"><b>{{ permission.nomPermission }}</b></td>
           <td>{{ permission.createPermission }}</td>
@@ -56,10 +58,12 @@
           <td>{{ permission.deletePermission }}</td>
           <td>{{ permission.downloadPermission }}</td>
           <td>
-            <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updatePermission(permission)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
+            <p-button type="button" style="margin-left:33%" styleClass="ui-button-success"
+              (click)="updatePermission(permission)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
           </td>
           <td>
-            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%" (click)="deletePermission(permission)" [disabled]="isAdmin()"></p-button>
+            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%"
+              (click)="deletePermission(permission)" [disabled]="isAdmin()"></p-button>
           </td>
         </tr>
       </ng-template>
@@ -69,3 +73,113 @@
   <!-- Dialog Confirmation Delete -->
   <p-confirmDialog [style]="{width: '550px'}"></p-confirmDialog>
 </div>
+
+<!-- Dialog Add New Permission -->
+<p-dialog header="{{ 'New Permission' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true"
+  [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true"
+  [baseZIndex]="10">
+  <form (ngSubmit)="submitPermission(newPermission)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="roleadmin"><b>{{ 'roleAdmin' | translate }}</b></label>
+          <input type="text" id="roleadmin" name="roleadmin" [(ngModel)]="newPermission.nomPermission" pInputText
+            class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="create"><b>{{ 'Create' | translate }}</b></label><br>
+          <p-selectButton id="create" name="create" [(ngModel)]="newPermission.createPermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="read"><b>{{ 'Read' | translate }}</b></label><br>
+          <p-selectButton id="read" name="read" [(ngModel)]="newPermission.readPermission" [options]="selectPermission"
+            required></p-selectButton>
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="update"><b>{{ 'Update' | translate }}</b></label><br>
+          <p-selectButton id="update" name="update" [(ngModel)]="newPermission.updatePermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="delete"><b>{{ 'Delete' | translate }}</b></label><br>
+          <p-selectButton id="delete" name="delete" [(ngModel)]="newPermission.deletePermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="download"><b>{{ 'Download' | translate }}</b></label><br>
+          <p-selectButton id="download" name="download" [(ngModel)]="newPermission.downloadPermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+      <p-footer>
+        <div class="pull-right" style="margin: 15px;">
+          <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}"
+            class="ui-button-danger"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+            label="{{ 'Create' | translate }}"></button>
+        </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>
+
+<!-- Dialog Update Permission -->
+<p-dialog header="{{ 'New Permission' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true"
+  [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true"
+  [baseZIndex]="10">
+  <form (ngSubmit)="submitUpdatePermission(permissionUpdate)" #newForm="ngForm">
+    <div class="container-fluid">
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="roleadmin"><b>{{ 'roleAdmin' | translate }}</b></label>
+          <input type="text" id="roleadmin" name="roleadmin" [(ngModel)]="permissionUpdate.nomPermission" pInputText
+            class="form-control" required />
+        </div>
+        <div class="col-md-4">
+          <label for="create"><b>{{ 'Create' | translate }}</b></label><br>
+          <p-selectButton id="create" name="create" [(ngModel)]="permissionUpdate.createPermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="read"><b>{{ 'Read' | translate }}</b></label><br>
+          <p-selectButton id="read" name="read" [(ngModel)]="permissionUpdate.readPermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+      </div>
+      <div class="row" style="margin: 15px;">
+        <div class="col-md-4">
+          <label for="update"><b>{{ 'Update' | translate }}</b></label><br>
+          <p-selectButton id="update" name="update" [(ngModel)]="permissionUpdate.updatePermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="delete"><b>{{ 'Delete' | translate }}</b></label><br>
+          <p-selectButton id="delete" name="delete" [(ngModel)]="permissionUpdate.deletePermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+        <div class="col-md-4">
+          <label for="download"><b>{{ 'Download' | translate }}</b></label><br>
+          <p-selectButton id="download" name="download" [(ngModel)]="permissionUpdate.downloadPermission"
+            [options]="selectPermission" required></p-selectButton>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+      <p-footer>
+        <div class="pull-right" style="margin: 15px;">
+          <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}"
+            class="ui-button-danger"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+            label="{{ 'Create' | translate }}"></button>
+        </div>
+      </p-footer>
+    </div>
+  </form>
+</p-dialog>

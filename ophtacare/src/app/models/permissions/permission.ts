@@ -1,4 +1,5 @@
 export class Permission {
+  public idPermission: number;
   public nomPermission: string;
   public createPermission: boolean;
   public readPermission: boolean;
@@ -7,6 +8,7 @@ export class Permission {
   public downloadPermission: boolean;
 
   constructor(
+    idPermission: number,
     nomPermission: string,
     createPermission: boolean,
     readPermission: boolean,
