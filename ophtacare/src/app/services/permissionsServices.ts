@@ -14,7 +14,7 @@ export class PermissionsService {
   private permissionUrlUpdate = window['baseUrl'] + '/permission/update';
   private permissionUrlDelete = window['baseUrl'] + '/permission/delete';
 
-  public permission = new Permission(0, '', false, false, false, false, false);
+  public permission = new Permission(0, '', false, false, false, false, false, '', '');
 
   constructor(
     public router: Router, private http: Http) {
@@ -59,13 +59,13 @@ export class PermissionsService {
   getPermission(caller) {
     const callerRole = caller;
     if (callerRole === 'ADMIN') {
-      this.permission = new Permission(0, '', true, true, true, true, true);
+      this.permission = new Permission(0, '', true, true, true, true, true, '', '');
     } else if (callerRole === 'SUPERVISOR') {
-      this.permission = new Permission(0, '', true, true, false, false, true);
+      this.permission = new Permission(0, '', true, true, false, false, true, '', '');
     } else if (callerRole === 'USER') {
-      this.permission = new Permission(0, '', false, true, false, false, false);
+      this.permission = new Permission(0, '', false, true, false, false, false, '', '');
     } else {
-      this.permission = new Permission(0, '', false, false, false, false, false);
+      this.permission = new Permission(0, '', false, false, false, false, false, '', '');
     }
     return this.permission;
   }

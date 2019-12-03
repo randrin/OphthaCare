@@ -19,9 +19,11 @@ export class PermissionsComponent implements OnInit {
   public blocked;
   public displayNewDialog;
   public displayUpdateDialog;
+  public displayDetailsDialog;
   public permissions: Permissions = { list: [] };
-  public newPermission = new Permission(0, '', false, false, false, false, false);
-  public permissionUpdate = new Permission(0, '', false, false, false, false, false);
+  public permissionDetail = new Permission(0, '', false, false, false, false, false, '', '');
+  public newPermission = new Permission(0, '', false, false, false, false, false, '', '');
+  public permissionUpdate = new Permission(0, '', false, false, false, false, false, '', '');
 
   constructor(private permissionsService: PermissionsService, private authenticationService: AuthenticationService,
     private messageService: MessageService, private confirmationService: ConfirmationService) {
@@ -74,8 +76,13 @@ export class PermissionsComponent implements OnInit {
     }, 500);
   }
 
-  detailsPermission() {
-
+  detailsPermission (permission: Permission) {
+    this.blocked = true;
+    setTimeout(() => {
+      this.blocked = false;
+      this.displayDetailsDialog = true;
+    }, 500);
+    this.permissionDetail = permission;
   }
 
   updatePermission(permission: Permission) {
@@ -112,7 +119,7 @@ export class PermissionsComponent implements OnInit {
             detail: 'Permission enregistré.'
           });
           this.getAllPermissions();
-          this.newPermission = new Permission(0, '', false, false, false, false, false);
+          this.newPermission = new Permission(0, '', false, false, false, false, false, '', '');
           this.displayNewDialog = false;
         }
       },
@@ -150,7 +157,7 @@ export class PermissionsComponent implements OnInit {
             detail: 'Permission ajourné.'
           });
           this.getAllPermissions();
-          this.permissionUpdate = new Permission(0, '', false, false, false, false, false);
+          this.permissionUpdate = new Permission(0, '', false, false, false, false, false, '', '');
           this.displayUpdateDialog = false;
         }
       },
@@ -215,6 +222,6 @@ export class PermissionsComponent implements OnInit {
   closeDialog() {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newPermission = new Permission(0, '', false, false, false, false, false);
+    this.newPermission = new Permission(0, '', false, false, false, false, false, '', '');
   }
 }

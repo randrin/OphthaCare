@@ -130,10 +130,10 @@
 </p-dialog>
 
 <!-- Dialog Update Permission -->
-<p-dialog header="{{ 'New Permission' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true"
+<p-dialog header="{{ 'New Permission' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true"
   [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true"
   [baseZIndex]="10">
-  <form (ngSubmit)="submitUpdatePermission(permissionUpdate)" #newForm="ngForm">
+  <form (ngSubmit)="submitUpdatePermission(permissionUpdate)" #updateForm="ngForm">
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
@@ -176,10 +176,60 @@
         <div class="pull-right" style="margin: 15px;">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}"
             class="ui-button-danger"></button>
-          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
-            label="{{ 'Create' | translate }}"></button>
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!updateForm.form.valid"
+            label="{{ 'Update' | translate }}"></button>
         </div>
       </p-footer>
     </div>
   </form>
+</p-dialog>
+
+<!-- Dialog Details Permissions -->
+<p-dialog header="{{ 'Permission' | translate }} : {{ permissionDetail.nomPermission }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
+  [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
+  <div>
+    <div class="row" style="margin: 10px;">
+        <div class="col-md-3">
+            <p-card header="{{ 'Create' | translate }}" [style]="{width: '200px'}">
+                <div>{{ permissionDetail.createPermission }}</div>
+            </p-card>
+        </div>
+        <div class="col-md-3">
+            <p-card header="{{ 'Read' | translate }}" [style]="{width: '200px'}">
+                <div>{{ permissionDetail.readPermission }}</div>
+            </p-card>
+        </div>
+        <div class="col-md-3">
+            <p-card header="{{ 'Update' | translate }}" [style]="{width: '200px'}">
+                <div>{{ permissionDetail.updatePermission }}</div>
+            </p-card>
+        </div>
+        <div class="col-md-3">
+            <p-card header="{{ 'Delete' | translate }}" [style]="{width: '200px'}">
+                <div>{{ permissionDetail.deletePermission }}</div>
+            </p-card>
+        </div>
+      </div>
+      <div class="row" style="margin: 10px;">
+          <div class="col-md-3">
+              <p-card header="{{ 'Download' | translate }}" [style]="{width: '200px'}">
+                  <div>{{ permissionDetail.downloadPermission }}</div>
+              </p-card>
+          </div>
+          <div class="col-md-3">
+              <p-card header="{{ 'registrationPermission' | translate }}" [style]="{width: '200px'}">
+                  <div><b style="color: green;">{{ permissionDetail.dateRegistration }}</b></div>
+              </p-card>
+          </div>
+          <div class="col-md-3">
+              <p-card header="{{ 'updatePermission' | translate }}" [style]="{width: '200px'}">
+                  <div><b style="color: red;">{{ permissionDetail.dateUpdate }}</b></div>
+              </p-card>
+          </div>
+        </div>
+  </div>
+  <p-footer>
+    <button pButton type="button" icon="pi pi-times" (click)="displayDetailsDialog=false" label="{{ 'Close' | translate }}"
+      class="ui-button-danger"></button>
+  </p-footer>
 </p-dialog>
