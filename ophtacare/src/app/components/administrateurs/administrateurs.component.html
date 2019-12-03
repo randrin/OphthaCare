@@ -15,7 +15,7 @@
     <p-table #dt [columns]="cols" [value]="admins.list" [paginator]="true" [rows]="10" selectionMode="single">
       <ng-template pTemplate="caption">
         <p-toolbar>
-          <div *ngIf="permission" class="ui-toolbar-group-left">
+          <div class="ui-toolbar-group-left">
             <p-button type="button" label="{{ 'Download Admins' | translate }}" (onClick)="exportExcelAdministrateurs()"
               icon="pi pi-download" class="ui-button-success"></p-button>
             <p-button label="{{ 'New Admin' | translate }}" (onClick)="createAdmin()"
@@ -54,10 +54,10 @@
           <td>{{ admin.prenomAdmin }}</td>
           <td>{{ admin.roleAdmin }}</td>
           <td>{{ admin.emailAdmin }}</td>
-          <td *ngIf="permission">
+          <td>
             <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updateAdmin(admin)" icon="pi pi-pencil"></p-button>
           </td>
-          <td *ngIf="permission">
+          <td>
             <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%" (click)="deleteAdmin(admin)"></p-button>
           </td>
         </tr>

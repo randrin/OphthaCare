@@ -6,6 +6,8 @@ export class Permission {
   public updatePermission: boolean;
   public deletePermission: boolean;
   public downloadPermission: boolean;
+  public dateRegistration: string;
+  public dateUpdate: string;
 
   constructor(
     idPermission: number,
@@ -15,6 +17,8 @@ export class Permission {
     updatePermission: boolean,
     deletePermission: boolean,
     downloadPermission: boolean,
+    dateRegistration: string,
+    dateUpdate: string
   ) {
 
   }
