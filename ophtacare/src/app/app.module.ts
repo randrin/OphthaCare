@@ -77,6 +77,7 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { PermissionsService } from './services/PermissionsServices';
+import { PermissionsComponent } from './components/permissions/permissions.component';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -99,7 +100,8 @@ const appRoutes: Routes = [
   { path: 'maladies', component: MaladiesComponent },
   { path: 'professions', component: ProfessionsMedecinsComponent },
   { path: 'reports', component: ReportsComponent },
-  { path: 'profil', component: ProfilComponent }
+  { path: 'profil', component: ProfilComponent },
+  { path: 'permissions', component: PermissionsComponent }
 ];
 
 @NgModule({
@@ -117,7 +119,8 @@ const appRoutes: Routes = [
     ProfessionsMedecinsComponent,
     ReportsComponent,
     FooterComponent,
-    ProfilComponent
+    ProfilComponent,
+    PermissionsComponent
   ],
   imports: [
     BrowserModule,

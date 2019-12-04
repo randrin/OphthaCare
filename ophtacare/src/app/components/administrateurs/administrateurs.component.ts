@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import saveAs from 'save-as';
 import { PermissionsService } from '../../services/PermissionsServices';
 import { Permission } from '../../models/permissions/permission';
+import { Permissions } from '../../models/permissions/permissions';
 
 @Component({
   selector: 'app-administrateurs',
@@ -20,13 +21,15 @@ export class AdministrateursComponent implements OnInit {
 
   public cols: any[];
   public blocked;
-  public role: SelectItem[];
+  public role = [{label: '', value: ''}];
+  public roles: any[];
   public activation: SelectItem[];
   public admins: Admins = {list: [] };
+  public permissions: Permissions = { list: [] };
   public admin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public newAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
   public adminUpdate = new Admin(0, '', '', '', '', '', '', '', '', '');
-  public permission = new Permission(false, false, false, false, false);
+  public userPermission = new Permission(0, '', false, false, false, false, false, '', '');
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
@@ -36,7 +39,8 @@ export class AdministrateursComponent implements OnInit {
   };
 
   constructor(private administrateurService: AdministrateursService, private authenticationService: AuthenticationService,
-    private confirmationService: ConfirmationService, private messageService: MessageService, private permissionsService: PermissionsService) {
+    private confirmationService: ConfirmationService, private messageService: MessageService,
+    private permissionsService: PermissionsService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'pseudoAdmin', header: 'pseudoAdmin' },
@@ -50,17 +54,30 @@ export class AdministrateursComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.role = [
-      { label: 'Admin', value: 'ADMIN' },
-      { label: 'User', value: 'USER' },
-      { label: 'Supervisor', value: 'SUPERVISOR' }
-    ];
+    // this.role = [
+    //   { label: 'Admin', value: 'ADMIN' },
+    //   { label: 'User', value: 'USER' },
+    //   { label: 'Supervisor', value: 'SUPERVISOR' }
+    // ];
     this.activation = [
       { label: 'Yes', value: 'true', icon: 'pi pi-check' },
       { label: 'No', value: 'false', icon: 'pi pi-times' }
     ];
     this.getAdminsitrateurs();
-    this.getPermissions();
+    this.getAllPermissions();
+  }
+
+  getAllPermissions() {
+    this.permissionsService.getAllPermissions(this.authenticationService.getUsername()).subscribe(
+      response => {
+        console.log('Reponse: ', response.json());
+        if (response.json() != null) {
+          this.roles = response.json();
+          for (let i = 0; i <= this.roles.length; i++) {
+            this.role.push({ 'label': this.roles[i].nomPermission, 'value': this.roles[i].nomPermission });
+          }
+        }
+      });
   }
 
   getAdminsitrateurs() {
@@ -77,12 +94,11 @@ export class AdministrateursComponent implements OnInit {
     }, 1000);
   }
 
-  getPermissions() {
-    this.permissionsService.getAccess(this.authenticationService.getRole()).subscribe(
-      response => {
-        this.permission = response;
-      });
-  }
+  // getPermissions() {
+  //   this.permissionsService.getPermission(this.authenticationService.getRole());
+  //   this.userPermission = this.permissionsService.permission;
+  //   console.log('Permission: ' + this.userPermission.createItem);
+  // }
 
   isAdmin() {}
 
