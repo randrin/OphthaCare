@@ -79,6 +79,7 @@
   [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true"
   [baseZIndex]="10">
   <form (ngSubmit)="submitPatient(newPatient)" #newForm="ngForm">
+ <!-- <form [formGroup]="registerForm" (ngSubmit)="submitPatient(newPatient)" #newForm="ngForm">-->
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-3">
@@ -107,11 +108,22 @@
         </div>
       </div>
       <div class="row" style="margin: 15px;">
-        <div class="col-md-4">
+        <!--<div class="col-md-4">
           <label for="email"><b>{{ 'email' | translate }}</b></label>
           <input type="text" id="email" name="email" [(ngModel)]="newPatient.emailPatient" pInputText
             class="form-control" required />
-        </div>
+        </div>-->
+        
+        <div class="col-md-4">
+          <label for="email"><b>{{ 'email' | translate }}</b></label>
+          <input type="text"  id="email" name="email" [(ngModel)]="newPatient.emailPatient" pInputText
+            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        
+      </div>
         <div class="col-md-4">
           <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>
           <input type="number" id="cellularePhone" name="cellularePhone" [(ngModel)]="newPatient.numTelPatient"

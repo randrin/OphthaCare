@@ -14,8 +14,11 @@ export class AppComponent implements OnInit {
   public constructor (private authenticationService: AuthenticationService, private translate: TranslateService) {
     translate.setDefaultLang('fr');
   }
-
+ 
   ngOnInit() {
     this.authenticationService.router.navigate(['login']);
   }
 }
+
+
+
