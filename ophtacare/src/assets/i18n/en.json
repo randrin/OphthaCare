@@ -127,7 +127,7 @@
     "save": "Save",
     "Male" : "Male",
     "Female" : "Female",
-    "Do you want to logout?" : "Do you want to logout?",
+    "Do you want to logout?" : "Do you want to logout ?",
     "January" : "January", 
     "February" : "February",
     "March" : "March",
@@ -146,5 +146,7 @@
     "Wed" : "Wed",
     "Thu" : "Thu", 
     "Fri" : "Fri",
-    "Sat" : "Sat"
+    "Sat" : "Sat",
+    "Yes" : "Yes",
+    "No" : "No"
 }

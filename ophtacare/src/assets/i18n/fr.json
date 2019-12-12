@@ -127,7 +127,7 @@
     "save": "Enregistrer",
     "Male" : "Homme",
     "Female" : "Femme",
-    "Do you want to logout?" : "voulez-vous sortir?",
+    "Do you want to logout?" : "Voulez-vous vous déconnecter ?",
     "January" : "Janvier", 
     "February" : "Fevrier",
     "March" : "Mars",
@@ -146,5 +146,7 @@
     "Wed" : "Mer",
     "Thu" : "Jeu", 
     "Fri" : "Ven",
-    "Sat" : "Sam"
+    "Sat" : "Sam",
+    "Yes" : "Oui",
+    "No" : "Non"
 }

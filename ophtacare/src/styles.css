@@ -305,6 +305,9 @@ mat-toolbar-row {
   overflow: hidden;
   text-overflow: clip;
 }
+.ophthacare-button:focus {
+  outline: none;
+}
 .ophthacare-button-text {
   top: -4px;
   position: relative;
