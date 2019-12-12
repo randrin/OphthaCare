@@ -16,9 +16,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { AuthGuard } from './guard/auth.guard';
 import * as $ from 'jquery';
-import { ButtonModule, ConfirmationService, ConfirmDialogModule, DataTableModule, SharedModule, CalendarModule,
+import {
+  ButtonModule, ConfirmationService, ConfirmDialogModule, DataTableModule, SharedModule, CalendarModule,
   GrowlModule, BlockUIModule, OverlayPanelModule, DialogModule, InputTextModule,
-  TabViewModule, DropdownModule, TabMenuModule, InputTextareaModule, CardModule, MessageModule } from 'primeng/primeng';
+  TabViewModule, DropdownModule, TabMenuModule, InputTextareaModule, CardModule, MessageModule
+} from 'primeng/primeng';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
@@ -78,6 +80,9 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { PermissionsService } from './services/PermissionsServices';
 import { PermissionsComponent } from './components/permissions/permissions.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { ValidationEmailComponent } from './components/validation-email/validation-email.component';
+
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -120,7 +125,10 @@ const appRoutes: Routes = [
     ReportsComponent,
     FooterComponent,
     ProfilComponent,
-    PermissionsComponent
+    PermissionsComponent,
+    ConfirmationDialogComponent,
+    ValidationEmailComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -173,26 +181,29 @@ const appRoutes: Routes = [
     MatTooltipModule,
     MatSelectModule,
     MatTabsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatGridListModule,
     MatMenuModule,
     MatChipsModule,
     MatCheckboxModule, MatPaginatorModule,
-    FlexLayoutModule.withConfig({addFlexToParent: false}),
+    FlexLayoutModule.withConfig({ addFlexToParent: false }),
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: createTranslateLoader,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
       }
-  }),
-  LayoutModule,
-  OverlayModule
+    }),
+    LayoutModule,
+    OverlayModule
   ],
+
+  entryComponents: [ConfirmationDialogComponent],
   providers: [
     AuthenticationService,
     DashboardService,
@@ -207,6 +218,13 @@ const appRoutes: Routes = [
     ConfirmationService,
     AuthGuard
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+
+
