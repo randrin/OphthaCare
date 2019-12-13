@@ -3,8 +3,8 @@
     bottom: 0;
     position: relative;
     padding: 50px 30px 10px;
-    background-color: rgba(0,0,0,0.8);
-    color: #aaa;
+    background-color: rgba(0,0,0);
+    color: #63666a;
     font-size: 18px;
     font-weight: 600;
 }

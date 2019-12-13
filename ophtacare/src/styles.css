@@ -44,6 +44,12 @@ body {
   background-color: #e0e0e1 !important;    
 }    
   
+.mat-toolbar.mat-primary {
+  background: linear-gradient(to top, #910d18, #d12420);
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #d12420;
+}
 /*mat-card {    
   max-width: 50%;    
   margin: 10em auto;    
@@ -252,7 +258,7 @@ mat-toolbar-row {
   color: #d12420 !important;
 }
 .ophthacare-btn-green {
-  color: green !important;
+  color: #048600 !important;
 }
 .ophthacare-btn-black {
   color: black !important;
@@ -405,6 +411,14 @@ mat-toolbar-row {
     color: #63666a;
 }
 
+/* Ophthacare Header Component */
+.ophthacare-header-component {
+  background: linear-gradient(to right, #910d18, #d12420);
+  font-size: 28px;
+	color: white;
+	padding: 20px;
+}
+
 /* Scroll Bar Browser Style */
 ::-webkit-scrollbar-track {
     border-radius: 10px;
@@ -417,4 +431,14 @@ mat-toolbar-row {
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #636660;
+}
+
+[type=button], [type=reset], [type=submit], button {
+  -webkit-appearance: inherit !important;
+}
+.ui-button-success {
+  outline: none;
+}
+.ui-button:enabled:focus {
+  box-shadow: none !important;
 }
