@@ -6,10 +6,8 @@
 
 <app-home></app-home>
 <div class="main-container">
-  <div style="background: #3385a9">
-    <div class="title">
+  <div class="ophthacare-header-component">
       {{ 'Specialistes Clinique' | translate }}
-    </div>
   </div>
   <div>
     <p-table #dt [columns]="cols" [value]="medecins.list" [paginator]="true" [rows]="10" selectionMode="single">
