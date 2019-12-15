@@ -442,3 +442,43 @@ mat-toolbar-row {
 .ui-button:enabled:focus {
   box-shadow: none !important;
 }
+
+/* OphthaCare Loading Gif */
+.ophthacare-loading {
+  position: absolute;
+  top: 40%;
+  left: 40%; 
+  z-index: 1002;
+}
+.ophthacare-loading-image {
+  -webkit-transform: scaleX(-1); 
+  transform: scaleX(-1);
+  width:40%;
+}
+
+/* OphthaCare Datatables Componenets */
+.ophthacare-datatables-row {
+  margin: 15px;
+}
+.ophthacare-dialog-delete {
+  width: 550px;
+}
+.ophthacare-datatables-toolbar {
+  margin-left: 20px !important;
+}
+.ophthacare-datatables-toolbar-search {
+  margin:4px 4px 0 0;
+}
+.ophthacare-datatables-toolbar-input {
+  width: auto;
+}
+.ophthacare-datatables-filter {
+  max-width: -webkit-fill-available; 
+  max-width: -moz-available;
+}
+.ophthacare-datatables-cta {
+  margin-left: 33%;
+}
+.ophthacare-datatables-textarea {
+  width: 100%;
+}

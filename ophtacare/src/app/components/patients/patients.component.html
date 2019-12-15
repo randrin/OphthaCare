@@ -1,8 +1,8 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
-<div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
+<div *ngIf="blocked == true" class="ophthacare-loading">
   <img src="/assets/images/giphy.gif" title="Leopard"
-    style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
+    class="ophthacare-loading-image" />
 </div>
 
 <app-home></app-home>
@@ -18,14 +18,14 @@
             <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelPatients()"
               icon="pi pi-download" class="ui-button-success"></p-button>
             <p-button label="{{ 'New Patient' | translate }}" [disabled]="isAdmin()" (onClick)="createPatient()"
-              icon="pi pi-user-plus" iconPos="left" style="margin-left: 20px;"></p-button>
+              icon="pi pi-user-plus" iconPos="left" class="ophthacare-datatables-toolbar"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
-            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <i class="pi pi-search" class="ophthacare-datatables-toolbar-search"></i>
             <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
-              (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+              (input)="dt.filterGlobal($event.target.value, 'contains')" class="ophthacare-datatables-toolbar-input">
             <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
-              iconPos="left" style="margin-left: 20px;"></p-button>
+              iconPos="left" class="ophthacare-datatables-toolbar"></p-button>
           </div>
         </p-toolbar>
       </ng-template>
@@ -38,7 +38,7 @@
         <tr>
           <th *ngFor="let col of columns">
             <input class="filter" *ngIf="col.field != 'detail'"
-              style="max-width: -webkit-fill-available; max-width: -moz-available;" pInputText type="text"
+              class="ophthacare-datatables-filter" pInputText type="text"
               (input)="dt.filter($event.target.value, col.field, 'contains')">
           </th>
         </tr>
@@ -46,7 +46,7 @@
       <ng-template pTemplate="body" let-patient>
         <tr>
           <td>
-            <p-button type="button" style="margin-left:33%" (click)="detailsPatient(patient)" [disabled]="isAdmin()"
+            <p-button type="button" class="ophthacare-datatables-cta" (click)="detailsPatient(patient)" [disabled]="isAdmin()"
               icon="pi pi-search"></p-button>
           </td>
           <td class="code"><b>{{ patient.codePatient }}</b></td>
@@ -56,11 +56,11 @@
           <td>{{ patient.dateNaisPatient }}</td>
           <td>{{ patient.numTelPatient }}</td>
           <td>
-            <p-button type="button" style="margin-left:33%" styleClass="ui-button-success"
+            <p-button type="button" class="ophthacare-datatables-cta" styleClass="ui-button-success"
               (click)="updatePatient(patient)" [disabled]="isAdmin()" icon="pi pi-pencil"></p-button>
           </td>
           <td>
-            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" style="margin-left:33%"
+            <p-button type="button" icon="pi pi-trash" styleClass="ui-button-danger" class="ophthacare-datatables-cta"
               (click)="deletePatient(patient)" [disabled]="isAdmin()"></p-button>
           </td>
         </tr>
@@ -79,7 +79,7 @@
   <form (ngSubmit)="submitPatient(newPatient)" #newForm="ngForm">
  <!-- <form [formGroup]="registerForm" (ngSubmit)="submitPatient(newPatient)" #newForm="ngForm">-->
     <div class="container-fluid">
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <div class="col-md-3">
           <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
           <input type="text" id="firstname" name="firstname" [(ngModel)]="newPatient.nomPatient" pInputText
@@ -105,7 +105,7 @@
           </ejs-datepicker>
         </div>
       </div>
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <!--<div class="col-md-4">
           <label for="email"><b>{{ 'email' | translate }}</b></label>
           <input type="text" id="email" name="email" [(ngModel)]="newPatient.emailPatient" pInputText
@@ -133,7 +133,7 @@
             class="form-control" required />
         </div>
       </div>
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <div class="col-md-5">
           <label for="address"><b>{{ 'address' | translate }}</b></label>
           <input type="text" id="address" name="address" [(ngModel)]="newPatient.addressePatient" pInputText
@@ -150,11 +150,11 @@
             class="form-control" required />
         </div>
       </div>
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <div class="col-md-12">
           <label for="supplInfos"><b>{{ 'supplInfos' | translate }}</b></label><br>
-          <textarea style="width: 100%;" id="supplInfos" name="supplInfos" [(ngModel)]="newPatient.infoSupplPatient"
-            pInputTextarea [rows]="5" [cols]="30"
+          <textarea id="supplInfos" name="supplInfos" [(ngModel)]="newPatient.infoSupplPatient"
+            pInputTextarea [rows]="5" [cols]="30" class="ophthacare-datatables-textarea"
             placeholder="{{ 'Insert others informations ...' | translate }}"></textarea>
         </div>
       </div>
@@ -162,10 +162,10 @@
     <hr>
     <div class="container-fluid">
       <p-footer>
-        <div class="pull-right" style="margin: 15px;">
+        <div class="pull-right ophthacare-datatables-row">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}"
             class="ui-button-danger"></button>
-          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          <button class="ophthacare-datatables-toolbar" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
             label="{{ 'Create' | translate }}"></button>
         </div>
       </p-footer>
@@ -179,7 +179,7 @@
   [maximizable]="true" [baseZIndex]="10">
   <form (ngSubmit)="submitUpdatePatient(patientUpdate)" #updateForm="ngForm">
     <div class="container-fluid">
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <div class="col-md-3">
           <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
           <input type="text" id="firstname" name="firstname" [(ngModel)]="patientUpdate.nomPatient" pInputText
@@ -202,7 +202,7 @@
           {{ patientUpdate.dateNaisPatient }}
         </div>
       </div>
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <div class="col-md-4">
           <label for="email"><b>{{ 'email' | translate }}</b></label>
           <input type="text" id="email" name="email" [(ngModel)]="patientUpdate.emailPatient" pInputText
@@ -219,7 +219,7 @@
             class="form-control" required />
         </div>
       </div>
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <div class="col-md-5">
           <label for="address"><b>{{ 'address' | translate }}</b></label>
           <input type="text" id="address" name="address" [(ngModel)]="patientUpdate.addressePatient" pInputText
@@ -236,10 +236,10 @@
             class="form-control" required />
         </div>
       </div>
-      <div class="row" style="margin: 15px;">
+      <div class="row ophthacare-datatables-row">
         <div class="col-md-12">
           <label for="supplInfos"><b>{{ 'supplInfos' | translate }}</b></label><br>
-          <textarea style="width: 100%;" id="supplInfos" name="supplInfos" [(ngModel)]="patientUpdate.infoSupplPatient"
+          <textarea class="ophthacare-datatables-textarea" id="supplInfos" name="supplInfos" [(ngModel)]="patientUpdate.infoSupplPatient"
             pInputTextarea [rows]="5" [cols]="30"
             placeholder="{{ 'Insert others informations ...' | translate }}"></textarea>
         </div>
@@ -248,10 +248,10 @@
     <hr>
     <div class="container-fluid">
       <p-footer>
-        <div class="pull-right" style="margin: 15px;">
+        <div class="pull-right ophthacare-datatables-row">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}"
             class="ui-button-danger"></button>
-          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!updateForm.form.valid"
+          <button class="ophthacare-datatables-toolbar" pButton type="submit" icon="pi pi-check" [disabled]="!updateForm.form.valid"
             label="{{ 'Update' | translate }}"></button>
         </div>
       </p-footer>
@@ -265,7 +265,7 @@
   [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000" [minWidth]="700"
   [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
   <div>
-    <div class="row" style="margin: 10px;">
+    <div class="row ophthacare-datatables-row">
       <div class="col-md-3">
         <p-card header="{{ 'ID' | translate }}" [style]="{width: '200px'}">
           <div>{{ patient.codePatient }}</div>
@@ -287,7 +287,7 @@
         </p-card>
       </div>
     </div>
-    <div class="row" style="margin: 10px;">
+    <div class="row ophthacare-datatables-row">
       <div class="col-md-3">
         <p-card header="{{ 'email' | translate }}" [style]="{width: '200px'}">
           <div>{{ patient.emailPatient }}</div>
@@ -309,7 +309,7 @@
         </p-card>
       </div>
     </div>
-    <div class="row" style="margin: 10px;">
+    <div class="row ophthacare-datatables-row">
       <div class="col-md-3">
         <p-card header="{{ 'cellularePhone' | translate }}" [style]="{width: '200px'}">
           <div>{{ patient.numTelPatient }}</div>
@@ -331,7 +331,7 @@
         </p-card>
       </div>
     </div>
-    <div class="row" style="margin: 10px;">
+    <div class="row ophthacare-datatables-row">
       <div class="col-md-12">
         <p-card header="{{ 'supplInfos' | translate }}" [style]="{width: '500px'}">
           <div>{{ patient.infoSupplPatient }}</div>
@@ -339,7 +339,7 @@
       </div>
     </div>
   </div>
-  <p-footer>
+  <p-footer class="ophthacare-datatables-row">
     <button pButton type="button" icon="pi pi-times" (click)="displayDetailsDialog=false"
       label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
   </p-footer>
