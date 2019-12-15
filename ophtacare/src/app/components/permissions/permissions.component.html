@@ -1,8 +1,8 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
-<div *ngIf="blocked == true" style="position: absolute;top: 40%;left: 40%; z-index: 1002;">
+<div *ngIf="blocked == true" class="ophthacare-loading">
   <img src="/assets/images/giphy.gif" title="Leopard"
-    style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width:40%" />
+    class="ophthacare-loading-image" />
 </div>
 
 <app-home></app-home>
