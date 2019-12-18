@@ -148,5 +148,8 @@
     "Fri" : "Ven",
     "Sat" : "Sam",
     "Yes" : "Oui",
-    "No" : "Non"
+    "No" : "Non",
+    "legalNotice": "Mentions Lègales",
+    "termsAndConditions": "Termes & Conditions",
+    "privacyPolicy": "Politique de confidentialité"
 }
