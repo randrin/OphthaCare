@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfessionsMedecinsService } from '../../services/professionsMedecinsService';
-import { AuthenticationService } from '../../services/authenticationService';
+import { ProfessionsMedecinsService } from '../../../services/professionsMedecinsService';
+import { AuthenticationService } from '../../../services/authenticationService';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/primeng';
-import { Profession } from '../../models/professions/profession';
-import { Professions } from '../../models/professions/professions';
+import { Profession } from '../../../models/professions/profession';
+import { Professions } from '../../../models/professions/professions';
 import saveAs from 'save-as';
 import * as moment from 'moment';
 

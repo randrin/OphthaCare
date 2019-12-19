@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { Admin } from '../../models/administrateurs/admin';
-import { AuthenticationService } from '../../services/authenticationService';
-import { Medecin } from '../../models/medecins/medecin';
+import { Admin } from '../../../models/administrateurs/admin';
+import { AuthenticationService } from '../../../services/authenticationService';
+import { Medecin } from '../../../models/medecins/medecin';
 
 @Component({
   selector: 'app-login',

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Permissions } from '../../models/permissions/permissions';
+import { Permissions } from '../../../models/permissions/permissions';
 import { ConfirmationService } from 'primeng/primeng';
-import { Permission } from '../../models/permissions/permission';
-import { PermissionsService } from '../../services/PermissionsServices';
-import { AuthenticationService } from '../../services/authenticationService';
+import { Permission } from '../../../models/permissions/permission';
+import { PermissionsService } from '../../../services/PermissionsServices';
+import { AuthenticationService } from '../../../services/authenticationService';
 import { SelectItem, MessageService } from 'primeng/api';
 
 @Component({

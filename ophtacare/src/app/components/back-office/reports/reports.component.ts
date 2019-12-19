@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/primeng';
-import { ReportsService } from '../../services/reportsService';
-import { AuthenticationService } from '../../services/authenticationService';
-import { Reports } from '../../models/reports/reports';
-import { Report } from '../../models/reports/report';
+import { ReportsService } from '../../../services/reportsService';
+import { AuthenticationService } from '../../../services/authenticationService';
+import { Reports } from '../../../models/reports/reports';
+import { Report } from '../../../models/reports/report';
 import saveAs from 'save-as';
 
 @Component({

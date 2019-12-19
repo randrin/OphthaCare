@@ -3,41 +3,26 @@
 
 <head>
   <meta charset="utf-8">
-    <title>OphthaCare Clinique</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/images/Logo_url.png">
-    <script src="assets/jquery-2.1.4.min.js"></script>
-    <script src="assets/system.src.js"></script>
-    <script src="assets/Rx.js"></script>
-    <link href="assets/styles.css" rel="stylesheet" />
-    <link id="pagestyle" rel="stylesheet" type="text/css" href="assets/theme.css" />
-    <link rel="stylesheet" type="text/css" href="assets/primeng.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/primeicons.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" />
-    <script src="assets/configuration.js"></script>
+  <title>OphthaCare Clinique</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/Logo_url.png">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link id="pagestyle" rel="stylesheet" type="text/css" href="assets/css/theme.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/primeng.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/primeicons.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" />
 </head>
 
 <body>
   <app-root></app-root>
-  <script>
-    $(document).ready(function(){
-      $('body').append('<a id="toTop" class="btn btn-default btn-md" href="#" title="Go to Top Page"><i class="material-icons">arrow_upward</i></a>');
-      $(window).scroll(function () {
-        if ($(this).scrollTop() != 0) {
-          $('#toTop').fadeIn();
-        } else {
-          $('#toTop').fadeOut();
-        }
-      }); 
-      $('#toTop').click(function(){
-        $("html, body").animate({ scrollTop: 0 }, 600);
-        return false;
-      });
-    });
-  </script>
+  <script type="application/javascript" src="assets/js/configuration.js"></script>
+  <script type="application/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
+  <script type="application/javascript" src="assets/js/system.src.js"></script>
+  <script type="application/javascript" src="assets/js/Rx.js"></script>
+  <script type="application/javascript" src="assets/js/ophthacare.js"></script>
 </body>
 
 </html>

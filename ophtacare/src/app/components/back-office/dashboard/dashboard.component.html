@@ -1,12 +1,27 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" class="ophthacare-loading">
-  <img src="/assets/images/giphy.gif" title="Leopard"
-    class="ophthacare-loading-image" />
+  <img src="/assets/images/giphy.gif" title="Leopard" class="ophthacare-loading-image" />
 </div>
 
 <app-home></app-home>
 <div class="main-container">
+  <div class="row">
+    <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="10px">
+      <div fxFlex>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Line Chart</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+              [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
       <div fxFlex>

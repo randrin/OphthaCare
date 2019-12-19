@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthenticationService } from '../../../services/authenticationService';
 import { MatDialog } from '@angular/material';
-import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogComponent } from '../../back-office/confirmation-dialog/confirmation-dialog.component';
 
 
 @Component({
