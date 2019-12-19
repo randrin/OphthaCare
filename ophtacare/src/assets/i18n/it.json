@@ -148,5 +148,8 @@
     "Fri" : "Ven",
     "Sat" : "Sab",
     "Yes" : "Sì",
-    "No" : "No"
+    "No" : "No",
+    "legalNotice": "Note Legali",
+    "termsAndConditions": "Termini e Condizioni",
+    "privacyPolicy": "Politica di Riservatezza"
 }

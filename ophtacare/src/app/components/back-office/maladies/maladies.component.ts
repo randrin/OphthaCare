@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/primeng';
-import { AuthenticationService } from '../../services/authenticationService';
-import { MaladiesService } from '../../services/maladiesService';
-import { Maladies } from '../../models/maladies/maladies';
+import { AuthenticationService } from '../../../services/authenticationService';
+import { MaladiesService } from '../../../services/maladiesService';
+import { Maladies } from '../../../models/maladies/maladies';
 import saveAs from 'save-as';
-import { Maladie } from '../../models/maladies/maladie';
-import { ProfessionsMedecinsService } from '../../services/professionsMedecinsService';
+import { Maladie } from '../../../models/maladies/maladie';
+import { ProfessionsMedecinsService } from '../../../services/professionsMedecinsService';
 
 @Component({
   selector: 'app-maladies',

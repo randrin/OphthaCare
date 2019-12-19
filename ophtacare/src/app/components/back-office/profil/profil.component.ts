@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/primeng';
 import { MessageService } from 'primeng/api';
-import { ProfilService } from '../../services/profilService';
-import { AuthenticationService } from '../../services/authenticationService';
-import { Admin } from '../../models/administrateurs/admin';
+import { ProfilService } from '../../../services/profilService';
+import { AuthenticationService } from '../../../services/authenticationService';
+import { Admin } from '../../../models/administrateurs/admin';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({

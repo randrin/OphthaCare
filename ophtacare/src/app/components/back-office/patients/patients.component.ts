@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientsService } from '../../services/patientsService';
+import { PatientsService } from '../../../services/patientsService';
 import { ConfirmationService } from 'primeng/primeng';
 import { MessageService, SelectItem } from 'primeng/api';
-import { AuthenticationService } from '../../services/authenticationService';
+import { AuthenticationService } from '../../../services/authenticationService';
 import saveAs from 'save-as';
 import * as moment from 'moment';
-import { Patients } from '../../models/patients/patients';
-import { Patient } from '../../models/patients/patient';
-import { DashboardService } from '../../services/dashboardService';
+import { Patients } from '../../../models/patients/patients';
+import { Patient } from '../../../models/patients/patient';
+import { DashboardService } from '../../../services/dashboardService';
 @Component({
   selector: 'app-patients',
   providers: [ConfirmationService],

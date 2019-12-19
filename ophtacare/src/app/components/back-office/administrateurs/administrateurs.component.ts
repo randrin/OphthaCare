@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, SelectItem } from 'primeng/primeng';
 import { MessageService } from 'primeng/api';
-import { AuthenticationService } from '../../services/authenticationService';
-import { AdministrateursService } from '../../services/administrateursService';
-import { Admins } from '../../models/administrateurs/admins';
-import { Admin } from '../../models/administrateurs/admin';
+import { AuthenticationService } from '../../../services/authenticationService';
+import { AdministrateursService } from '../../../services/administrateursService';
+import { Admins } from '../../../models/administrateurs/admins';
+import { Admin } from '../../../models/administrateurs/admin';
 import * as moment from 'moment';
 import saveAs from 'save-as';
-import { PermissionsService } from '../../services/PermissionsServices';
-import { Permission } from '../../models/permissions/permission';
-import { Permissions } from '../../models/permissions/permissions';
+import { PermissionsService } from '../../../services/PermissionsServices';
+import { Permission } from '../../../models/permissions/permission';
+import { Permissions } from '../../../models/permissions/permissions';
 
 @Component({
   selector: 'app-administrateurs',

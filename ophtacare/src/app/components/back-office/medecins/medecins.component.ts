@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/primeng';
-import { AuthenticationService } from '../../services/authenticationService';
-import { MedecinsService } from '../../services/medecinsService';
-import { Medecins } from '../../models/medecins/medecins';
+import { AuthenticationService } from '../../../services/authenticationService';
+import { MedecinsService } from '../../../services/medecinsService';
+import { Medecins } from '../../../models/medecins/medecins';
 import { MessageService, SelectItem } from 'primeng/api';
 import saveAs from 'save-as';
 import * as moment from 'moment';
-import { Medecin } from '../../models/medecins/medecin';
-import { Professions } from '../../models/professions/professions';
-import { ProfessionsMedecinsService } from '../../services/professionsMedecinsService';
+import { Medecin } from '../../../models/medecins/medecin';
+import { Professions } from '../../../models/professions/professions';
+import { ProfessionsMedecinsService } from '../../../services/professionsMedecinsService';
 
 @Component({
   selector: 'app-medecins',
