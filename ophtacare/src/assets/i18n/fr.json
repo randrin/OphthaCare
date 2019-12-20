@@ -120,6 +120,7 @@
     "write-us": "Ecrivez nous",
     "come to clinic": "Venez en clinique",
     "text-help": "En cas d’absence d’accès ou de non-fonctionnement des services, il est possible de contacter le Call Center au numéro suivant 803.160 (de Lundi à Samedi de 8h00 à 20h00).",
+    "ophthacare-description": "Ophthacare offre une plateforme aux spécialistes pour promouvoir l'innovation, le suivi et les soins de santé aux patients de demain souffrant des différents pathologies des yeux.",
     "copyright": "Tous droits réservés",
     "version": "Version",
     "upload": "Télécharger",
@@ -151,5 +152,16 @@
     "No" : "Non",
     "legalNotice": "Mentions Lègales",
     "termsAndConditions": "Termes & Conditions",
-    "privacyPolicy": "Politique de confidentialité"
+    "privacyPolicy": "Politique de confidentialité",
+    "about-us": "À Propos",
+    "services": "Nos Services",
+    "solutions": "Solutions",
+    "about-ophthacare": "À Propos Ophthacare",
+    "support-ophthacare": "Ophthacare Support",
+    "our-team": "Notre Equipe",
+    "our-platform": "Notre Platforme",
+    "faqs": "FAQs",
+    "contact-us": "Nous Contactez",
+    "price": "Nos Prix",
+    "news": "Nouveautès"
 }

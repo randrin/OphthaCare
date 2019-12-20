@@ -2,9 +2,9 @@
   <div class="container-fuild">
     <div class="row">
       <div class="col-md-4">
-        <p class="text-xs-center text-md-left">
-          © OphthaCare {{ 'Clinic' |  translate }} {{ initYear }}<span *ngIf="!correct"> - {{ currentYear }}</span> :
-          {{ 'copyright' | translate }}
+        <p class="ophthacare-content text-xs-center text-md-left">
+          <span class="ophthacare-description">{{ 'ophthacare-description' | translate }}</span>
+          <span class="ophthacare-footer-title">©{{ initYear }}<span *ngIf="!correct"> - {{ currentYear }}</span> OphthaCare {{ 'Clinic' |  translate }}. {{ 'copyright' | translate }}</span>
         </p>
         <ul class="ophthacare-socials">
           <li class="ophthacare-icon">
@@ -17,20 +17,22 @@
             <a href="#" class="icon-linkedin" title="Linkedin OphthaCare"><i class="fa fa-linkedin-square"></i></a>
           </li>
         </ul>
-        <p>{{ 'version' | translate }} v1.0.0</p>
+        <p class="errorMsg">{{ 'version' | translate }} v1.0.0</p>
       </div>
       <div class="col-md-8">
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4">
-            <h4 class="ophthacare-footer">Footer 1</h4>
+            <h4 class="ophthacare-footer">{{'about-us' | translate }}</h4>
             <ul class="ophthacare-links">
-              <li><a href="#"><i class="fa fa-angle-double-right"></i> Venir icic</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right"></i> Venir icic</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right"></i> Venir icic</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i> {{ 'about-ophthacare' | translate }}</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i> {{ 'our-platform' | translate }}</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i> {{ 'our-team' | translate }}</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i> {{ 'support-ophthacare' | translate }}</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i> {{ 'contact-us' | translate }}</a></li>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4">
-              <h4 class="ophthacare-footer">Footer 2</h4>
+              <h4 class="ophthacare-footer">{{'services' | translate }}</h4>
               <ul class="ophthacare-links">
                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Venir icic</a></li>
                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Venir icic</a></li>
@@ -38,7 +40,7 @@
               </ul>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4">
-              <h4 class="ophthacare-footer">Footer 3</h4>
+              <h4 class="ophthacare-footer">{{'solutions' | translate }}</h4>
               <ul class="ophthacare-links">
                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Venir icic</a></li>
                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Venir icic</a></li>
