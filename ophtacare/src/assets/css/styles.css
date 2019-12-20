@@ -269,8 +269,10 @@ mat-toolbar-row {
   color: #fff;
 }
 .ophthacare-logo-size {
-  width:120px;
-  height:120px;
+  width: 100px;
+  height: 100px;
+  left: 15px;
+  position: relative;
 }
 .ophthacare-matCard-title {
   padding: 15px;
@@ -283,9 +285,10 @@ mat-toolbar-row {
   color: #fff;
 }
 .ophthacare-Ophtha {
-  font-size: 2.3em; 
-  color: white; 
-  top: 5px;
+  font-size: 2.8em;
+  color: white;
+  top: 12px;
+  position: relative;
 }
 .ophthacare-care {
   color:#4f1dda !important;

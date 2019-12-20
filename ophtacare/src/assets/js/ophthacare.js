@@ -19,12 +19,10 @@ $(document).ready(function () {
   $(window).scroll(function () {
     if ($(this).scrollTop() > 260) {
       $('#ophthacare-navbar').removeClass('fix-navbar').addClass('scroll-navbar');
-      console.log("Dentro .....", $(this).scrollTop());
-      $(this).fadeIn();
+      $('#ophthacare-navbar').fadeIn();
     } else {
       $('#ophthacare-navbar').removeClass('scroll-navbar').addClass('fix-navbar');
-      console.log("Fuori ......", $(this).scrollTop());
-      $(this).fadeIn();
+      $('#ophthacare-navbar').fadeIn();
     }
   });
 });

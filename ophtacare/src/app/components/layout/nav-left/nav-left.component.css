@@ -36,7 +36,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0);
   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
-  z-index: 999;
+  z-index: -1;
   -ms-overflow-y: auto;
   overflow-y: auto;
 }
