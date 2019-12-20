@@ -85,3 +85,15 @@ ul.ophthacare-socials li a .fa-linkedin-square:hover {
     width: 50%;
     margin-top: 4rem;
 }
+.ophthacare-description {
+    padding: 0px 0px 20px;
+    border-bottom: 1px solid #fff;
+}
+.ophthacare-footer-title {
+    padding: 15px 0px 0px;
+}
+.ophthacare-content {
+    display: grid;
+    text-align: justify !important;
+    margin: 0px 35px 0px 0px;
+}

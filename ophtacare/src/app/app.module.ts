@@ -82,6 +82,12 @@ import { PermissionsService } from './services/PermissionsServices';
 import { PermissionsComponent } from './components/back-office/permissions/permissions.component';
 import { ConfirmationDialogComponent } from './components/back-office/confirmation-dialog/confirmation-dialog.component';
 import { ValidationEmailComponent } from './components/back-office/validation-email/validation-email.component';
+import { FaqsComponent } from './components/site/faqs/faqs.component';
+import { SupportComponent } from './components/site/support/support.component';
+import { TeamComponent } from './components/site/team/team.component';
+import { OphthacareComponent } from './components/site/ophthacare/ophthacare.component';
+import { ContactComponent } from './components/site/contact/contact.component';
+import { PlatformComponent } from './components/site/platform/platform.component';
 
 
 // AoT requires an exported function for factories
@@ -128,6 +134,12 @@ const appRoutes: Routes = [
     PermissionsComponent,
     ConfirmationDialogComponent,
     ValidationEmailComponent,
+    FaqsComponent,
+    SupportComponent,
+    TeamComponent,
+    OphthacareComponent,
+    ContactComponent,
+    PlatformComponent,
    
   ],
   imports: [
