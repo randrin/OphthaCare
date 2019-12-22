@@ -130,7 +130,7 @@
 <!-- Dialog Update Medecin -->
 <p-dialog header="{{ 'Update Medecin' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
-  <form (ngSubmit)="submitUpdateMedecin(medecinUpdate)" #newForm="ngForm">
+  <form (ngSubmit)="submitUpdateMedecin(medecinUpdate)" #updateForm="ngForm">
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-3">
@@ -178,7 +178,7 @@
     <p-footer>
         <div class="pull-right" style="margin: 15px;">
           <button pButton type="button" icon="pi pi-times" (click)="closeDialog()" label="{{ 'Close' | translate }}" class="ui-button-danger"></button>
-          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!newForm.form.valid"
+          <button style="margin-left: 20px" pButton type="submit" icon="pi pi-check" [disabled]="!updateForm.form.valid"
           label="{{ 'Update' | translate }}"></button>
         </div>
       </p-footer>
