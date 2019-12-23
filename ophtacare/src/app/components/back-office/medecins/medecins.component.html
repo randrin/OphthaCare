@@ -165,12 +165,13 @@
         </div>
       </div>
       <div class="row" style="margin: 15px;">
-        <div class="col-md-5">
+        <div *ngIf="addProfession == true" class="col-md-5">
           <label for="professionMedecin"><b>{{ 'Professions Medecins' | translate }}</b></label>
           <select id="professionMedecin" name="professionMedecin" [(ngModel)]="medecinUpdate.professionMedecin" class="form-control" required>
             <option *ngFor="let profession of professions" [ngValue]="profession.nomProfession">{{ profession.codeProfession }} - {{ profession.nomProfession }}</option>
           </select>
         </div>
+        <div *ngIf="addProfession == false" class="col-md-5">Add Professions</div>
       </div>
     </div>
     <hr>
