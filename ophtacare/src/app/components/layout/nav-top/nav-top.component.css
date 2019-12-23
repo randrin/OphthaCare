@@ -5,15 +5,22 @@ img {
 .mat-toolbar {
   height: 100px;
 }
+.scroll-navbar {
+  position: fixed;
+  border-color: #d12420;
+  box-shadow: 0 0 5px #d12420;
+  outline: 0;
+  z-index: 2;
+}
 
-:host {
+/* :host {
   display: block;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   z-index: 1000;
-}
+} */
 
 .nav-brand {
   width: 215px;
@@ -69,7 +76,7 @@ img {
 
 .wrapper {
   width: 324px;
-  background-color: red;
+  background-color: #d12420;
   height: 130px;
   text-align: center;
   padding: 20px;

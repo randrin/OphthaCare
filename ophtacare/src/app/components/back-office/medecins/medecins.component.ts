@@ -27,6 +27,7 @@ export class MedecinsComponent implements OnInit {
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
+  public addProfession;
   public medecins: Medecins = { list: [] };
   public professions;
   public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
@@ -84,6 +85,12 @@ export class MedecinsComponent implements OnInit {
       response => {
         if (response.json() != null) {
           this.professions = response.json();
+          console.log("Length Professions: ", response.json().length);
+          console.log("Fuori add professions ...");
+          if (response.json().length > 0) {
+            console.log("Dentro add professions ...");
+            this.addProfession = true;
+          }
         }
     });
   }

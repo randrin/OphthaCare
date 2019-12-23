@@ -1,14 +1,13 @@
-<mat-toolbar color="primary" class="fix-nav">
+<mat-toolbar color="primary" id="ophthacare-navbar">
   <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <span><img src="./assets/images/giphy.gif" class="ophthacare-logo-size"></span>
   <div class="header">
-      <a href="#" target="_blank" title="OphthaCare {{ 'Clinic' | translate }}">
-          <span><b class="ophthacare-Ophtha"><em>Ophtha</em><em
-                      class="ophthacare-care">Care</em></b></span><br>
-          <span><em class="ophthacare-logo-subtitle">{{ 'your eyes, our priority' | translate }}</em></span>
-      </a>
+    <a href="#" target="_blank" title="OphthaCare {{ 'Clinic' | translate }}">
+      <span><b class="ophthacare-Ophtha"><em>phtha</em><em class="ophthacare-care">Care</em></b></span><br>
+      <span><em class="ophthacare-logo-subtitle">{{ 'your eyes, our priority' | translate }}</em></span>
+    </a>
   </div>
 
   <div class="nav-brand"></div>
@@ -50,7 +49,8 @@
   <!-- Button Langues -->
   <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
     <mat-icon class="sizeIcon">language</mat-icon>
-    <img class="selected-language" [src]="selectedLanguage == 'en' ? './assets/flags/GB.png' : (selectedLanguage == 'fr' ? './assets/flags/FR.png' : './assets/flags/IT.png')" />
+    <img class="selected-language"
+      [src]="selectedLanguage == 'en' ? './assets/flags/GB.png' : (selectedLanguage == 'fr' ? './assets/flags/FR.png' : './assets/flags/IT.png')" />
   </a>
   <mat-menu #language="matMenu">
     <a mat-menu-item (click)="changeLang('en')" class="item-profil">
@@ -68,10 +68,10 @@
     <mat-icon class="sizeIcon">account_circle</mat-icon>
   </a>
   <mat-menu #profile="matMenu">
-      <a mat-menu-item [routerLinkActive]="'active'" [routerLink]="['/profil']" class="item-profil">
-        <mat-icon>person</mat-icon>
-        <span>{{ 'Profile' | translate }}</span>
-      </a>
+    <a mat-menu-item [routerLinkActive]="'active'" [routerLink]="['/profil']" class="item-profil">
+      <mat-icon>person</mat-icon>
+      <span>{{ 'Profile' | translate }}</span>
+    </a>
     <button mat-menu-item>
       <mat-icon>inbox</mat-icon>
       <span>{{ 'Inbox' | translate }}</span>
@@ -81,7 +81,7 @@
       <span>{{ 'Settings' | translate }}</span>
     </button>
     <mat-divider></mat-divider>
-   
+
     <button mat-menu-item (click)="onLoggedout()" class="ophthacare-btn-green">
       <mat-icon class="ophthacare-matIcon-red">power_settings_new</mat-icon>
       <span><b>{{ 'Logout' | translate }}</b></span>

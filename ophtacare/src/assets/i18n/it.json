@@ -120,6 +120,7 @@
     "write-us": "Scrivici",
     "come to clinic": "Vieni in clinica",
     "text-help": "In caso di mancato accesso o mancato funzionamento dei servizi, è possibile contattare il Call Center al numero verde  seguente 803.160 (dal Lunedì al Sabato dalle 8.00 alle 20.00).",
+    "ophthacare-description": "Ophthacare offre agli specialisti una piattaforma per promuovere l'innovazione, il monitoraggio e assistenza sanitaria per i pazienti di domani affetti da varie patologie oculari.",
     "copyright": "Tutti i diritti riservati",
     "version": "Versione",
     "upload": "Carica",
@@ -151,5 +152,16 @@
     "No" : "No",
     "legalNotice": "Note Legali",
     "termsAndConditions": "Termini e Condizioni",
-    "privacyPolicy": "Politica di Riservatezza"
+    "privacyPolicy": "Politica di Riservatezza",
+    "about-us": "A Proposito",
+    "services": "Nostri Servizi",
+    "solutions": "Soluzioni",
+    "about-ophthacare": "A Proposito Ophthacare",
+    "support-ophthacare": "Ophthacare Supporto",
+    "our-team": "Nostra Squadra",
+    "our-platform": "Nostra Piattaforma",
+    "faqs": "FAQs",
+    "contact-us": "Contattaci",
+    "price": "Nostri Prezzi",
+    "news": "Novità"
 }

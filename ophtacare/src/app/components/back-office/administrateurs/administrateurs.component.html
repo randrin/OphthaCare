@@ -51,7 +51,7 @@
           <td>{{ admin.nomAdmin }}</td>
           <td>{{ admin.prenomAdmin }}</td>
           <td>{{ admin.roleAdmin }}</td>
-          <td>{{ admin.emailAdmin }}</td>
+          <td>{{ admin.emailAdmin | truncate : 15 : " ..." }}</td>
           <td>
             <p-button type="button" style="margin-left:33%" styleClass="ui-button-success" (click)="updateAdmin(admin)" icon="pi pi-pencil"></p-button>
           </td>
@@ -68,7 +68,7 @@
 </div>
 
 <!-- Dialog Add New Admin -->
-<p-dialog header="{{ 'New Admin' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ 'New Admin' | translate }}" icon="pi pi-users" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
   <form (ngSubmit)="submitAdmin(newAdmin)" #newForm="ngForm">
     <div class="container-fluid">
