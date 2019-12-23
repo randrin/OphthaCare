@@ -101,7 +101,7 @@ mat-toolbar-row {
 	padding: 15px;
 }
 
-.errorMsg{
+.errorMsg, .ophthacare-red {
 	color: #d12420;
 }
 .successMsg{

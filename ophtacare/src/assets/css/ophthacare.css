@@ -39,3 +39,26 @@ body .ui-button.ui-state-default.ui-button-danger:hover,
 body .ui-buttonset.ui-button-danger>.ui-button.ui-state-default:hover {
   background-image: linear-gradient(to left, #930d18, #d12420);
 }
+
+body .ui-toast .ui-toast-message.ui-toast-message-error {
+  background: linear-gradient(to left, #910d18, #d12420);
+  border: 0 none !important;
+  color: #ffffff !important;
+  border-radius: 5px;
+}
+
+body .ui-toast .ui-toast-message.ui-toast-message-success {
+  background: linear-gradient(to left, #4C7F4B, #048600);
+  border: 0 none !important;
+  color: #ffffff !important;
+  border-radius: 5px;
+}
+
+body .ui-dialog .ui-dialog-titlebar {
+  color: #d12420 !important;
+}
+.form-control:focus {
+    border-color: #048600 !important;
+    box-shadow: 0 0 5px #048600 !important;
+    outline: 0;
+}
