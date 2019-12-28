@@ -32,6 +32,9 @@ ul.ophthacare-privacy li a {
 ul.ophthacare-privacy li a:hover {
     color: #fff;
 }
+ul.ophthacare-links li {
+    padding: 5px 0px;
+}
 ul.ophthacare-links li a {
     text-decoration: none;
     color: #fff;
