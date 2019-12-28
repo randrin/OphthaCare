@@ -11,7 +11,8 @@
       <div fxFlex>
         <mat-card>
           <mat-card-header>
-            <mat-card-title>Line Chart</mat-card-title>
+            <mat-card-title class="ophthacare-lineChart-title">{{ 'TOTAL_PATIENT' | translate }}</mat-card-title>
+            <mat-card-title class="ophthacare-lineChart-subtitle">{{ 'PERFORMANCE' | translate }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
