@@ -51,7 +51,8 @@ export class DashboardComponent implements OnInit {
   public lineChartOptions: any = {
     maintainAspectRatio: true,
     legend: {
-      display: true
+      display: true,
+      titleFontColor: '#ffffff'
     },
     tooltips: {
       backgroundColor: '#f5f5f5',
@@ -70,14 +71,14 @@ export class DashboardComponent implements OnInit {
           barPercentage: 1.6,
           gridLines: {
             drawBorder: false,
-            color: 'rgba(29,140,248,0.0)',
+            color: 'ffffff',
             zeroLineColor: 'transparent'
           },
           ticks: {
             suggestedMin: 60,
             suggestedMax: 125,
             padding: 20,
-            fontColor: '#63666a'
+            fontColor: '#ffffff'
           }
         }
       ],
@@ -86,12 +87,12 @@ export class DashboardComponent implements OnInit {
           barPercentage: 1.6,
           gridLines: {
             drawBorder: false,
-            color: 'rgba(220,53,69,0.1)',
+            color: 'ffffff',
             zeroLineColor: 'transparent'
           },
           ticks: {
             padding: 20,
-            fontColor: '#63666a'
+            fontColor: '#ffffff'
           }
         }
       ]
@@ -107,6 +108,7 @@ export class DashboardComponent implements OnInit {
       backgroundColor: 'rgba(128, 0, 0, .1)',
       borderColor: 'rgba(209, 36, 32)',
       borderWidth: 2,
+      color: '#ffffff',
       data: [65, 70, 80, 81, 56, 55, 40, 45, 59, 68, 56, 60]
     },
     {
@@ -114,6 +116,7 @@ export class DashboardComponent implements OnInit {
       backgroundColor: 'rgba(0, 0, 255, .1)',
       borderColor: 'rgba(79, 29, 218)',
       borderWidth: 2,
+      color: '#ffffff',
       data: [60, 48, 40, 19, 86, 65, 90, 89, 68, 79, 69, 11]
     }
   ];

@@ -1,16 +1,20 @@
 .mat-card {
-    width: 99%;
-    background-color: white;
-    color: black;
+    width: 100%;
+    text-align: left;
 }
-.mat-card-header .ophthacare-lineChart-title {
+.ophthacare-lineChart {
+    display: grid;
+    left: -16px;
+    position: relative;
+}
+.ophthacare-lineChart .ophthacare-lineChart-title {
     font-size: 15px;
     float: left;
     margin-bottom: 0;
-    color: #63666a;
+    color: #ffffff;
 }
-.mat-card-header .ophthacare-lineChart-subtitle {
-    font-size: 18px;
+.ophthacare-lineChart .ophthacare-lineChart-subtitle {
+    font-size: 20px;
     float: left;
     margin-bottom: 0;
     color: #d12420;
