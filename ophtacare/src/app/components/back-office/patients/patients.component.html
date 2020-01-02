@@ -115,10 +115,10 @@
         <div class="col-md-4">
           <label for="email"><b>{{ 'email' | translate }}</b></label>
           <input type="text"  id="email" name="email" [(ngModel)]="newPatient.emailPatient" pInputText
-            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required />
+            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required 
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">Email is required</div>
-              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
           </div>
         
       </div>
