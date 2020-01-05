@@ -112,9 +112,13 @@ const appRoutes: Routes = [
   { path: 'professions', component: ProfessionsMedecinsComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'profil', component: ProfilComponent },
-  { path: 'permissions', component: PermissionsComponent }
+  { path: 'permissions', component: PermissionsComponent },
+  { path: 'opththacare', component: OphthacareComponent },
+  { path: 'platform', component: PlatformComponent },
+  { path: 'team', component: TeamComponent },
+  { path: 'support', component: SupportComponent },
+  { path: 'contact', component: ContactComponent }
 ];
-
 @NgModule({
   declarations: [
     AppComponent,
