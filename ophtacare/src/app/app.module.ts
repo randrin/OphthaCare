@@ -139,8 +139,7 @@ const appRoutes: Routes = [
     TeamComponent,
     OphthacareComponent,
     ContactComponent,
-    PlatformComponent,
-   
+    PlatformComponent
   ],
   imports: [
     BrowserModule,
