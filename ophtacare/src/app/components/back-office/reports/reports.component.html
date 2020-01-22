@@ -14,12 +14,12 @@
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Reports' | translate }}" (onClick)="exportExcelReports()"
+            <p-button type="button" label="{{ 'DOWNLOAD_EXCEL_REPORTS' | translate }}" (onClick)="exportExcelReports()"
               icon="pi pi-download" class="ui-button-success"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
             <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
