@@ -15,14 +15,14 @@
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <!-- <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelPatients()"
+            <!-- <p-button type="button" label="{{ 'DOWNLOAD_EXCEL_PATIENTS' | translate }}" (onClick)="exportExcelPatients()"
               icon="pi pi-download" class="ui-button-success"></p-button> -->
-            <p-button label="{{ 'New Permission' | translate }}" [disabled]="isAdmin()" (onClick)="createPermission()"
+            <p-button label="{{ 'NEW_PERMISSION' | translate }}" [disabled]="isAdmin()" (onClick)="createPermission()"
               icon="pi pi-cog" iconPos="left"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
             <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
@@ -73,7 +73,7 @@
 </div>
 
 <!-- Dialog Add New Permission -->
-<p-dialog header="{{ 'New Permission' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true"
+<p-dialog header="{{ 'NEW_PERMISSION' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true"
   [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true"
   [baseZIndex]="10">
   <form (ngSubmit)="submitPermission(newPermission)" #newForm="ngForm">
@@ -128,7 +128,7 @@
 </p-dialog>
 
 <!-- Dialog Update Permission -->
-<p-dialog header="{{ 'New Permission' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true"
+<p-dialog header="{{ 'NEW_PERMISSION' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true"
   [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true"
   [baseZIndex]="10">
   <form (ngSubmit)="submitUpdatePermission(permissionUpdate)" #updateForm="ngForm">
@@ -183,7 +183,7 @@
 </p-dialog>
 
 <!-- Dialog Details Permissions -->
-<p-dialog header="{{ 'Permission' | translate }} : {{ permissionDetail.nomPermission }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ 'PERMISSION' | translate }} : {{ permissionDetail.nomPermission }}" [(visible)]="displayDetailsDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
   <div>
     <div class="row" style="margin: 10px;">
