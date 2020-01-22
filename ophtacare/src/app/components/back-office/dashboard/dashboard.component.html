@@ -29,11 +29,11 @@
     <div class="mb-20 col" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
       <div fxFlex>
         <app-stat [bgClass]="'danger'" [icon]="'contacts'" [direction]="['#/patients']"
-          count="{{ totalPatients.list.length }}" label="{{ 'Ill' | translate }}"></app-stat>
+          count="{{ totalPatients.list.length }}" label="{{ 'SICK_PATIENTS' | translate }}"></app-stat>
       </div>
       <div fxFlex>
         <app-stat [bgClass]="'warn'" [icon]="'local_hospital'" [direction]="['#/medecins']"
-          count="{{ totalMedecins.list.length }}" label="{{ 'Specialists' | translate }}"></app-stat>
+          count="{{ totalMedecins.list.length }}" label="{{ 'SPECIALISTS' | translate }}"></app-stat>
       </div>
       <div fxFlex>
         <app-stat [bgClass]="'success'" [icon]="'visibility'" [direction]="['#/maladies']"
