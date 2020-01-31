@@ -20,7 +20,8 @@ export class NavTopComponent implements OnInit {
   public selectedLanguage;
   public isConnected;
 
-  constructor(private translate: TranslateService, private router: Router, private authenticationService: AuthenticationService,public dialog: MatDialog) {
+  constructor(private translate: TranslateService, private router: Router, private authenticationService: AuthenticationService,
+    public dialog: MatDialog) {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
         this.toggleSidebar();
@@ -60,14 +61,14 @@ export class NavTopComponent implements OnInit {
     dom.classList.toggle(this.pushRightClass);
   }
 
-  onLoggedout():void {
+  onLoggedout(): void {
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
         width: '350px',
-        data: "Do you want to logout?"
+        data: 'Do you want to logout?'
        // data:"{{'Do you want to logout?' | translate }}"//
       });
       dialogRef.afterClosed().subscribe(result => {
-        if(result) {
+        if (result) {
           console.log('Yes clicked');
           // DO SOMETHING
           this.authenticationService.logout();
