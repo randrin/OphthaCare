@@ -10,6 +10,7 @@ import saveAs from 'save-as';
 import { PermissionsService } from '../../../services/PermissionsServices';
 import { Permission } from '../../../models/permissions/permission';
 import { Permissions } from '../../../models/permissions/permissions';
+import { InitModelService } from '../../../services/initModelService';
 
 @Component({
   selector: 'app-administrateurs',
@@ -26,9 +27,9 @@ export class AdministrateursComponent implements OnInit {
   public activation: SelectItem[];
   public admins: Admins = {list: [] };
   public permissions: Permissions = { list: [] };
-  public admin = new Admin(0, '', '', '', '', '', '', '', '', '');
-  public newAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
-  public adminUpdate = new Admin(0, '', '', '', '', '', '', '', '', '');
+  public admin = this.initModelService.initModelAdmin();
+  public newAdmin = this.initModelService.initModelAdmin();
+  public adminUpdate = this.initModelService.initModelAdmin();
   public userPermission = new Permission(0, '', false, false, false, false, false, '', '');
   public displayDetailsDialog;
   public displayNewDialog;
@@ -40,7 +41,7 @@ export class AdministrateursComponent implements OnInit {
 
   constructor(private administrateurService: AdministrateursService, private authenticationService: AuthenticationService,
     private confirmationService: ConfirmationService, private messageService: MessageService,
-    private permissionsService: PermissionsService) {
+    private permissionsService: PermissionsService, private initModelService: InitModelService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'pseudoAdmin', header: 'pseudoAdmin' },
@@ -132,7 +133,7 @@ export class AdministrateursComponent implements OnInit {
             detail: 'Administrateur enregistré.'
           });
           this.getAdminsitrateurs();
-          this.newAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
+          this.newAdmin = this.initModelService.initModelAdmin();
           this.displayNewDialog = false;
         }
       },
@@ -178,7 +179,7 @@ export class AdministrateursComponent implements OnInit {
             detail: 'Administrateur ajourné.'
           });
           this.getAdminsitrateurs();
-          this.adminUpdate = new Admin(0, '', '', '', '', '', '', '', '', '');
+          this.adminUpdate = this.initModelService.initModelAdmin();
           this.displayUpdateDialog = false;
         }
       },
@@ -290,7 +291,7 @@ export class AdministrateursComponent implements OnInit {
   closeDialog () {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newAdmin = new Admin(0, '', '', '', '', '', '', '', '', '');
-    this.adminUpdate = new Admin(0, '', '', '', '', '', '', '', '', '');
+    this.newAdmin = this.initModelService.initModelAdmin();
+    this.adminUpdate = this.initModelService.initModelAdmin();
   }
 }
