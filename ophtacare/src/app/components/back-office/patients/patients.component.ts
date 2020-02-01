@@ -8,6 +8,7 @@ import * as moment from 'moment';
 import { Patients } from '../../../models/patients/patients';
 import { Patient } from '../../../models/patients/patient';
 import { DashboardService } from '../../../services/dashboardService';
+import { InitModelService } from '../../../services/initModelService';
 @Component({
   selector: 'app-patients',
   providers: [ConfirmationService],
@@ -27,9 +28,9 @@ export class PatientsComponent implements OnInit {
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
-  public patient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-  public newPatient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-  public patientUpdate = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
+  public patient = this.initModelService.initModelPatient();
+  public newPatient = this.initModelService.initModelPatient();
+  public patientUpdate = this.initModelService.initModelPatient();
   public blocked;
   public minDate: Date = new Date ('01/01/1927');
   public maxDate: Date = new Date ('01/01/2030');
@@ -37,7 +38,7 @@ export class PatientsComponent implements OnInit {
 
   constructor(private patientsService: PatientsService, private messageService: MessageService,
     private authenticationService: AuthenticationService, private confirmationService: ConfirmationService,
-    private dashboardService: DashboardService) {
+    private dashboardService: DashboardService, private initModelService: InitModelService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'codePatient', header: 'codePatient' },
@@ -110,7 +111,7 @@ export class PatientsComponent implements OnInit {
             detail: 'Patient enregistré.'
           });
           this.getPatients();
-          this.newPatient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
+          this.newPatient = this.initModelService.initModelPatient();
           this.displayNewDialog = false;
         }
       },
@@ -148,7 +149,7 @@ export class PatientsComponent implements OnInit {
             detail: 'Patient ajourné.'
           });
           this.getPatients();
-          this.patientUpdate = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
+          this.patientUpdate = this.initModelService.initModelPatient();
           this.displayUpdateDialog = false;
         }
       },
@@ -272,7 +273,7 @@ export class PatientsComponent implements OnInit {
   closeDialog () {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newPatient = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
-    this.patientUpdate = new Patient(0, '', '', '', '', '', '', '', 0, '', 0, 0, '', 0);
+    this.newPatient = this.initModelService.initModelPatient();
+    this.patientUpdate = this.initModelService.initModelPatient();
   }
 }

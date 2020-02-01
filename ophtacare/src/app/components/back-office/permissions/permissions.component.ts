@@ -5,6 +5,7 @@ import { Permission } from '../../../models/permissions/permission';
 import { PermissionsService } from '../../../services/PermissionsServices';
 import { AuthenticationService } from '../../../services/authenticationService';
 import { SelectItem, MessageService } from 'primeng/api';
+import { InitModelService } from '../../../services/initModelService';
 
 @Component({
   selector: 'app-permissions',
@@ -21,12 +22,12 @@ export class PermissionsComponent implements OnInit {
   public displayUpdateDialog;
   public displayDetailsDialog;
   public permissions: Permissions = { list: [] };
-  public permissionDetail = new Permission(0, '', false, false, false, false, false, '', '');
-  public newPermission = new Permission(0, '', false, false, false, false, false, '', '');
-  public permissionUpdate = new Permission(0, '', false, false, false, false, false, '', '');
+  public permissionDetail = this.initModelService.initModelPermission();
+  public newPermission = this.initModelService.initModelPermission();
+  public permissionUpdate = this.initModelService.initModelPermission();
 
   constructor(private permissionsService: PermissionsService, private authenticationService: AuthenticationService,
-    private messageService: MessageService, private confirmationService: ConfirmationService) {
+    private messageService: MessageService, private confirmationService: ConfirmationService, private initModelService: InitModelService) {
     this.cols = [
       { field: 'detail', header: 'detail' },
       { field: 'nomPermission', header: 'roleAdmin' },
@@ -119,7 +120,7 @@ export class PermissionsComponent implements OnInit {
             detail: 'Permission enregistré.'
           });
           this.getAllPermissions();
-          this.newPermission = new Permission(0, '', false, false, false, false, false, '', '');
+          this.newPermission = this.initModelService.initModelPermission();
           this.displayNewDialog = false;
         }
       },
@@ -157,7 +158,7 @@ export class PermissionsComponent implements OnInit {
             detail: 'Permission ajourné.'
           });
           this.getAllPermissions();
-          this.permissionUpdate = new Permission(0, '', false, false, false, false, false, '', '');
+          this.permissionUpdate = this.initModelService.initModelPermission();
           this.displayUpdateDialog = false;
         }
       },
@@ -222,6 +223,6 @@ export class PermissionsComponent implements OnInit {
   closeDialog() {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newPermission = new Permission(0, '', false, false, false, false, false, '', '');
+    this.newPermission = this.initModelService.initModelPermission();
   }
 }

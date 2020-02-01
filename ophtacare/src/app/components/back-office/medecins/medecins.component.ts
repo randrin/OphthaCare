@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import { Medecin } from '../../../models/medecins/medecin';
 import { Professions } from '../../../models/professions/professions';
 import { ProfessionsMedecinsService } from '../../../services/professionsMedecinsService';
+import { InitModelService } from '../../../services/initModelService';
 
 @Component({
   selector: 'app-medecins',
@@ -30,9 +31,9 @@ export class MedecinsComponent implements OnInit {
   public addProfession;
   public medecins: Medecins = { list: [] };
   public professions;
-  public medecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
-  public newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
-  public medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
+  public medecin = this.initModelService.initModelMedecin();
+  public newMedecin = this.initModelService.initModelMedecin();
+  public medecinUpdate = this.initModelService.initModelMedecin();
   public response = {
     code: 0,
     message: ''
@@ -40,7 +41,7 @@ export class MedecinsComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService, private medecinsService: MedecinsService,
     private messageService: MessageService, private confirmationService: ConfirmationService,
-    private professionsMedecinsService: ProfessionsMedecinsService) {
+    private professionsMedecinsService: ProfessionsMedecinsService, private initModelService: InitModelService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'matriculeMedecin', header: 'matriculeMedecin' },
@@ -85,10 +86,10 @@ export class MedecinsComponent implements OnInit {
       response => {
         if (response.json() != null) {
           this.professions = response.json();
-          console.log("Length Professions: ", response.json().length);
-          console.log("Fuori add professions ...");
+          console.log('Length Professions: ', response.json().length);
+          console.log('Fuori add professions ...');
           if (response.json().length > 0) {
-            console.log("Dentro add professions ...");
+            console.log('Dentro add professions ...');
             this.addProfession = true;
           }
         }
@@ -139,7 +140,7 @@ export class MedecinsComponent implements OnInit {
             detail: 'Médecin enregistré.'
           });
           this.getMedecins();
-          this.newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
+          this.newMedecin = this.initModelService.initModelMedecin();
           this.displayNewDialog = false;
         }
       },
@@ -177,7 +178,7 @@ export class MedecinsComponent implements OnInit {
             detail: 'Medecin ajourné.'
           });
           this.getMedecins();
-          this.medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
+          this.medecinUpdate = this.initModelService.initModelMedecin();
           this.displayUpdateDialog = false;
         }
       },
@@ -288,7 +289,7 @@ export class MedecinsComponent implements OnInit {
   closeDialog () {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newMedecin = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
-    this.medecinUpdate = new Medecin(0, '', '', '', 0, '', '', '', '', 0, 0, '');
+    this.newMedecin = this.initModelService.initModelMedecin();
+    this.medecinUpdate = this.initModelService.initModelMedecin();
   }
 }
