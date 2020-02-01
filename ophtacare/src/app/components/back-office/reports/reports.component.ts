@@ -35,7 +35,7 @@ export class ReportsComponent implements OnInit {
     ];
     this.getReports();
   }
-  
+
   getReports() {
     this.blocked = true;
     this.reportService.getAllReports(this.authenticationService.getUsername()).subscribe(
@@ -84,7 +84,7 @@ export class ReportsComponent implements OnInit {
       }
     );
   }
-  
+
   downloadReportsFile(data: any) {
     const blob = new Blob([data.blob()], { type: 'application/octet-stream' });
     saveAs(blob, 'Reports_OphthaCare.xlsx');

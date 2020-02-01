@@ -7,21 +7,21 @@
 <app-home></app-home>
 <div class="main-container">
   <div class="ophthacare-header-component">
-      {{ 'Admins Clinique' | translate }}
+      {{ 'CLINIC_ADMINS' | translate }}
   </div>
   <div>
     <p-table #dt [columns]="cols" [value]="admins.list" [paginator]="true" [rows]="10" selectionMode="single">
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Admins' | translate }}" (onClick)="exportExcelAdministrateurs()"
+            <p-button type="button" label="{{ 'DOWNLOAD_EXCEL_ADMINS' | translate }}" (onClick)="exportExcelAdministrateurs()"
               icon="pi pi-download" class="ui-button-success"></p-button>
-            <p-button label="{{ 'New Admin' | translate }}" (onClick)="createAdmin()"
+            <p-button label="{{ 'NEW_ADMIN' | translate }}" (onClick)="createAdmin()"
               icon="pi pi-users" iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
             <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
@@ -68,7 +68,7 @@
 </div>
 
 <!-- Dialog Add New Admin -->
-<p-dialog header="{{ 'New Admin' | translate }}" icon="pi pi-users" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ 'NEW_ADMIN' | translate }}" icon="pi pi-users" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true" [baseZIndex]="10">
   <form (ngSubmit)="submitAdmin(newAdmin)" #newForm="ngForm">
     <div class="container-fluid">

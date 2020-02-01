@@ -7,21 +7,21 @@
 <app-home></app-home>
 <div class="main-container">
   <div class="ophthacare-header-component">
-      {{ 'Maladies Clinique' | translate }}
+      {{ 'CLINIC_DISEASES' | translate }}
   </div>
   <div>
     <p-table #dt [columns]="cols" [value]="maladies.list" [paginator]="true" [rows]="10" selectionMode="single">
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Maladies' | translate }}" (onClick)="exportExcelMaladies()"
+            <p-button type="button" label="{{ 'DOWNLOAD_EXCEL_DISEASES' | translate }}" (onClick)="exportExcelMaladies()"
               icon="pi pi-download" class="ui-button-success"></p-button>
-            <p-button label="{{ 'New Maladie' | translate }}" [disabled]="isAdmin()" (onClick)="createMaladie()"
+            <p-button label="{{ 'NEW_DISEASE' | translate }}" [disabled]="isAdmin()" (onClick)="createMaladie()"
               icon="pi pi-eye" iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
             <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
@@ -67,7 +67,7 @@
 </div>
 
 <!-- Dialog Add New Maladie -->
-<p-dialog header="{{ 'New Maladie' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ 'NEW_DISEASE' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
   <form (ngSubmit)="submitMaladie(newMaladie)" #newForm="ngForm">
     <div class="container-fluid">
@@ -105,7 +105,7 @@
 </p-dialog>
 
 <!-- Dialog Update Maladie -->
-<p-dialog header="{{ 'Update Maladie' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
+<p-dialog header="{{ 'UPDATE_DISEASE' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true" [responsive]="true" [width]="1000"
   [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="false" [baseZIndex]="10">
   <form (ngSubmit)="submitUpdateMaladie(maladieUpdate)" #updateForm="ngForm">
     <div class="container-fluid">

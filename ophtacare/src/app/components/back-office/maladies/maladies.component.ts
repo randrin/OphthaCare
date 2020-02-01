@@ -6,6 +6,7 @@ import { Maladies } from '../../../models/maladies/maladies';
 import saveAs from 'save-as';
 import { Maladie } from '../../../models/maladies/maladie';
 import { ProfessionsMedecinsService } from '../../../services/professionsMedecinsService';
+import { InitModelService } from '../../../services/initModelService';
 
 @Component({
   selector: 'app-maladies',
@@ -22,9 +23,9 @@ export class MaladiesComponent implements OnInit {
   public displayUpdateDialog;
   public cols: any[];
   public professions;
-  public maladie = new Maladie(0, '', '', '', '');
-  public newMaladie = new Maladie(0, '', '', '', '');
-  public maladieUpdate = new Maladie(0, '', '', '', '');
+  public maladie = this.initModelService.initModelMaladie();
+  public newMaladie = this.initModelService.initModelMaladie();
+  public maladieUpdate = this.initModelService.initModelMaladie();
   public response = {
     code: 0,
     message: ''
@@ -32,7 +33,7 @@ export class MaladiesComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService, private confirmationService: ConfirmationService,
     private maladiesService: MaladiesService, private messageService: MessageService,
-    private professionsMedecinsService: ProfessionsMedecinsService) {
+    private professionsMedecinsService: ProfessionsMedecinsService, private initModelService: InitModelService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'codeMaladie', header: 'codeMaladie' },
@@ -110,7 +111,7 @@ export class MaladiesComponent implements OnInit {
             detail: 'Médecin enregistré.'
           });
           this.getMaladies();
-          this.newMaladie = new Maladie(0, '', '', '', '');
+          this.newMaladie = this.initModelService.initModelMaladie();
           this.displayNewDialog = false;
         }
       },
@@ -165,7 +166,7 @@ export class MaladiesComponent implements OnInit {
             detail: 'Maladie ajourné.'
           });
           this.getMaladies();
-          this.maladieUpdate = new Maladie(0, '', '', '', '');
+          this.maladieUpdate = this.initModelService.initModelMaladie();
           this.displayUpdateDialog = false;
         }
       },
@@ -266,7 +267,7 @@ export class MaladiesComponent implements OnInit {
   closeDialog () {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newMaladie = new Maladie(0, '', '', '', '');
-    this.maladieUpdate = new Maladie(0, '', '', '', '');
+    this.newMaladie = this.initModelService.initModelMaladie();
+    this.maladieUpdate = this.initModelService.initModelMaladie();
   }
 }
