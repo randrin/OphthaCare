@@ -8,21 +8,21 @@
 <app-home></app-home>
 <div class="main-container">
   <div class="ophthacare-header-component">
-      {{ 'Patients Clinique' | translate }}
+      {{ 'CLINIC_PATIENTS' | translate }}
   </div>
   <div>
     <p-table #dt [columns]="cols" [value]="patients.list" [paginator]="true" [rows]="10" selectionMode="single">
       <ng-template pTemplate="caption">
         <p-toolbar>
           <div class="ui-toolbar-group-left">
-            <p-button type="button" label="{{ 'Download Patients' | translate }}" (onClick)="exportExcelPatients()"
+            <p-button type="button" label="{{ 'DOWNLOAD_EXCEL_PATIENTS' | translate }}" (onClick)="exportExcelPatients()"
               icon="pi pi-download" class="ui-button-success"></p-button>
-            <p-button label="{{ 'New Patient' | translate }}" [disabled]="isAdmin()" (onClick)="createPatient()"
+            <p-button label="{{ 'NEW_PATIENT' | translate }}" [disabled]="isAdmin()" (onClick)="createPatient()"
               icon="pi pi-user-plus" iconPos="left" class="ophthacare-datatables-toolbar"></p-button>
           </div>
           <div class="ui-toolbar-group-right">
             <i class="pi pi-search" class="ophthacare-datatables-toolbar-search"></i>
-            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'Filter' | translate }}"
+            <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" class="ophthacare-datatables-toolbar-input">
             <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" class="ophthacare-datatables-toolbar"></p-button>
@@ -73,7 +73,7 @@
 </div>
 
 <!-- Dialog Add New Patient -->
-<p-dialog header="{{ 'New Patient' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true"
+<p-dialog header="{{ 'NEW_PATIENT' | translate }}" [(visible)]="displayNewDialog" [modal]="true" [responsive]="true"
   [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25" [maximizable]="true"
   [baseZIndex]="10">
   <form (ngSubmit)="submitPatient(newPatient)" #newForm="ngForm">
@@ -174,7 +174,7 @@
 </p-dialog>
 
 <!-- Dialog Update Patient -->
-<p-dialog header="{{ 'Update Patient' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true"
+<p-dialog header="{{ 'UPDATE_PATIENT' | translate }}" [(visible)]="displayUpdateDialog" [modal]="true"
   [responsive]="true" [width]="1000" [minWidth]="700" [draggable]="false" [resizable]="false" [positionTop]="25"
   [maximizable]="true" [baseZIndex]="10">
   <form (ngSubmit)="submitUpdatePatient(patientUpdate)" #updateForm="ngForm">

@@ -51,17 +51,18 @@ export class DashboardComponent implements OnInit {
   public lineChartOptions: any = {
     maintainAspectRatio: true,
     legend: {
-      display: true
+      display: true,
+      titleFontColor: '#ffffff'
     },
     tooltips: {
-      backgroundColor: "#f5f5f5",
-      titleFontColor: "#333",
-      bodyFontColor: "#666",
+      backgroundColor: '#f5f5f5',
+      titleFontColor: '#333',
+      bodyFontColor: '#666',
       bodySpacing: 4,
       xPadding: 12,
-      //mode: "nearest",
+      mode: 'nearest',
       intersect: 0,
-      position: "nearest"
+      position: 'nearest'
     },
     responsive: true,
     scales: {
@@ -70,14 +71,14 @@ export class DashboardComponent implements OnInit {
           barPercentage: 1.6,
           gridLines: {
             drawBorder: false,
-            color: "rgba(29,140,248,0.0)",
-            zeroLineColor: "transparent"
+            color: 'ffffff',
+            zeroLineColor: 'transparent'
           },
           ticks: {
-            suggestedMin: 50,
-            suggestedMax: 110,
+            suggestedMin: 60,
+            suggestedMax: 125,
             padding: 20,
-            fontColor: "#ff8a76"
+            fontColor: '#ffffff'
           }
         }
       ],
@@ -86,18 +87,19 @@ export class DashboardComponent implements OnInit {
           barPercentage: 1.6,
           gridLines: {
             drawBorder: false,
-            color: "rgba(220,53,69,0.1)",
-            zeroLineColor: "transparent"
+            color: 'ffffff',
+            zeroLineColor: 'transparent'
           },
           ticks: {
             padding: 20,
-            fontColor: "#ff8a76"
+            fontColor: '#ffffff'
           }
         }
       ]
     }
   };
-  public lineChartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  public lineChartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+  'October', 'November', 'December'];
   public lineChartType: string;
   public lineChartLegend: boolean;
   public lineChartData: any[] = [
@@ -106,14 +108,16 @@ export class DashboardComponent implements OnInit {
       backgroundColor: 'rgba(128, 0, 0, .1)',
       borderColor: 'rgba(209, 36, 32)',
       borderWidth: 2,
-      data: [65, 59, 80, 81, 56, 55, 40, 45, 59, 68, 56, 32]
+      color: '#ffffff',
+      data: [65, 70, 80, 81, 56, 55, 40, 45, 59, 68, 56, 60]
     },
     {
       label: 'Patients Non-soignés',
       backgroundColor: 'rgba(0, 0, 255, .1)',
       borderColor: 'rgba(79, 29, 218)',
       borderWidth: 2,
-      data: [28, 48, 40, 19, 86, 27, 90, 89, 34, 3, 56, 11]
+      color: '#ffffff',
+      data: [60, 48, 40, 19, 86, 65, 90, 89, 68, 79, 69, 11]
     }
   ];
 

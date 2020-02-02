@@ -7,6 +7,7 @@ import { Profession } from '../../../models/professions/profession';
 import { Professions } from '../../../models/professions/professions';
 import saveAs from 'save-as';
 import * as moment from 'moment';
+import { InitModelService } from '../../../services/initModelService';
 
 @Component({
   selector: 'app-professionsmedecins',
@@ -22,16 +23,16 @@ export class ProfessionsMedecinsComponent implements OnInit {
   public displayDetailsDialog;
   public displayNewDialog;
   public displayUpdateDialog;
-  public profession = new Profession(0, '', '', '');
-  public newProfession = new Profession(0, '', '', '');
-  public professionUpdate = new Profession(0, '', '', '');
+  public profession = this.initModelService.initModelProfessionMedecin();
+  public newProfession = this.initModelService.initModelProfessionMedecin();
+  public professionUpdate = this.initModelService.initModelProfessionMedecin();
   public response = {
     code: 0,
     message: ''
   };
 
   constructor(private professionsMedecinsService: ProfessionsMedecinsService, private messageService: MessageService,
-    private authenticationService: AuthenticationService, private confirmationService: ConfirmationService) {
+    private authenticationService: AuthenticationService, private confirmationService: ConfirmationService, private initModelService: InitModelService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'codeProfession', header: 'codeProfession' },
@@ -139,7 +140,7 @@ export class ProfessionsMedecinsComponent implements OnInit {
             detail: 'Profession enregistré.'
           });
           this.getProfessions();
-          this.newProfession = new Profession(0, '', '', '');
+          this.newProfession = this.initModelService.initModelProfessionMedecin();
           this.displayNewDialog = false;
         }
       },
@@ -185,7 +186,7 @@ export class ProfessionsMedecinsComponent implements OnInit {
             detail: 'Profession ajourné.'
           });
           this.getProfessions();
-          this.professionUpdate = new Profession(0, '', '', '');
+          this.professionUpdate = this.initModelService.initModelProfessionMedecin();
           this.displayUpdateDialog = false;
         }
       },
@@ -250,7 +251,7 @@ export class ProfessionsMedecinsComponent implements OnInit {
   closeDialog () {
     this.displayNewDialog = false;
     this.displayUpdateDialog = false;
-    this.newProfession = new Profession(0, '', '', '');
-    this.professionUpdate = new Profession(0, '', '', '');
+    this.newProfession = this.initModelService.initModelProfessionMedecin();
+    this.professionUpdate = this.initModelService.initModelProfessionMedecin();
   }
 }

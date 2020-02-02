@@ -80,3 +80,9 @@ ul {
 .navLeft-multiple-level {
   padding-left: 15px;
 }
+.scroll-navLeft {
+  top: -56px !important;
+}
+.sidebar-top {
+  top: 56px !important;
+}

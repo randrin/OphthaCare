@@ -32,6 +32,9 @@ ul.ophthacare-privacy li a {
 ul.ophthacare-privacy li a:hover {
     color: #fff;
 }
+ul.ophthacare-links li {
+    padding: 5px 0px;
+}
 ul.ophthacare-links li a {
     text-decoration: none;
     color: #fff;
@@ -90,10 +93,11 @@ ul.ophthacare-socials li a .fa-linkedin-square:hover {
     border-bottom: 1px solid #fff;
 }
 .ophthacare-footer-title {
-    padding: 15px 0px 0px;
+    padding: 15px 0px;
 }
 .ophthacare-content {
     display: grid;
     text-align: justify !important;
     margin: 0px 35px 0px 0px;
+    padding: 0px 35px 0px 0px;
 }

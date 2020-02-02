@@ -7,11 +7,14 @@
 <app-home></app-home>
 <div class="main-container">
   <div class="row">
-    <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="10px">
+    <div class="mb-20 col" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="10px">
       <div fxFlex>
         <mat-card>
           <mat-card-header>
-            <mat-card-title>Line Chart</mat-card-title>
+            <div class="ophthacare-lineChart">
+              <mat-card-title class="ophthacare-lineChart-title">{{ 'TOTAL_PATIENT' | translate }}</mat-card-title>
+              <mat-card-title class="ophthacare-lineChart-subtitle">{{ 'PERFORMANCE' | translate }}</mat-card-title>
+            </div>
           </mat-card-header>
           <mat-card-content>
             <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
@@ -23,14 +26,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+    <div class="mb-20 col" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
       <div fxFlex>
         <app-stat [bgClass]="'danger'" [icon]="'contacts'" [direction]="['#/patients']"
-          count="{{ totalPatients.list.length }}" label="{{ 'Ill' | translate }}"></app-stat>
+          count="{{ totalPatients.list.length }}" label="{{ 'SICK_PATIENTS' | translate }}"></app-stat>
       </div>
       <div fxFlex>
         <app-stat [bgClass]="'warn'" [icon]="'local_hospital'" [direction]="['#/medecins']"
-          count="{{ totalMedecins.list.length }}" label="{{ 'Specialists' | translate }}"></app-stat>
+          count="{{ totalMedecins.list.length }}" label="{{ 'SPECIALISTS' | translate }}"></app-stat>
       </div>
       <div fxFlex>
         <app-stat [bgClass]="'success'" [icon]="'visibility'" [direction]="['#/maladies']"
@@ -43,7 +46,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+    <div class="mb-20 col-md-4" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
       <div fxFlex>
         <mat-card>
           <mat-card-header>
@@ -56,6 +59,8 @@
           </mat-card-content>
         </mat-card>
       </div>
+    </div>
+    <div class="mb-20 col-md-4" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
       <div fxFlex>
         <mat-card>
           <mat-card-header>
@@ -67,6 +72,20 @@
           </mat-card-content>
         </mat-card>
       </div>
+    </div>
+    <div class="mb-20 col-md-4" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+        <div fxFlex>
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Bar Chart</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+            </mat-card-content>
+          </mat-card>
+        </div>
     </div>
   </div>
   <!-- <div class="container">

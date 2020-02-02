@@ -10,7 +10,6 @@ import { HomeComponent } from './components/back-office/home/home.component';
 import { LoginComponent } from './components/back-office/login/login.component';
 import { AuthenticationService } from './services/authenticationService';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
@@ -56,8 +55,8 @@ import {
   MatChipsModule,
   MatCheckboxModule, MatPaginatorModule,
 } from '@angular/material';
-import { NavTopComponent } from './components/layout/nav-top/nav-top.component';
-import { NavLeftComponent } from './components/layout/nav-left/nav-left.component';
+import { NavTopComponent } from './components/layout/back-office/nav-top/nav-top.component';
+import { NavLeftComponent } from './components/layout/back-office/nav-left/nav-left.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -76,18 +75,24 @@ import { MaladiesComponent } from './components/back-office/maladies/maladies.co
 import { ProfessionsMedecinsComponent } from './components/back-office/professionsMedecins/professionsMedecins.component';
 import { ProfessionsMedecinsService } from './services/professionsMedecinsService';
 import { ReportsComponent } from './components/back-office/reports/reports.component';
-import { FooterComponent } from './components/layout/footer/footer.component';
+import { FooterComponent } from './components/layout/back-office/footer/footer.component';
 import { ProfilComponent } from './components/back-office/profil/profil.component';
 import { PermissionsService } from './services/PermissionsServices';
 import { PermissionsComponent } from './components/back-office/permissions/permissions.component';
 import { ConfirmationDialogComponent } from './components/back-office/confirmation-dialog/confirmation-dialog.component';
 import { ValidationEmailComponent } from './components/back-office/validation-email/validation-email.component';
+import { AppRoutingModule } from './app.routing';
 import { FaqsComponent } from './components/site/faqs/faqs.component';
 import { SupportComponent } from './components/site/support/support.component';
 import { TeamComponent } from './components/site/team/team.component';
 import { OphthacareComponent } from './components/site/ophthacare/ophthacare.component';
 import { ContactComponent } from './components/site/contact/contact.component';
 import { PlatformComponent } from './components/site/platform/platform.component';
+import { TermsAndConditionsComponent } from './components/site/terms-and-conditions/terms-and-conditions.component';
+import { LegalNoticeComponent } from './components/site/legal-notice/legal-notice.component';
+import { PrivacyPolicyComponent } from './components/site/privacy-policy/privacy-policy.component';
+import { PageNotFoundComponent } from './components/site/page-not-found/page-not-found.component';
+import { InitModelService } from './services/initModelService';
 
 
 // AoT requires an exported function for factories
@@ -101,24 +106,6 @@ export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 };
 
-const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'patients', component: PatientsComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'administrateurs', component: AdministrateursComponent },
-  { path: 'medecins', component: MedecinsComponent },
-  { path: 'maladies', component: MaladiesComponent },
-  { path: 'professions', component: ProfessionsMedecinsComponent },
-  { path: 'reports', component: ReportsComponent },
-  { path: 'profil', component: ProfilComponent },
-  { path: 'permissions', component: PermissionsComponent },
-  { path: 'opththacare', component: OphthacareComponent },
-  { path: 'platform', component: PlatformComponent },
-  { path: 'team', component: TeamComponent },
-  { path: 'support', component: SupportComponent },
-  { path: 'contact', component: ContactComponent }
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -144,7 +131,10 @@ const appRoutes: Routes = [
     OphthacareComponent,
     ContactComponent,
     PlatformComponent,
-   
+    TermsAndConditionsComponent,
+    LegalNoticeComponent,
+    PrivacyPolicyComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -153,6 +143,7 @@ const appRoutes: Routes = [
     Ng2Charts,
     CommonModule,
     HttpModule,
+    AppRoutingModule,
     ButtonModule,
     TableModule,
     DataTableModule,
@@ -206,7 +197,6 @@ const appRoutes: Routes = [
     FlexLayoutModule.withConfig({ addFlexToParent: false }),
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -232,7 +222,8 @@ const appRoutes: Routes = [
     MaladiesService,
     MessageService,
     ConfirmationService,
-    AuthGuard
+    AuthGuard,
+    InitModelService
   ],
 
   bootstrap: [AppComponent]

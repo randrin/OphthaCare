@@ -54,9 +54,9 @@
     <hr class="separator-footer">
     <div class="row">
       <ul class="ophthacare-privacy">
-          <li><a href="#">{{ 'legalNotice' | translate }}</a></li> •
-          <li><a href="#">{{ 'termsAndConditions' | translate }}</a></li> •
-          <li><a href="#">{{ 'privacyPolicy' | translate }}</a></li>
+          <li><a [routerLink]="['/legal-notice']">{{ 'legalNotice' | translate }}</a></li> •
+          <li><a [routerLink]="['/terms-conditions']">{{ 'termsAndConditions' | translate }}</a></li> •
+          <li><a [routerLink]="['/privacy-policy']" >{{ 'privacyPolicy' | translate }}</a></li>
       </ul>
     </div>
   </div>
