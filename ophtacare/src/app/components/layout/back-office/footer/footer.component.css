@@ -23,7 +23,7 @@ ul.ophthacare-links {
 ul.ophthacare-privacy {
     list-style-type: none;
     display: flex;
-    margin: auto;
+    margin: 30px auto;
 }
 ul.ophthacare-privacy li a {
     padding: 0px 10px;
@@ -100,4 +100,20 @@ ul.ophthacare-socials li a .fa-linkedin-square:hover {
     text-align: justify !important;
     margin: 0px 35px 0px 0px;
     padding: 0px 35px 0px 0px;
+}
+.ophthacare-store-container {
+    display: flow-root;
+    margin: 0px 50px;
+}
+.ophthacare-icon-store {
+    width: 150px;
+    height: 50px;
+    width: 150px;
+    height: 50px;
+    margin: 0 5px;
+    background: white;
+    border-radius: 5px;
+}
+.ophthacare-store {
+    float: right;
 }
