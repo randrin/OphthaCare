@@ -165,5 +165,7 @@
     "price": "Our Price",
     "news": "News",
     "TOTAL_PATIENT": "Total Patient",
-    "PERFORMANCE": "Performance"
+    "PERFORMANCE": "Performance",
+    "Appointments":"Appointments",
+    "APPOINTMENTS":"APPOINTMENTS"
 }
