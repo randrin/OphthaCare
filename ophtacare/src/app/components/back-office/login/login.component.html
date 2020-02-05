@@ -40,7 +40,10 @@
                             <b class="ophthacare-button-text">{{ 'Login' | translate }}</b>
                         </button>
                     </div>
-                    <br>
+                <div class="ophthacare-login-password">
+                    {{ 'PASSWORD_FORGOT' | translate }} 
+                    <a href="#" class="ophthacare-reset-password">{{ 'PASSWORD_RESET' | translate }}</a>
+                </div>
                 </form>
             </mat-card-content>
         </mat-card>
@@ -85,13 +88,27 @@
                             <b class="ophthacare-button-text">{{ 'Login' | translate }}</b>
                         </button>
                     </div>
-                    <br>
+                    <div class="ophthacare-login-password">
+                        {{ 'PASSWORD_FORGOT' | translate }} 
+                        <a href="#" class="ophthacare-reset-password">{{ 'PASSWORD_RESET' | translate }}</a>
+                    </div>
                 </form>
             </mat-card-content>
         </mat-card>
     </mat-tab>
 </mat-tab-group>
 <div class="container-fluid">
+    <div class="row mr-auto ml-auto">
+        <div class="col-md-7 ophthacare-login-card">
+            <div class="row mr-auto ml-auto">
+                <div class="ophthacare-login-card-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                <div class="ophthacare-login-card-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+            </div>
+        </div>
+        <div class="col-md-4 ophthacare-login-card">
+            <div>Nous decouvrir</div>
+        </div>
+    </div>
     <div class="row mr-auto ml-auto">
         <div class="col-md-12 text-center">
             <h4 class="ophthacare-title blue-page-title">{{ 'need some help?' | translate }}</h4>
