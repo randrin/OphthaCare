@@ -166,10 +166,7 @@
     "news": "Novità",
     "TOTAL_PATIENT": "Totale Paziente",
     "PERFORMANCE": "Prestazione",
-<<<<<<< HEAD
     "PASSWORD_FORGOT": "Hai dimenticato/bloccati i tuoi credenziali?",
-    "PASSWORD_RESET": "Vai al reset"
-=======
-    "Appointments":"Appuntamento"
->>>>>>> 4f02461e9b170bde9a5d049e7884baf16de924cf
+    "PASSWORD_RESET": "Vai al reset",
+    "APPOINTMENTS":"Appuntamento"
 }
