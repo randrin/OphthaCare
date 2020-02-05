@@ -166,5 +166,7 @@
     "news": "Nouveautès",
     "TOTAL_PATIENT": "Total Patient",
     "PERFORMANCE": "Performance",
-    "Appointments":"Rendez-vous"
+    "PASSWORD_FORGOT": "Avez-vous oublié/bloqué vos identifiants?",
+    "PASSWORD_RESET": "Allez à la réinitialisation",
+    "APPOINTMENTS":"Rendez-vous"
 }
