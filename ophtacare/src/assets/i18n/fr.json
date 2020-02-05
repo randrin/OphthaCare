@@ -165,5 +165,7 @@
     "price": "Nos Prix",
     "news": "Nouveautès",
     "TOTAL_PATIENT": "Total Patient",
-    "PERFORMANCE": "Performance"
+    "PERFORMANCE": "Performance",
+    "PASSWORD_FORGOT": "Avez-vous oublié/bloqué vos identifiants?",
+    "PASSWORD_RESET": "Allez à la réinitialisation"
 }

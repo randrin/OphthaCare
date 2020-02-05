@@ -165,5 +165,7 @@
     "price": "Nostri Prezzi",
     "news": "Novità",
     "TOTAL_PATIENT": "Totale Paziente",
-    "PERFORMANCE": "Prestazione"
+    "PERFORMANCE": "Prestazione",
+    "PASSWORD_FORGOT": "Hai dimenticato/bloccati i tuoi credenziali?",
+    "PASSWORD_RESET": "Vai al reset"
 }

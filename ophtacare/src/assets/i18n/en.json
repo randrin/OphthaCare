@@ -165,5 +165,7 @@
     "price": "Our Price",
     "news": "News",
     "TOTAL_PATIENT": "Total Patient",
-    "PERFORMANCE": "Performance"
+    "PERFORMANCE": "Performance",
+    "PASSWORD_FORGOT": "Have you forgotten/blocked yours credentials?",
+    "PASSWORD_RESET": "Go to reset"
 }
