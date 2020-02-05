@@ -166,6 +166,11 @@
     "news": "News",
     "TOTAL_PATIENT": "Total Patient",
     "PERFORMANCE": "Performance",
+<<<<<<< HEAD
     "PASSWORD_FORGOT": "Have you forgotten/blocked yours credentials?",
     "PASSWORD_RESET": "Go to reset"
+=======
+    "Appointments":"Appointments",
+    "APPOINTMENTS":"APPOINTMENTS"
+>>>>>>> 4f02461e9b170bde9a5d049e7884baf16de924cf
 }

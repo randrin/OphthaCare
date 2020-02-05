@@ -93,6 +93,7 @@ import { LegalNoticeComponent } from './components/site/legal-notice/legal-notic
 import { PrivacyPolicyComponent } from './components/site/privacy-policy/privacy-policy.component';
 import { PageNotFoundComponent } from './components/site/page-not-found/page-not-found.component';
 import { InitModelService } from './services/initModelService';
+import { AppointmentsComponent } from './components/back-office/appointments/appointments.component';
 
 
 // AoT requires an exported function for factories
@@ -134,7 +135,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     TermsAndConditionsComponent,
     LegalNoticeComponent,
     PrivacyPolicyComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AppointmentsComponent
   ],
   imports: [
     BrowserModule,
