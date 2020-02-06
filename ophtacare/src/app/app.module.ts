@@ -93,6 +93,8 @@ import { LegalNoticeComponent } from './components/site/legal-notice/legal-notic
 import { PrivacyPolicyComponent } from './components/site/privacy-policy/privacy-policy.component';
 import { PageNotFoundComponent } from './components/site/page-not-found/page-not-found.component';
 import { InitModelService } from './services/initModelService';
+import { AppointmentDetailComponent } from './components/back-office/appointments/appointment-detail/appointment-detail.component';
+import { CalendarComponent } from './components/back-office/appointments/calendar/calendar.component';
 import { AppointmentsComponent } from './components/back-office/appointments/appointments.component';
 
 
@@ -136,6 +138,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     LegalNoticeComponent,
     PrivacyPolicyComponent,
     PageNotFoundComponent,
+    AppointmentDetailComponent,
+    CalendarComponent,
     AppointmentsComponent
   ],
   imports: [
@@ -231,7 +235,6 @@ export const createTranslateLoader = (http: HttpClient) => {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
 
 
 

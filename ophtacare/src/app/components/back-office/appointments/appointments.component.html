@@ -1,2 +1,19 @@
 <app-nav-top></app-nav-top>
-<div>Ancora da pensare!!</div>
+<pre>
+  {{appointments|json}}
+  </pre>
+  <app-calendar [appointments]="appointments" 
+    (requestNewAppointment)="onRequestNewAppointment($event)"
+    (requestUpdateAppointment)="onRequestUpdateAppointment($event)"
+    (appointmentUpdated)="onAppointmentUpdated($event)">
+  </app-calendar>
+  <app-appointment-detail 
+    *ngIf="appointmentDetail" 
+    [isNew]="isNew" 
+    [appointment]="appointmentDetail" 
+    (add)="onAdd($event)"
+    (update)="onUpdate($event)"
+    (close)="onCloseAppointmentDetail()">
+  </app-appointment-detail>
+  
+  <app-footer></app-footer>
