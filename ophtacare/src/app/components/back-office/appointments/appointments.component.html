@@ -1,115 +1,125 @@
 <app-nav-top></app-nav-top>
 <br><br>
 <div class="container">
-    <div class="row">
-        <div class="instructions">
-            <h1 class="text-center">{{'Calendar' | translate}}</h1>
-           
-        </div>
+  <div class="row">
+    <div class="instructions">
+      <h1 class="text-center">{{'Calendar' | translate}}</h1>
     </div>
-    <br><br>
-    <div class="row">
-        <div class="calendar col-md-8 offset-md-2">
-            <div>
-                <div class="card-header bg-primary">
-                    <ul>
-                        <li id="month" class="text-white text-uppercase text-center">
-                        </li>
-                        <li id="year" class="text-white text-uppercase text-center">
-                        </li>
-                    </ul>
-                </div>
-                <table class="table calendar table-bordered table-responsive-sm" id="calendar">
-                    <thead>
-                        <tr class="weekdays bg-dark">
-                          <th scope="col" class="text-white text-center">{{'Mon' | translate}}</th>
-                          <th scope="col" class="text-white text-center">{{'Tus' | translate}}</th>
-                          <th scope="col" class="text-white text-center">{{'Wed' | translate}}</th>
-                          <th scope="col" class="text-white text-center">{{'Thu' | translate}}</th>
-                          <th scope="col" class="text-white text-center">{{'Fri' | translate}}</th>
-                          <th scope="col" class="text-white text-center">{{'Sat' | translate}}</th>
-                          <th scope="col" class="text-white text-center">{{'Sun' | translate}}</th>
-                        </tr>
-                      </thead>
-                    <tbody class="days bg-light" id="days"></tbody>
-                    <tfoot></tfoot>
-                </table>
-            </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="calendar col-md-8 offset-md-2">
+      <div>
+        <div class="card-header bg-primary">
+          <ul>
+            <li id="month" class="text-white text-uppercase text-center">
+            </li>
+            <li id="year" class="text-white text-uppercase text-center">
+            </li>
+          </ul>
         </div>
+        <table class="table calendar table-bordered table-responsive-sm" id="calendar">
+          <thead>
+            <tr class="weekdays bg-dark">
+              <th scope="col" class="text-white text-center">{{'Mon' | translate}}</th>
+              <th scope="col" class="text-white text-center">{{'Tus' | translate}}</th>
+              <th scope="col" class="text-white text-center">{{'Wed' | translate}}</th>
+              <th scope="col" class="text-white text-center">{{'Thu' | translate}}</th>
+              <th scope="col" class="text-white text-center">{{'Fri' | translate}}</th>
+              <th scope="col" class="text-white text-center">{{'Sat' | translate}}</th>
+              <th scope="col" class="text-white text-center">{{'Sun' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody class="days bg-light" id="days"></tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
     </div>
+  </div>
 
-    <br><br><br><hr>
+  <br><br><br>
+  <hr>
 
-    <div class="row">
-        <div class="col offset-md-1">
-            <form id="form_create_appointment">
-                <div class="form-row">
-                    <div class="col form-group">
-                        <label class="required">{{'Date' | translate}}</label>
-                        <input class="form-control date-input" type="text" id="date" data-trigger="hover" data-toggle="popover" title="Date" data-content="You can select any date from today clicking on the number in the calendar" required>
-                    </div>
-                    <div class="col form-group">
-                        <label>Description</label>
-                        <input class="form-control" type="text" id="description">
-                    </div>
-                </div>
-                <div class="form-row">
-                  <div class="col form-group">
-                      <label class="required">{{'Doctor' | translate}}</label>
-                      <input class="form-control date-input" type="text" id="date" data-trigger="hover" data-toggle="popover" title="Date" data-content="You can select any date from today clicking on the number in the calendar" required>
-                  </div>
-                  <div class="col form-group">
-                    <label class="required">{{'Patient Code' | translate}}</label>
-                    <input class="form-control date-input" type="text" id="date" data-trigger="hover" data-toggle="popover" title="Date" data-content="You can select any date from today clicking on the number in the calendar" required>
-                </div>
-              </div>
-                <div class="form-row">
-                    <div class="col form-group">
-                        <label class="required">{{'Start Time' | translate}}</label>
-                        <input class="form-control time-input" type="text" id="start_time" required>
-                    </div>
-                    <div class="col form-group">
-                        <label class="required">{{'End Time' | translate}}</label>
-                        <input class="form-control time-input" type="text" id="end_time" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col form-group">
-                        <button type="button" class="btn btn-warning btn-block" id="clear" onclick="clear_input()">{{'Clear Form' | translate}}</button>
-                    </div>
-                    <div class="col form-group">
-                        <button type="button" class="btn btn-primary btn-block" id="submit" onclick="make_appointment()" disabled="disabled">{{'Make Appointment' | translate}}</button>
-                    </div>
-                </div>
-            </form>
+  <div class="row">
+    <div class="col offset-md-1">
+      <form id="form_create_appointment">
+        <div class="form-row">
+          <div class="col form-group">
+            <label class="required">{{'Date' | translate}}</label>
+            <input class="form-control date-input" type="text" id="date" data-trigger="hover" data-toggle="popover"
+              title="Date" data-content="You can select any date from today clicking on the number in the calendar"
+              required>
+          </div>
+          <div class="col form-group">
+            <label>Description</label>
+            <input class="form-control" type="text" id="description">
+          </div>
         </div>
-        <div class="col offset-md-1">
-            <div class="row">
-                <div class="col">
-                    <h3>{{'Appointments' | translate}}</h3>
-                </div>
-                <div class="col form-group">
-                    <button type="button" class="btn btn-danger btn-block" id="btn_clear_storage" onclick="clear_storage()">{{'Clear Appointments' | translate}}</button>
-                </div>
-            </div>
-            <table class="table table-bordered table-hover table-striped table-sm" id="appointment_list">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" class="text-center align-middle">{{'Date' | translate}}</th>
-                        <th scope="col" class="text-center align-middle">{{'Description' | translate}}</th>
-                        <th scope="col" class="text-center align-middle">{{'Doctor' | translate}}</th>
-                        <th scope="col" class="text-center align-middle">{{'Patient code' | translate}}</th>
-                        <th scope="col" class="text-center align-middle">{{'Start time' | translate}}</th>
-                        <th scope="col" class="text-center align-middle">{{'End time' | translate}}</th>
-                        <th scope="col" class="text-center align-middle">{{'Action' | translate}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="form-row">
+          <div class="col form-group">
+            <label class="required">{{'Doctor' | translate}}</label>
+            <input class="form-control date-input" type="text" id="date" data-trigger="hover" data-toggle="popover"
+              title="Date" data-content="You can select any date from today clicking on the number in the calendar"
+              required>
+          </div>
+          <div class="col form-group">
+            <label class="required">{{'Patient Code' | translate}}</label>
+            <input class="form-control date-input" type="text" id="date" data-trigger="hover" data-toggle="popover"
+              title="Date" data-content="You can select any date from today clicking on the number in the calendar"
+              required>
+          </div>
         </div>
+        <div class="form-row">
+          <div class="col form-group">
+            <label class="required">{{'Start Time' | translate}}</label>
+            <input class="form-control time-input" type="text" id="start_time" required>
+          </div>
+          <div class="col form-group">
+            <label class="required">{{'End Time' | translate}}</label>
+            <input class="form-control time-input" type="text" id="end_time" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col form-group">
+            <button type="button" class="btn btn-warning btn-block" id="clear"
+              onclick="clear_input()">{{'Clear Form' | translate}}</button>
+          </div>
+          <div class="col form-group">
+            <button type="button" class="btn btn-primary btn-block" id="submit" onclick="make_appointment()"
+              disabled="disabled">{{'Make Appointment' | translate}}</button>
+          </div>
+        </div>
+      </form>
     </div>
-    <br><br><br><hr>
+    <div class="col offset-md-1">
+      <div class="row">
+        <div class="col">
+          <h3>{{'Appointments' | translate}}</h3>
+        </div>
+        <div class="col form-group">
+          <button type="button" class="btn btn-danger btn-block" id="btn_clear_storage"
+            onclick="clear_storage()">{{'Clear Appointments' | translate}}</button>
+        </div>
+      </div>
+      <table class="table table-bordered table-hover table-striped table-sm" id="appointment_list">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="text-center align-middle">{{'Date' | translate}}</th>
+            <th scope="col" class="text-center align-middle">{{'Description' | translate}}</th>
+            <th scope="col" class="text-center align-middle">{{'Doctor' | translate}}</th>
+            <th scope="col" class="text-center align-middle">{{'Patient code' | translate}}</th>
+            <th scope="col" class="text-center align-middle">{{'Start time' | translate}}</th>
+            <th scope="col" class="text-center align-middle">{{'End time' | translate}}</th>
+            <th scope="col" class="text-center align-middle">{{'Action' | translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br><br><br>
+  <hr>
 </div>
 <div></div>
 <!--<app-footer></app-footer>-->
