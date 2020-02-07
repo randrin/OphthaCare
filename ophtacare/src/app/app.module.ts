@@ -96,6 +96,7 @@ import { InitModelService } from './services/initModelService';
 import { AppointmentsComponent } from './components/back-office/appointments/appointments.component';
 
 
+
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
   /* for development
@@ -136,7 +137,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     LegalNoticeComponent,
     PrivacyPolicyComponent,
     PageNotFoundComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+
   ],
   imports: [
     BrowserModule,

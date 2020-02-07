@@ -171,5 +171,17 @@
   "APPOINTMENTS": "APPOINTMENTS",
   "PAGE_NOT_FOUND_TITLE": "We're sorry. The page you are searching for no longer exists.",
   "PAGE_NOT_FOUND_SUBTITLE": "Please, contact Customer Care for assistance at 803.160 (from Monday to Saturday from 8.00 am to 8.00 pm) or write to ophthacare-assistance@gmail.com.",
-  "BACK_TO_HOME": "Back to Home Page"
+  "BACK_TO_HOME": "Back to Home Page",
+  "Calendar":"Calendar",
+  "Date": "Date",
+  "Description":"Description",
+  "Doctor":"Doctor",
+  "Patient Code":"Patient Code",
+  "Start Time":"Start Time",
+  "End Time":"End Time",
+  "Clear Form":"Clear Form",
+  "Make Appointment":"Make Appointment",
+  "Appointments":"Appointments",
+  "Clear Appointments":"Clears Appointments",
+  "Action":"Action"
 }
