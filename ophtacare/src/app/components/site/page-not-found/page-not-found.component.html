@@ -1,14 +1,27 @@
 
 <app-nav-top></app-nav-top>
 <div class="page-wrap d-flex flex-row align-items-center">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-                <span class="display-1 d-block">404</span>
-                <div class="mb-4 lead">The page you are looking for was not found.</div>
-                <a [routerLink]="['/login']" class="btn btn-link">Back to Home</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 mr-auto ml-auto text-center">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="/assets/images/moving-eyes.gif" title="OphthaCare Clinique" class="ophthacare-error-image" />
+          </div>
+          <div class="col-md-8">
+            <span class="ophthacare-page-not-found-message">404</span>
+            <div class="ophthacare-page-not-found-title">{{ 'PAGE_NOT_FOUND_TITLE' | translate }}</div>
+            <div class="ophthacare-page-not-found-subtitle">{{ 'PAGE_NOT_FOUND_SUBTITLE' | translate }}</div>
+            <div class="ophthacare-page-not-found-cta">
+              <a [routerLink]="['/login']" class="ophthacare-button ophthacare-lg red-outline-btn">
+                <mat-icon>chevron_left</mat-icon>
+                <b class="ophthacare-button-text">{{ 'BACK_TO_HOME' | translate }}</b>
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <app-footer></app-footer>

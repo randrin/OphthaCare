@@ -23,7 +23,7 @@ ul.ophthacare-links {
 ul.ophthacare-privacy {
     list-style-type: none;
     display: flex;
-    margin: 30px auto;
+    margin: 0px auto 20px;
 }
 ul.ophthacare-privacy li a {
     padding: 0px 10px;
@@ -86,7 +86,7 @@ ul.ophthacare-socials li a .fa-linkedin-square:hover {
 .separator-footer {
     border: 1px solid #fff;
     width: 50%;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 .ophthacare-description {
     padding: 0px 0px 20px;
@@ -116,4 +116,45 @@ ul.ophthacare-socials li a .fa-linkedin-square:hover {
 }
 .ophthacare-store {
     float: right;
+}
+.ophthacare-footer-contraste,
+.ophthacare-footer-texte {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 0 1.5625rem .95rem;
+}
+.ophthacare-footer-contraste-icon,
+.ophthacare-footer-texte-icon {
+  cursor: pointer;
+  display: inline-block;
+  padding: .625rem .3125rem 0;
+  color: #fff;
+}
+.ophthacare-footer-contraste-icon-selection {
+  opacity: 1;
+  padding-bottom: .3125rem;
+}
+.ophthacare-footer-contraste-icon-point,
+.ophthacare-footer-texte-icon-point {
+  width: .375rem;
+  height: .375rem;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #fff;
+}
+.ophthacare-footer-container {
+  display: flex;
+  border: 1px solid #fff;
+  margin-top: 1.25rem;
+}
+.ophthacare-footer-fa-icon-1 {
+  font-size: .85rem;
+}
+.ophthacare-footer-fa-icon-2 {
+  font-size: 1.15rem;
+}
+.ophthacare-footer-fa-icon-3 {
+  font-size: 1.75rem;
 }
