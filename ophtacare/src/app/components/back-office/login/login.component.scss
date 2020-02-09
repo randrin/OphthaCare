@@ -1,6 +1,8 @@
 .ophthacare-login-wrapper {
   background-image: url('/assets/images/OphthaCare-background.png');
-  background-size: cover;
+  background-size: contain;
+  background-repeat: round;
+  background-position: initial;
 }
 img {
   border-radius: 50%;
