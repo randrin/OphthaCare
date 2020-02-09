@@ -23,7 +23,7 @@ import { PrivacyPolicyComponent } from './components/site/privacy-policy/privacy
 import { LegalNoticeComponent } from './components/site/legal-notice/legal-notice.component';
 import { TermsAndConditionsComponent } from './components/site/terms-and-conditions/terms-and-conditions.component';
 import { PageNotFoundComponent } from './components/site/page-not-found/page-not-found.component';
-import {AppointmentsComponent}   from './components/back-office/appointments/appointments.component'
+import { AppointmentsComponent } from './components/back-office/appointments/appointments.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
