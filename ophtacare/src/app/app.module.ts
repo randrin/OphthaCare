@@ -94,6 +94,7 @@ import { PrivacyPolicyComponent } from './components/site/privacy-policy/privacy
 import { PageNotFoundComponent } from './components/site/page-not-found/page-not-found.component';
 import { InitModelService } from './services/initModelService';
 import { AppointmentsComponent } from './components/back-office/appointments/appointments.component';
+import { Footer2Component } from './components/layout/back-office/footer2/footer2.component';
 
 
 
@@ -138,7 +139,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     PrivacyPolicyComponent,
     PageNotFoundComponent,
     AppointmentsComponent,
-
+    Footer2Component,
   ],
   imports: [
     BrowserModule,
