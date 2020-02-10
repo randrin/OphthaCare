@@ -1,4 +1,3 @@
-
 .footer{
     height:50px;
        width: 100%;
@@ -9,6 +8,10 @@
        background-color:#910d18;
        text-align: center
     };
-   #link{
-    color:white; 
+
+body.a{
+       color: white;
+    };
+#link{
+       color:white; 
    }
