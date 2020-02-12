@@ -1,5 +1,16 @@
 .ophtha-message-confirmation {
     text-align: center;
+    display: grid;
+}
+.ophtha-attention {
+    margin: 20px;
+}
+.ophtha-message {
+    margin: 10px;
+    border-bottom: 1px solif #ffffff;
+}
+.fa-exclamation-circle:before {
+    font-size: 60px;
 }
 .ophtha-cta-confirmation {
     text-align: center;

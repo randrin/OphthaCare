@@ -1,7 +1,9 @@
 <div mat-dialog-content class="ophtha-message-confirmation">
-  {{ message | translate }}
+  <i class="fa fa-exclamation-circle"></i>
+  <span class="ophtha-attention">{{ 'MESSAGE_ATTENTION' | translate }}</span>
+  <span class="ophtha-message">{{ message | translate }}</span>
 </div>
 <div mat-dialog-actions class="ophtha-cta-confirmation">
-  <button mat-button (click)="onNoClick()" class="ophthacare-button white-btn">{{ 'No' | translate }}</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="ophthacare-button red-btn">{{ 'Yes' | translate }}</button>
+  <button mat-button (click)="onNoClick()" class="ophthacare-button white-btn">{{ 'MODAL_DIALOG_NO' | translate }}</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="ophthacare-button red-btn">{{ 'MODAL_DIALOG_YES' | translate }}</button>
 </div>

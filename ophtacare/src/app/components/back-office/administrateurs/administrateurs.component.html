@@ -23,7 +23,7 @@
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
             <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+            <p-button label="{{ 'RESET_FILTER' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
         </p-toolbar>
@@ -74,11 +74,11 @@
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
-          <label for="nomAdmin"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="nomAdmin"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="nomAdmin" name="nomAdmin" [(ngModel)]="newAdmin.nomAdmin" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
-          <label for="prenomAdmin"><b>{{ 'lastName' | translate }}</b></label>
+          <label for="prenomAdmin"><b>{{ 'LAST_NAME' | translate }}</b></label>
           <input type="text" id="prenomAdmin" name="prenomAdmin" [(ngModel)]="newAdmin.prenomAdmin" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
@@ -121,11 +121,11 @@
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-4">
-          <label for="nomAdmin"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="nomAdmin"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="nomAdmin" name="nomAdmin" [(ngModel)]="adminUpdate.nomAdmin" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
-          <label for="prenomAdmin"><b>{{ 'lastName' | translate }}</b></label>
+          <label for="prenomAdmin"><b>{{ 'LAST_NAME' | translate }}</b></label>
           <input type="text" id="prenomAdmin" name="prenomAdmin" [(ngModel)]="adminUpdate.prenomAdmin" pInputText class="form-control" required />
         </div>
         <div class="col-md-4">
@@ -172,12 +172,12 @@
             </p-card>
         </div>
         <div class="col-md-3">
-            <p-card header="{{ 'firstName' | translate }}" [style]="{width: '200px'}">
+            <p-card header="{{ 'FIRST_NAME' | translate }}" [style]="{width: '200px'}">
                 <div>{{ admin.nomAdmin }}</div>
             </p-card>
         </div>
         <div class="col-md-3">
-            <p-card header="{{ 'lastName' | translate }}" [style]="{width: '200px'}">
+            <p-card header="{{ 'LAST_NAME' | translate }}" [style]="{width: '200px'}">
                 <div>{{ admin.prenomAdmin }}</div>
             </p-card>
         </div>
