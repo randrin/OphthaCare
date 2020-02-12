@@ -37,7 +37,7 @@ export class MaladiesComponent implements OnInit {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'codeMaladie', header: 'codeMaladie' },
-        { field: 'nomMaladie', header: 'firstName' },
+        { field: 'nomMaladie', header: 'FIRST_NAME' },
         { field: 'descMaladie', header: 'descProfession' },
         { field: 'medecinMaladie', header: 'medecinMaladie' },
         { field: 'detail', header: 'modify' },
