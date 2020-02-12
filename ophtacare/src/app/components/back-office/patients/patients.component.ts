@@ -41,10 +41,10 @@ export class PatientsComponent implements OnInit {
     private dashboardService: DashboardService, private initModelService: InitModelService) {
       this.cols = [
         { field: 'detail', header: 'detail' },
-        { field: 'codePatient', header: 'codePatient' },
-        { field: 'nomPatient', header: 'firstName' },
-        { field: 'prenomPatient', header: 'lastName' },
-        { field: 'sexePatient', header: 'sex' },
+        { field: 'CODE_PATIENT', header: 'CODE_PATIENT' },
+        { field: 'nomPatient', header: 'FIRST_NAME' },
+        { field: 'prenomPatient', header: 'LAST_NAME' },
+        { field: 'sexePatient', header: 'GENDER' },
         { field: 'dateNaisPatient', header: 'dateOfBorn' },
         // { field: 'agePatient', header: 'year' },
         // { field: 'emailPatient', header: 'email' },

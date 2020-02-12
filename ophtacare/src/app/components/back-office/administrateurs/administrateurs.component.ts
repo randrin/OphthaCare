@@ -45,8 +45,8 @@ export class AdministrateursComponent implements OnInit {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'pseudoAdmin', header: 'pseudoAdmin' },
-        { field: 'nomAdmin', header: 'firstName' },
-        { field: 'prenomAdmin', header: 'lastName' },
+        { field: 'nomAdmin', header: 'FIRST_NAME' },
+        { field: 'prenomAdmin', header: 'LAST_NAME' },
         { field: 'roleAdmin', header: 'roleAdmin' },
         { field: 'emailAdmin', header: 'email' },
         { field: 'detail', header: 'modify' },

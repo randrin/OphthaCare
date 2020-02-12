@@ -45,9 +45,9 @@ export class MedecinsComponent implements OnInit {
       this.cols = [
         { field: 'detail', header: 'detail' },
         { field: 'matriculeMedecin', header: 'matriculeMedecin' },
-        { field: 'nomMedecin', header: 'firstName' },
-        { field: 'prenomMedecin', header: 'lastName' },
-        { field: 'sexeMedecin', header: 'sex' },
+        { field: 'nomMedecin', header: 'FIRST_NAME' },
+        { field: 'prenomMedecin', header: 'LAST_NAME' },
+        { field: 'sexeMedecin', header: 'GENDER' },
         { field: 'professionMedecin', header: 'nomProfession' },
         { field: 'dateNaisMedecin', header: 'dateOfBorn' },
         // { field: 'ageMedecin', header: 'year' },
