@@ -23,7 +23,7 @@
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
             <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+            <p-button label="{{ 'RESET_FILTER' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
         </p-toolbar>
@@ -75,15 +75,15 @@
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-3">
-          <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="firstname"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="firstname" name="firstname" [(ngModel)]="newMedecin.nomMedecin" pInputText class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
+          <label for="lastname"><b>{{ 'LAST_NAME' | translate }}</b></label>
           <input type="text" id="lastname" name="lastname" [(ngModel)]="newMedecin.prenomMedecin" pInputText class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
+          <label for="sex"><b>{{ 'GENDER' | translate }}</b></label><br>
           <p-selectButton id="sex" name="sex" [(ngModel)]="newMedecin.sexeMedecin" [options]="gender" required></p-selectButton>
         </div>
         <div class="col-md-3">
@@ -134,15 +134,15 @@
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-3">
-          <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="firstname"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="firstname" name="firstname" [(ngModel)]="medecinUpdate.nomMedecin" pInputText class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
+          <label for="lastname"><b>{{ 'LAST_NAME' | translate }}</b></label>
           <input type="text" id="lastname" name="lastname" [(ngModel)]="medecinUpdate.prenomMedecin" pInputText class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
+          <label for="sex"><b>{{ 'GENDER' | translate }}</b></label><br>
           <p-selectButton id="sex" name="sex" [(ngModel)]="medecinUpdate.sexeMedecin" [options]="gender" required></p-selectButton>
         </div>
         <div class="col-md-3">
@@ -198,12 +198,12 @@
           </p-card>
       </div>
       <div class="col-md-3">
-          <p-card header="{{ 'firstName' | translate }}" [style]="{width: '200px'}">
+          <p-card header="{{ 'FIRST_NAME' | translate }}" [style]="{width: '200px'}">
               <div>{{ medecin.nomMedecin }}</div>
           </p-card>
       </div>
       <div class="col-md-3">
-          <p-card header="{{ 'lastName' | translate }}" [style]="{width: '200px'}">
+          <p-card header="{{ 'LAST_NAME' | translate }}" [style]="{width: '200px'}">
               <div>{{ medecin.prenomMedecin }}</div>
           </p-card>
       </div>
@@ -215,7 +215,7 @@
     </div>
     <div class="row" style="margin: 10px;">
       <div class="col-md-3">
-        <p-card header="{{ 'sex' | translate }}" [style]="{width: '200px'}">
+        <p-card header="{{ 'GENDER' | translate }}" [style]="{width: '200px'}">
             <div>{{ medecin.sexeMedecin }}</div>
         </p-card>
     </div>
