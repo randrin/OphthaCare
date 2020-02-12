@@ -31,17 +31,45 @@ export class NavTopComponent implements OnInit {
 
   ngOnInit() {
     this.pushRightClass = 'push-right';
-    this.monthNames = [ 'January', 'February', 'March', 'April', 'May',
-    'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
-    this.dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    this.setMonthNames();
+    this.setDayNames();
     this.isConnected = localStorage.getItem('isConnected');
     this.selectedLanguage = localStorage.getItem('selectedLanguage') ? localStorage.getItem('selectedLanguage') : 'fr';
     this.getCurrentTime();
   }
 
+  setMonthNames() {
+    this.monthNames = [
+      this.translate.instant('MONTH_JANUARY'),
+      this.translate.instant('MONTH_FEBRUARY'),
+      this.translate.instant('MONTH_MARCH'),
+      this.translate.instant('MONTH_APRIL'),
+      this.translate.instant('MONTH_MAY'),
+      this.translate.instant('MONTH_JUNE'),
+      this.translate.instant('MONTH_JULY'),
+      this.translate.instant('MONTH_AUGUST'),
+      this.translate.instant('MONTH_SEPTEMBER'),
+      this.translate.instant('MONTH_OCTOBER'),
+      this.translate.instant('MONTH_NOVEMBER'),
+      this.translate.instant('MONTH_DECEMBER')
+    ];
+  }
+
+  setDayNames() {
+    this.dayNames = [
+      this.translate.instant('DAY_SUNDAY'),
+      this.translate.instant('DAY_MONDAY'),
+      this.translate.instant('DAY_TUESDAY'),
+      this.translate.instant('DAY_WEDNESDAY'),
+      this.translate.instant('DAY_THURDAY'),
+      this.translate.instant('DAY_FRIDAY'),
+      this.translate.instant('DAY_SATURDAY')
+    ];
+  }
+
   getCurrentTime() {
     // Setting current date
-    this.CurrentDate =this.dayNames[new Date().getDay()] + ', ' + new Date().getDate() + ' '
+    this.CurrentDate = this.dayNames[new Date().getDay()] + ', ' + new Date().getDate() + ' '
     + this.monthNames[new Date().getMonth()] + ' ' + new Date().getFullYear();
 
     // Setting current time
@@ -63,14 +91,11 @@ export class NavTopComponent implements OnInit {
 
   onLoggedout(): void {
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-        width: '350px',
-        data: 'Do you want to logout?'
-       // data:"{{'Do you want to logout?' | translate }}"//
+        data: 'DO_YOU_WANT_TO_LOGOUT'
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
-          console.log('Yes clicked');
-          // DO SOMETHING
+          console.log('User clicked logout');
           this.authenticationService.logout();
           localStorage.removeItem('admin');
           localStorage.removeItem('isConnected');
@@ -83,5 +108,12 @@ export class NavTopComponent implements OnInit {
     this.selectedLanguage = language;
     localStorage.setItem('selectedLanguage', language);
     this.translate.use(language);
+    this.setCurrentTime();
+  }
+
+  setCurrentTime() {
+    this.setMonthNames();
+    this.setDayNames();
+    this.getCurrentTime();
   }
 }
