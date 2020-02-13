@@ -1,7 +1,7 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" class="ophthacare-loading">
-  <img src="/assets/images/giphy.gif" title="Leopard" class="ophthacare-loading-image" />
+  <img src="/assets/images/giphy.gif" title="OphthaCare Clinique" class="ophthacare-loading-image" />
 </div>
 
 <app-home></app-home>
@@ -23,7 +23,7 @@
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
             <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+            <p-button label="{{ 'RESET_FILTER' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
         </p-toolbar>
@@ -73,7 +73,7 @@
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-6">
-          <label for="nomMaladie"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="nomMaladie"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="nomMaladie" name="nomMaladie" [(ngModel)]="newMaladie.nomMaladie" pInputText class="form-control" required />
         </div>
         <div class="col-md-6">
@@ -111,7 +111,7 @@
     <div class="container-fluid">
       <div class="row" style="margin: 15px;">
         <div class="col-md-6">
-          <label for="nomMaladie"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="nomMaladie"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="nomMaladie" name="nomMaladie" [(ngModel)]="maladieUpdate.nomMaladie" pInputText class="form-control" required />
         </div>
         <div class="col-md-6">
@@ -153,7 +153,7 @@
             </p-card>
         </div>
         <div class="col-md-4">
-          <p-card header="{{ 'firstName' | translate }}" [style]="{width: '200px'}">
+          <p-card header="{{ 'FIRST_NAME' | translate }}" [style]="{width: '200px'}">
               <div>{{ maladie.nomMaladie }}</div>
           </p-card>
       </div>

@@ -1,146 +1,147 @@
 <app-nav-top></app-nav-top>
-<mat-tab-group>
+<div class="container-fluid ophthacare-login-wrapper">
+  <mat-tab-group>
     <!-- Login Administrateurs -->
     <mat-tab label="{{ 'Admins' | translate }}">
-        <mat-card id="ophthacare">
-            <mat-card-title class="ophthacare-matCard-title">
-                LogIn {{ 'Admins' | translate }}
-            </mat-card-title>
-            <mat-card-content>
-                <form (ngSubmit)="loginAdmin()" #loginFormAdmin="ngForm">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-8 ophthacare-login">
-                                <mat-form-field appearance="outline" class="demo-full-width">
-                                    <mat-label>{{ 'pseudoAdmin' | translate }}</mat-label>
-                                    <mat-icon matPrefix class="ophthacare-matIcon-position">account_circle</mat-icon>
-                                    <input matInput placeholder="Username" name="username" [(ngModel)]="admin.nomAdmin"
-                                        type="text">
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-8 ophthacare-login">
-                                <mat-form-field appearance="outline" class="demo-full-width">
-                                    <mat-label>{{ 'password' | translate }}</mat-label>
-                                    <mat-icon matPrefix class="ophthacare-matIcon-position">vpn_key</mat-icon>
-                                    <input matInput placeholder="Password" name="password" [(ngModel)]="admin.password"
-                                        [type]="hide ? 'password' : 'text'">
-                                    <mat-icon matSuffix (click)="hide = !hide" class="hide-show-password">
-                                        {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="panel-footer">
-                        <button class="ophthacare-button white-btn" [disabled]="!loginFormAdmin.form.valid" type="submit">
-                            <mat-icon>done_all</mat-icon>
-                            <b class="ophthacare-button-text">{{ 'Login' | translate }}</b>
-                        </button>
-                    </div>
-                <div class="ophthacare-login-password">
-                    {{ 'PASSWORD_FORGOT' | translate }} 
-                    <a href="#" class="ophthacare-reset-password">{{ 'PASSWORD_RESET' | translate }}</a>
+      <mat-card id="ophthacare">
+        <mat-card-title class="ophthacare-matCard-title">
+          LogIn {{ 'Admins' | translate }}
+        </mat-card-title>
+        <mat-card-content>
+          <form (ngSubmit)="loginAdmin()" #loginFormAdmin="ngForm">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8 ophthacare-login">
+                  <mat-form-field appearance="outline" class="demo-full-width">
+                    <mat-label>{{ 'pseudoAdmin' | translate }}</mat-label>
+                    <mat-icon matPrefix class="ophthacare-matIcon-position">account_circle</mat-icon>
+                    <input matInput placeholder="Username" name="username" [(ngModel)]="admin.nomAdmin" type="text">
+                  </mat-form-field>
                 </div>
-                </form>
-            </mat-card-content>
-        </mat-card>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-8 ophthacare-login">
+                  <mat-form-field appearance="outline" class="demo-full-width">
+                    <mat-label>{{ 'password' | translate }}</mat-label>
+                    <mat-icon matPrefix class="ophthacare-matIcon-position">vpn_key</mat-icon>
+                    <input matInput placeholder="Password" name="password" [(ngModel)]="admin.password"
+                      [type]="hide ? 'password' : 'text'">
+                    <mat-icon matSuffix (click)="hide = !hide" class="hide-show-password">
+                      {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-footer">
+              <button class="ophthacare-button white-btn" [disabled]="!loginFormAdmin.form.valid" type="submit">
+                <mat-icon>done_all</mat-icon>
+                <b class="ophthacare-button-text">{{ 'LOGIN' | translate }}</b>
+              </button>
+            </div>
+            <div class="ophthacare-login-password">
+              {{ 'PASSWORD_FORGOT' | translate }} 
+              <a href="#" class="ophthacare-reset-password">{{ 'PASSWORD_RESET' | translate }}</a>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
     </mat-tab>
     <!-- Login Personnels -->
     <mat-tab label="{{ 'SPECIALISTS' | translate }}">
-        <mat-card id="ophthacare" class="personnel-section">
-            <mat-card-title class="ophthacare-matCard-title">
-                LogIn {{ 'SPECIALISTS' | translate }}
-            </mat-card-title>
-            <mat-card-content>
-                <form (ngSubmit)="loginPersonnel()" #loginForm="ngForm">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-8 ophthacare-login">
-                                <mat-form-field appearance="outline" class="demo-full-width">
-                                    <mat-label>{{ 'matriculeMedecin' | translate }}</mat-label>
-                                    <mat-icon matPrefix class="ophthacare-matIcon-position">person_outline</mat-icon>
-                                    <input matInput placeholder="Matricule" name="matricule"
-                                        [(ngModel)]="medecin.matriculeMedecin" type="text">
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-8 ophthacare-login">
-                                <mat-form-field appearance="outline" class="demo-full-width">
-                                    <mat-label>{{ 'password' | translate }}</mat-label>
-                                    <mat-icon matPrefix class="ophthacare-matIcon-position">vpn_key</mat-icon>
-                                    <input matInput placeholder="Password" name="password"
-                                        [(ngModel)]="medecin.password" [type]="hide ? 'password' : 'text'">
-                                    <mat-icon matSuffix (click)="hide = !hide" class="hide-show-password">
-                                        {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="panel-footer">
-                        <button class="ophthacare-button white-btn" [disabled]="!loginForm.form.valid" type="submit">
-                            <mat-icon>done_all</mat-icon>
-                            <b class="ophthacare-button-text">{{ 'Login' | translate }}</b>
-                        </button>
-                    </div>
-                    <div class="ophthacare-login-password">
-                        {{ 'PASSWORD_FORGOT' | translate }} 
-                        <a href="#" class="ophthacare-reset-password">{{ 'PASSWORD_RESET' | translate }}</a>
-                    </div>
-                </form>
-            </mat-card-content>
-        </mat-card>
-    </mat-tab>
-</mat-tab-group>
-<div class="container-fluid">
-    <div class="row mr-auto ml-auto">
-        <div class="col-md-7 ophthacare-login-card">
-            <div class="row mr-auto ml-auto">
-                <div class="ophthacare-login-card-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                <div class="ophthacare-login-card-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+      <mat-card id="ophthacare" class="personnel-section">
+        <mat-card-title class="ophthacare-matCard-title">
+          LogIn {{ 'SPECIALISTS' | translate }}
+        </mat-card-title>
+        <mat-card-content>
+          <form (ngSubmit)="loginPersonnel()" #loginForm="ngForm">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8 ophthacare-login">
+                  <mat-form-field appearance="outline" class="demo-full-width">
+                    <mat-label>{{ 'matriculeMedecin' | translate }}</mat-label>
+                    <mat-icon matPrefix class="ophthacare-matIcon-position">person_outline</mat-icon>
+                    <input matInput placeholder="Matricule" name="matricule"
+                      [(ngModel)]="medecin.matriculeMedecin" type="text">
+                  </mat-form-field>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-8 ophthacare-login">
+                  <mat-form-field appearance="outline" class="demo-full-width">
+                    <mat-label>{{ 'password' | translate }}</mat-label>
+                    <mat-icon matPrefix class="ophthacare-matIcon-position">vpn_key</mat-icon>
+                    <input matInput placeholder="Password" name="password"
+                      [(ngModel)]="medecin.password" [type]="hide ? 'password' : 'text'">
+                    <mat-icon matSuffix (click)="hide = !hide" class="hide-show-password">
+                      {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
             </div>
+            <br>
+            <div class="panel-footer">
+              <button class="ophthacare-button white-btn" [disabled]="!loginForm.form.valid" type="submit">
+                <mat-icon>done_all</mat-icon>
+                <b class="ophthacare-button-text">{{ 'LOGIN' | translate }}</b>
+              </button>
+            </div>
+            <div class="ophthacare-login-password">
+              {{ 'PASSWORD_FORGOT' | translate }} 
+              <a href="#" class="ophthacare-reset-password">{{ 'PASSWORD_RESET' | translate }}</a>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+  <div class="container-fluid">
+    <div class="row mr-auto ml-auto">
+      <div class="col-md-8 ophthacare-login-card-large">
+        <div class="row mr-auto ml-auto">
+          <div class="ophthacare-login-card-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+          <div class="ophthacare-login-card-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
         </div>
-        <div class="col-md-4 ophthacare-login-card">
-            <div>Nous decouvrir</div>
-        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="ophthacare-login-card-small">Nous decouvrir</div>
+      </div>
     </div>
     <div class="row mr-auto ml-auto">
-        <div class="col-md-12 text-center">
-            <h4 class="ophthacare-title blue-page-title">{{ 'need some help?' | translate }}</h4>
-        </div>
+      <div class="col-md-12 text-center">
+        <h4 class="ophthacare-title blue-page-title">{{ 'need some help?' | translate }}</h4>
+      </div>
     </div>
     <div class="content-cta-login col-md-10 mr-auto ml-auto text-center">
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#" class="ophthacare-button ophthacare-lg blue-btn">
-                    <mat-icon>call</mat-icon>
-                    <b class="ophthacare-button-text">{{ 'call-us' | translate }}</b>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="ophthacare-button ophthacare-lg blue-btn">
-                    <mat-icon>border_color</mat-icon>
-                    <b class="ophthacare-button-text">{{ 'write-us' | translate }}</b>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="ophthacare-button ophthacare-lg blue-btn">
-                    <mat-icon>place</mat-icon>
-                    <b class="ophthacare-button-text">{{ 'come to clinic' | translate }}</b>
-                </a>
-            </div>
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#" class="ophthacare-button ophthacare-lg blue-btn">
+            <mat-icon>call</mat-icon>
+            <b class="ophthacare-button-text">{{ 'call-us' | translate }}</b>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="ophthacare-button ophthacare-lg blue-btn">
+            <mat-icon>border_color</mat-icon>
+            <b class="ophthacare-button-text">{{ 'write-us' | translate }}</b>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="ophthacare-button ophthacare-lg blue-btn">
+            <mat-icon>place</mat-icon>
+              <b class="ophthacare-button-text">{{ 'come to clinic' | translate }}</b>
+          </a>
+        </div>
       </div>
     </div>
     <div class="content-text-login col-md-8 mr-auto ml-auto text-center">
-        <div class="row">
-            {{ 'text-help' | translate }}
-        </div>
+      <div class="row">
+        {{ 'text-help' | translate }}
+      </div>
     </div>
+  </div>
 </div>
 <app-footer></app-footer>
 

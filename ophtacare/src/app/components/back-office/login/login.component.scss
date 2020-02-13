@@ -1,17 +1,20 @@
+.ophthacare-login-wrapper {
+  background-image: url('/assets/images/OphthaCare-background.png');
+  background-size: contain;
+  background-repeat: round;
+  background-position: initial;
+}
 img {
   border-radius: 50%;
 }
-
 .mat-toolbar {
   height: 100px;
 }
-
 #ophthacare {    
   max-width: 35%;    
   margin: 2em auto;    
   text-align: center;    
 }
-
 .header {
   display: inline-block;
   line-height: 32px;
@@ -20,11 +23,6 @@ img {
 }
 .mat-tab-group {
   padding-top: 150px;
-  background-color: #eff0f0;
-  background-image: url('/assets/images/OphthaCare-background.png');
-}
-.container-fluid {
-  background-color: #eff0f0;
 }
 .ophthacare-login {
   margin-left: auto; 
@@ -42,11 +40,16 @@ img {
   line-height: 30px;
   color: #63666a;
 }
-.ophthacare-login-card {
+.ophthacare-login-card-large {
   color: white;
   padding: 30px;
   background: #4f1dda;
-  margin: 35px;
+}
+.ophthacare-login-card-small {
+  background: #4f1dda;
+  color: white;
+  padding: 30px;
+  height: 245px;
 }
 .ophthacare-login-card-title {
   margin: 10px 0px;
@@ -59,4 +62,11 @@ img {
 .ophthacare-reset-password {
   color: #4f1dda;
   font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .ophthacare-login-card-small {
+    margin-top: 20px;
+    padding: 0px;
+  }
 }

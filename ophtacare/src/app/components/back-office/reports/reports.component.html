@@ -1,7 +1,7 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" class="ophthacare-loading">
-  <img src="/assets/images/giphy.gif" title="Leopard" class="ophthacare-loading-image" />
+  <img src="/assets/images/giphy.gif" title="OphthaCare Clinique" class="ophthacare-loading-image" />
 </div>
 
 <app-home></app-home>
@@ -21,7 +21,7 @@
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
             <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+            <p-button label="{{ 'RESET_FILTER' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" style="margin-left: 20px;"></p-button>
           </div>
         </p-toolbar>

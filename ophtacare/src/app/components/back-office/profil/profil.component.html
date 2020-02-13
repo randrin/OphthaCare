@@ -1,7 +1,7 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" class="ophthacare-loading">
-  <img src="/assets/images/giphy.gif" title="Leopard"
+  <img src="/assets/images/giphy.gif" title="OphthaCare Clinique"
     class="ophthacare-loading-image" />
 </div>
 
@@ -40,7 +40,7 @@
                 <div class="col-md-3 col-sm-6">
                   <label>
                     <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
-                    {{ 'firstName' | translate }}
+                    {{ 'FIRST_NAME' | translate }}
                   </label><br>
                   <mat-form-field appearance="outline">
                     <input matInput class="content-text-color" placeholder="{{profilAdmin.nomAdmin}}" disabled>
@@ -49,7 +49,7 @@
                 <div class="col-md-3 col-sm-6">
                   <label>
                     <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
-                    {{ 'lastName' | translate }}
+                    {{ 'LAST_NAME' | translate }}
                   </label><br>
                   <mat-form-field appearance="outline">
                     <input matInput class="content-text-color" placeholder="{{profilAdmin.prenomAdmin}}" disabled>
@@ -170,16 +170,16 @@
         <div class="row">
           <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
-              <mat-label>{{ 'firstName' | translate }}</mat-label>
+              <mat-label>{{ 'FIRST_NAME' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
-              <input matInput placeholder="{{ 'firstName' | translate }}" [(ngModel)]="profilAdmin.nomAdmin">
+              <input matInput placeholder="{{ 'FIRST_NAME' | translate }}" [(ngModel)]="profilAdmin.nomAdmin">
             </mat-form-field>
           </div>
           <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
-              <mat-label>{{ 'lastName' | translate }}</mat-label>
+              <mat-label>{{ 'LAST_NAME' | translate }}</mat-label>
               <mat-icon matPrefix class="ophthacare-matIcon-position">perm_identity</mat-icon>
-              <input matInput placeholder="{{ 'lastName' | translate }}" [(ngModel)]="profilAdmin.prenomAdmin">
+              <input matInput placeholder="{{ 'LAST_NAME' | translate }}" [(ngModel)]="profilAdmin.prenomAdmin">
             </mat-form-field>
           </div>
           <div class="col-md-3 col-sm-6">

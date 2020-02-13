@@ -1,7 +1,8 @@
+
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" class="ophthacare-loading">
-  <img src="/assets/images/giphy.gif" title="Leopard" class="ophthacare-loading-image" />
+  <img src="/assets/images/giphy.gif" title="OphthaCare Clinique" class="ophthacare-loading-image" />
 </div>
 
 <app-home></app-home>
@@ -37,7 +38,7 @@
       </div>
       <div fxFlex>
         <app-stat [bgClass]="'success'" [icon]="'visibility'" [direction]="['#/maladies']"
-          count="{{ totalMaladies.list.length }}" label="{{ 'Diseases' | translate }}"></app-stat>
+          count="{{ totalMaladies.list.length }}" label="{{ 'DISEASES' | translate }}"></app-stat>
       </div>
       <div fxFlex>
         <app-stat [bgClass]="'info'" [icon]="'supervisor_account'" [direction]="['#/administrateurs']"
@@ -99,3 +100,4 @@
         </div>
     </div> -->
 </div>
+<app-footer2></app-footer2>

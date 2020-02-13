@@ -1,7 +1,7 @@
 <p-blockUI [baseZIndex]="4500" [blocked]="blocked"></p-blockUI>
 
 <div *ngIf="blocked == true" class="ophthacare-loading">
-  <img src="/assets/images/giphy.gif" title="Leopard"
+  <img src="/assets/images/giphy.gif" title="OphthaCare Clinique"
     class="ophthacare-loading-image" />
 </div>
 
@@ -24,7 +24,7 @@
             <i class="pi pi-search" class="ophthacare-datatables-toolbar-search"></i>
             <input class="filter" type="text" pInputText size="50" placeholder="{{ 'FILTER' | translate }}"
               (input)="dt.filterGlobal($event.target.value, 'contains')" class="ophthacare-datatables-toolbar-input">
-            <p-button label="{{ 'Reset Filter' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
+            <p-button label="{{ 'RESET_FILTER' | translate }}" (click)="clearFilter(dt)" icon="pi pi-times"
               iconPos="left" class="ophthacare-datatables-toolbar"></p-button>
           </div>
         </p-toolbar>
@@ -81,17 +81,17 @@
     <div class="container-fluid">
       <div class="row ophthacare-datatables-row">
         <div class="col-md-3">
-          <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="firstname"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="firstname" name="firstname" [(ngModel)]="newPatient.nomPatient" pInputText
             class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
+          <label for="lastname"><b>{{ 'LAST_NAME' | translate }}</b></label>
           <input type="text" id="lastname" name="lastname" [(ngModel)]="newPatient.prenomPatient" pInputText
             class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
+          <label for="sex"><b>{{ 'GENDER' | translate }}</b></label><br>
           <p-selectButton id="sex" name="sex" [(ngModel)]="newPatient.sexePatient" [options]="gender" required>
           </p-selectButton>
         </div>
@@ -181,17 +181,17 @@
     <div class="container-fluid">
       <div class="row ophthacare-datatables-row">
         <div class="col-md-3">
-          <label for="firstname"><b>{{ 'firstName' | translate }}</b></label>
+          <label for="firstname"><b>{{ 'FIRST_NAME' | translate }}</b></label>
           <input type="text" id="firstname" name="firstname" [(ngModel)]="patientUpdate.nomPatient" pInputText
             class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="lastname"><b>{{ 'lastName' | translate }}</b></label>
+          <label for="lastname"><b>{{ 'LAST_NAME' | translate }}</b></label>
           <input type="text" id="lastname" name="lastname" [(ngModel)]="patientUpdate.prenomPatient" pInputText
             class="form-control" required />
         </div>
         <div class="col-md-3">
-          <label for="sex"><b>{{ 'sex' | translate }}</b></label><br>
+          <label for="sex"><b>{{ 'GENDER' | translate }}</b></label><br>
           <p-selectButton id="sex" name="sex" [(ngModel)]="patientUpdate.sexePatient" [options]="gender" required>
           </p-selectButton>
         </div>
@@ -272,17 +272,17 @@
         </p-card>
       </div>
       <div class="col-md-3">
-        <p-card header="{{ 'firstName' | translate }}" [style]="{width: '200px'}">
+        <p-card header="{{ 'FIRST_NAME' | translate }}" [style]="{width: '200px'}">
           <div>{{ patient.nomPatient }}</div>
         </p-card>
       </div>
       <div class="col-md-3">
-        <p-card header="{{ 'lastName' | translate }}" [style]="{width: '200px'}">
+        <p-card header="{{ 'LAST_NAME' | translate }}" [style]="{width: '200px'}">
           <div>{{ patient.prenomPatient }}</div>
         </p-card>
       </div>
       <div class="col-md-3">
-        <p-card header="{{ 'sex' | translate }}" [style]="{width: '200px'}">
+        <p-card header="{{ 'GENDER' | translate }}" [style]="{width: '200px'}">
           <div>{{ patient.sexePatient }}</div>
         </p-card>
       </div>
