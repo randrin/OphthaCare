@@ -172,5 +172,17 @@
   "APPOINTMENTS": "Appuntamento",
   "PAGE_NOT_FOUND_TITLE": "Siamo spiacenti. La pagina che stai cercando non esiste più.",
   "PAGE_NOT_FOUND_SUBTITLE": "Per favore, Contatta l'Assistenza Cliente al 803.160 (dal Lunedì al Sabato dalle 8.00 alle 20.00) oppure scrivere al ophthacare-assistance@gmail.com.",
-  "BACK_TO_HOME": "Ritorno Home Page"
+  "BACK_TO_HOME": "Ritorno Home Page",
+  "Calendar":"Calendario",
+  "Date": "Data",
+  "Description":"Descrizione",
+  "Doctor":"Dottore",
+  "Patient Code":"Codice Patiente",
+  "Start Time":"Inizio",
+  "End Time":"Fine",
+  "Clear Form":"Cancellare",
+  "Make Appointment":"Validare",
+  "Appointments":"Appuntamento",
+  "Clear Appointments":"Cancellare Appuntamento",
+  "Action":"Azione"
 }
