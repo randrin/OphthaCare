@@ -14,7 +14,7 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.initYear == this.currentYear) {
+    if (this.initYear === this.currentYear) {
       this.correct = true;
     }
   }

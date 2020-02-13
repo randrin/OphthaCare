@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterDashboardComponent implements OnInit {
 
+  public initYear = '2019';
+  public currentYear = new Date().getFullYear().toString();
+  public correct;
+
   constructor() { }
 
   ngOnInit() {
+    if (this.initYear === this.currentYear) {
+      this.correct = true;
+    }
   }
-
 }
+
