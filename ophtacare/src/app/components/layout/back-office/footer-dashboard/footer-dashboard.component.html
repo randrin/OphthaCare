@@ -1,0 +1,25 @@
+<div class="ophthacare-footer-dashboard-wrapper">
+  <div class="ophthacare-footer-dashboard-container">
+    <div class="row">
+      <div class="col-md-8 ophthacare-footer-dashboard-items">
+        <div class="row">
+          <div class="col-md-3">
+            <a [routerLink]="['/team']" class="ophthacare-footer-dashboard-link">{{ 'about-ophthacare' | translate }}</a>
+          </div>
+          <div class="col-md-3">
+            <a [routerLink]="['/platform']" class="ophthacare-footer-dashboard-link">{{ 'our-platform' | translate }}</a>
+          </div>
+          <div class="col-md-3">
+            <a [routerLink]="['/contact']" class="ophthacare-footer-dashboard-link">{{ 'contact-us' | translate }}</a>
+          </div>
+          <div class="col-md-3">
+            <a [routerLink]="['/support']" class="ophthacare-footer-dashboard-link">{{ 'support-ophthacare' | translate }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 ophthacare-footer-dashboard-items">
+        <span class="ophthacare-footer-dashboard-title">©{{ initYear }}<span *ngIf="!correct"> - {{ currentYear }}</span> OphthaCare {{ 'Clinic' |  translate }}.</span>
+      </div>
+    </div>
+  </div>
+</div>
