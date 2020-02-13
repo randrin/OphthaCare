@@ -1,0 +1,23 @@
+.ophthacare-footer-dashboard-wrapper {
+  height: auto;
+  width: 100%;
+  position: inherit;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#910d18;
+  text-align: center;
+}
+.ophthacare-footer-dashboard-container {
+  margin: 10px auto auto;
+}
+.ophthacare-footer-dashboard-items {
+  margin: 15px 0px;
+}
+body a {
+  color: white;
+  text-decoration: none;
+}
+#link{
+  color:white; 
+}

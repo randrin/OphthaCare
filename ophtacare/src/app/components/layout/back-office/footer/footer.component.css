@@ -108,11 +108,10 @@ ul.ophthacare-socials li a .fa-linkedin-square:hover {
 .ophthacare-icon-store {
     width: 150px;
     height: 50px;
-    width: 150px;
-    height: 50px;
     margin: 0 5px;
     background: white;
     border-radius:30px;
+    border: 1px solid white;
 }
 .ophthacare-store {
     float: right;
