@@ -94,6 +94,8 @@ import { PrivacyPolicyComponent } from './components/site/privacy-policy/privacy
 import { PageNotFoundComponent } from './components/site/page-not-found/page-not-found.component';
 import { InitModelService } from './services/initModelService';
 import { AppointmentsComponent } from './components/back-office/appointments/appointments.component';
+import { FooterDashboardComponent } from './components/layout/back-office/footer-dashboard/footer-dashboard.component';
+
 
 
 // AoT requires an exported function for factories
@@ -136,7 +138,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     LegalNoticeComponent,
     PrivacyPolicyComponent,
     PageNotFoundComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    FooterDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -231,7 +234,6 @@ export const createTranslateLoader = (http: HttpClient) => {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
 
 
 

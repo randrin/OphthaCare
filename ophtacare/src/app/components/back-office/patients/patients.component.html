@@ -70,6 +70,9 @@
 
   <!-- Dialog Confirmation Delete -->
   <p-confirmDialog [style]="{width: '550px'}"></p-confirmDialog>
+
+  <!-- Footer Dashboard -->
+  <app-footer-dashboard></app-footer-dashboard>
 </div>
 
 <!-- Dialog Add New Patient -->
@@ -120,7 +123,6 @@
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">Email is required</div>
           </div>
-        
       </div>
         <div class="col-md-4">
           <label for="cellularePhone"><b>{{ 'cellularePhone' | translate }}</b></label>

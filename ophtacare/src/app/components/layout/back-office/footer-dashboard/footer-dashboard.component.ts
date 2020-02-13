@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  selector: 'app-footer-dashboard',
+  templateUrl: './footer-dashboard.component.html',
+  styleUrls: ['./footer-dashboard.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterDashboardComponent implements OnInit {
 
   public initYear = '2019';
   public currentYear = new Date().getFullYear().toString();
@@ -19,3 +19,4 @@ export class FooterComponent implements OnInit {
     }
   }
 }
+
