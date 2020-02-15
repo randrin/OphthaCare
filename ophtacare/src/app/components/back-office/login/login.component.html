@@ -8,14 +8,14 @@
           LogIn {{ 'Admins' | translate }}
         </mat-card-title>
         <mat-card-content>
-          <form (ngSubmit)="loginAdmin()" #loginFormAdmin="ngForm">
+          <form (ngSubmit)="loginAdmin(loginFormAdmin.value)" #loginFormAdmin="ngForm">
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-8 ophthacare-login">
                   <mat-form-field appearance="outline" class="demo-full-width">
                     <mat-label>{{ 'pseudoAdmin' | translate }}</mat-label>
                     <mat-icon matPrefix class="ophthacare-matIcon-position">account_circle</mat-icon>
-                    <input matInput placeholder="Username" name="username" [(ngModel)]="admin.nomAdmin" type="text">
+                    <input matInput placeholder="Username" name="username" ngModel type="text">
                   </mat-form-field>
                 </div>
               </div>
@@ -25,7 +25,7 @@
                   <mat-form-field appearance="outline" class="demo-full-width">
                     <mat-label>{{ 'password' | translate }}</mat-label>
                     <mat-icon matPrefix class="ophthacare-matIcon-position">vpn_key</mat-icon>
-                    <input matInput placeholder="Password" name="password" [(ngModel)]="admin.password"
+                    <input matInput placeholder="Password" name="password" ngModel
                       [type]="hide ? 'password' : 'text'">
                     <mat-icon matSuffix (click)="hide = !hide" class="hide-show-password">
                       {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

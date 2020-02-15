@@ -24,19 +24,21 @@ export class LoginComponent implements OnInit {
     this.hide = true;
   }
 
-  loginAdmin() {
-    this.authenticationService.loginAdmin(this.admin).subscribe(
+  loginAdmin(admin) {
+    console.log('User logging: ', admin.username, ' - ', admin.password);
+    this.authenticationService.loginAdmin(admin).subscribe(
         data => {
-          this.responseData = data.json();
-          if (data.json().code != null) {
+          this.responseData = data;
+          console.log(' this.responseData: ',  this.responseData);
+          if (data != null) {
             this.messageService.add({
               sticky: false,
               severity: 'warn',
-              summary: data.json().code,
-              detail: data.json().message
+              // summary: data.json().code,
+              // detail: data.json().message
             });
           } else {
-            localStorage.setItem('admin', JSON.stringify(data.json()));
+            // localStorage.setItem('admin', JSON.stringify(data.json()));
             this.authenticationService.admin = this.responseData;
             this.messageService.add({
               sticky: false,

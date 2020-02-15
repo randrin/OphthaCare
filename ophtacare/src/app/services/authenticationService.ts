@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Http, Response, URLSearchParams, Headers, RequestOptions } from '@angular/http';
 import { Admin } from '../models/administrateurs/admin';
 import { Medecin } from '../models/medecins/medecin';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthenticationService {
@@ -16,11 +17,11 @@ export class AuthenticationService {
   public result;
 
   constructor(
-    public router: Router, private http: Http) {
+    public router: Router, private http: HttpClient) {
   }
 
   loginAdmin(admin) {
-    return this.getAdmin(admin);
+    return this.http.post(this.loginUrlAdmin, admin, {observe: 'response'});
   }
 
   loginPersonnel(medecin) {
