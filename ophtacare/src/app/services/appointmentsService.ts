@@ -7,7 +7,7 @@ import { Http, ResponseContentType, Headers } from '@angular/http';
 })
 export class AppointmentsService {
 
-    private appointmentExportUrl = window['baseUrl'] + '/excel/downloadExcelAppointments';
+    
     private appointmentsUrl = window['baseUrl'] + '/appointment/getAllAppointments';
     private appointmentUrlInsert = window['baseUrl'] + '/appointment/insert';
     private appointmentUrlUpdate = window['baseUrl'] + '/appointment/update';
@@ -15,7 +15,7 @@ export class AppointmentsService {
 
     constructor(public router: Router, private http: Http) {}
 
-    getAllAdmins(caller) {
+    getAllAppointments(caller) {
         const options = {
           headers: new Headers({
             'caller': caller
@@ -24,7 +24,7 @@ export class AppointmentsService {
         return this.http.get(this.appointmentsUrl, options);
     }
 
-    insertAdministrateur (appointment, caller) {
+    insertAppointments (appointment, caller) {
         const options = {
             headers: new Headers({
             'caller': caller
@@ -33,7 +33,7 @@ export class AppointmentsService {
         return this.http.put(this.appointmentUrlInsert, appointment, options);
     }
 
-    updateAdministrateur (appointment, caller) {
+    updateAppointments (appointment, caller) {
         const options = {
             headers: new Headers({
             'caller': caller
@@ -42,7 +42,7 @@ export class AppointmentsService {
         return this.http.post(this.appointmentUrlUpdate, appointment, options);
     }
 
-    deleteAdministrator(appointment, caller) {
+    deleteAppointments(appointment, caller) {
         const options = {
             headers: new Headers({
             'caller': caller
@@ -51,13 +51,5 @@ export class AppointmentsService {
         return this.http.delete(this.appointmentUrlDelete + '/' + appointment.idAppointment, options);
     }
 
-    exportAdministrateurs(caller) {
-        const options = {
-            headers: new Headers({
-            'caller': caller
-            }),
-            responseType: ResponseContentType.Blob
-        };
-        return this.http.get(this.appointmentExportUrl, options);
-    }
+  
 }

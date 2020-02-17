@@ -1,4 +1,4 @@
-<app-nav-top></app-nav-top>
+<app-home></app-home>
 <br><br>
 <div class="container">
   <div class="row">
@@ -9,7 +9,6 @@
   <br><br>
   <div class="row">
     <div class="calendar col-md-8 offset-md-2">
-      <div>
         <div class="card-header bg-primary">
           <ul>
             <li id="month" class="text-white text-uppercase text-center">
@@ -33,7 +32,6 @@
           <tbody class="days bg-light" id="days"></tbody>
           <tfoot></tfoot>
         </table>
-      </div>
     </div>
   </div>
 
@@ -82,10 +80,10 @@
         <div class="form-row">
           <div class="col form-group">
             <button type="button" class="btn btn-warning btn-block" id="clear"
-              onclick="clear_input()">{{'Clear Form' | translate}}</button>
+              onclick="deleteAppointment()">{{'Clear Form' | translate}}</button>
           </div>
           <div class="col form-group">
-            <button type="button" class="btn btn-primary btn-block" id="submit" onclick="make_appointment()"
+            <button type="button" class="btn btn-primary btn-block" id="submit" onclick=" submitAppointments()"
               disabled="disabled">{{'Make Appointment' | translate}}</button>
           </div>
         </div>
@@ -98,7 +96,7 @@
         </div>
         <div class="col form-group">
           <button type="button" class="btn btn-danger btn-block" id="btn_clear_storage"
-            onclick="clear_storage()">{{'Clear Appointments' | translate}}</button>
+            onclick="deleteAppointment()">{{'Clear Appointments' | translate}}</button>
         </div>
       </div>
       <table class="table table-bordered table-hover table-striped table-sm" id="appointment_list">
@@ -119,6 +117,6 @@
     </div>
   </div>
   <br><br><br>
-  <hr>
+  <app-footer-dashboard></app-footer-dashboard>
 </div>
 <div></div>

@@ -5,6 +5,7 @@ import { Maladie } from '../models/maladies/maladie';
 import { Medecin } from '../models/medecins/medecin';
 import { Profession } from '../models/professions/profession';
 import { Permission } from '../models/permissions/permission';
+import { Appointment} from '../models/appointments/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,8 @@ export class InitModelService {
   initModelPermission() {
     return new Permission(0, '', false, false, false, false, false, '', '');
   }
+  initModelAppointment() {
+    return new Appointment('', '', '', '', '',0);
+  }
+ 
 }
